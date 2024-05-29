@@ -210,7 +210,7 @@
                                     <div>
                                         <a class="register" href="../seller/register" rel="nofollow" title="Register Account">
                                             <i class="fa fa-user"></i>
-                                            <span>Owner</span>
+                                            <span>Owners</span>
                                         </a>
                                     </div>
                                 
