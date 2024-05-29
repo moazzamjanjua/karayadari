@@ -39,7 +39,7 @@
                         </div>
                         <div class="dropdown-content">
                             <div class="cart-content">
-                                <table>
+                                <table> 
                                     <tbody>
                                         <tr>
                                             <td class="product-image">
@@ -204,13 +204,13 @@
                                     <div>
                                         <a class="register" href="../register" rel="nofollow" title="Register Account">
                                             <i class="fa fa-user"></i>
-                                            <span>Register Account</span>
+                                            <span>Register Tenant</span>
                                         </a>
                                     </div>
                                     <div>
                                         <a class="register" href="../seller/register" rel="nofollow" title="Register Account">
                                             <i class="fa fa-user"></i>
-                                            <span>Register As a Seller</span>
+                                            <span>Owner</span>
                                         </a>
                                     </div>
                                 
