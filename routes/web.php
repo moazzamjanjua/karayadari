@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\Owner\OwnerDashboardController;
+use App\Http\Controllers\Owner\OwnerLoginController;
+use App\Http\Controllers\Owner\OwnerRegisterController;
 use App\Http\Controllers\ProductGridLeftController;
-use App\Http\Controllers\SellerLoginController;
-use App\Http\Controllers\SellerRegisterationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\BloggController;
@@ -44,10 +45,11 @@ Route::get('/product-grid-sidebar-left', [ProductGridLeftController::class , 'pr
 Route::get('/myaccount', [LoginController::class, 'userAccount'])->name('frontend.user-acount');
 // Route::get('/myaccount', [LoginController::class, 'authenticate'])->name('frontend.user-acount');
 
-//Seller
-Route::get('/seller/register', [SellerRegisterationController::class, 'sellerregister']);
-Route::post('/seller/register' , [SellerRegisterationController::class,'store']);
-Route::get('/seller/login', [SellerLoginController::class, 'sellerlogin'])->name('frontend.seller-login');
+//owner
+Route::get('/owner/register', [OwnerRegisterController::class, 'ownerregister']);
+Route::post('/owner/register' , [OwnerRegisterController::class,'store']);
+Route::get('/owner/login', [OwnerLoginController::class, 'ownerlogin'])->name('ownerdashboard.owner-login');
+Route::get('/owner', [OwnerDashboardController::class, 'home']);
 //admin 
 Route::get('/admin', [adminController::class, 'admin'])->name('admindashboard.index');;
 Route::get('/admin/register', [registerController::class, 'register']);
