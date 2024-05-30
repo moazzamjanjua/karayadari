@@ -16,8 +16,8 @@
         }
 
         .dashboard {
-            width: 96%;
-            height: 96%;
+            width: 100%;
+            height:auto%;
             display: flex;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
@@ -38,6 +38,35 @@
             margin-bottom: 20px;
         }
 
+        .avatar-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .edit-icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .profile-info {
             list-style: none;
             padding: 0;
@@ -47,6 +76,7 @@
         .profile-info li {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 15px;
             border-bottom: 1px solid white;
             padding-bottom: 10px;
@@ -54,6 +84,13 @@
 
         .profile-info li span:first-child {
             font-weight: bold;
+        }
+
+        .profile-info li input {
+            width: 60%;
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
         }
 
         .main-content {
@@ -103,39 +140,71 @@
         .logout-button:hover {
             background-color: #c9302c;
         }
+
+        .file-input {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="dashboard">
         <div class="sidebar">
             <h2>Owner Information</h2>
-            <ul class="profile-info">
-                <li><span>Name:</span> <span id="owner-name">{{$owner->name ?? 'N/A'}}</span></li>
-                <li><span>Email:</span> <span id="owner-phone">{{$owner->email ?? 'N/A'}}</span></li>
-                <li><span>Country:</span> <span id="owner-country">{{$owner->country ?? 'N/A'}}</span></li>
-            </ul>
-            <a href="logout.html" class="logout-button">Logout</a>
+            <form action="" method="POST" enctype="multipart/form-data" id="update-form">
+                @csrf
+                @method('PUT')
+                <div class="avatar-container">
+                    <img src="{{ $owner->avatar ?? '/frontend/img/home/avatar.jpg' }}" alt="Avatar" class="avatar" id="owner-avatar">
+                    <button type="button" class="edit-icon" onclick="document.getElementById('avatar-input').click();">✎</button>
+                    <input type="file" name="avatar" id="avatar-input" class="file-input" accept="image/*" onchange="updateAvatar(event)">
+                </div>
+                <ul class="profile-info">
+                    <li>
+                        <span>Name:</span>
+                        <span id="owner-name"><input type="text" name="name" value="{{ $owner->name ?? 'N/A' }}"></span>
+                    </li>
+                    <li>
+                        <span>Phone Number:</span>
+                        <span id="owner-phone"><input type="text" name="phone" value="{{ $owner->phone ?? 'N/A' }}"></span>
+                    </li>
+                    <li>
+                        <span>Email:</span>
+                        <span id="owner-email"><input type="email" name="email" value="{{ $owner->email ?? 'N/A' }}"></span>
+                    </li>
+                    <li>
+                        <span>Country:</span>
+                        <span id="owner-country"><input type="text" name="country" value="{{ $owner->country ?? 'N/A' }}"></span>
+                    </li>
+                    <li>
+                        <span>City:</span>
+                        <span id="owner-city"><input type="text" name="city" value="{{ $owner->city ?? 'N/A' }}"></span>
+                    </li>
+                    <li>
+                        <span>Permanent Address:</span>
+                        <span id="owner-address"><input type="text" name="address" value="{{ $owner->address ?? 'N/A' }}"></span>
+                    </li>
+                </ul>
+                <button type="submit" class="action-button">Update</button>
+            </form>
+            <a href="" class="logout-button">Logout</a>
         </div>
         <div class="main-content">
             <h1>Welcome to Your Dashboard</h1>
-            <a href="add_hostel_room.html" class="action-button">Add Hostel Room</a>
+            <a href="" class="action-button">Add Hostel Room</a>
         </div>
     </div>
 
-    <!-- <script>
-        // Assuming data is fetched from the backend
-        document.addEventListener("DOMContentLoaded", function() {
-            // Replace the values with actual data fetched from your backend
-            const ownerData = {
-                name: "John Doe",
-                phone: "123-456-7890",
-                country: "USA"
+    <script>
+        function updateAvatar(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                document.getElementById('owner-avatar').src = e.target.result;
             };
 
-            document.getElementById("owner-name").textContent = ownerData.name;
-            document.getElementById("owner-phone").textContent = ownerData.phone;
-            document.getElementById("owner-country").textContent = ownerData.country;
-        });
-    </script> -->
+            reader.readAsDataURL(file);
+        }
+    </script>
 </body>
 </html>

@@ -16,6 +16,10 @@ class owner_register extends Model
         'email',
         'password',
         'country',
+        'phone',
+        'city',
+        'permanent_address',
+        'owner_image',
         
     ];
 }
