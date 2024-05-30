@@ -110,9 +110,9 @@
         <div class="sidebar">
             <h2>Owner Information</h2>
             <ul class="profile-info">
-                <li><span>Name:</span> <span id="owner-name">John Doe</span></li>
-                <li><span>Phone:</span> <span id="owner-phone">123-456-7890</span></li>
-                <li><span>Country:</span> <span id="owner-country">USA</span></li>
+                <li><span>Name:</span> <span id="owner-name">{{$owner->name ?? 'N/A'}}</span></li>
+                <li><span>Email:</span> <span id="owner-phone">{{$owner->email ?? 'N/A'}}</span></li>
+                <li><span>Country:</span> <span id="owner-country">{{$owner->country ?? 'N/A'}}</span></li>
             </ul>
             <a href="logout.html" class="logout-button">Logout</a>
         </div>
@@ -122,7 +122,7 @@
         </div>
     </div>
 
-    <script>
+    <!-- <script>
         // Assuming data is fetched from the backend
         document.addEventListener("DOMContentLoaded", function() {
             // Replace the values with actual data fetched from your backend
@@ -136,6 +136,6 @@
             document.getElementById("owner-phone").textContent = ownerData.phone;
             document.getElementById("owner-country").textContent = ownerData.country;
         });
-    </script>
+    </script> -->
 </body>
 </html>

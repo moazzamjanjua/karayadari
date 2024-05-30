@@ -49,7 +49,10 @@ Route::get('/myaccount', [LoginController::class, 'userAccount'])->name('fronten
 Route::get('/owner/register', [OwnerRegisterController::class, 'ownerregister']);
 Route::post('/owner/register' , [OwnerRegisterController::class,'store']);
 Route::get('/owner/login', [OwnerLoginController::class, 'ownerlogin'])->name('owner.owner-login');
-Route::get('/owner', [OwnerDashboardController::class, 'home']);
+Route::get('/owner', [OwnerDashboardController::class, 'home'])->name('owner.home');
+Route::post('/owner/login', [OwnerLoginController::class, 'authenticate'])->name('owner.authenticate');
+//home
+Route::get('/owner', [OwnerLoginController::class, 'home'])->name('owner.home');
 //admin 
 Route::get('/admin', [adminController::class, 'admin'])->name('admindashboard.index');;
 Route::get('/admin/register', [registerController::class, 'register']);

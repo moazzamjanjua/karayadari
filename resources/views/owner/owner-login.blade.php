@@ -71,7 +71,8 @@
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form action="/login" method="post">
+        <form action="{{ route('owner.authenticate') }}" method="post">
+            @csrf
             <label for="login-email">Email</label>
             <input type="email" id="login-email" name="email" required>
             <label for="login-password">Password</label>
