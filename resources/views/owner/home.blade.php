@@ -190,6 +190,7 @@
         </div>
         <div class="main-content">
             <h1>Welcome to Your Dashboard</h1>
+<<<<<<< HEAD
             <a href="" class="action-button">Add Hostel Room</a>
         </div>
     </div>
@@ -206,5 +207,10 @@
             reader.readAsDataURL(file);
         }
     </script>
+=======
+            <a href="../owner/hostal-form" class="action-button">Add Hostel Room</a>
+        </div>
+    </div>
+>>>>>>> a256702c2c7c49964e43c607eab00c83aad56e86
 </body>
 </html>

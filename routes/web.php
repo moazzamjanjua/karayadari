@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Owner\OwnerDashboardController;
 use App\Http\Controllers\Owner\OwnerLoginController;
+use App\Http\Controllers\Owner\HostalFormController;
 use App\Http\Controllers\Owner\OwnerRegisterController;
 use App\Http\Controllers\ProductGridLeftController;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,7 @@ Route::post('/owner/register' , [OwnerRegisterController::class,'store']);
 Route::get('/owner/login', [OwnerLoginController::class, 'ownerlogin'])->name('owner.owner-login');
 Route::get('/owner', [OwnerDashboardController::class, 'home'])->name('owner.home');
 Route::post('/owner/login', [OwnerLoginController::class, 'authenticate'])->name('owner.authenticate');
+Route::get('/owner/hostal-form', [HostalFormController::class, 'hostalForm']);
 //home
 Route::get('/owner', [OwnerLoginController::class, 'home'])->name('owner.home');
 //admin 
