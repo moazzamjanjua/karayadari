@@ -118,24 +118,8 @@
         </div>
         <div class="main-content">
             <h1>Welcome to Your Dashboard</h1>
-            <a href="add_hostel_room.html" class="action-button">Add Hostel Room</a>
+            <a href="../owner/hostal-form" class="action-button">Add Hostel Room</a>
         </div>
     </div>
-
-    <!-- <script>
-        // Assuming data is fetched from the backend
-        document.addEventListener("DOMContentLoaded", function() {
-            // Replace the values with actual data fetched from your backend
-            const ownerData = {
-                name: "John Doe",
-                phone: "123-456-7890",
-                country: "USA"
-            };
-
-            document.getElementById("owner-name").textContent = ownerData.name;
-            document.getElementById("owner-phone").textContent = ownerData.phone;
-            document.getElementById("owner-country").textContent = ownerData.country;
-        });
-    </script> -->
 </body>
 </html>
