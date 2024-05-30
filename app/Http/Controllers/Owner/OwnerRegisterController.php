@@ -15,7 +15,7 @@ class OwnerRegisterController extends Controller
        
         $validatedData = $request->validate([
              'name' => 'required',
-             'email' => 'required|email|unique:seller_register',
+             'email' => 'required|email|unique:owner_register',
              'country' => 'required',
              'password' => 'required|min:6',
              

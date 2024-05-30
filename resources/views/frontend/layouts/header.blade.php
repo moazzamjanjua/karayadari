@@ -208,9 +208,9 @@
                                         </a>
                                     </div>
                                     <div>
-                                        <a class="register" href="../owner/register" rel="nofollow" title="Register Account">
+                                        <a class="register" href="../owner/login" rel="nofollow" title="Register Account">
                                             <i class="fa fa-user"></i>
-                                            <span>Owners</span>
+                                            <span>Owner</span>
                                         </a>
                                     </div>
                                 

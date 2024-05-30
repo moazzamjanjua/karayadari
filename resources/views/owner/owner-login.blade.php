@@ -78,7 +78,7 @@
             <input type="password" id="login-password" name="password" required>
             <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <a href="signup.html">Create Account</a></p>
+        <p>Don't have an account? <a href="../owner/register">Create Account</a></p>
     </div>
 </body>
 </html>
