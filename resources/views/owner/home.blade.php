@@ -16,8 +16,8 @@
         }
 
         .dashboard {
-            width: 100%;
-            height:auto%;
+            width: 97%;
+            height: 97%;
             display: flex;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
@@ -32,6 +32,7 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            overflow-y: auto;
         }
 
         .sidebar h2 {
@@ -93,6 +94,11 @@
             border-radius: 3px;
         }
 
+        .profile-info li input[readonly] {
+            background-color: #e9e9e9;
+            cursor: not-allowed;
+        }
+
         .main-content {
             width: 70%;
             background-color: white;
@@ -118,6 +124,7 @@
             cursor: pointer;
             text-decoration: none;
             font-size: 18px;
+            margin-bottom: 10px; /* Added margin-bottom to separate the buttons */
         }
 
         .action-button:hover {
@@ -125,7 +132,6 @@
         }
 
         .logout-button {
-            margin-top: auto;
             padding: 10px;
             background-color: #d9534f;
             color: white;
@@ -135,6 +141,7 @@
             cursor: pointer;
             text-decoration: none;
             width: 100%;
+            margin-top: auto; /* Ensure it stays at the bottom */
         }
 
         .logout-button:hover {
@@ -150,27 +157,21 @@
     <div class="dashboard">
         <div class="sidebar">
             <h2>Owner Information</h2>
-            <form action="" method="POST" enctype="multipart/form-data" id="update-form">
-                @csrf
-                @method('PUT')
+            <form action="{{ route('owner.update', ['id' => $owner->id]) }}" method="POST" enctype="multipart/form-data" id="update-form">
+    @csrf
+    @method('PUT')
                 <div class="avatar-container">
                     <img src="{{ $owner->avatar ?? '/frontend/img/home/avatar.jpg' }}" alt="Avatar" class="avatar" id="owner-avatar">
                     <button type="button" class="edit-icon" onclick="document.getElementById('avatar-input').click();">✎</button>
                     <input type="file" name="avatar" id="avatar-input" class="file-input" accept="image/*" onchange="updateAvatar(event)">
                 </div>
                 <ul class="profile-info">
-                    <li>
-                        <span>Name:</span>
-                        <span id="owner-name"><input type="text" name="name" value="{{ $owner->name ?? 'N/A' }}"></span>
-                    </li>
+                <li><span>Name:</span> <span id="owner-name">{{ $owner->name ?? 'N/A' }}</span></li>
                     <li>
                         <span>Phone Number:</span>
                         <span id="owner-phone"><input type="text" name="phone" value="{{ $owner->phone ?? 'N/A' }}"></span>
                     </li>
-                    <li>
-                        <span>Email:</span>
-                        <span id="owner-email"><input type="email" name="email" value="{{ $owner->email ?? 'N/A' }}"></span>
-                    </li>
+                    <li><span>Email:</span> <span id="owner-email">{{ $owner->email ?? 'N/A' }}</span></li>
                     <li>
                         <span>Country:</span>
                         <span id="owner-country"><input type="text" name="country" value="{{ $owner->country ?? 'N/A' }}"></span>
@@ -190,8 +191,7 @@
         </div>
         <div class="main-content">
             <h1>Welcome to Your Dashboard</h1>
-<<<<<<< HEAD
-            <a href="" class="action-button">Add Hostel Room</a>
+            <a href="{{ route('owner.hostelForm', ['id' => $owner->id]) }}" class="action-button">Add Hostel Room</a>
         </div>
     </div>
 
@@ -207,10 +207,5 @@
             reader.readAsDataURL(file);
         }
     </script>
-=======
-            <a href="../owner/hostal-form" class="action-button">Add Hostel Room</a>
-        </div>
-    </div>
->>>>>>> a256702c2c7c49964e43c607eab00c83aad56e86
 </body>
 </html>
