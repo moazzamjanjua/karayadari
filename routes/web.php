@@ -5,6 +5,7 @@ use App\Http\Controllers\Owner\OwnerLoginController;
 use App\Http\Controllers\Owner\HostalFormController;
 use App\Http\Controllers\Owner\OwnerRegisterController;
 use App\Http\Controllers\ProductGridLeftController;
+use App\Http\Controllers\CitiesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\BloggController;
@@ -54,6 +55,7 @@ Route::get('/owner', [OwnerDashboardController::class, 'home'])->name('owner.hom
 Route::post('/owner/login', [OwnerLoginController::class, 'authenticate'])->name('owner.authenticate');
 Route::get('/owner/hostel-form/{id}', [HostalFormController::class, 'hostelForm'])->name('owner.hostelForm');
 Route::put('/owner/{id}', [OwnerDashboardController::class, 'update'])->name('owner.update');
+// Route::get('/cities', [CitiesController::class, 'create'])->name('cities.create');
 
 //home
 Route::get('/owner', [OwnerLoginController::class, 'home'])->name('owner.home');
