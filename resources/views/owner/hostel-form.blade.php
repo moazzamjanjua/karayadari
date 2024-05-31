@@ -6,11 +6,25 @@
     <title>Hostel Details Form</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        body {
+            background-color: #f2f2f2;
+            padding-top: 5px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
         .avatar-upload {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            /* align-items: center; */
             margin-bottom: 20px;
+            position: relative;
         }
         .avatar-upload img {
             width: 100px;
@@ -18,16 +32,16 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #ddd;
-            margin-bottom: 10px;
         }
         .avatar-upload .edit-button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 5px 10px;
+            position: absolute;
+            bottom: 5px;
+            left: 100px;
+            padding: 5px;
             background-color: #007bff;
             color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 50%;
             cursor: pointer;
         }
         .avatar-upload .edit-button:hover {
@@ -63,6 +77,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        .location-options {
+            display: none;
+            margin-top: 10px;
         }
     </style>
     <script>
@@ -115,37 +133,90 @@
                 reader.readAsDataURL(file);
             }
         }
+
+        function toggleLocationOptions() {
+            const bahawalpurOption = document.getElementById('bahawalpur-option');
+            const locationOptions = document.getElementById('location-options');
+            if (bahawalpurOption.checked) {
+                locationOptions.style.display = 'block';
+            } else {
+                locationOptions.style.display = 'none';
+            }
+        }
     </script>
 </head>
 <body>
 
 <div class="container mt-5">
-    <h1 class="text-center">Hostel Details Form</h1>
+    <h1 class="text-center mb-4"><b>Hostel Details Form</b></h1>
     <form action="#" method="post" enctype="multipart/form-data">
+    <label for="owner-image">Hostel Owner Image:</label>
         <div class="avatar-upload">
-            <img id="owner-image-preview" src="https://via.placeholder.com/100" alt="Owner Image">
+            <img id="owner-image-preview" src="/frontend/img/home/avatar.jpg" alt="Owner Image">
             <input type="file" class="form-control-file d-none" id="owner-image" name="owner-image" accept="image/*" required onchange="updateOwnerImagePreview()">
-            <button type="button" class="edit-button" onclick="document.getElementById('owner-image').click()">Edit</button>
+            <button type="button" class="edit-button" onclick="document.getElementById('owner-image').click()">✎</button>
         </div>
         <div class="form-group">
             <label for="owner-name">Owner Name:</label>
-            <input type="text" class="form-control" id="owner-name" name="owner-name" required>
+            <input type="text" class="form-control" id="owner-name" name="owner-name" placeholder="Enter owner name" required>
         </div>
         <div class="form-group">
-            <label for="owner-name">Owner Number:</label>
-            <input type="text" class="form-control" id="owner-name" name="owner-name" required>
+            <label for="owner-number">Owner Phone Number:</label>
+            <input type="text" class="form-control" id="owner-number" name="owner-number" placeholder="Enter owner phone number" required>
         </div>
         <div class="form-group">
             <label for="hostel-name">Hostel Name:</label>
-            <input type="text" class="form-control" id="hostel-name" name="hostel-name" required>
+            <input type="text" class="form-control" id="hostel-name" name="hostel-name" placeholder="Enter hostel name" required>
         </div>
         <div class="form-group">
             <label for="hostel-address">Hostel Address:</label>
-            <textarea class="form-control" id="hostel-address" name="hostel-address" rows="4" required></textarea>
+            <textarea class="form-control" id="hostel-address" name="hostel-address" rows="4" placeholder="Enter hostel address" required></textarea>
         </div>
         <div class="form-group">
-            <label for="hostel-location">Hostel Location:</label>
-            <input type="text" class="form-control" id="hostel-location" name="hostel-location" required>
+            <label>City:</label><br>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="bahawalpur-option" name="city" value="Bahawalpur" onclick="toggleLocationOptions()">
+                <label class="form-check-label" for="bahawalpur-option">Bahawalpur</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="lahore-option" name="city" value="Lahore" onclick="toggleLocationOptions()">
+                <label class="form-check-label" for="lahore-option">Lahore</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="faisalabad-option" name="city" value="Faisalabad" onclick="toggleLocationOptions()">
+                <label class="form-check-label" for="faisalabad-option">Faisalabad</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="layyah-option" name="city" value="Layyah" onclick="toggleLocationOptions()">
+                <label class="form-check-label" for="layyah-option">Layyah</label>
+            </div>
+        </div>
+        <div id="location-options" class="location-options">
+            <label>Bahawalpur Location:</label><br>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="uni-chock" name="bahawalpur-location" value="Uni Chock">
+                <label class="form-check-label" for="uni-chock">Uni Chock</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="riaz-colony" name="bahawalpur-location" value="Riaz Colony">
+                <label class="form-check-label" for="riaz-colony">Riaz Colony</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="saddar-pulli" name="bahawalpur-location" value="Saddar Pulli">
+                <label class="form-check-label" for="saddar-pulli">Saddar Pulli</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="one-unit-chock" name="bahawalpur-location" value="One Unit Chock">
+                <label class="form-check-label" for="one-unit-chock">One Unit Chock</label>
+            </div>
+            <div>
+                <input type="radio" id="islamic-colony" name="bahawalpur-location" value="Islamic Colony">
+                <label for="islamic-colony">Islamic Colony</label>
+            </div>
+            <div>
+                <input type="radio" id="hussaini-chock" name="bahawalpur-location" value="Hussaini Chock">
+                <label for="hussaini-chock">Hussaini Chock</label>
+            </div>
         </div>
         <div class="form-group">
             <label for="hostel-front-image">Hostel Front Image:</label>
@@ -153,7 +224,7 @@
             <div id="front-image-preview" class="preview mt-2"></div>
         </div>
         <div class="form-group">
-            <label for="room-details">hostel Detail:</label>
+            <label for="hostel-detail">Hostel Detail:</label>
             <textarea class="form-control" id="hostel-detail" name="hostel-detail" rows="4" required></textarea>
         </div>
         <button type="submit" class="btn btn-success btn-block">Submit</button>

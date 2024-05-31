@@ -161,7 +161,7 @@
     <div class="dashboard">
         <div class="sidebar">
             <h2>Owner Information</h2>
-            <form action="{{ route('owner.update', ['id' => $owner->id]) }}" method="POST" enctype="multipart/form-data" id="update-form">
+          <form action="{{ route('owner.update', ['id' => $owner->id]) }}" method="POST" enctype="multipart/form-data" id="update-form">
     @csrf
     @method('PUT')
     <div class="avatar-container">
