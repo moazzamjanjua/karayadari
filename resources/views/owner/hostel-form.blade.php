@@ -96,8 +96,8 @@
     </style>
     <script>
         function updateFrontImagePreview() {
-            const frontImageInput = document.getElementById('hostel-front-image');
-            const frontImagePreviewContainer = document.getElementById('front-image-preview');
+            const frontImageInput = document.getElementById('hostel_front_image');
+            const frontImagePreviewContainer = document.getElementById('front_image_preview');
             frontImagePreviewContainer.innerHTML = '';
 
             if (frontImageInput.files.length > 0) {
@@ -124,15 +124,15 @@
         }
 
         function removeFrontImage() {
-            const frontImageInput = document.getElementById('hostel-front-image');
+            const frontImageInput = document.getElementById('hostel_front_image');
             const frontImagePreviewContainer = document.getElementById('front-image-preview');
             frontImageInput.value = '';
             frontImagePreviewContainer.innerHTML = '';
         }
 
         function updateOwnerImagePreview() {
-            const ownerImageInput = document.getElementById('owner-image');
-            const ownerImagePreview = document.getElementById('owner-image-preview');
+            const ownerImageInput = document.getElementById('owner_image');
+            const ownerImagePreview = document.getElementById('owner_image_preview');
             ownerImagePreview.src = '';
 
             if (ownerImageInput.files.length > 0) {
@@ -146,8 +146,8 @@
         }
 
         function toggleLocationOptions() {
-            const bahawalpurOption = document.getElementById('bahawalpur-option');
-            const locationOptions = document.getElementById('location-options');
+            const bahawalpurOption = document.getElementById('bahawalpur_option');
+            const locationOptions = document.getElementById('location_options');
             if (bahawalpurOption.checked) {
                 locationOptions.style.display = 'block';
             } else {
@@ -161,86 +161,57 @@
 
     <div class="container mt-5">
         <h1 class="text-center mb-4"><b>Hostel Details Form</b></h1>
-        <form action="#" method="post" enctype="multipart/form-data">
-            <label for="owner-image">Hostel Owner Image:</label>
+        <form action="{{ route('owner.home', ['id' => $ownerId]) }}" method="post" enctype="multipart/form-data">
+        @csrf
+        @method('POST')
+            <label for="owner_image">Hostel Owner Image:</label>
             <div class="avatar-upload">
-                <img id="owner-image-preview" src="/frontend/img/home/avatar.jpg" alt="Owner Image">
-                <input type="file" class="form-control-file d-none" id="owner-image" name="owner-image" accept="image/*"
+                <img id="owner_image_preview" src="/frontend/img/home/avatar.jpg" alt="Owner Image">
+                <input type="file" class="form-control-file d-none" id="owner_image" name="owner_image" accept="image/*"
                     required onchange="updateOwnerImagePreview()">
                 <button type="button" class="edit-button"
-                    onclick="document.getElementById('owner-image').click()">✎</button>
+                    onclick="document.getElementById('owner_image').click()">✎</button>
             </div>
             <div class="form-group">
-                <label for="owner-name">Owner Name:</label>
-                <input type="text" class="form-control" id="owner-name" name="owner-name" placeholder="Enter owner name"
+                <label for="owner_name">Owner Name:</label>
+                <input type="text" class="form-control" id="owner_name" name="owner_name" placeholder="Enter owner name"
                     required>
             </div>
             <div class="form-group">
-                <label for="owner-number">Owner Phone Number:</label>
-                <input type="text" class="form-control" id="owner-number" name="owner-number"
+                <label for="owner_number">Owner Phone Number:</label>
+                <input type="text" class="form-control" id="owner_number" name="owner_number"
                     placeholder="Enter owner phone number" required>
             </div>
             <div class="form-group">
-                <label for="hostel-name">Hostel Name:</label>
-                <input type="text" class="form-control" id="hostel-name" name="hostel-name"
+                <label for="hostel_name">Hostel Name:</label>
+                <input type="text" class="form-control" id="hostel_name" name="hostel_name"
                     placeholder="Enter hostel name" required>
             </div>
             <div class="form-group">
-                <label for="hostel-address">Hostel Address:</label>
-                <textarea class="form-control" id="hostel-address" name="hostel-address" rows="4"
+                <label for="hostel_address">Hostel Address:</label>
+                <textarea class="form-control" id="hostel_address" name="hostel_address" rows="4"
                     placeholder="Enter hostel address" required></textarea>
             </div>
             <div class="form-group">
                 <label>City:</label><br>
                 @foreach($cities as $city)
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" id="{{ $city->city_name }}-option" name="city"
+                        <input type="radio" class="form-check-input" id="{{ $city->city_name }}_option" name="city"
                             value="{{ $city->city_name }}" onclick="toggleLocationOptions('{{ $city->id }}')">
-                        <label class="form-check-label" for="{{ $city->city_name }}-option">{{ $city->city_name }}</label>
+                        <label class="form-check-label" for="{{ $city->city_name }}_option">{{ $city->city_name }}</label>
                     </div>
-                    @endforeach
+                @endforeach
             </div>
-
-            <div id="location-options" class="location-options">
-                <label>Bahawalpur Location:</label><br>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" id="uni-chock" name="bahawalpur-location"
-                        value="Uni Chock">
-                    <label class="form-check-label" for="uni-chock">Uni Chock</label>
-                </div>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" id="riaz-colony" name="bahawalpur-location"
-                        value="Riaz Colony">
-                    <label class="form-check-label" for="riaz-colony">Riaz Colony</label>
-                </div>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" id="saddar-pulli" name="bahawalpur-location"
-                        value="Saddar Pulli">
-                    <label class="form-check-label" for="saddar-pulli">Saddar Pulli</label>
-                </div>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" id="one-unit-chock" name="bahawalpur-location"
-                        value="One Unit Chock">
-                    <label class="form-check-label" for="one-unit-chock">One Unit Chock</label>
-                </div>
-                <div>
-                    <input type="radio" id="islamic-colony" name="bahawalpur-location" value="Islamic Colony">
-                    <label for="islamic-colony">Islamic Colony</label>
-                </div>
-                <div>
-                    <input type="radio" id="hussaini-chock" name="bahawalpur-location" value="Hussaini Chock">
-                    <label for="hussaini-chock">Hussaini Chock</label>
-                </div>
-            </div>
+           
             <div class="form-group">
-                <label for="hostel-front-image">Hostel Front Image:</label>
-                <input type="file" class="form-control-file" id="hostel-front-image" name="hostel-front-image"
+                <label for="hostel_front_image">Hostel Front Image:</label>
+                <input type="file" class="form-control-file" id="hostel_front_image" name="hostel_front_image"
                     accept="image/*" required onchange="updateFrontImagePreview()">
-                <div id="front-image-preview" class="preview mt-2"></div>
+                <div id="front_image_preview" class="preview mt-2"></div>
             </div>
             <div class="form-group">
-                <label for="hostel-detail">Hostel Detail:</label>
-                <textarea class="form-control" id="hostel-detail" name="hostel-detail" rows="4" required></textarea>
+                <label for="hostel_detail">Hostel Detail:</label>
+                <textarea class="form-control" id="hostel_detail" name="hostel_detail" rows="4" required></textarea>
             </div>
             <button type="submit" class="btn btn-success btn-block">Submit</button>
         </form>
