@@ -1,16 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\cities;
 use Illuminate\Http\Request;
 
 class CitiesController extends Controller
 {
-    // public function getAreas($cityId)
-    // {
-    //     $city = City::findOrFail($cityId);
-    //     $areas = $city->areas;
-
-    //     return response()->json($areas);
-    // }
+    public function create()
+    {
+        $cities = cities::all();
+        return view('owner.hostel-form' ,['cities' => $cities]);
+    }
+    
 }
