@@ -17,7 +17,7 @@ class OwnerDashboardController extends Controller
     {
         $request->validate([
             'owner_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'name' => 'required|string|max:255',
+            // 'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             // 'email' => 'required|email|max:255',
             'country' => 'required|string|max:255',
@@ -35,7 +35,7 @@ class OwnerDashboardController extends Controller
             $owner->owner_image = $avatarPath;
         }
     
-        $owner->name = $request->name;
+        // $owner->name = $request->name;
         $owner->phone = $request->phone;
         // $owner->email = $request->email;
         $owner->country = $request->country;

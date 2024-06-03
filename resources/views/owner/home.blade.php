@@ -166,16 +166,16 @@
                 @csrf
                 @method('PUT')
                 <div class="avatar-container">
-                    <img src="{{ $owner->owner_image ?? '/frontend/img/home/avatar.jpg' }}" alt="Avatar" class="avatar"
-                        id="owner_image">
+                    <img src="{{ asset('storage/' . $owner->owner_image) ?? '/frontend/img/home/avatar.jpg' }}"
+                        alt="Avatar" class="avatar" id="owner_image">
                     <button type="button" class="edit-icon"
                         onclick="document.getElementById('avatar-input').click();">✎</button>
                     <input type="file" name="owner_image" id="avatar-input" class="file-input" accept="image/*"
                         onchange="updateAvatar(event)">
                 </div>
                 <ul class="profile-info">
-                <li><span>Name:</span> <span id="owner-email">{{ $owner->name ?? 'N/A' }}</span></li>
-                <li>
+                    <li><span>Name:</span> <span id="owner-name">{{ $owner->name ?? 'N/A' }}</span></li>
+                    <li>
                         <span>Phone Number:</span>
                         <span id="owner-phone"><input type="text" name="phone"
                                 value="{{ $owner->phone ?? 'N/A' }}"></span>
@@ -198,6 +198,7 @@
                 </ul>
                 <button type="submit" class="action-button">Update</button>
             </form>
+
 
 
 
