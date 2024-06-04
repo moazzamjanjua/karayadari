@@ -213,7 +213,8 @@
                 <label for="hostel_detail">Hostel Detail:</label>
                 <textarea class="form-control" id="hostel_detail" name="hostel_detail" rows="4" required></textarea>
             </div>
-            <button type="submit" class="btn btn-success btn-block">Submit</button>
+            <a href="../owner/{id}"><button type="submit" class="btn btn-success btn-block">Submit</button></a>
+          
         </form>
     </div>
 
