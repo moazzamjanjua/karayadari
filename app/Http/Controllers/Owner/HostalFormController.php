@@ -70,5 +70,4 @@ class HostalFormController extends Controller
 
         return redirect()->back()->with('success', 'Hostel details have been submitted successfully.');
     }
-   
 }
