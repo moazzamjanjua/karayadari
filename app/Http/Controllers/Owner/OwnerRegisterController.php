@@ -17,7 +17,7 @@ class OwnerRegisterController extends Controller
              'name' => 'required',
              'email' => 'required|email|unique:owner_register',
              'country' => 'required',
-             'password' => 'required|min:6',
+             'password' => 'required',
              
         ]);
  
