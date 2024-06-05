@@ -11,7 +11,7 @@
             background-color: #f0f4f8;
         }
         .form-group label {
-            font-weight: bold;
+            /* font-weight: bold; */
         }
         .form-section {
             margin-bottom: 20px;
@@ -136,7 +136,7 @@
             </div>
 
             <div class="form-group">
-                <label for="room_type">Room Type:</label><br>
+                <label for="room_type"><b>Room Type:</b></label><br>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="room_type" id="single_bed" value="single_bed">
                     <label class="form-check-label" for="single_bed">Single Bed</label>
