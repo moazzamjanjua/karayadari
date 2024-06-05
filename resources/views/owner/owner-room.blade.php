@@ -1,93 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hostel Room Upload</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Information Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #ffffff;
+        }
+        .form-section h3 {
+            margin-bottom: 15px;
+            color: #0056b3;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .container {
+            width: 750px;
+        }
+        .image-container {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+        }
+        .image-container img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .remove-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(255, 0, 0, 0.8);
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 2px 6px;
+        }
+        #error-message {
+            display: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    let selectedFiles = [];
+
+    function updateRoomImagePreview() {
+        const roomImagesInput = document.getElementById('room_image');
+        const previewContainer = document.getElementById('image-preview');
+        const fileCount = document.getElementById('file-count');
+
+        Array.from(roomImagesInput.files).forEach(file => {
+            if (selectedFiles.length < 5) {
+                selectedFiles.push(file);
+            }
+        });
+
+        roomImagesInput.value = '';
+        previewContainer.innerHTML = '';
+        fileCount.textContent = `Selected Images: ${selectedFiles.length}`;
+
+        selectedFiles.forEach((file, index) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const imgContainer = document.createElement('div');
+                imgContainer.classList.add('image-container');
+
+                const img = document.createElement('img');
+                img.src = e.target.result;
+
+                const removeButton = document.createElement('button');
+                removeButton.classList.add('remove-image');
+                removeButton.innerHTML = '&times;';
+                removeButton.onclick = () => removeRoomImage(index);
+
+                imgContainer.appendChild(img);
+                imgContainer.appendChild(removeButton);
+                previewContainer.appendChild(imgContainer);
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    function removeRoomImage(index) {
+        selectedFiles.splice(index, 1);
+        updateRoomImagePreview();
+    }
+
+    function validateForm(event) {
+        const errorElement = document.getElementById('error-message');
+        if (selectedFiles.length !== 5) {
+            errorElement.style.display = 'block';
+            event.preventDefault();
+        } else {
+            errorElement.style.display = 'none';
+        }
+    }
+</script>
 </head>
 <body>
-  <h2>Hostel Room Upload</h2>
 
-  <form action="" method="post" enctype="multipart/form-data">
-    @csrf
-    <section>
-      <h3>Room Details</h3>
-      <label for="room-name">Room Name:</label>
-      <input type="text" id="room-name" name="room_name" required>
+<div class="container">
+    <form onsubmit="validateForm(event)">
+        <!-- Basic Information -->
+        <div class="form-section">
+            <h3>Basic Information</h3>
 
-      <label for="room-type">Room Type:</label>
-      <select id="room-type" name="room_type" required>
-        <option value="">Select Type</option>
-        <option value="single">Single Bed</option>
-        <option value="double">Double Bed</option>
-        <option value="dorm">Dorm (Number of Beds)</option>
-      </select>
-      <input type="number" min="1" id="num-beds-input" name="num_beds" style="display: none;">
+            <div class="form-group">
+                <label for="room-images">Room Images (exactly 5):</label>
+                <input type="file" class="form-control-file" id="room_image" name="room_image" accept="image/*" multiple onchange="updateRoomImagePreview()">
+                <div id="file-count" class="mt-2">Selected Images: 0</div>
+                <div id="image-preview" class="preview mt-2"></div>
+                <div id="error-message" class="text-danger mt-2">Please upload exactly 5 images.</div>
+            </div>
 
-      <label for="room-occupancy">Maximum Occupancy:</label>
-      <input type="number" min="1" id="room-occupancy" name="room_occupancy" required>
+            <div class="form-group">
+                <label for="room_type">Room Type:</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="room_type" id="single_bed" value="single_bed">
+                    <label class="form-check-label" for="single_bed">Single Bed</label>
+                </div><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="room_type" id="double_bed" value="double_bed">
+                    <label class="form-check-label" for="double_bed">Double Bed</label>
+                </div><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="room_type" id="carpeted" value="carpeted">
+                    <label class="form-check-label" for="carpeted">Carpeted</label>
+                </div>
+            </div>
 
-      <label for="room-price">Price Per Night:</label>
-      <input type="number" min="0" id="room-price" name="room_price" required>
+            <div class="form-group">
+                <label for="floor_number">Floor Number:</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="floor_number" id="ground_floor" value="ground_floor">
+                    <label class="form-check-label" for="ground_floor">Ground Floor</label>
+                </div><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="floor_number" id="first_floor" value="first_floor">
+                    <label class="form-check-label" for="first_floor">First Floor</label>
+                </div><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="floor_number" id="second_floor" value="second_floor">
+                    <label class="form-check-label" for="second_floor">Second Floor</label>
+                </div><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="floor_number" id="third_floor" value="third_floor">
+                    <label class="form-check-label" for="third_floor">Third Floor</label>
+                </div>
+            </div>
 
-      <label for="room-description">Room Description:</label>
-      <textarea id="room-description" name="room_description" required></textarea>
-
-      <label for="room-images">Room Images:</label>
-      <input type="file" id="room-images" name="room_images[]" multiple required>
-    </section>
-
-    <section>
-      <h3>Amenities and Features</h3>
-      <label for="amenities">Amenities (check all that apply):</label>
-      <div class="amenities-checkbox">
-        <input type="checkbox" id="amenity-wifi" name="amenities[]" value="wifi">
-        <label for="amenity-wifi">Wi-Fi</label>
-
-        <input type="checkbox" id="amenity-ac" name="amenities[]" value="ac">
-        <label for="amenity-ac">Air Conditioning</label>
-
-        <input type="checkbox" id="amenity-breakfast" name="amenities[]" value="breakfast">
-        <label for="amenity-breakfast">Breakfast</label>
-
+            <div class="form-group">
+                <label for="room_size">Room Size (sq ft):</label>
+                <input type="number" class="form-control" id="room_size" name="room_size">
+            </div>
         </div>
 
-      <label for="room-size">Room Size (sq. ft.):</label>
-      <input type="number" min="0" id="room-size" name="room_size">
+        <!-- Occupancy -->
+        <div class="form-section">
+            <h3>Room Capacity</h3>
+            <div class="form-group">
+                <label for="current_occupancy">Maximum Room Capacity:</label>
+                <input type="number" class="form-control" id="current_occupancy" name="current_occupancy">
+            </div>
+            <div class="form-group">
+                <label for="required_occupancy">Required Capacity:</label>
+                <input type="number" class="form-control" id="required_occupancy" name="required_occupancy">
+            </div>
+        </div>
 
-      <label for="bathroom">Bathroom:</label>
-      <select id="bathroom" name="bathroom">
-        <option value="">Select Type</option>
-        <option value="shared">Shared Bathroom</option>
-        <option value="private">Private Bathroom</option>
-      </select>
+        <!-- Amenities -->
+        <div class="form-section">
+            <h3>Facilities</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="wifi" name="wifi">
+                <label class="form-check-label" for="wifi">Wi-Fi</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filter_water" name="filter_water">
+                <label class="form-check-label" for="filter_water">Filter Water</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gass" name="gass">
+                <label class="form-check-label" for="gass">Gas</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chair" name="chair">
+                <label class="form-check-label" for="chair">Chair</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="almaira" name="almaira">
+                <label class="form-check-label" for="almaira">Almaira</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="table" name="table">
+                <label class="form-check-label" for="table">Table</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="fan" name="fan">
+                <label class="form-check-label" for="fan">Fan</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="ac" name="ac">
+                <label class="form-check-label" for="ac">AC</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="geyser" name="geyser">
+                <label class="form-check-label" for="geyser">Geyser</label>
+            </div>
+        </div>
 
-      <label for="view">View:</label>
-      <input type="text" id="view" name="view">
-    </section>
+        <!-- Washroom -->
+        <div class="form-section">
+            <div class="form-group">
+                <h3>Washroom:</h3><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="washroom" id="private" value="private">
+                    <label class="form-check-label" for="private">Attach</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="washroom" id="share" value="share">
+                    <label class="form-check-label" for="share">Separate</label>
+                </div>
+            </div>
+        </div>
 
-    <section>
-      <h3>Availability and Policies</h3>
-      <label for="availability-calendar">Availability Calendar (link):</label>
-      <input type="url" id="availability-calendar" name="availability_calendar" required>
+        <div class="form-group">
+            <label for="room_detail">Room Detail:</label>
+            <textarea class="form-control" id="room_detail" name="room_detail" rows="3"></textarea>
+        </div>
 
-      <label for="policies">Policies (cancellation, check-in/out times, etc.):</label>
-      <textarea id="policies" name="policies" required></textarea>
-    </section>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 
-    <button type="submit">Upload Room</button>
-  </form>
 
-  <script>
-    const roomTypeSelect = document.getElementById('room-type');
-    const numBedsInput = document.getElementById('num-beds-input');
-    roomTypeSelect.addEventListener('change', (event) => {
-      if (event.target.value === 'dorm') {
-        numBedsInput.style.display = 'inline-block';
-      } else {
-        numBedsInput.style.display = 'none';
-      }
-    });
-  </script>
 </body>
 </html>
