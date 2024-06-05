@@ -14,23 +14,23 @@ class OwnerRegisterController extends Controller
     {
        
         $validatedData = $request->validate([
-             'name' => 'required',
-             'email' => 'required|email|unique:owner_register',
-             'country' => 'required',
+             'owner_name' => 'required',
+             'owner_email' => 'required|email|unique:owner_register',
+             'owner_country' => 'required',
              'password' => 'required',
              
         ]);
  
-        $seller= new owner_register();
+        $owner= new owner_register();
        
-        $seller->name = $validatedData['name'];
-        $seller->email = $validatedData['email'];
-        $seller->password = bcrypt($validatedData['password']);
-        $seller->country = $validatedData['country'];
+        $owner->owner_name = $validatedData['owner_name'];
+        $owner->owner_email = $validatedData['owner_email'];
+        $owner->country = $validatedData['owner_country'];
+        $owner->password = bcrypt($validatedData['password']);
         
         
        
-        $seller->save();
+        $owner->save();
  
        //  // Optionally, you can redirect the user to another page after successful registration
         return redirect()->route('owner.owner-login');

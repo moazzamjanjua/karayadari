@@ -59,7 +59,7 @@ Route::get('/room-form', [RoomFormController::class, 'room'])->name('owner.roomF
 Route::post('/owner/hostel-form/{id}', [HostalFormController::class, 'store'])->name('owner.hostelForm');
 
 
-Route::put('/owner/{id}', [OwnerDashboardController::class, 'update'])->name('owner.update');
+Route::put('/owner/{owner_id}', [OwnerDashboardController::class, 'update'])->name('owner.update');
 // Route::get('/cities', [CitiesController::class, 'create'])->name('cities.create');
 
 //home

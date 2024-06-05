@@ -74,7 +74,7 @@
         <form action="{{ route('owner.authenticate') }}" method="post">
             @csrf
             <label for="login-email">Email</label>
-            <input type="email" id="login-email" name="email" required>
+            <input type="email" id="login-email" name="owner_email" required>
             <label for="login-password">Password</label>
             <input type="password" id="login-password" name="password" required>
             <button type="submit">Login</button>
