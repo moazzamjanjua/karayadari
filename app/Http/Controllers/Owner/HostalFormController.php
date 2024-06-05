@@ -18,6 +18,7 @@ class HostalFormController extends Controller
 
     public function store(Request $request)
     {
+        $ownerId = $request->input('owner_id');
         // Validation
         $request->validate([
             'owner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -38,12 +39,12 @@ class HostalFormController extends Controller
         // Handle file uploads
         $ownerImage = null;
         if ($request->hasFile('owner_image')) {
-            $ownerImage = $request->file('owner_image')->store('owner_images', 'public');
+            $ownerImage = $request->file('owner_image')->store('owner_image', 'public');
         }
 
         $hostelFrontImage = null;
         if ($request->hasFile('hostel_front_image')) {
-            $hostelFrontImage = $request->file('hostel_front_image')->store('hostel_images', 'public');
+            $hostelFrontImage = $request->file('hostel_front_image')->store('hostel_image', 'public');
         }
 
         // Create new owner hostel entry
