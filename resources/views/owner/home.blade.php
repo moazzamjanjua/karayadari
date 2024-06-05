@@ -165,7 +165,6 @@
 
             @include('owner.owner-form')
 
-
             <a href="../owner/login" class="logout-button">Logout</a>
         </div>
         <div class="main-content">

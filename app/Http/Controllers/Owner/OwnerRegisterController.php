@@ -25,7 +25,7 @@ class OwnerRegisterController extends Controller
        
         $owner->owner_name = $validatedData['owner_name'];
         $owner->owner_email = $validatedData['owner_email'];
-        $owner->country = $validatedData['owner_country'];
+        $owner->owner_country = $validatedData['owner_country'];
         $owner->password = bcrypt($validatedData['password']);
         
         
