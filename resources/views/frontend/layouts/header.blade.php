@@ -213,41 +213,6 @@
                                             <span>Owner</span>
                                         </a>
                                     </div>
-                                
-                                    <!-- <div id="desktop_currency_selector" class="currency-selector groups-selector hidden-sm-down">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a title="Euro" rel="nofollow" href="#">EUR</a>
-                                            </li>
-                                            <li class="current list-inline-item">
-                                                <a title="British Pound Sterling" rel="nofollow" href="#">GBP</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div id="desktop_language_selector" class="language-selector groups-selector hidden-sm-down">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item current">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="/frontend/img/home/home1-flas.jpg" alt="English" width="16" height="11">
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="/frontend/img/home/home1-flas2.jpg" alt="Italiano" width="16" height="11">
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="/frontend/img/home/home1-flas3.jpg" alt="Français" width="16" height="11">
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="/frontend/img/home/home1-flas4.jpg" alt="Español" width="16" height="11">
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
