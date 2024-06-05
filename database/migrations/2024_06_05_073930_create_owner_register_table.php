@@ -12,11 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('owner_register', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email');
+            $table->id('owner_id');
+            $table->string('owner_name');
+            $table->string('owner_email');
+            $table->string('owner_country');
+            $table->string('owner_city' , 50)->nullable();
+            $table->string('owner_number' , 50)->nullable();
+            $table->string('owner_address' , 50)->nullable();
+            $table->string('owner_image')->nullable();
             $table->string('password');
-            $table->string('country');
             $table->timestamps();
         });
     }

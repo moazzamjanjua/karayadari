@@ -12,6 +12,8 @@ class owner_hostels extends Model
     protected $table = 'owner_hostels';
 
     protected $fillable = [
+        'owner_id',
+        'hostel_id',
         'owner_image',
         'owner_name',
         'owner_number',

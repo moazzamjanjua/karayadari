@@ -170,7 +170,6 @@
         </div>
         <div class="main-content">
             <h1>Welcome to Your Dashboard</h1>
-            <a href="{{ route('owner.hostelForm', ['id' => $owner->id]) }}" class="action-button">Add Hostel Room</a>
            
         </div>
     </div>
