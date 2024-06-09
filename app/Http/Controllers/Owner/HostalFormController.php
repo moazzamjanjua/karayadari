@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Owner\owner_hostels;
 class HostalFormController extends Controller
 {
-    public function hostelForm($id)
+    public function hostelForm()
     {
         $cities = Cities::all();
-        return view('owner.hostel-form', ['ownerId' => $id, 'cities' => $cities]);
+        return view('owner.hostel-form', [ 'cities' => $cities]);
     }
 
     public function store(Request $request)
@@ -46,7 +46,7 @@ class HostalFormController extends Controller
         if ($request->hasFile('hostel_front_image')) {
             $hostelFrontImage = $request->file('hostel_front_image')->store('hostel_image', 'public');
         }
-          dd($request->all());
+        //   dd($request->all());
         // Create new owner hostel entry
         owner_hostels::create([
             'owner_image' => $ownerImage,
