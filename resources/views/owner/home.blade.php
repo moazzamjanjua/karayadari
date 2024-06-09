@@ -169,6 +169,7 @@
         </div>
         <div class="main-content">
             <h1>Welcome to Your Dashboard</h1>
+            <a href="" class="add_hosten_button">Add Hostels</a>
            
         </div>
     </div>
