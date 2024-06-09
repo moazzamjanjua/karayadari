@@ -7,19 +7,23 @@ use Illuminate\Http\Request;
 use App\Models\Cities;
 // use App\Models\Owner\OwnerHostels;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Owner\owner_hostels;
 class HostalFormController extends Controller
+
 {
     public function hostelForm()
     {
         $cities = Cities::all();
-        return view('owner.hostel-form', [ 'cities' => $cities]);
+        // Assuming you're using Laravel's authentication
+        return view('owner.hostel-form', ['cities' => $cities, ]);
     }
 
     public function store(Request $request)
     {
-        $ownerId = $request->input('owner_id');
        
+        $ownerId = $request->input('owner_id');
+    
         // Validation
         $request->validate([
             'owner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -36,21 +40,20 @@ class HostalFormController extends Controller
             'num_rooms' => 'nullable|integer',
             'facilities' => 'nullable|string',
         ]);
-
+    
         // Handle file uploads
         $ownerImage = null;
         if ($request->hasFile('owner_image')) {
             $ownerImage = $request->file('owner_image')->store('owner_image', 'public');
         }
-
+    
         $hostelFrontImage = null;
         if ($request->hasFile('hostel_front_image')) {
             $hostelFrontImage = $request->file('hostel_front_image')->store('hostel_image', 'public');
         }
-        //   dd($request->all());
+    
         // Create new owner hostel entry
         owner_hostels::create([
-            'owner_id' => $ownerId,
             'owner_image' => $ownerImage,
             'owner_name' => $request->owner_name,
             'owner_number' => $request->owner_number,
@@ -70,7 +73,8 @@ class HostalFormController extends Controller
             'homepage' => false,
             'is_featured' => false,
         ]);
-
+    
         return redirect()->back()->with('success', 'Hostel details have been submitted successfully.');
     }
+    
 }
