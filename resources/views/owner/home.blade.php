@@ -168,8 +168,9 @@
             <a href="../owner/login" class="logout-button">Logout</a>
         </div>
         <div class="main-content">
-            <h1>Welcome to Your Dashboard</h1>
-            <a href="../owner/hostel-form" class="add_hosten_button">Add Hostels</a>
+       
+        <a href="{{ route('owner.hostelForm', ['owner_id' => $owner->owner_id]) }}" class="add_hosten_button">Add Hostels</a>
+   
            
         </div>
     </div>

@@ -19,6 +19,7 @@ class HostalFormController extends Controller
     public function store(Request $request)
     {
         $ownerId = $request->input('owner_id');
+       
         // Validation
         $request->validate([
             'owner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -49,6 +50,7 @@ class HostalFormController extends Controller
         //   dd($request->all());
         // Create new owner hostel entry
         owner_hostels::create([
+            'owner_id' => $ownerId,
             'owner_image' => $ownerImage,
             'owner_name' => $request->owner_name,
             'owner_number' => $request->owner_number,

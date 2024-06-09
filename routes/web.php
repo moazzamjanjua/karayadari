@@ -57,7 +57,7 @@ Route::post('/owner/login', [OwnerLoginController::class, 'authenticate'])->name
 Route::get('/owner/hostel-form', [HostalFormController::class, 'hostelForm'])->name('owner.hostelForm');
 
 Route::get('/room-form', [RoomFormController::class, 'room'])->name('owner.roomForm');
-Route::post('/owner/hostel-form/', [HostalFormController::class, 'store'])->name('owner.hostelForm');
+Route::post('/owner/hostel-form', [HostalFormController::class, 'store'])->name('owner.hostalStore');
 
 
 Route::put('/owner/{owner_id}', [OwnerDashboardController::class, 'update'])->name('owner.update');

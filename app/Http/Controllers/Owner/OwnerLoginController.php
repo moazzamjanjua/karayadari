@@ -40,7 +40,7 @@ class OwnerLoginController extends Controller
     // Get the user's ID from the request
     $ownerId= 0;
     if (Auth::check())
-       $ownerId = 44;
+       $ownerId = 44;   
     $id = $request->input('owner_id');
 
     // Fetch user data based on the user ID
