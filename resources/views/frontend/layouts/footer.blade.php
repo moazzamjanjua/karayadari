@@ -120,23 +120,28 @@
                                             <div class="social">
                                                 <ul class="list-inline mb-0 justify-content-end">
                                                     <li class="list-inline-item mb-0">
-                                                        <a href="#" target="_blank">
+                                                        <a href="https://www.facebook.com/share/4S5UR9G3JmN2aefZ/?mibextid=qi2Omg" target="_blank">
                                                             <i class="fa fa-facebook"></i>
                                                         </a>
                                                     </li>
                                                     <li class="list-inline-item mb-0">
-                                                        <a href="#" target="_blank">
-                                                            <i class="fa fa-twitter"></i>
+                                                        <a href="https://www.youtube.com/@Karayadari" target="_blank">
+                                                            <i class="fa fa-youtube"></i>
                                                         </a>
                                                     </li>
                                                     <li class="list-inline-item mb-0">
-                                                        <a href="#" target="_blank">
-                                                            <i class="fa fa-google"></i>
+                                                        <a href="https://www.linkedin.com/company/karayadari/" target="_blank">
+                                                            <i class="fa fa-linkedin"></i>
                                                         </a>
                                                     </li>
                                                     <li class="list-inline-item mb-0">
-                                                        <a href="#" target="_blank">
+                                                        <a href="https://www.instagram.com/karayadari_?igsh=MXNzNjJoeG91b2ZzZQ==" target="_blank">
                                                             <i class="fa fa-instagram"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item mb-0">
+                                                        <a href="https://www.pinterest.com/karayadari/" target="_blank">
+                                                            <i class="fa fa-pinterest"></i>
                                                         </a>
                                                     </li>
                                                 </ul>

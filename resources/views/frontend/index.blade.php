@@ -556,7 +556,7 @@
                                                 <!-- column 4 -->
                                                 <div class="flex-4 col-lg-4 flex-4">
                                                     <h2 class="title-block">
-                                                        <span class="sub-title">Best Owner Rooms</span>Best Owner
+                                                        <span class="sub-title">Best Owner Rooms</span>Best Owner Rooms
                                                     </h2>
                                                     <div class="content-text">
                                                         <p> here is the list of best onwer wich is is lis here 
@@ -590,7 +590,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                    <a href="../product-detail">Best Room 1</a>
                                                                                 </div>
                                                                                 <div class="product-group-price">
                                                                                     
@@ -616,7 +616,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                    <a href="product-detail.html">Best Room 2</a>
                                                                                 </div>
                                                                                 <div class="product-group-price">
                                                                                     
@@ -644,7 +644,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                    <a href="product-detail.html">Best Room 3</a>
                                                                                 </div>
                                                                                 <div class="product-group-price">
                                                                                    
@@ -670,7 +670,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                    <a href="product-detail.html">Best Room 4</a>
                                                                                 </div>
                                                                                 <div class="product-group-price">
                                                                                    
@@ -698,7 +698,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                    <a href="product-detail.html">Best Room 5</a>
                                                                                 </div>
                                                                                 <div class="product-group-price">
                                                                                    
@@ -724,7 +724,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                    <a href="product-detail.html">Best Room 6</a>
                                                                                 </div>
                                                                                 <div class="product-group-price">
                                                                                     
@@ -809,7 +809,7 @@
                                                                 <a href="#new_kitchen" data-toggle="tab" class="active">New Rooms</a>
                                                             </li>
                                                             <li>
-                                                                <a href="#best_kitchen" data-toggle="tab">Best Hostal Onwer</a>
+                                                                <a href="#best_kitchen" data-toggle="tab">Best Hostal Onwner</a>
                                                             </li>
                                                             <li>
                                                                 <a href="#sale_kitchen" data-toggle="tab">Special Rooms</a>
@@ -839,7 +839,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                    <a href="product-detail.html">aaaaaa</a>
                                                                                 </div>
                                                                                 <div class="rating">
                                                                                     <div class="star-content">
@@ -1218,15 +1218,14 @@
                                                     <div class="desc-testimonial">
                                                         <div class="testimonial-content">
                                                             <div class="text">
-                                                                <p>" Liquam quis risus viverra, ornare ipsum vitae, congue tellus.
-                                                                    Vestibulum nunc lorem, scelerisque a tristique non, accumsan
-                                                                    ornare eros. Nullam sapien metus, volutpat dictum, accumsan
-                                                                    ornare eros. Nullam sapien metus, volutpat dictum "</p>
+                                                                <p>"Living in a hostel is about finding a community that becomes your family,
+                                                                     growing through shared struggles and triumphs, and building lifelong memories 
+                                                                     of camaraderie and independence."</p>
                                                             </div>
                                                         </div>
                                                         <div class="testimonial-info">
-                                                            <h5 class="mt-0 box-info">David Jame</h5>
-                                                            <p class="box-dress">DESIGNER</p>
+                                                            <h5 class="mt-0 box-info">MOAZZAM HUSSAIN</h5>
+                                                            <p class="box-dress">FULL STACK DEVELOPER</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1237,15 +1236,14 @@
                                                     <div class="desc-testimonial">
                                                         <div class="testimonial-content">
                                                             <div class="text">
-                                                                <p>" Liquam quis risus viverra, ornare ipsum vitae, congue tellus.
-                                                                    Vestibulum nunc lorem, scelerisque a tristique non, accumsan
-                                                                    ornare eros. Nullam sapien metus, volutpat dictum, accumsan
-                                                                    ornare eros. Nullam sapien metus, volutpat dictum "</p>
+                                                                <p>" Living in a hostel is about finding a community that becomes your family,
+                                                                     growing through shared struggles and triumphs, and building lifelong memories 
+                                                                     of camaraderie and independence. "</p>
                                                             </div>
                                                         </div>
                                                         <div class="testimonial-info">
-                                                            <h5 class="mt-0 box-info">Max Control</h5>
-                                                            <p class="box-dress">DEVELOPER</p>
+                                                            <h5 class="mt-0 box-info">JAWAD AHMAD</h5>
+                                                            <p class="box-dress">FRONT-DEVELOPER</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1256,15 +1254,12 @@
                                                     <div class="desc-testimonial">
                                                         <div class="testimonial-content">
                                                             <div class="text">
-                                                                <p>" Liquam quis risus viverra, ornare ipsum vitae, congue tellus.
-                                                                    Vestibulum nunc lorem, scelerisque a tristique non, accumsan
-                                                                    ornare eros. Nullam sapien metus, volutpat dictum, accumsan
-                                                                    ornare eros. Nullam sapien metus, volutpat dictum "</p>
+                                                                <p>" Hostel life fosters independence and personal growth, teaching valuable life skills and resilience through shared experiences "</p>
                                                             </div>
                                                         </div>
                                                         <div class="testimonial-info">
-                                                            <h5 class="mt-0 box-info">John Do</h5>
-                                                            <p class="box-dress">CSS - HTML</p>
+                                                            <h5 class="mt-0 box-info">SHEHZAD ASLAM</h5>
+                                                            <p class="box-dress">MARKET MANAGER</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1275,15 +1270,12 @@
                                                     <div class="desc-testimonial">
                                                         <div class="testimonial-content">
                                                             <div class="text">
-                                                                <p>" Liquam quis risus viverra, ornare ipsum vitae, congue tellus.
-                                                                    Vestibulum nunc lorem, scelerisque a tristique non, accumsan
-                                                                    ornare eros. Nullam sapien metus, volutpat dictum, accumsan
-                                                                    ornare eros. Nullam sapien metus, volutpat dictum "</p>
+                                                                <p>" Experience the vibrant community and dynamic environment of hostel living, where every day is a new adventure. "</p>
                                                             </div>
                                                         </div>
                                                         <div class="testimonial-info">
-                                                            <h5 class="mt-0 box-info">Elizabeth Pham</h5>
-                                                            <p class="box-dress">DEVELOPER</p>
+                                                            <h5 class="mt-0 box-info">MUZAMIL HUSSAIN</h5>
+                                                            <p class="box-dress">APP DEVELOPER</p>
                                                         </div>
                                                     </div>
                                                 </div>

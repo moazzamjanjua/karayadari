@@ -10,29 +10,7 @@
                     <div class="page-home">
 
                         <!-- breadcrumb -->
-                        <nav class="breadcrumb-bg">
-                            <div class="container no-index">
-                                <div class="breadcrumb">
-                                    <ol>
-                                        <li>
-                                            <a href="#">
-                                                <span>Home</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Living Room</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Sofa</span>
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </nav>
+                        
                         <div class="container">
                             <div class="content">
                                 <div class="row">
@@ -223,57 +201,48 @@
 
                                         <!-- product tag -->
                                         <div class="sidebar-block product-tags">
-                                            <div class="title-block">
-                                                Blog Tags
-                                            </div>
-                                            <div class="block-content">
-                                                <ul class="listSidebarBlog list-unstyled">
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Hot Trend">Hot Trend</a>
-                                                    </li>
+    <div class="title-block">
+        Blog Tags
+    </div>
+    <div class="block-content">
+        <ul class="listSidebarBlog list-unstyled">
+            <li>
+                <a href="#" title="Show posts matching tag Usman Hostel">Usman Hostel</a>
+            </li>
+            <li>
+                <a href="#" title="Show posts matching tag University Life">Hostel Life</a>
+            </li>
+            <li>
+                <a href="#" title="Show posts matching tag Student Accommodation">Student Accommodation</a>
+            </li>
+            <li>
+                <a href="#" title="Show posts matching tag Community Events">Community Events</a>
+            </li>
+            <li>
+                <a href="#" title="Show posts matching tag Academic Success">Academic Success</a>
+            </li>
+            <li>
+                <a href="#" title="Show posts matching tag Safety and Security">Safety and Security</a>
+            </li>
+            <li>
+                <a href="#" title="Show posts matching tag Modern Amenities">Modern Amenities</a>
+            </li>
+            <li>
+                <a href="#" title="Show posts matching tag Student Life">Student Life</a>
+            </li>
+            <li>
+                <a href="#" title="Show posts matching tag Comfortable Living">Comfortable Living</a>
+            </li>
+            <li>
+                <a href="#" title="Show posts matching tag Convenient Location">Convenient Location</a>
+            </li>
+            <li>
+                <a href="#" title="Show posts matching tag Friendly Community">Friendly Community</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Jewelry">Jewelry</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="man.html" title="Show products matching tag Man">Man</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Party">Party</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag SamSung">SamSung</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shirt Dresses">Shirt Dresses</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shoes">Shoes</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Summer">Summer</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Sweaters">Sweaters</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Winter">Winter</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Woman">Woman</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
 
                                         <!-- advertising -->
                                         <div class="sidebar-block group-image-special">
@@ -287,237 +256,222 @@
 
 
                                     <div class="col-sm-8 col-lg-9 col-md-9 flex-xs-first main-blogs">
-                                        <h3>Rutrum Nonvopxe Sapiente Delectus Aut Bonbde</h3>
-                                        <div class="hover-after">
-                                            <img src="/frontend/img/blog/detail.jpg" alt="img" class="img-fluid">
-                                        </div>
-                                        <div class="late-item">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Ut enim adminim veniam Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Curabitur ut iaculis arcu. Proin tincidunt, ipsum nec vehicula euismod,
-                                                neque nibh pretium lorem, at ornare risus sem et risus. Curabitur pulvinar
-                                                dui viverra libero lobortis in dictum velit luctus. Donec imperdiet tincidunt
-                                                interdum
-                                            </p>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Ut enim adminim veniam libero lobortis in dictum velit luctus. Donec imperdiet
-                                                tincidunt interdum.
-                                            </p>
-                                            <p class="content-title">Here, we bring you a look-see:</p>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Ut enim adminim veniam Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Curabitur ut iaculis arcu. Proin tincidunt, ipsum nec vehicula euismod,
-                                                neque nibh pretium lorem, at ornare risus sem et risus.
-                                            </p>
-                                            <div class="spacing-10 group-image-special">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-md-6 p-left">
-                                                            <div class="effect">
-                                                                <img class="img-fluid" src="/frontend/img/blog/3.jpg" alt="banner-1" title="banner-1">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 p-right">
-                                                            <div class="effect">
-                                                                <img class="img-fluid" src="/frontend/img/blog/2.jpg" alt="banner-2" title="banner-2">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt
-                                                ut labore et dolore magna aliqua. Ut enim adminim veniam Lorem ipsum dolor
-                                                sit amet, consectetur adipiscing elit. Curabitur ut iaculis arcu. Proin tincidunt,
-                                                ipsum nec vehicula euismod, neque nibh pretium lorem, at ornare risus sem
-                                                et risus.
-                                            </p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt
-                                                ut labore et dolore magna aliqua. Ut enim adminim veniam. Lorem ipsum dolor
-                                                sit amet, consectetur adipiscing elit. Curabitur ut iaculis arcu. Proin tincidunt,
-                                                ipsum nec vehicula euismod neque
-                                            </p>
-                                            <div class="border-detail">
-                                                <p class="post-info float-left">
-                                                    <span>3 minitunes ago</span>
-                                                    <span>113 Comments</span>
-                                                    <span>TIVATHEME</span>
-                                                </p>
-                                                <div class="btn-group">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-share"></i>
-                                                        <span>Share</span>
-                                                    </a>
-                                                    <a href="#" class="email">
-                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                        <span>SEN TO A FRIEND</span>
-                                                    </a>
-                                                    <a href="#" class="print">
-                                                        <i class="zmdi zmdi-print"></i>
-                                                        <span>Print</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+    <h3>Usman Hostel University Chowk Bahawalpur</h3>
+    <div class="hover-after">
+        <img src="/frontend/img/blog/detail.jpg" alt="img" class="img-fluid">
+    </div>
+    <div class="late-item">
+        <p>
+            Discover comfort and convenience at Usman Hostel, located near University Chowk in Bahawalpur. Our hostel offers
+            fully furnished rooms with modern amenities to ensure a comfortable stay for students. The strategic location provides
+            easy access to campus facilities and local attractions, making it an ideal choice for students.
+        </p>
+        <p>
+            At Usman Hostel, we prioritize your safety and comfort. Our hostel features round-the-clock security, high-speed internet,
+            and housekeeping services to maintain a clean and secure environment. We strive to create a welcoming community where students
+            can focus on their studies and personal growth.
+        </p>
+        <p class="content-title">Here, we bring you a look-see:</p>
+        <p>
+            Explore the vibrant community at Usman Hostel. With various communal areas, students can socialize, study, and relax in a supportive
+            environment. Join us and experience the perfect blend of academic and personal life, tailored to meet the needs of every student.
+        </p>
+        <div class="spacing-10 group-image-special">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 p-left">
+                        <div class="effect">
+                            <img class="img-fluid" src="/frontend/img/blog/3.jpg" alt="banner-1" title="banner-1">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 p-right">
+                        <div class="effect">
+                            <img class="img-fluid" src="/frontend/img/blog/2.jpg" alt="banner-2" title="banner-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>
+            Usman Hostel is more than just a place to stay; it's a place to thrive. Our dedicated staff is always available to assist
+            you with any needs, ensuring your time here is as smooth and enjoyable as possible. Come and be part of our vibrant community.
+        </p>
+        <p>
+            For more information, feel free to contact us or visit our website. We look forward to welcoming you to Usman Hostel, your home
+            away from home.
+        </p>
+        <div class="border-detail">
+            <p class="post-info float-left">
+                <span>3 minutes ago</span>
+                <span>113 Comments</span>
+                <span>TIVATHEME</span>
+            </p>
+            <div class="btn-group">
+                <a href="#">
+                    <i class="zmdi zmdi-share"></i>
+                    <span>Share</span>
+                </a>
+                <a href="#" class="email">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span>SEND TO A FRIEND</span>
+                </a>
+                <a href="#" class="print">
+                    <i class="zmdi zmdi-print"></i>
+                    <span>Print</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
-                                        <div class="admin">
-                                            <img src="/frontend/img/blog/user.jpg" alt="img" class="float-left right">
-                                            <div class="info">
-                                                <p>
-                                                    <a href="#">
-                                                        <span class="content-title">
-                                                            John doe
-                                                        </span>
-                                                    </a>
-                                                    <span>Administrator, Web Designer</span>
-                                                </p>
-                                                <p class="descript">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt. ut labore et dolore magna aliqua.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="related">
-                                            <h2 class="title-block">Related News</h2>
-                                            <div class="main-blogs">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="hover-after">
-                                                            <a href="blog-detail.html">
-                                                                <img src="/frontend/img/blog/7.jpg" alt="img" class="img-fluid">
-                                                            </a>
-                                                        </div>
-                                                        <div class="late-item">
-                                                            <p class="content-title">
-                                                                <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
-                                                            </p>
-                                                            <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin,
-                                                                lorem quis bibendum auctor.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="hover-after">
-                                                            <a href="blog-detail.html">
-                                                                <img src="/frontend/img/blog/8.jpg" alt="img" class="img-fluid">
-                                                            </a>
-                                                        </div>
-                                                        <div class="late-item">
-                                                            <p class="content-title">
-                                                                <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
-                                                            </p>
-                                                            <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin,
-                                                                lorem quis bibendum auctor.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="hover-after">
-                                                            <a href="blog-detail.html">
-                                                                <img src="/frontend/img/blog/9.jpg" alt="img" class="img-fluid">
-                                                            </a>
-                                                        </div>
-                                                        <div class="late-item">
-                                                            <p class="content-title">
-                                                                <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
-                                                            </p>
-                                                            <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin,
-                                                                lorem quis bibendum auctor .
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="reply late-item">
-                                            <div class="blog-comment" id="blog-comment">
-                                                <h2 class="title-block">Comments</h2>
-                                                <img src="/frontend/img/blog/user1.jpg" alt="img" class="float-left right">
-                                            </div>
-                                            <div class="comment-content">
-                                                <p class="user-title">
-                                                    <a href="#">JOHN DOE</a>
-                                                    <span class="time">Posted on Mar 17, 2017 at 6:57am /
-                                                        <a href="#">repost</a> /
-                                                        <span class="green">
-                                                            <a href="#">Reply</a>
-                                                        </span>
-                                                    </span>
-                                                </p>
-                                                <p class="content-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor
-                                                    incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam.
-                                                </p>
-                                            </div>
-                                            <div class="blog-comment margin-right-comment">
-                                                <div class="avatar">
-                                                    <img src="/frontend/img/blog/user2.jpg" alt="img" class="float-left">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <p class="user-title">
-                                                        <a href="#">JOHN DOE</a>
-                                                        <span class="time">Posted on Mar 17, 2017 at 6:57am /
-                                                            <a href="#">repost</a> /
-                                                            <span class="green">
-                                                                <a href="#">Reply</a>
-                                                            </span>
-                                                        </span>
-                                                    </p>
-                                                    <p class="content-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod
-                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim
-                                                        veniam.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="blog-comment">
-                                                <div class="avatar">
-                                                    <img src="/frontend/img/blog/user1.jpg" alt="img" class="float-left right">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <p class="user-title">
-                                                        <a href="#">JOHN DOE</a>
-                                                        <span class="time">Posted on Mar 17, 2017 at 6:57am /
-                                                            <a href="#">repost</a> /
-                                                            <span class="green">
-                                                                <a href="#">Reply</a>
-                                                            </span>
-                                                        </span>
-                                                    </p>
-                                                    <p class="content-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod
-                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim
-                                                        veniam.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="submit-comment" id="respond">
-                                            <h2 class="title-block">Submit comment</h2>
-                                            <div id="commentInput">
-                                                <form action="#" method="post" id="commentform">
-                                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-                                                    <div class="row">
-                                                        <div class="form-group col col-sm-12 col-md-4 ">
-                                                            <input type="text" class="inputName form-control" name="name" placeholder="Your Name *">
-                                                        </div>
-                                                        <div class="form-group col col-sm-12  col-md-4">
-                                                            <input type="text" class="inputMail form-control" name="mail" placeholder="Your E-mail *">
-                                                        </div>
-                                                        <div class="form-group col col-sm-12  col-md-4">
-                                                            <input type="text" class="form-control" name="website" placeholder="Your Website">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="form-group col col-md-12">
-                                                            <textarea tabindex="4" class="inputContent form-control grey" rows="10" name="comment" placeholder="Your Message"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="submit">
-                                                        <input type="submit" name="addComment" id="submitComment" class="btn btn-default" value="Send Message">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+    <div class="admin">
+        <img src="/frontend/img/blog/user.jpg" alt="img" class="float-left right">
+        <div class="info">
+            <p>
+                <a href="#">
+                    <span class="content-title">
+                        John Doe
+                    </span>
+                </a>
+                <span>Administrator, Web Designer</span>
+            </p>
+            <p class="descript">
+                John Doe has years of experience in web design and administration, ensuring the Usman Hostel website runs smoothly and efficiently.
+            </p>
+        </div>
+    </div>
+    <div class="related">
+        <h2 class="title-block">Related News</h2>
+        <div class="main-blogs">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="hover-after">
+                        <a href="blog-detail.html">
+                            <img src="/frontend/img/blog/7.jpg" alt="img" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="late-item">
+                        <p class="content-title">
+                            <a href="blog-detail.html">New Facilities at Usman Hostel</a>
+                        </p>
+                        <p class="description">Discover the latest additions to our hostel, designed to enhance your living experience.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="hover-after">
+                        <a href="blog-detail.html">
+                            <img src="/frontend/img/blog/8.jpg" alt="img" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="late-item">
+                        <p class="content-title">
+                            <a href="blog-detail.html">Student Success Stories</a>
+                        </p>
+                        <p class="description">Read about how living at Usman Hostel has helped students achieve their academic goals.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="hover-after">
+                        <a href="blog-detail.html">
+                            <img src="/frontend/img/blog/9.jpg" alt="img" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="late-item">
+                        <p class="content-title">
+                            <a href="blog-detail.html">Community Events at Usman Hostel</a>
+                        </p>
+                        <p class="description">Join our exciting community events and make lasting memories with fellow students.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="reply late-item">
+        <div class="blog-comment" id="blog-comment">
+            <h2 class="title-block">Comments</h2>
+            <img src="/frontend/img/blog/user1.jpg" alt="img" class="float-left right">
+        </div>
+        <div class="comment-content">
+            <p class="user-title">
+                <a href="#">John Doe</a>
+                <span class="time">Posted on Mar 17, 2017 at 6:57am /
+                    <a href="#">repost</a> /
+                    <span class="green">
+                        <a href="#">Reply</a>
+                    </span>
+                </span>
+            </p>
+            <p class="content-comment">Usman Hostel has been an incredible place to stay. The facilities are top-notch, and the community is very welcoming.
+            </p>
+        </div>
+        <div class="blog-comment margin-right-comment">
+            <div class="avatar">
+                <img src="/frontend/img/blog/user2.jpg" alt="img" class="float-left">
+            </div>
+            <div class="comment-content">
+                <p class="user-title">
+                    <a href="#">Jane Smith</a>
+                    <span class="time">Posted on Mar 17, 2017 at 6:57am /
+                        <a href="#">repost</a> /
+                        <span class="green">
+                            <a href="#">Reply</a>
+                        </span>
+                    </span>
+                </p>
+                <p class="content-comment">Living at Usman Hostel has greatly improved my university experience. I highly recommend it to all students.
+                </p>
+            </div>
+        </div>
+        <div class="blog-comment">
+            <div class="avatar">
+                <img src="/frontend/img/blog/user1.jpg" alt="img" class="float-left right">
+            </div>
+            <div class="comment-content">
+                <p class="user-title">
+                    <a href="#">Mark Johnson</a>
+                    <span class="time">Posted on Mar 17, 2017 at 6:57am /
+                        <a href="#">repost</a> /
+                        <span class="green">
+                            <a href="#">Reply</a>
+                        </span>
+                    </span>
+                </p>
+                <p class="content-comment">Usman Hostel provides a perfect balance of comfort and convenience. The staff is friendly and always ready to help.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="submit-comment" id="respond">
+        <h2 class="title-block">Submit comment</h2>
+        <div id="commentInput">
+            <form action="#" method="post" id="commentform">
+                <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                <div class="row">
+                    <div class="form-group col col-sm-12 col-md-4 ">
+                        <input type="text" class="inputName form-control" name="name" placeholder="Your Name *">
+                    </div>
+                    <div class="form-group col col-sm-12  col-md-4">
+                        <input type="text" class="inputMail form-control" name="mail" placeholder="Your E-mail *">
+                    </div>
+                    <div class="form-group col col-sm-12  col-md-4">
+                        <input type="text" class="form-control" name="website" placeholder="Your Website">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col col-md-12">
+                        <textarea tabindex="4" class="inputContent form-control grey" rows="10" name="comment" placeholder="Your Message"></textarea>
+                    </div>
+                </div>
+                <div class="submit">
+                    <input type="submit" name="addComment" id="submitComment" class="btn btn-default" value="Send Message">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 
 
