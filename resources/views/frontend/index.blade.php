@@ -1729,7 +1729,7 @@
                                     <div class="col-md-4">
                                         <div class="item-post">
                                             <div class="thumbnail-img">
-                                                <a href="blog-detail.html">
+                                                <a href="../blog_detail">
                                                     <img src="/frontend/img/home/home1-post1.jpg" alt="img">
                                                 </a>
                                             </div>
@@ -1741,14 +1741,14 @@
                                                     </span>
                                                     <span class="datetime">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        <span>April 12, 2018</span>
+                                                        <span>June 12, 2024</span>
                                                     </span>
                                                 </div>
                                                 <div class="post-title">
-                                                    <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
+                                                    <a href="../blog_detail">Usman Hostel University Chowk Bahawalpur</a>
                                                 </div>
                                                 <div class="post-desc">
-                                                    Lorem ipsum dolor sit amet, consecte adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                Discover comfort and convenience at Usman Hostel, located near University Chowk in Bahawalpur. Experience hassle-free student living with furnished rooms and easy access to campus amenities.
                                                 </div>
                                             </div>
                                         </div>
@@ -1756,7 +1756,7 @@
                                     <div class="col-md-4">
                                         <div class="item-post">
                                             <div class="thumbnail-img">
-                                                <a href="blog-detail.html">
+                                                <a href="../blog_detail">
                                                     <img src="/frontend/img/home/home1-post2.jpg" alt="img">
                                                 </a>
                                             </div>
@@ -1772,7 +1772,7 @@
                                                     </span>
                                                 </div>
                                                 <div class="post-title">
-                                                    <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
+                                                    <a href="../blog_detail">Lorem ipsum dolor sit amet</a>
                                                 </div>
                                                 <div class="post-desc">
                                                     Lorem ipsum dolor sit amet, consecte adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -1783,7 +1783,7 @@
                                     <div class="col-md-4">
                                         <div class="item-post">
                                             <div class="thumbnail-img">
-                                                <a href="blog-detail.html">
+                                                <a href="../blog_detail">
                                                     <img src="/frontend/img/home/home1-post3.jpg" alt="img">
                                                 </a>
                                             </div>
@@ -1799,7 +1799,7 @@
                                                     </span>
                                                 </div>
                                                 <div class="post-title">
-                                                    <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
+                                                    <a href="../blog_detail">Lorem ipsum dolor sit amet</a>
                                                 </div>
                                                 <div class="post-desc">
                                                     Lorem ipsum dolor sit amet, consecte adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna

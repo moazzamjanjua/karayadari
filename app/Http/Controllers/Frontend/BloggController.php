@@ -11,4 +11,5 @@ class BloggController extends Controller
     {
       return view('frontend.blog-detail');
     }
+    
 }

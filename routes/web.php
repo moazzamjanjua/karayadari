@@ -32,8 +32,8 @@ use App\Http\Controllers\Frontend\UserAccountController;
 //user
 
 Route::get('/', [HomeController::class, 'index'])->name('frontend.index');
-
 Route::get('/blog', [BloggController::class, 'index']);
+Route::get('/blog_detail', [BloggController::class, 'index']);
 Route::get('/contact', [ContactusController::class, 'index']);
 //authenticate
 Route::get('/register', [RegistrationController::class, 'register']);
