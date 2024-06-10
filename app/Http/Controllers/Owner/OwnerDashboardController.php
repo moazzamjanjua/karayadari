@@ -6,13 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Owner\owner_register;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\Owner\owner_hostels;
 class OwnerDashboardController extends Controller
 {
-    public function home()
-    {
-        return view('owner.home');
-    }
 
     public function update(Request $request, $owner_id)
     {

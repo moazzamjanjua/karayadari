@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,82 +41,17 @@
             margin-bottom: 20px;
         }
 
-        .avatar-container {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid white;
-        }
-
-        .edit-icon {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .profile-info {
-            list-style: none;
-            padding: 0;
-            width: 100%;
-        }
-
-        .profile-info li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            border-bottom: 1px solid white;
-            padding-bottom: 10px;
-        }
-
-        .profile-info li span:first-child {
-            font-weight: bold;
-        }
-
-        .profile-info li input {
-            width: 60%;
-            padding: 5px;
-            border: none;
-            border-radius: 3px;
-        }
-
-        .profile-info li input[readonly] {
-            background-color: #e9e9e9;
-            cursor: not-allowed;
-        }
-
         .main-content {
             width: 70%;
             background-color: white;
-            padding: 40px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            overflow-y: auto;
         }
 
-        .main-content h1 {
-            margin-bottom: 40px;
-            color: #333;
-        }
-
-        .action-button {
+        .add_hosten_button {
             padding: 15px 30px;
             background-color: #007BFF;
             color: white;
@@ -126,10 +62,9 @@
             text-decoration: none;
             font-size: 18px;
             margin-bottom: 10px;
-            /* Added margin-bottom to separate the buttons */
         }
 
-        .action-button:hover {
+        .add_hosten_button:hover {
             background-color: #0056b3;
         }
 
@@ -144,15 +79,48 @@
             text-decoration: none;
             width: 100%;
             margin-top: auto;
-            /* Ensure it stays at the bottom */
         }
 
         .logout-button:hover {
             background-color: #c9302c;
         }
 
-        .file-input {
-            display: none;
+        .hostel-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+            overflow-y: auto;
+        }
+
+        .hostel-card {
+            position: relative;
+            width: 100%;
+            height: 200px; /* Reduced height */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hostel-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px; /* Reduced padding */
+        }
+
+        .hostel-overlay h2 {
+            margin: 0;
+            font-size: 18px; /* Reduced font size */
+        }
+
+        .hostel-overlay p {
+            margin: 5px 0;
+            font-size: 14px; /* Reduced font size */
         }
     </style>
 </head>
@@ -161,26 +129,35 @@
     <div class="dashboard">
         <div class="sidebar">
             <h2>Owner Information</h2>
-           
-
             @include('owner.owner-form')
-
-            <a href="../owner/login" class="logout-button">Logout</a>
         </div>
         <div class="main-content">
-       
-        <a href="{{ route('owner.hostelForm', ['owner_id' => $owner->owner_id]) }}" class="add_hosten_button">Add Hostels</a>
-   
-           
+            <div class="hostel-grid">
+                @foreach ($hostels as $hostel)
+                    <div class="hostel-card" style="background-image: url('{{ asset('storage/' . $hostel->hostel_front_image) }}');">
+                        <div class="hostel-overlay">
+                            <h2>{{ $hostel->hostel_name ?? 'N/A' }}</h2>
+                            <p>{{ $hostel->hostel_detail ?? 'N/A' }}</p>
+                            <p><strong>Address:</strong> {{ $hostel->hostel_address ?? 'N/A' }}</p>
+                            <p><strong>City:</strong> {{ $hostel->city ?? 'N/A' }}</p>
+                            <p><strong>Contact:</strong> {{ $hostel->owner_number ?? 'N/A' }}</p>
+                        </div>
+                    </div>
+                    
+                @endforeach
+            </div>
+            <a href="{{ route('owner.hostelForm', ['owner_id' => $owner->owner_id]) }}" class="add_hosten_button">Add Hostels</a>
+            <a href="{{ route('owner.roomForm', ['owner_id' => $owner->id]) }}" class="add_hosten_button">Add Rooms</a>
+
         </div>
     </div>
-     
+
     <script>
         function updateAvatar(event) {
             const file = event.target.files[0];
             const reader = new FileReader();
 
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 document.getElementById('owner_image').src = e.target.result;
             };
 

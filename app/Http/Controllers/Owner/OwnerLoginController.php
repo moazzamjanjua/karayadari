@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Owner\owner_register;
+use App\Models\Owner\owner_hostels;
 use Illuminate\Support\Facades\Hash;
 class OwnerLoginController extends Controller
 {
@@ -30,7 +31,7 @@ class OwnerLoginController extends Controller
             return back()->with('error', 'Invalid email or password');
         }
 
-        $ownerId = $owner->owner_id; // Get the authenticated user's ID
+        $ownerId = $owner->owner_id; 
 
         // Redirect to the user account page with the user's ID
         return redirect()->route('owner.home', ['owner_id' => $ownerId]);
@@ -45,8 +46,10 @@ class OwnerLoginController extends Controller
 
     // Fetch user data based on the user ID
     $owner = owner_register::find($id);
-
+    $hostels = owner_hostels::where('owner_id',$id)->get();
     // Pass user data to the view
-    return view('owner.home', ['owner' => $owner, 'owner_id' => $ownerId]);
+    return view('owner.home', ['owner' => $owner, 'owner_id' => $ownerId , 'hostels' => $hostels, ]
+       
+    );
 }
 }

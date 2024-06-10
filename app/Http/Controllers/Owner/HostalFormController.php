@@ -3,26 +3,26 @@
 namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
+use App\Models\Owner\owner_hostels;
 use Illuminate\Http\Request;
 use App\Models\Cities;
-// use App\Models\Owner\OwnerHostels;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Owner\owner_hostels;
 class HostalFormController extends Controller
 
 {
-    public function hostelForm()
+    public function hostelForm(Request $request)
     {
+        
+        $ownerId = $request->input('owner_id');
         $cities = Cities::all();
         // Assuming you're using Laravel's authentication
-        return view('owner.hostel-form', ['cities' => $cities, ]);
+        return view('owner.hostel-form', ['cities' => $cities, 'owner_id' => $ownerId]);
     }
 
     public function store(Request $request)
     {
        
         $ownerId = $request->input('owner_id');
+        
     
         // Validation
         $request->validate([
@@ -54,6 +54,7 @@ class HostalFormController extends Controller
     
         // Create new owner hostel entry
         owner_hostels::create([
+            'owner_id' =>$ownerId,
             'owner_image' => $ownerImage,
             'owner_name' => $request->owner_name,
             'owner_number' => $request->owner_number,

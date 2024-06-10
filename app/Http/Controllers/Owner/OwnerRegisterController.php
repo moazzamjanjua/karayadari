@@ -22,14 +22,11 @@ class OwnerRegisterController extends Controller
         ]);
  
         $owner= new owner_register();
-       
         $owner->owner_name = $validatedData['owner_name'];
         $owner->owner_email = $validatedData['owner_email'];
         $owner->owner_country = $validatedData['owner_country'];
         $owner->password = bcrypt($validatedData['password']);
-        
-        
-       
+    
         $owner->save();
  
        //  // Optionally, you can redirect the user to another page after successful registration

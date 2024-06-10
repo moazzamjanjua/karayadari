@@ -40,4 +40,5 @@
         </li>
     </ul>
     <button type="submit" class="action-button">Update</button>
+    <a href="../owner/login" class="logout-button">Logout</a>
 </form>
