@@ -6,7 +6,6 @@
         <button type="button" class="edit-icon" onclick="document.getElementById('avatar-input').click();">✎</button>
         <input type="file" name="owner_image" id="avatar-input" class="file-input" accept="image/*" onchange="updateAvatar(event)">
     </div>
-
     <ul class="profile-info">
         <li><span>Name:</span> <span id="owner-name">{{ $owner->owner_name ?? 'N/A' }}</span></li>
         <li>
