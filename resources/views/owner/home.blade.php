@@ -96,7 +96,8 @@
         .hostel-card {
             position: relative;
             width: 100%;
-            height: 200px; /* Reduced height */
+            height: 200px;
+            /* Reduced height */
             background-size: cover;
             background-position: center;
             border-radius: 10px;
@@ -110,17 +111,20 @@
             width: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
-            padding: 10px; /* Reduced padding */
+            padding: 10px;
+            /* Reduced padding */
         }
 
         .hostel-overlay h2 {
             margin: 0;
-            font-size: 18px; /* Reduced font size */
+            font-size: 18px;
+            /* Reduced font size */
         }
 
         .hostel-overlay p {
             margin: 5px 0;
-            font-size: 14px; /* Reduced font size */
+            font-size: 14px;
+            /* Reduced font size */
         }
     </style>
 </head>
@@ -134,7 +138,9 @@
         <div class="main-content">
             <div class="hostel-grid">
                 @foreach ($hostels as $hostel)
-                    <div class="hostel-card" style="background-image: url('{{ asset('storage/' . $hostel->hostel_front_image) }}');">
+                    <div class="hostel-card"
+                        onclick="window.location.href='{{ route('owner.hostelDetails', ['hostel_id' => $hostel->owner_id]) }}'"
+                        style="background-image: url('{{ asset('storage/' . $hostel->hostel_front_image) }}');">
                         <div class="hostel-overlay">
                             <h2>{{ $hostel->hostel_name ?? 'N/A' }}</h2>
                             <p>{{ $hostel->hostel_detail ?? 'N/A' }}</p>
@@ -143,12 +149,12 @@
                             <p><strong>Contact:</strong> {{ $hostel->owner_number ?? 'N/A' }}</p>
                         </div>
                     </div>
-                    
+
+
                 @endforeach
             </div>
-            <a href="{{ route('owner.hostelForm', ['owner_id' => $owner->owner_id]) }}" class="add_hosten_button">Add Hostels</a>
-            <a href="{{ route('owner.roomForm', ['owner_id' => $owner->id]) }}" class="add_hosten_button">Add Rooms</a>
-
+            <a href="{{ route('owner.hostelForm', ['owner_id' => $owner->owner_id]) }}" class="add_hosten_button">Add
+                Hostels</a>
         </div>
     </div>
 
@@ -157,7 +163,7 @@
             const file = event.target.files[0];
             const reader = new FileReader();
 
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 document.getElementById('owner_image').src = e.target.result;
             };
 

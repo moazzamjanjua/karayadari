@@ -5,8 +5,10 @@ use App\Http\Controllers\Owner\OwnerLoginController;
 use App\Http\Controllers\Owner\HostalFormController;
 use App\Http\Controllers\Owner\OwnerRegisterController;
 use App\Http\Controllers\Owner\RoomFormController;
+use App\Http\Controllers\Owner\HostalDetailController;
 use App\Http\Controllers\ProductGridLeftController;
 use App\Http\Controllers\CitiesController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\BloggController;
@@ -57,6 +59,9 @@ Route::post('/owner/login', [OwnerLoginController::class, 'authenticate'])->name
 Route::get('/owner/hostel-form', [HostalFormController::class, 'hostelForm'])->name('owner.hostelForm');
 
 Route::get('/owner/room-form', [RoomFormController::class, 'room'])->name('owner.roomForm');
+Route::get('/owner/hostel', [HostalDetailController::class, 'showHostelDetails'])->name('owner.hostelDetails');
+
+
 Route::post('/owner/rooms', [RoomFormController::class, 'store'])->name('rooms.roomStore');
 Route::post('/owner/hostel-form', [HostalFormController::class, 'store'])->name('owner.hostalStore');
 
