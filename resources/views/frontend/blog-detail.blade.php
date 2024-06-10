@@ -186,16 +186,15 @@
                                             <div class="post-item-content">
                                                 <div>
                                                     <div class="late-item first-child">
-                                                        <a href="blog-detail.html">
-                                                            <p class="content-title">Lorem ipsum dolor sit amet</p>
+                                                        <a href="../blog_detail">
+                                                            <p class="content-title">Usman Hostel University Chowk Bahawalpur</p>
                                                         </a>
                                                         <span>
                                                             <i class="zmdi zmdi-comments"></i>13 comment</span>
                                                         <span>
-                                                            <i class="zmdi zmdi-calendar-note"></i>20 APRIl 2017
+                                                            <i class="zmdi zmdi-calendar-note"></i> APRIl,10 2024
                                                         </span>
-                                                        <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                                            nonummy...
+                                                        <p class="description">Discover comfort and convenience at Usman Hostel, located near University Chowk...
                                                         </p>
                                                         <p class="remove">
                                                             <a href="blog-detail.html">READ MORE</a>
@@ -205,15 +204,14 @@
                                                 <div>
                                                     <div class="late-item">
                                                         <a href="blog-detail.html">
-                                                            <p class="content-title">Lorem ipsum dolor sit amet</p>
+                                                            <p class="content-title">Usman Hostel University Chowk Bahawalpur</p>
                                                         </a>
                                                         <span>
                                                             <i class="zmdi zmdi-comments"></i>13 comment</span>
                                                         <span>
                                                             <i class="zmdi zmdi-calendar-note"></i>20 APRIl 2017
                                                         </span>
-                                                        <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                                            nonummy...
+                                                        <p class="description">Discover comfort and convenience at Usman Hostel, located near University Chowk ...
                                                         </p>
                                                         <p class="remove">
                                                             <a href="blog-detail.html">READ MORE</a>
@@ -286,6 +284,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+
                                     <div class="col-sm-8 col-lg-9 col-md-9 flex-xs-first main-blogs">
                                         <h3>Rutrum Nonvopxe Sapiente Delectus Aut Bonbde</h3>
                                         <div class="hover-after">
@@ -518,6 +518,9 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+
                                 </div>
                             </div>
                         </div>
