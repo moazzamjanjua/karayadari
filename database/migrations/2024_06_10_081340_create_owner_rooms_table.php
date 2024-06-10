@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('owner_rooms', function (Blueprint $table) {
-            $table->integer('owner_id')->nullable();
-            $table->integer('hostel_id')->nullable();
+            $table->integer('owner_id');
+            $table->integer('hostel_id');
             $table->id('room_id');
             $table->json('room_images'); // Store images as JSON array
             $table->enum('room_type', ['single_bed', 'double_bed', 'carpeted']);
