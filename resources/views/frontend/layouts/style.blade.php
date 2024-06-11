@@ -36,4 +36,37 @@
     <!-- Template CSS -->
     <link rel="stylesheet" type="text/css" href="/frontend/css/style.css">
     <link rel="stylesheet" type="text/css" href="/frontend/css/reponsive.css">
+    <style>
+        .luxury-button-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full screen height */
+            background-color: #f0f0f0;
+        }
+        .luxury-button {
+            background: linear-gradient(45deg, #ff6b6b, #f06595);
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .luxury-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .luxury-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    
 </head>

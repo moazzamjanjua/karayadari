@@ -107,67 +107,42 @@
                                 <li>
                                     <a href="../blog" class="parent">Blog</a>
                                 </li>
-                                <li>
-                                    <a href="#" class="parent">Page</a>
-                                    <div class="dropdown-menu drop-tab">
-                                        <ul>
-                                            <li class="item container group">
-                                                <div class="dropdown-menu dropdown-tab">
-                                                    <ul>
-                                                        <li class="item col-md-4 float-left">
-                                                            <span class="menu-title">Category Style</span>
-                                                            <div class="menu-content">
-                                                                <ul class="col">
-                                                                    <li>
-                                                                        <a href="product-grid-sidebar-left.html">Product Grid (Sidebar Left)</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="product-grid-sidebar-right.html">Product Grid (Sidebar Right)</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="product-list-sidebar-left.html">Product List (Sidebar left) </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="item col-md-4 html  float-left">
-                                                            <span class="menu-title">Product Detail Style</span>
-                                                            <div class="menu-content">
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href="product-detail.html">Product Detail (Sidebar Left)</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="#">Product Detail (Sidebar Right)</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="item col-md-4 html  float-left">
-                                                            <span class="menu-title">Bonus Page</span>
-                                                            <div class="menu-content">
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href="404.html">404 Page</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="about-us.html">About Us Page</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
+                               
                                 <li>
                                     <a href="../contact" class="parent">Contact US</a>
                                 </li>
+
+                                 <!-- Add Hostel button -->
+                                  <a href="../owner/login">
+                                  <li style="margin-top: 33px;">
+                                <button style="
+                                    background: linear-gradient(45deg, #ff6b6b, #f06595);
+                                    border: none;
+                                    border-radius: 6px;
+                                     padding: 5px 30px;  
+                                    color: white;
+                                    height: 45px;
+                                    white-space: nowrap;
+                                    font-size: 1em;
+                                    font-weight: bold;
+                                    text-transform: uppercase;
+                                    text-decoration: none;
+                                    transition: transform 0.2s, box-shadow 0.2s;
+                                    cursor: pointer;
+                                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                                " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.3)';" 
+                                onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';"
+                                onmousedown="this.style.transform='scale(0.95)'; this.style.boxShadow='0 5px 10px rgba(0, 0, 0, 0.2)';"
+                                onmouseup="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.3)';">
+                                    Add Hostel
+                                </button>
+                            </li>
+                                  </a>
+                            
                             </ul>
                         </div>
                     </div>
+
 
                     <!-- search-->
                     <div id="search_widget" class="col-sm-6 col-md-5 align-items-center justify-content-end d-flex">
