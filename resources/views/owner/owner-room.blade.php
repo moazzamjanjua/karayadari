@@ -78,7 +78,7 @@
         let selectedFiles = [];
 
         function updateRoomImagePreview() {
-            const roomImagesInput = document.getElementById('room_image');
+            const roomImagesInput = document.getElementById('room_images');
             const previewContainer = document.getElementById('image-preview');
             const fileCount = document.getElementById('file-count');
 
@@ -134,16 +134,23 @@
 <body>
 
     <div class="container">
-        <form onsubmit="validateForm(event)" action="{{ route('rooms.roomStore') }}" method="POST"
-            enctype="multipart/form-data">
-            @csrf*
+        <form onsubmit="validateForm(event)" action="{{ route('rooms.roomStore') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('POST')
+         <!-- Add a hidden input field to pass owner_id -->
+  
+    <input type="hidden" name="owner_id" value="{{$owner_id}}">
+    <input type="hidden" name="hostel_id" value="{{$hostel_id}}">
+    <!-- Your form fields -->
+
             <!-- Basic Information -->
             <div class="form-section">
                 <h3>Basic Information</h3>
+                
 
                 <div class="form-group">
                     <label for="room-images">Room Images (exactly 5):</label>
-                    <input type="file" class="form-control-file" id="room_image" name="room_image" accept="image/*"
+                    <input type="file" class="form-control-file" id="room_images" name="room_images" accept="image/*"
                         multiple onchange="updateRoomImagePreview()">
                     <div id="file-count" class="mt-2">Selected Images: 0</div>
                     <div id="image-preview" class="preview mt-2"></div>

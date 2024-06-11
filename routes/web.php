@@ -62,7 +62,7 @@ Route::get('/owner/room-form', [RoomFormController::class, 'room'])->name('owner
 Route::get('/owner/hostel', [HostalDetailController::class, 'showHostelDetails'])->name('owner.hostelDetails');
 
 
-Route::post('/owner/rooms', [RoomFormController::class, 'store'])->name('rooms.roomStore');
+Route::post('/owner/room-form', [RoomFormController::class, 'store'])->name('rooms.roomStore');
 Route::post('/owner/hostel-form', [HostalFormController::class, 'store'])->name('owner.hostalStore');
 
 

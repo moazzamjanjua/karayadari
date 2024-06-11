@@ -52,6 +52,8 @@ class HostalFormController extends Controller
             $hostelFrontImage = $request->file('hostel_front_image')->store('hostel_image', 'public');
         }
     
+        dd($request->all());
+
         // Create new owner hostel entry
         owner_hostels::create([
             'owner_id' =>$ownerId,

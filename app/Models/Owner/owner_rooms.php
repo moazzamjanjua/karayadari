@@ -11,6 +11,8 @@ class owner_rooms extends Model
      
      protected $table = 'owner_rooms' ;
     protected $fillable = [
+        'owner_id',
+        'hostel_id',
         'room_images',
         'room_type',
         'floor_number',
@@ -31,7 +33,9 @@ class owner_rooms extends Model
     ];
 
     protected $casts = [
-        'room_images' => 'array',
+        'owner_id'=> 'int', 
+        'hostel_id' => 'int',
+        'room_images' => 'string',
         'wifi' => 'boolean',
         'filter_water' => 'boolean',
         'gas' => 'boolean',

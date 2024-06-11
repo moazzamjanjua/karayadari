@@ -65,10 +65,12 @@
 
         @endforeach
     </div>
-w
+
    
 
-    <a href="" class="add-room-button">Add Room</a>
+    <a href="{{ route('owner.roomForm', [ 'hostel_id' => $hostel_id]) }}" class="add_room_button">Add Hostels</a>
+
+
 </body>
 
 </html>

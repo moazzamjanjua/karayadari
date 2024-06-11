@@ -165,9 +165,9 @@
     @method('POST')
     <!-- Add a hidden input field to pass owner_id -->
   
-
+    <input type="hidden" name="owner_id" value="{{$owner_id}}">
     <!-- Your form fields -->
-     <input type="hidden" name="owner_id" value="{{$owner_id}}">
+     
     <label for="owner_image">Hostel Owner Image:</label>
     <div class="avatar-upload">
         <img id="owner_image_preview" src="/frontend/img/home/avatar.jpg" alt="Owner Image">
