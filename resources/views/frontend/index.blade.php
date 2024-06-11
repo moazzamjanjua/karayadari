@@ -57,50 +57,39 @@
                                 <div class="tiva-row-wrap row">
                                     <div class="groupcategoriestab-vertical col-md-12 col-xs-12">
                                         <div class="grouptab row">
+                                            
                                             <div class="categoriestab-right col-lg-3 align-items-start d-flex flex-column col-md-3 flex-3">
                                                 <div class="block-title-content">
                                                     <h2 class="title-block">
-                                                        Living Room
+                                                        Categories
                                                     </h2>
                                                 </div>
                                                 <!-- <div class="btn dropdown-toggle toggle-cate-child-vertical hidden-md-up mr-auto">Select category</div> -->
                                                 <div class="cate-child-vertical">
                                                     <ul class="d-flex align-items-start flex-column">
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html">SIDE TABLE</a>
+                                                            <a href="product-grid-sidebar-left.html"> <h6> Male-Only Hostels</h6> </a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html">FIREPLACE</a>
+                                                            <a href="product-grid-sidebar-left.html"><h6>Female-Only Hostels</h6></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html">FLOOR LAMP</a>
+                                                            <a href="product-grid-sidebar-left.html"><h6>Work/Study Hostels</h6></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html">OTTOMAN</a>
+                                                            <a href="product-grid-sidebar-left.html"><h6>Luxury Hostels</h6></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html">ARMCHAIR</a>
+                                                            <a href="product-grid-sidebar-left.html"><h6>Private Hostels</h6></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html">CUSHION</a>
+                                                            <a href="product-grid-sidebar-left.html"><h6>Public Hostels</h6></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html">DRESSING TABLE</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="product-grid-sidebar-left.html">WALL CLOCK</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="product-grid-sidebar-left.html">BEDSIDE TABLE</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="product-grid-sidebar-left.html">PICTURE</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="product-grid-sidebar-left.html">WINDOW</a>
-                                                        </li>
+                                                            <a href="product-grid-sidebar-left.html"><h6>Party Hostels</h6></a>
+                                                      
                                                         <li class="last float-right">
-                                                            <a href="product-grid-sidebar-left.html">View all</a>
+                                                            <a href="product-grid-sidebar-left.html"><h6>View all</h6></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -109,10 +98,10 @@
                                                 <div class="title-tab-content d-flex justify-content-start">
                                                     <ul class="nav nav-tabs">
                                                         <li>
-                                                            <a href="#new" data-toggle="tab" class="active">New Arrivals</a>
+                                                            <a href="#new" data-toggle="tab" class="active">New Arrivals Rooms</a>
                                                         </li>
                                                         <li>
-                                                            <a href="#best" data-toggle="tab">Best Onwer</a>
+                                                            <a href="#best" data-toggle="tab">Best rooms</a>
                                                         </li>
                                                         <li>
                                                             <a href="#sale" data-toggle="tab">Special Rooms</a>
@@ -510,10 +499,10 @@
                                                 <!-- column 4 -->
                                                 <div class="flex-4 col-lg-4 flex-4">
                                                     <h2 class="title-block">
-                                                        <span class="sub-title">Best Owner Rooms</span>Best Owner Rooms
+                                                        <span class="sub-title">Best  Rooms</span>Best  Rooms
                                                     </h2>
                                                     <div class="content-text">
-                                                        <p> here is the list of best onwer wich is is lis here 
+                                                        <p> here is the list of best  rooms 
                                                         </p>
                                                         <div>
                                                             <a href="product-grid-sidebar-left.html"> View all Rooms </a>
@@ -699,465 +688,12 @@
                             </div>
                         </div>
 
-                        <!-- product kitchen -->
-                        <div class="section kitchen">
-                            <div class="living-room">
-                                <div class="container">
-                                    <div class="tiva-row-wrap row">
-                                        <div class="groupcategoriestab-vertical col-md-12 col-xs-12">
-                                            <div class="grouptab row">
-                                                <!-- column 3 -->
-                                                <div class="categoriestab-right col-lg-3 align-items-start d-flex flex-column col-md-3 flex-3">
-                                                    <div class="block-title-content">
-                                                        <h2 class="title-block">
-                                                            Kitchen
-                                                        </h2>
-                                                    </div>
-                                                    <div class="cate-child-vertical">
-                                                        <ul class="d-flex align-items-start flex-column">
-                                                            <li>
-                                                                <a href="/product-grid-sidebar-left">Kitchen Shears</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="product-grid-sidebar-left.html">Colander</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="product-grid-sidebar-left.html">Mixing Bowls</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="product-grid-sidebar-left.html">Grater</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="product-grid-sidebar-left.html">Vegetable Peeler</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="product-grid-sidebar-left.html">Rolling Pin</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="product-grid-sidebar-left.html">Baking Sheet</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="product-grid-sidebar-left.html">Oven Mitts</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="product-grid-sidebar-left.html">Dutch Oven</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="product-grid-sidebar-left.html">Salad Bowl</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="product-grid-sidebar-left.html">WINDOW</a>
-                                                            </li>
-                                                            <li class="last float-right">
-                                                                <a href="product-grid-sidebar-left.html">View All</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <!-- column 9 -->
-                                                <div class="categoriestab-left product-tab col-md-9 flex-9">
-                                                    <div class="title-tab-content d-flex justify-content-start">
-                                                        <ul class="nav nav-tabs">
-                                                            <li>
-                                                                <a href="#new_kitchen" data-toggle="tab" class="active">New Rooms</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#best_kitchen" data-toggle="tab">Best Hostal Onwner</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#sale_kitchen" data-toggle="tab">Special Rooms</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="tab-content">
-                                                        <!-- new kitchen -->
-                                                        <div id="new_kitchen" class="tab-pane fade in active show">
-                                                            <div class="category-product-index owl-carousel owl-theme owl-loaded owl-drag">
-                                                                <div class="item text-center">
-                                                                    <div class="product-miniature js-product-miniature item-one first-item">
-                                                                        <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
-                                                                                <img class="img-fluid image-cover" src="/frontend/img/product/6.jpg" alt="img">
-                                                                                <img class="img-fluid image-secondary" src="/frontend/img/product/4.jpg" alt="img">
-                                                                            </a>
-                                                                            <div class="product-flags discount">-30%</div>
-                                                                            <div class="highlighted-informations">
-                                                                                <div class="variant-links">
-                                                                                    <a href="#" class="color beige" title="Beige"></a>
-																					<a href="#" class="color orange" title="Orange"></a>
-																					<a href="#" class="color green" title="Green"></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-description">
-                                                                            <div class="product-groups">
-                                                                                <div class="product-title">
-                                                                                    <a href="product-detail.html">aaaaaa</a>
-                                                                                </div>
-                                                                                <div class="rating">
-                                                                                    <div class="star-content">
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="product-group-price">
-                                                                                    
-                                                                                </div>
-                                                                            </div>
-                                                                           
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item text-center">
-                                                                    <div class="product-miniature js-product-miniature item-one first-item">
-                                                                        <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
-                                                                                <img class="img-fluid image-cover" src="/frontend/img/product/10.jpg" alt="img">
-                                                                                <img class="img-fluid image-secondary" src="/frontend/img/product/11.jpg" alt="img">
-                                                                            </a>
-                                                                            <div class="product-flags discount">-10%</div>
-                                                                            <div class="highlighted-informations">
-                                                                                <div class="variant-links">
-                                                                                    <a href="#" class="color beige" title="Beige"></a>
-																					<a href="#" class="color orange" title="Orange"></a>
-																					<a href="#" class="color green" title="Green"></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-description">
-                                                                            <div class="product-groups">
-                                                                                <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
-                                                                                </div>
-                                                                                <div class="rating">
-                                                                                    <div class="star-content">
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="product-group-price">
-                                                                                   
-                                                                                </div>
-                                                                            </div>
-                                                                          
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item text-center">
-                                                                    <div class="product-miniature js-product-miniature item-one first-item">
-                                                                        <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
-                                                                                <img class="img-fluid image-cover" src="/frontend/img/product/16.jpg" alt="img">
-                                                                                <img class="img-fluid image-secondary" src="/frontend/img/product/14.jpg" alt="img">
-                                                                            </a>
-                                                                            <div class="highlighted-informations">
-                                                                                <div class="variant-links">
-                                                                                    <a href="#" class="color beige" title="Beige"></a>
-																					<a href="#" class="color orange" title="Orange"></a>
-																					<a href="#" class="color green" title="Green"></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-description">
-                                                                            <div class="product-groups">
-                                                                                <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
-                                                                                </div>
-                                                                                <div class="rating">
-                                                                                    <div class="star-content">
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="product-group-price">
-                                                                                   
-                                                                                </div>
-                                                                            </div>
-                                                                          
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- best kitchen -->
-                                                        <div id="best_kitchen" class="tab-pane fade">
-                                                            <div class="category-product-index owl-carousel owl-theme">
-                                                                <div class="item text-center">
-                                                                    <div class="product-miniature js-product-miniature item-one first-item">
-                                                                        <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
-                                                                                <img class="img-fluid image-cover" src="/frontend/img/product/8.jpg" alt="img">
-                                                                                <img class="img-fluid image-secondary" src="/frontend/img/product/13.jpg" alt="img">
-                                                                            </a>
-                                                                            <div class="product-flags discount">-30%</div>
-                                                                            <div class="highlighted-informations">
-                                                                                <div class="variant-links">
-                                                                                    <a href="#" class="color beige" title="Beige"></a>
-																					<a href="#" class="color orange" title="Orange"></a>
-																					<a href="#" class="color green" title="Green"></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-description">
-                                                                            <div class="product-groups">
-                                                                                <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
-                                                                                </div>
-                                                                                <div class="rating">
-                                                                                    <div class="star-content">
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="product-group-price">
-                                                                                    
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item text-center">
-                                                                    <div class="product-miniature js-product-miniature item-one first-item">
-                                                                        <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
-                                                                                <img class="img-fluid image-cover" src="/frontend/img/product/4.jpg" alt="img">
-                                                                                <img class="img-fluid image-secondary" src="/frontend/img/product/12.jpg" alt="img">
-                                                                            </a>
-                                                                            <div class="product-flags discount">-10%</div>
-                                                                            <div class="highlighted-informations">
-                                                                                <div class="variant-links">
-                                                                                    <a href="#" class="color beige" title="Beige"></a>
-																					<a href="#" class="color orange" title="Orange"></a>
-																					<a href="#" class="color green" title="Green"></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-description">
-                                                                            <div class="product-groups">
-                                                                                <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
-                                                                                </div>
-                                                                                <div class="rating">
-                                                                                    <div class="star-content">
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="product-group-price">
-                                                                                    
-                                                                                </div>
-                                                                            </div>
-                                                                           
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item text-center">
-                                                                    <div class="product-miniature js-product-miniature item-one first-item">
-                                                                        <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
-                                                                                <img class="img-fluid image-cover" src="/frontend/img/product/13.jpg" alt="img">
-                                                                                <img class="img-fluid image-secondary" src="/frontend/img/product/6.jpg" alt="img">
-                                                                            </a>
-                                                                            <div class="highlighted-informations">
-                                                                                <div class="variant-links">
-                                                                                    <a href="#" class="color beige" title="Beige"></a>
-																					<a href="#" class="color orange" title="Orange"></a>
-																					<a href="#" class="color green" title="Green"></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-description">
-                                                                            <div class="product-groups">
-                                                                                <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
-                                                                                </div>
-                                                                                <div class="rating">
-                                                                                    <div class="star-content">
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="product-group-price">
-                                                                                    
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- sale kitchen -->
-                                                        <div id="sale_kitchen" class="tab-pane fade">
-                                                            <div class="category-product-index owl-carousel owl-theme">
-                                                                <div class="item text-center">
-                                                                    <div class="product-miniature js-product-miniature item-one first-item">
-                                                                        <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
-                                                                                <img class="img-fluid image-cover" src="/frontend/img/product/10.jpg" alt="img">
-                                                                                <img class="img-fluid image-secondary" src="/frontend/img/product/8.jpg" alt="img">
-                                                                            </a>
-                                                                            <div class="product-flags discount">-30%</div>
-                                                                            <div class="highlighted-informations">
-                                                                                <div class="variant-links">
-                                                                                    <a href="#" class="color beige" title="Beige"></a>
-																					<a href="#" class="color orange" title="Orange"></a>
-																					<a href="#" class="color green" title="Green"></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-description">
-                                                                            <div class="product-groups">
-                                                                                <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
-                                                                                </div>
-                                                                                <div class="rating">
-                                                                                    <div class="star-content">
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="product-group-price">
-                                                                                   
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item text-center">
-                                                                    <div class="product-miniature js-product-miniature item-one first-item">
-                                                                        <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
-                                                                                <img class="img-fluid image-cover" src="/frontend/img/product/11.jpg" alt="img">
-                                                                                <img class="img-fluid image-secondary" src="/frontend/img/product/14.jpg" alt="img">
-                                                                            </a>
-                                                                            <div class="product-flags discount">-20%</div>
-                                                                            <div class="highlighted-informations">
-                                                                                <div class="variant-links">
-                                                                                    <a href="#" class="color beige" title="Beige"></a>
-																					<a href="#" class="color orange" title="Orange"></a>
-																					<a href="#" class="color green" title="Green"></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-description">
-                                                                            <div class="product-groups">
-                                                                                <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
-                                                                                </div>
-                                                                                <div class="rating">
-                                                                                    <div class="star-content">
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="product-group-price">
-                                                                                    
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="item text-center">
-                                                                    <div class="product-miniature js-product-miniature item-one first-item">
-                                                                        <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
-                                                                                <img class="img-fluid image-cover" src="/frontend/img/product/6.jpg" alt="img">
-                                                                                <img class="img-fluid image-secondary" src="/frontend/img/product/16.jpg" alt="img">
-                                                                            </a>
-                                                                            <div class="product-flags discount">-20%</div>
-                                                                            <div class="highlighted-informations">
-                                                                                <div class="variant-links">
-                                                                                    <a href="#" class="color beige" title="Beige"></a>
-																					<a href="#" class="color orange" title="Orange"></a>
-																					<a href="#" class="color green" title="Green"></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-description">
-                                                                            <div class="product-groups">
-                                                                                <div class="product-title">
-                                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
-                                                                                </div>
-                                                                                <div class="rating">
-                                                                                    <div class="star-content">
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                        <div class="star"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="product-group-price">
-                                                                                   
-                                                                                </div>
-                                                                            </div>
-                                                                          
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
+                       
 
                         <!-- banner -->
                         <div class="container">
-                            <div class="section spacing-10 group-image-special col-lg-12 col-xs-12">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="effect">
-                                            <a href="#">
-                                                <img class="img-fluid" src="/frontend/img/home/effect3.jpg" alt="banner-1" title="banner-1">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="effect">
-                                            <a href="#">
-                                                <img class="img-fluid" src="/frontend/img/home/effect4.jpg" alt="banner-2" title="banner-2">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
 
                             <!-- testimonial -->
                             <div class="section testimonial-block col-lg-12 col-xs-12">
