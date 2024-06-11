@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2024 at 09:33 AM
+-- Generation Time: Jun 11, 2024 at 06:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -39,6 +39,28 @@ CREATE TABLE `admins` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `areas`
+--
+
+CREATE TABLE `areas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `area_name` varchar(255) NOT NULL,
+  `city_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `areas`
+--
+
+INSERT INTO `areas` (`id`, `area_name`, `city_id`, `created_at`, `updated_at`) VALUES
+(5, 'Riaz Colony', 1, '2024-05-30 19:00:00', '2024-05-30 19:00:00'),
+(6, 'One Unit Chock', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `category_list`
 --
 
@@ -58,6 +80,27 @@ INSERT INTO `category_list` (`id`, `category_name`, `category_image`, `created_a
 (1, 'Single Bed', '', '2024-03-10 19:00:00', '2024-03-11 17:54:19'),
 (2, 'Double Bed', '', '2024-03-11 19:00:00', '2024-03-12 08:00:30'),
 (3, 'Ac Room', '', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cities`
+--
+
+CREATE TABLE `cities` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `city_name` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cities`
+--
+
+INSERT INTO `cities` (`id`, `city_name`, `created_at`, `updated_at`) VALUES
+(1, 'Bahwalpur', NULL, NULL),
+(2, 'Layyah', '2024-05-30 19:00:00', '2024-05-31 10:42:25');
 
 -- --------------------------------------------------------
 
@@ -135,7 +178,57 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (31, '2024_03_13_164127_create_user_register_table', 8),
 (32, '2024_03_14_092821_add_column_to_user_register_table', 8),
 (33, '2024_05_14_100618_create_seller_register_table', 9),
-(34, '2024_05_29_165709_create_owner_register_table', 10);
+(34, '2024_05_29_165709_create_owner_register_table', 10),
+(35, '2024_05_30_102305_add_column_to_owner_register_table', 11),
+(36, '2024_05_31_080603_create_cities_table', 12),
+(37, '2024_05_31_081215_create_areas_table', 13),
+(38, '2024_06_03_070046_create_owner_hostels_table', 14),
+(39, '2024_06_05_071401_create_owner_hostels_table', 15),
+(40, '2024_06_05_073930_create_owner_register_table', 15),
+(41, '2024_06_09_091612_create_owner_hostels_table', 16),
+(42, '2024_06_09_104933_create_owner_rooms_table', 17),
+(43, '2024_06_09_105426_create_owner_rooms_table', 18),
+(44, '2024_06_10_075916_create_owner_hostels_table', 19),
+(45, '2024_06_10_081340_create_owner_rooms_table', 20);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `owner_hostels`
+--
+
+CREATE TABLE `owner_hostels` (
+  `owner_id` int(11) NOT NULL,
+  `hostel_id` bigint(20) UNSIGNED NOT NULL,
+  `owner_image` varchar(255) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
+  `owner_number` varchar(15) NOT NULL,
+  `hostel_name` varchar(100) NOT NULL,
+  `hostel_address` text NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `hostel_location` varchar(50) DEFAULT NULL,
+  `hostel_front_image` varchar(255) NOT NULL,
+  `hostel_detail` text NOT NULL,
+  `capacity` int(11) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `num_rooms` int(11) DEFAULT NULL,
+  `facilities` text DEFAULT NULL,
+  `is_verified` tinyint(1) NOT NULL DEFAULT 0,
+  `is_approved` tinyint(1) NOT NULL DEFAULT 0,
+  `top_rated` tinyint(1) NOT NULL DEFAULT 0,
+  `homepage` tinyint(1) NOT NULL DEFAULT 0,
+  `is_featured` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `owner_hostels`
+--
+
+INSERT INTO `owner_hostels` (`owner_id`, `hostel_id`, `owner_image`, `owner_name`, `owner_number`, `hostel_name`, `hostel_address`, `city`, `hostel_location`, `hostel_front_image`, `hostel_detail`, `capacity`, `email`, `num_rooms`, `facilities`, `is_verified`, `is_approved`, `top_rated`, `homepage`, `is_featured`, `created_at`, `updated_at`) VALUES
+(1, 1, 'owner_image/zdgoUNfNAl0YVJWpV48MaCBLKRegDXEk9ktRMJyD.png', 'vhn', '76', 'rimsha hostels', 'nbnb', 'Bahwalpur', 'bmbm', 'hostel_image/h9raawSvD4E4NVcIFrOw3Ee6vvRyZVarUtHuiKeq.png', 'jhgv', 2, 'moazzamjanjua92@gmail.com', 2, 'mbm', 0, 0, 0, 0, 0, '2024-06-10 03:04:07', '2024-06-10 03:04:07'),
+(1, 2, 'owner_image/bANzJGp2Tb1sVFhAT5vz9nvPQnf4VjDi6hNXPQST.png', 'moazzam hussain', '03468763576', 'Sehar hostal', 'usman hall islamia univrsty bahawalpur', 'Layyah', 'jbjnb', 'hostel_image/DNRP4ZoDjghymu9bS64ygCt4vZ9ESm00FYTZWfs1.png', 'bjgj', 1, 'moazzamjanjua92@gmail.com', 1, 'ncjnx', 0, 0, 0, 0, 0, '2024-06-11 00:39:37', '2024-06-11 00:39:37');
 
 -- --------------------------------------------------------
 
@@ -144,11 +237,15 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `owner_register` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `owner_id` bigint(20) UNSIGNED NOT NULL,
+  `owner_name` varchar(255) NOT NULL,
+  `owner_email` varchar(255) NOT NULL,
+  `owner_country` varchar(255) NOT NULL,
+  `owner_city` varchar(50) DEFAULT NULL,
+  `owner_number` varchar(50) DEFAULT NULL,
+  `owner_address` varchar(50) DEFAULT NULL,
+  `owner_image` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `country` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -157,12 +254,42 @@ CREATE TABLE `owner_register` (
 -- Dumping data for table `owner_register`
 --
 
-INSERT INTO `owner_register` (`id`, `name`, `email`, `password`, `country`, `created_at`, `updated_at`) VALUES
-(1, 'moazzam hussain', 'moazzamjanjua96@gmail.com', '$2y$12$7peUg2oOW4PgfD5bzoZAnO.AAixwA8Ql4cM/ULGISxRCboLqyUBP.', 'Pakistan', '2024-05-29 12:13:55', '2024-05-29 12:13:55'),
-(2, 'moazzam hussain', 'moazzamjanjua92@gmail.com', '$2y$12$5/1.cMa0DPcbaKjHVTY1kurCJ8Kq1JdZQ36HVJImM/NBPNp9Nl12G', 'Pakistan', '2024-05-30 01:54:27', '2024-05-30 01:54:27'),
-(3, 'moazzam hussain', 'moazzamjanjua02@gmail.com', '$2y$12$Zr8Qch9ODlrA58EAI0L/jeDYvRf4o67y3ibrZmKYtqwEhclquP7dS', 'Pakistan', '2024-05-30 01:55:18', '2024-05-30 01:55:18'),
-(4, 'moazzam hussain', 'moazzamjanjua998@gmail.com', '$2y$12$M1q7JW7D3HK20nGJ.YXG5u.2QJJ0yphqV7W001NzH.QNpPtlOAylW', 'Pakistan', '2024-05-30 01:56:19', '2024-05-30 01:56:19'),
-(5, 'moazzam hussain', 'moazzamjanjua89@gmail.com', '$2y$12$np4LOdDwOLRvgMhDymQFlO84XGjTHngfdLfB4SRT9ScOT7t95sIPe', 'Pakistan', '2024-05-30 01:58:32', '2024-05-30 01:58:32');
+INSERT INTO `owner_register` (`owner_id`, `owner_name`, `owner_email`, `owner_country`, `owner_city`, `owner_number`, `owner_address`, `owner_image`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'moazzam hussain', 'moazzamjanjua92@gmail.com', 'Pakistanty', 'ryreihfi', '35447584', 'layyah', 'owner_image/URJdGXuXCbZRGlpBGom7jknisrHWG0EPJoPNHE8v.png', '$2y$12$AsJ54gXBUQ/npGIKD9gvIeq.RCCjuuJ1zfKzmjvAExKDeBGaLJ7Na', '2024-06-05 03:37:15', '2024-06-10 23:52:33'),
+(2, 'moazzam hussain', 'moazzamjanjua000@gmail.com', 'Pakistan', NULL, NULL, NULL, NULL, '$2y$12$ScXycd1V53GuFLhT8GoxleyTtITW.ypZvPvxOibml8gUr9xTDD56y', '2024-06-09 02:13:19', '2024-06-09 02:13:19'),
+(3, 'moazzam hussain', 'moazzamjanjua9287@gmail.com', 'Pakistan', NULL, NULL, NULL, NULL, '$2y$12$3DeeMuKfkBeU59dO/43ice0YmqgHkh7zjhh1jZAewJDVV6gJlgbHy', '2024-06-09 02:21:16', '2024-06-09 02:21:16'),
+(4, 'moazzam hussain', 'moazzamjanjua111@gmail.com', 'Pakistan', 'N/A', '74375', 'N/A', NULL, '$2y$12$dgTSOh9pUzd6cNokS25yEO4/i.4UspaZajj0UHywK1kMx8HloSArm', '2024-06-09 02:31:10', '2024-06-09 02:31:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `owner_rooms`
+--
+
+CREATE TABLE `owner_rooms` (
+  `owner_id` int(11) NOT NULL,
+  `hostel_id` int(11) NOT NULL,
+  `room_id` bigint(20) UNSIGNED NOT NULL,
+  `room_images` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`room_images`)),
+  `room_type` enum('single_bed','double_bed','carpeted') NOT NULL,
+  `floor_number` enum('ground_floor','first_floor','second_floor','third_floor') NOT NULL,
+  `room_size` int(11) NOT NULL,
+  `current_occupancy` int(11) NOT NULL,
+  `required_occupancy` int(11) NOT NULL,
+  `wifi` tinyint(1) NOT NULL DEFAULT 0,
+  `filter_water` tinyint(1) NOT NULL DEFAULT 0,
+  `gas` tinyint(1) NOT NULL DEFAULT 0,
+  `chair` tinyint(1) NOT NULL DEFAULT 0,
+  `almaira` tinyint(1) NOT NULL DEFAULT 0,
+  `table` tinyint(1) NOT NULL DEFAULT 0,
+  `fan` tinyint(1) NOT NULL DEFAULT 0,
+  `ac` tinyint(1) NOT NULL DEFAULT 0,
+  `geyser` tinyint(1) NOT NULL DEFAULT 0,
+  `washroom` enum('private','share') NOT NULL,
+  `room_detail` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -956,9 +1083,22 @@ ALTER TABLE `admins`
   ADD UNIQUE KEY `admins_email_unique` (`email`);
 
 --
+-- Indexes for table `areas`
+--
+ALTER TABLE `areas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `areas_city_id_foreign` (`city_id`);
+
+--
 -- Indexes for table `category_list`
 --
 ALTER TABLE `category_list`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cities`
+--
+ALTER TABLE `cities`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -981,10 +1121,22 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `owner_hostels`
+--
+ALTER TABLE `owner_hostels`
+  ADD PRIMARY KEY (`hostel_id`);
+
+--
 -- Indexes for table `owner_register`
 --
 ALTER TABLE `owner_register`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`owner_id`);
+
+--
+-- Indexes for table `owner_rooms`
+--
+ALTER TABLE `owner_rooms`
+  ADD PRIMARY KEY (`room_id`);
 
 --
 -- Indexes for table `password_reset_tokens`
@@ -1024,10 +1176,22 @@ ALTER TABLE `admins`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `areas`
+--
+ALTER TABLE `areas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `category_list`
 --
 ALTER TABLE `category_list`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `cities`
+--
+ALTER TABLE `cities`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `customer_register`
@@ -1045,13 +1209,25 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `owner_hostels`
+--
+ALTER TABLE `owner_hostels`
+  MODIFY `hostel_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `owner_register`
 --
 ALTER TABLE `owner_register`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `owner_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `owner_rooms`
+--
+ALTER TABLE `owner_rooms`
+  MODIFY `room_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1070,6 +1246,16 @@ ALTER TABLE `users`
 --
 ALTER TABLE `user_register`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=704;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `areas`
+--
+ALTER TABLE `areas`
+  ADD CONSTRAINT `areas_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
