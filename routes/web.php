@@ -44,7 +44,7 @@ Route::get('/login', [LoginController::class, 'login'])->name('frontend.login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('frontend.authenticate');
 //Room-detail
 Route::get('/product-grid-sidebar-left', [ProductGridLeftController::class , 'productgridleft']);
-Route::get('/room-detail' , [RoomDetailController::class , 'roomDetail'])->name('frontend.room-detail');
+Route::get('/room-detail' , [RoomDetailController::class , 'roomDetail']);
 
 //profile
 Route::get('/myaccount', [LoginController::class, 'userAccount'])->name('frontend.user-acount');

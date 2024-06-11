@@ -193,8 +193,8 @@
                                                         <div class="product-miniature item-one first-item d-flex">
                                                             <div class="thumbnail-container border">
                                                                 <a href="product-detail.html">
-                                                                    <img class="img-fluid image-cover" src="img/product/1.jpg" alt="img">
-                                                                    <img class="img-fluid image-secondary" src="img/product/22.jpg" alt="img">
+                                                                    <img class="img-fluid image-cover" src="/frontend/img/product/1.jpg" alt="img">
+                                                                    <img class="img-fluid image-secondary" src="/frontend/img/product/22.jpg" alt="img">
                                                                 </a>
                                                             </div>
                                                             <div class="product-description">
@@ -224,8 +224,8 @@
                                                         <div class="product-miniature item-one first-item d-flex">
                                                             <div class="thumbnail-container border">
                                                                 <a href="product-detail.html">
-                                                                    <img class="img-fluid image-cover" src="img/product/2.jpg" alt="img">
-                                                                    <img class="img-fluid image-secondary" src="img/product/11.jpg" alt="img">
+                                                                    <img class="img-fluid image-cover" src="/frontend/img/product/2.jpg" alt="img">
+                                                                    <img class="img-fluid image-secondary" src="/frontend/img/product/11.jpg" alt="img">
                                                                 </a>
                                                             </div>
                                                             <div class="product-description">
@@ -255,8 +255,8 @@
                                                         <div class="product-miniature item-one first-item d-flex">
                                                             <div class="thumbnail-container border">
                                                                 <a href="product-detail.html">
-                                                                    <img class="img-fluid image-cover" src="img/product/3.jpg" alt="img">
-                                                                    <img class="img-fluid image-secondary" src="img/product/14.jpg" alt="img">
+                                                                    <img class="img-fluid image-cover" src="/frontend/img/product/3.jpg" alt="img">
+                                                                    <img class="img-fluid image-secondary" src="/frontend/img/product/14.jpg" alt="img">
                                                                 </a>
                                                             </div>
                                                             <div class="product-description">
@@ -350,16 +350,16 @@
                                                         <div class="images-container">
                                                             <div class="js-qv-mask mask tab-content border">
                                                                 <div id="item1" class="tab-pane fade active in show">
-                                                                    <img src="img/product/1.jpg" alt="img">
+                                                                    <img src="/frontend/img/product/1.jpg" alt="img">
                                                                 </div>
                                                                 <div id="item2" class="tab-pane fade">
-                                                                    <img src="img/product/2.jpg" alt="img">
+                                                                    <img src="/frontend/img/product/2.jpg" alt="img">
                                                                 </div>
                                                                 <div id="item3" class="tab-pane fade">
-                                                                    <img src="img/product/3.jpg" alt="img">
+                                                                    <img src="/frontend/img/product/3.jpg" alt="img">
                                                                 </div>
                                                                 <div id="item4" class="tab-pane fade">
-                                                                    <img src="img/product/5.jpg" alt="img">
+                                                                    <img src="/frontend/img/product/5.jpg" alt="img">
                                                                 </div>
                                                                 <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
                                                                     <i class="fa fa-expand"></i>
@@ -368,22 +368,22 @@
                                                             <ul class="product-tab nav nav-tabs d-flex">
                                                                 <li class="active col">
                                                                     <a href="#item1" data-toggle="tab" aria-expanded="true" class="active show">
-                                                                        <img src="img/product/1.jpg" alt="img">
+                                                                        <img src="/frontend/img/product/1.jpg" alt="img">
                                                                     </a>
                                                                 </li>
                                                                 <li class="col">
                                                                     <a href="#item2" data-toggle="tab">
-                                                                        <img src="img/product/2.jpg" alt="img">
+                                                                        <img src="/frontend/img/product/2.jpg" alt="img">
                                                                     </a>
                                                                 </li>
                                                                 <li class="col">
                                                                     <a href="#item3" data-toggle="tab">
-                                                                        <img src="img/product/3.jpg" alt="img">
+                                                                        <img src="/frontend/img/product/3.jpg" alt="img">
                                                                     </a>
                                                                 </li>
                                                                 <li class="col">
                                                                     <a href="#item4" data-toggle="tab">
-                                                                        <img src="img/product/5.jpg" alt="img">
+                                                                        <img src="/frontend/img/product/5.jpg" alt="img">
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -399,37 +399,37 @@
                                                                                         <div class="images-container">
                                                                                             <div class="js-qv-mask mask tab-content">
                                                                                                 <div id="modal-item1" class="tab-pane fade active in show">
-                                                                                                    <img src="img/product/1.jpg" alt="img">
+                                                                                                    <img src="/frontend/img/product/1.jpg" alt="img">
                                                                                                 </div>
                                                                                                 <div id="modal-item2" class="tab-pane fade">
-                                                                                                    <img src="img/product/2.jpg" alt="img">
+                                                                                                    <img src="/frontend/img/product/2.jpg" alt="img">
                                                                                                 </div>
                                                                                                 <div id="modal-item3" class="tab-pane fade">
-                                                                                                    <img src="img/product/3.jpg" alt="img">
+                                                                                                    <img src="/frontend/img/product/3.jpg" alt="img">
                                                                                                 </div>
                                                                                                 <div id="modal-item4" class="tab-pane fade">
-                                                                                                    <img src="img/product/5.jpg" alt="img">
+                                                                                                    <img src="/frontend/img/product/5.jpg" alt="img">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <ul class="product-tab nav nav-tabs">
                                                                                                 <li class="active">
                                                                                                     <a href="#modal-item1" data-toggle="tab" class=" active show">
-                                                                                                        <img src="img/product/1.jpg" alt="img">
+                                                                                                        <img src="/frontend/img/product/1.jpg" alt="img">
                                                                                                     </a>
                                                                                                 </li>
                                                                                                 <li>
                                                                                                     <a href="#modal-item2" data-toggle="tab">
-                                                                                                        <img src="img/product/2.jpg" alt="img">
+                                                                                                        <img src="/frontend/img/product/2.jpg" alt="img">
                                                                                                     </a>
                                                                                                 </li>
                                                                                                 <li>
                                                                                                     <a href="#modal-item3" data-toggle="tab">
-                                                                                                        <img src="img/product/3.jpg" alt="img">
+                                                                                                        <img src="/frontend/img/product/3.jpg" alt="img">
                                                                                                     </a>
                                                                                                 </li>
                                                                                                 <li>
                                                                                                     <a href="#modal-item4" data-toggle="tab">
-                                                                                                        <img src="img/product/5.jpg" alt="img">
+                                                                                                        <img src="/frontend/img/product/5.jpg" alt="img">
                                                                                                     </a>
                                                                                                 </li>
                                                                                             </ul>
@@ -446,69 +446,10 @@
                                                 </div>
                                                 <div class="product-info col-xs-12 col-md-7 col-sm-7">
                                                     <div class="detail-description">
-                                                        <div class="price-del">
-                                                            <span class="price">£150.00</span>
-                                                            <span class="float-right">
-                                                                <span class="availb">Availability: </span>
-                                                                <span class="check">
-                                                                    <i class="fa fa-check-square-o" aria-hidden="true"></i>IN STOCK</span>
-                                                            </span>
-                                                        </div>
+                                                        
                                                         <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean lorem quis bibendum
                                                             auctor, nisi elit consequat etiam non auctor.</p>
-                                                        <div class="option has-border d-lg-flex size-color">
-                                                            <div class="size">
-                                                                <span class="size">size :</span>
-                                                                <select>
-                                                                    <option value="">Choose your size</option>
-                                                                    <option value="">M</option>
-                                                                    <option value="">l</option>
-                                                                    <option value="">xl</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="colors">
-                                                                <b class="title">Color : </b>
-                                                                <span class="blue"></span>
-                                                                <span class="yellow"></span>
-                                                                <span class="pink"></span>
-                                                                <span class="green"></span>
-                                                                <span class="brown"></span>
-                                                                <span class="red"></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="has-border cart-area">
-                                                            <div class="product-quantity">
-                                                                <div class="qty">
-                                                                    <div class="input-group">
-                                                                        <div class="quantity">
-                                                                            <span class="control-label">QTY : </span>
-                                                                            <input type="text" name="qty" id="quantity_wanted" value="1" class="input-group form-control">
-
-                                                                            <span class="input-group-btn-vertical">
-                                                                                <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
-                                                                                    +
-                                                                                </button>
-                                                                                <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
-                                                                                    -
-                                                                                </button>
-                                                                            </span>
-                                                                        </div>
-                                                                        <span class="add">
-                                                                            <button class="btn btn-primary add-to-cart add-item" data-button-action="add-to-cart" type="submit">
-                                                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                <span>Add to cart</span>
-                                                                            </button>
-                                                                            <a class="addToWishlist" href="#">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                            <p class="product-minimal-quantity">
-                                                            </p>
-                                                        </div>
+                                                    
                                                         <div class="d-flex2 has-border">
                                                             <div class="btn-group">
                                                                 <a href="#">
@@ -732,8 +673,8 @@
                                                             <div class="product-miniature js-product-miniature item-one first-item">
                                                                 <div class="thumbnail-container border border">
                                                                     <a href="product-detail.html">
-                                                                        <img class="img-fluid image-cover" src="img/product/1.jpg" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="img/product/22.jpg" alt="img">
+                                                                        <img class="img-fluid image-cover" src="/frontend/img/product/1.jpg" alt="img">
+                                                                        <img class="img-fluid image-secondary" src="/frontend/img/product/22.jpg" alt="img">
                                                                     </a>
                                                                     <div class="highlighted-informations">
                                                                         <div class="variant-links">
@@ -783,8 +724,8 @@
                                                             <div class="product-miniature js-product-miniature item-one first-item">
                                                                 <div class="thumbnail-container border">
                                                                     <a href="product-detail.html">
-                                                                        <img class="img-fluid image-cover" src="img/product/2.jpg" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="img/product/11.jpg" alt="img">
+                                                                        <img class="img-fluid image-cover" src="/frontend/img/product/2.jpg" alt="img">
+                                                                        <img class="img-fluid image-secondary" src="/frontend//frontend/img/product/11.jpg" alt="img">
                                                                     </a>
                                                                     <div class="highlighted-informations">
                                                                         <div class="variant-links">
@@ -834,8 +775,8 @@
                                                             <div class="product-miniature js-product-miniature item-one first-item">
                                                                 <div class="thumbnail-container border">
                                                                     <a href="product-detail.html">
-                                                                        <img class="img-fluid image-cover" src="img/product/3.jpg" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="img/product/14.jpg" alt="img">
+                                                                        <img class="img-fluid image-cover" src="/frontend/img/product/3.jpg" alt="img">
+                                                                        <img class="img-fluid image-secondary" src="/frontend/img/product/14.jpg" alt="img">
                                                                     </a>
                                                                     <div class="highlighted-informations">
                                                                         <div class="variant-links">

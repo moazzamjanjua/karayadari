@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class RoomDetailController extends Controller
 {
     public function roomDetail(){
-        return view('frondend.room-detail');
+        return view('frontend.room-detail');
     }
 }

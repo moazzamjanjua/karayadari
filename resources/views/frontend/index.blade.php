@@ -68,29 +68,26 @@
                                                 <div class="cate-child-vertical">
                                                     <ul class="d-flex align-items-start flex-column">
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html"> <h6> Male-Only Hostels</h6> </a>
+                                                            <a href="../room-detail"> <h6> Male-Only Hostels</h6> </a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html"><h6>Female-Only Hostels</h6></a>
+                                                            <a href="../room-detail"><h6>Female-Only Hostels</h6></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html"><h6>Work/Study Hostels</h6></a>
+                                                            <a href="../room-detail"><h6>Work/Study Hostels</h6></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html"><h6>Luxury Hostels</h6></a>
+                                                            <a href="../room-detail"><h6>Luxury Hostels</h6></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html"><h6>Private Hostels</h6></a>
+                                                            <a href="../room-detail"><h6>Private Hostels</h6></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html"><h6>Public Hostels</h6></a>
+                                                            <a href="../room-detail"><h6>Public Hostels</h6></a>
                                                         </li>
                                                         <li>
-                                                            <a href="product-grid-sidebar-left.html"><h6>Party Hostels</h6></a>
-                                                      
-                                                        <li class="last float-right">
-                                                            <a href="product-grid-sidebar-left.html"><h6>View all</h6></a>
-                                                        </li>
+                                                            <a href="../room-detail"><h6>Party Hostels</h6></a>
+
                                                     </ul>
                                                 </div>
                                             </div>
@@ -114,7 +111,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature first-item js-product-miniature item-one">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="product-detail.html">
+                                                                        <a href="../room-detail">
                                                                             <img class="img-fluid image-cover" src="/frontend/img/product/1.jpg" alt="img">
                                                                             <img class="img-fluid image-secondary" src="/frontend/img/product/5.jpg" alt="img">
                                                                         </a>
@@ -130,7 +127,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                <a href="../room-detail">Best Room</a>
                                                                             </div>
                                                                             <div class="rating">
                                                                                 <div class="star-content">
@@ -150,7 +147,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="product-detail.html">
+                                                                        <a href="../room-detail">
                                                                             <img class="img-fluid image-cover" src="/frontend/img/product/3.jpg" alt="img">
                                                                             <img class="img-fluid image-secondary" src="/frontend/img/product/9.jpg" alt="img">
                                                                         </a>
@@ -166,7 +163,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="product-detail.html">Nam semper a ligula nec</a>
+                                                                                <a href="../room-detail">Best Room 2</a>
                                                                             </div>
                                                                             <div class="rating">
                                                                                 <div class="star-content">
@@ -188,7 +185,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="product-detail.html">
+                                                                        <a href="../room-detail">
                                                                             <img class="img-fluid image-cover" src="/frontend/img/product/2.jpg" alt="img">
                                                                             <img class="img-fluid image-secondary" src="/frontend/img/product/17.jpg" alt="img">
                                                                         </a>
@@ -203,7 +200,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="product-detail.html">Phasellus vitae...</a>
+                                                                                <a href="../room-detail">Phasellus vitae...</a>
                                                                             </div>
                                                                             <div class="rating">
                                                                                 <div class="star-content">
@@ -230,7 +227,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="product-detail.html">
+                                                                        <a href="../room-detail">
                                                                             <img class="img-fluid image-cover" src="/frontend/img/product/4.jpg" alt="img">
                                                                             <img class="img-fluid image-secondary" src="/frontend/img/product/10.jpg" alt="img">
                                                                         </a>
@@ -246,7 +243,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="product-detail.html">Nam semper a ligula nec</a>
+                                                                                <a href="../room-detail">Nam semper a ligula nec</a>
                                                                             </div>
                                                                             <div class="rating">
                                                                                 <div class="star-content">
@@ -268,7 +265,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="product-detail.html">
+                                                                        <a href="../room-detail">
                                                                             <img class="img-fluid image-cover" src="/frontend/img/product/5.jpg" alt="img">
                                                                             <img class="img-fluid image-secondary" src="/frontend/img/product/12.jpg" alt="img">
                                                                         </a>
@@ -284,7 +281,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                <a href="../room-detail">Nulla et justo non augue</a>
                                                                             </div>
                                                                             <div class="rating">
                                                                                 <div class="star-content">
@@ -306,7 +303,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="product-detail.html">
+                                                                        <a href="../room-detail">
                                                                             <img class="img-fluid image-cover" src="/frontend/img/product/6.jpg" alt="img">
                                                                             <img class="img-fluid image-secondary" src="/frontend/img/product/13.jpg" alt="img">
                                                                         </a>
@@ -321,7 +318,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                <a href="../room-detail">Nulla et justo non augue</a>
                                                                             </div>
                                                                             <div class="rating">
                                                                                 <div class="star-content">
@@ -348,7 +345,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="product-detail.html">
+                                                                        <a href="../room-detail">
                                                                             <img class="img-fluid image-cover" src="/frontend/img/product/7.jpg" alt="img">
                                                                             <img class="img-fluid image-secondary" src="/frontend/img/product/14.jpg" alt="img">
                                                                         </a>
@@ -364,7 +361,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                <a href="../room-detail">Nulla et justo non augue</a>
                                                                             </div>
                                                                             <div class="rating">
                                                                                 <div class="star-content">
@@ -386,7 +383,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="product-detail.html">
+                                                                        <a href="../room-detail">
                                                                             <img class="img-fluid image-cover" src="/frontend/img/product/8.jpg" alt="img">
                                                                             <img class="img-fluid image-secondary" src="/frontend/img/product/15.jpg" alt="img">
                                                                         </a>
@@ -402,7 +399,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                <a href="../room-detail">Nulla et justo non augue</a>
                                                                             </div>
                                                                             <div class="rating">
                                                                                 <div class="star-content">
@@ -424,7 +421,7 @@
                                                             <div class="item text-center">
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
-                                                                        <a href="product-detail.html">
+                                                                        <a href="../room-detail">
                                                                             <img class="img-fluid image-cover" src="/frontend/img/product/9.jpg" alt="img">
                                                                             <img class="img-fluid image-secondary" src="/frontend/img/product/16.jpg" alt="img">
                                                                         </a>
@@ -440,7 +437,7 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                                <a href="../room-detail">Nulla et justo non augue</a>
                                                                             </div>
                                                                             <div class="rating">
                                                                                 <div class="star-content">
@@ -518,7 +515,7 @@
                                                                 <div class="item text-center">
                                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                                         <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
+                                                                            <a href="../room-detail">
                                                                                 <img class="img-fluid image-cover" src="/frontend/img/product/26.jpg" alt="img">
                                                                                 <img class="img-fluid image-secondary" src="/frontend/img/product/1.jpg" alt="img">
                                                                             </a>
@@ -544,7 +541,7 @@
                                                                     </div>
                                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                                         <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
+                                                                            <a href="../room-detail">
                                                                                 <img class="img-fluid image-cover" src="/frontend/img/product/25.jpg" alt="img">
                                                                                 <img class="img-fluid image-secondary" src="/frontend/img/product/2.jpg" alt="img">
                                                                             </a>
@@ -559,7 +556,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Best Room 2</a>
+                                                                                    <a href="../room-detail">Best Room 2</a>
                                                                                 </div>
                                                                                 <div class="product-group-price">
                                                                                     
@@ -572,7 +569,7 @@
                                                                 <div class="item text-center">
                                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                                         <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
+                                                                            <a href="../room-detail">
                                                                                 <img class="img-fluid image-cover" src="/frontend/img/product/10.jpg" alt="img">
                                                                                 <img class="img-fluid image-secondary" src="/frontend/img/product/9.jpg" alt="img">
                                                                             </a>
@@ -587,7 +584,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Best Room 3</a>
+                                                                                    <a href="../room-detail">Best Room 3</a>
                                                                                 </div>
                                                                                 <div class="product-group-price">
                                                                                    
@@ -598,7 +595,7 @@
                                                                     </div>
                                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                                         <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
+                                                                            <a href="../room-detail">
                                                                                 <img class="img-fluid image-cover" src="/frontend/img/product/3.jpg" alt="img">
                                                                                 <img class="img-fluid image-secondary" src="/frontend/img/product/9.jpg" alt="img">
                                                                             </a>
@@ -613,7 +610,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Best Room 4</a>
+                                                                                    <a href="../room-detail">Best Room 4</a>
                                                                                 </div>
                                                                                 <div class="product-group-price">
                                                                                    
@@ -626,7 +623,7 @@
                                                                 <div class="item text-center">
                                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                                         <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
+                                                                            <a href="../room-detail">
                                                                                 <img class="img-fluid image-cover" src="/frontend/img/product/24.jpg" alt="img">
                                                                                 <img class="img-fluid image-secondary" src="/frontend/img/product/3.jpg" alt="img">
                                                                             </a>
@@ -641,7 +638,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Best Room 5</a>
+                                                                                    <a href="../room-detail">Best Room 5</a>
                                                                                 </div>
                                                                                 <div class="product-group-price">
                                                                                    
@@ -652,7 +649,7 @@
                                                                     </div>
                                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                                         <div class="thumbnail-container">
-                                                                            <a href="product-detail.html">
+                                                                            <a href="../room-detail">
                                                                                 <img class="img-fluid image-cover" src="/frontend/img/product/23.jpg" alt="img">
                                                                                 <img class="img-fluid image-secondary" src="/frontend/img/product/4.jpg" alt="img">
                                                                             </a>
@@ -667,7 +664,7 @@
                                                                         <div class="product-description">
                                                                             <div class="product-groups">
                                                                                 <div class="product-title">
-                                                                                    <a href="product-detail.html">Best Room 6</a>
+                                                                                    <a href="../room-detail">Best Room 6</a>
                                                                                 </div>
                                                                                 <div class="product-group-price">
                                                                                     
@@ -798,13 +795,13 @@
                                                     <div class="content-lookbook">
                                                         <div class="main-lookbook d-flex align-items-center">
                                                             <div class="item-thumb">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img src="/frontend/img/home/icon-tolltip2.jpg" alt="lorem-ipsum-dolor-sit-amet">
                                                                 </a>
                                                             </div>
                                                             <div class="content-bottom">
                                                                 <div class="item-title">
-                                                                    <a href="product-detail.html">Lorem ipsum dolor</a>
+                                                                    <a href="../room-detail">Lorem ipsum dolor</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -819,7 +816,7 @@
                                                                     £52.00
                                                                 </div>
                                                                 <div class="readmore">
-                                                                    <a href="product-detail.html">View More</a>
+                                                                    <a href="../room-detail">View More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -831,13 +828,13 @@
                                                     <div class="content-lookbook">
                                                         <div class="main-lookbook  d-flex align-items-center">
                                                             <div class="item-thumb">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img src="/frontend/img/home/icon-tolltip1.jpg" alt="contrary-to-popular-belief">
                                                                 </a>
                                                             </div>
                                                             <div class="content-bottom">
                                                                 <div class="item-title">
-                                                                    <a href="product-detail.html">Sed vel malesuada lorem</a>
+                                                                    <a href="../room-detail">Sed vel malesuada lorem</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -852,7 +849,7 @@
                                                                     £68.00
                                                                 </div>
                                                                 <div class="readmore">
-                                                                    <a href="product-detail.html">View More</a>
+                                                                    <a href="../room-detail">View More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -875,13 +872,13 @@
                                                     <div class="content-lookbook">
                                                         <div class="main-lookbook  d-flex align-items-center">
                                                             <div class="item-thumb">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img src="/frontend/img/product/34.jpg" alt="lorem-ipsum-dolor-sit-amet">
                                                                 </a>
                                                             </div>
                                                             <div class="content-bottom">
                                                                 <div class="item-title">
-                                                                    <a href="product-detail.html">Lorem ipsum dolor sit</a>
+                                                                    <a href="../room-detail">Lorem ipsum dolor sit</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -896,7 +893,7 @@
                                                                     £45.00
                                                                 </div>
                                                                 <div class="readmore">
-                                                                    <a href="product-detail.html">View More</a>
+                                                                    <a href="../room-detail">View More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -908,13 +905,13 @@
                                                     <div class="content-lookbook">
                                                         <div class="main-lookbook  d-flex align-items-center">
                                                             <div class="item-thumb">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img src="/frontend/img/home/icon-tolltip6.jpg" alt="lorem-ipsum-dolor-sit-amet">
                                                                 </a>
                                                             </div>
                                                             <div class="content-bottom">
                                                                 <div class="item-title">
-                                                                    <a href="product-detail.html">Lorem ipsum dolor</a>
+                                                                    <a href="../room-detail">Lorem ipsum dolor</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -929,7 +926,7 @@
                                                                     £21.00
                                                                 </div>
                                                                 <div class="readmore">
-                                                                    <a href="product-detail.html">View More</a>
+                                                                    <a href="../room-detail">View More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -941,13 +938,13 @@
                                                     <div class="content-lookbook">
                                                         <div class="main-lookbook  d-flex align-items-center">
                                                             <div class="item-thumb">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img src="/frontend/img/home/icon-tolltip4.jpg" alt="mug-the-adventure-begins">
                                                                 </a>
                                                             </div>
                                                             <div class="content-bottom">
                                                                 <div class="item-title">
-                                                                    <a href="product-detail.html">Sed vel malesuada lorem</a>
+                                                                    <a href="../room-detail">Sed vel malesuada lorem</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -962,7 +959,7 @@
                                                                     £11.90
                                                                 </div>
                                                                 <div class="readmore">
-                                                                    <a href="product-detail.html">View More</a>
+                                                                    <a href="../room-detail">View More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -987,13 +984,13 @@
                                                     <div class="content-lookbook">
                                                         <div class="main-lookbook  d-flex align-items-center">
                                                             <div class="item-thumb">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img src="/frontend/img/home/icon-tolltip4.jpg" alt="mug-the-adventure-begins">
                                                                 </a>
                                                             </div>
                                                             <div class="content-bottom">
                                                                 <div class="item-title">
-                                                                    <a href="product-detail.html">Sed vel malesuada lorem</a>
+                                                                    <a href="../room-detail">Sed vel malesuada lorem</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -1008,7 +1005,7 @@
                                                                     £11.90
                                                                 </div>
                                                                 <div class="readmore">
-                                                                    <a href="product-detail.html">View More</a>
+                                                                    <a href="../room-detail">View More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1020,13 +1017,13 @@
                                                     <div class="content-lookbook">
                                                         <div class="main-lookbook  d-flex align-items-center">
                                                             <div class="item-thumb">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img src="/frontend/img/product/13.jpg" alt="brown-bear-vector-graphics">
                                                                 </a>
                                                             </div>
                                                             <div class="content-bottom">
                                                                 <div class="item-title">
-                                                                    <a href="product-detail.html">Orci varius natoque penatibus</a>
+                                                                    <a href="../room-detail">Orci varius natoque penatibus</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -1041,7 +1038,7 @@
                                                                     £9.00
                                                                 </div>
                                                                 <div class="readmore">
-                                                                    <a href="product-detail.html">View More</a>
+                                                                    <a href="../room-detail">View More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1053,13 +1050,13 @@
                                                     <div class="content-lookbook">
                                                         <div class="main-lookbook  d-flex align-items-center">
                                                             <div class="item-thumb">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img src="/frontend/img/home/icon-tolltip6.jpg" alt="lorem-ipsum-dolor-sit-amet">
                                                                 </a>
                                                             </div>
                                                             <div class="content-bottom">
                                                                 <div class="item-title">
-                                                                    <a href="product-detail.html">Etiam congue nisl nec</a>
+                                                                    <a href="../room-detail">Etiam congue nisl nec</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -1074,7 +1071,7 @@
                                                                     £16.00
                                                                 </div>
                                                                 <div class="readmore">
-                                                                    <a href="product-detail.html">View More</a>
+                                                                    <a href="../room-detail">View More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1100,13 +1097,13 @@
                                                     <div class="content-lookbook">
                                                         <div class="main-lookbook  d-flex align-items-center">
                                                             <div class="item-thumb">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img src="/frontend/img/home/icon-tolltip10.jpg" alt="lorem-ipsum-dolor-sit-amet">
                                                                 </a>
                                                             </div>
                                                             <div class="content-bottom">
                                                                 <div class="item-title">
-                                                                    <a href="product-detail.html">Nam semper a ligula nec</a>
+                                                                    <a href="../room-detail">Nam semper a ligula nec</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -1121,7 +1118,7 @@
                                                                     £41.00
                                                                 </div>
                                                                 <div class="readmore">
-                                                                    <a href="product-detail.html">View More</a>
+                                                                    <a href="../room-detail">View More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1133,13 +1130,13 @@
                                                     <div class="content-lookbook">
                                                         <div class="main-lookbook  d-flex align-items-center">
                                                             <div class="item-thumb">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img src="/frontend/img/home/icon-tolltip8.jpg" alt="lorem-ipsum-dolor-sit-amet">
                                                                 </a>
                                                             </div>
                                                             <div class="content-bottom">
                                                                 <div class="item-title">
-                                                                    <a href="product-detail.html">Donec accumsan lectus ut</a>
+                                                                    <a href="../room-detail">Donec accumsan lectus ut</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -1154,7 +1151,7 @@
                                                                     £11.00
                                                                 </div>
                                                                 <div class="readmore">
-                                                                    <a href="product-detail.html">View More</a>
+                                                                    <a href="../room-detail">View More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1166,13 +1163,13 @@
                                                     <div class="content-lookbook">
                                                         <div class="main-lookbook  d-flex align-items-center">
                                                             <div class="item-thumb">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img src="/frontend/img/home/icon-tolltip9.jpg" alt="lorem-ipsum-dolor-sit-amet">
                                                                 </a>
                                                             </div>
                                                             <div class="content-bottom">
                                                                 <div class="item-title">
-                                                                    <a href="product-detail.html">Fusce quis felis libero</a>
+                                                                    <a href="../room-detail">Fusce quis felis libero</a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -1187,7 +1184,7 @@
                                                                     £11.00
                                                                 </div>
                                                                 <div class="readmore">
-                                                                    <a href="product-detail.html">View More</a>
+                                                                    <a href="../room-detail">View More</a>
                                                                 </div>
                                                             </div>
                                                         </div>
