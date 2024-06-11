@@ -50,53 +50,7 @@
                 <div id="main">
                     <section class="page-home">
                         <div class="container">
-
-                            <!-- delivery form -->
-                            <div class="section policy-home col-lg-12 col-xs-12">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="block">
-                                            <div class="block-content">
-                                                <div class="policy-item">
-                                                    <div class="policy-content iconpolicy1">
-                                                        <img src="/frontend/img/home/home1-policy.png" alt="img">
-                                                        <div class="policy-name mb-5">FREE DELIVERY FROM $ 250</div>
-                                                        <div class="policy-des">Lorem ipsum dolor amet consectetur</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tiva-html col-lg-4 col-md-4">
-                                        <div class="block">
-                                            <div class="block-content">
-                                                <div class="policy-item">
-                                                    <div class="policy-content iconpolicy2">
-                                                        <img src="/frontend/img/home/home1-policy2.png" alt="img">
-                                                        <div class="policy-name mb-5">FREE INSTALLATION</div>
-                                                        <div class="policy-des">Lorem ipsum dolor amet consectetur</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tiva-html col-lg-4 col-md-4">
-                                        <div class="block">
-                                            <div class="block-content">
-                                                <div class="policy-item">
-                                                    <div class="policy-content iconpolicy3">
-                                                        <img src="/frontend/img/home/home1-policy3.png" alt="img">
-                                                        <div class="policy-name mb-5">MONEY BACK GUARANTEED</div>
-                                                        <div class="policy-des">Lorem ipsum dolor amet consectetur</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-
                         <!-- product living room -->
                         <div class="section living-room">
                             <div class="container">
@@ -1800,60 +1754,6 @@
                                         </div>
                                     </div>
 
-                                </div>
-                            </div>
-
-                            <!-- partner -->
-                            <div class="section introduct-logo">
-                                <div class="row">
-                                    <div class="tiva-manufacture  col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                                        <div class="block">
-                                            <div id="manufacture" class="owl-carousel owl-theme owl-loaded owl-drag">
-                                                <div class="item">
-                                                    <div class="logo-manu">
-                                                        <a href="#" title="view products">
-                                                            <img class="img-fluid" src="/frontend/img/home/icon-logo1.jpg" alt="img" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="logo-manu">
-                                                        <a href="#" title="view products">
-                                                            <img class="img-fluid" src="/frontend/img/home/icon-logo2.jpg" alt="img" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="logo-manu">
-                                                        <a href="#" title="view products">
-                                                            <img class="img-fluid" src="/frontend/img/home/icon-logo3.jpg" alt="img" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="logo-manu">
-                                                        <a href="#" title="view products">
-                                                            <img class="img-fluid" src="/frontend/img/home/icon-logo4.jpg" alt="img" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="logo-manu">
-                                                        <a href="#" title="view products">
-                                                            <img class="img-fluid" src="/frontend/img/home/icon-logo5.jpg" alt="img" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="logo-manu">
-                                                        <a href="#" title="view products">
-                                                            <img class="img-fluid" src="/frontend/img/home/icon-logo6.jpg" alt="img" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
