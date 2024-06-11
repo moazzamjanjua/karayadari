@@ -68,7 +68,7 @@
 
    
 
-    <a href="{{ route('owner.roomForm', [ 'hostel_id' => $hostel_id]) }}" class="add_room_button">Add Hostels</a>
+    <a href="{{ route('owner.roomForm', [ 'hostel_id' => $hostel_id]) }}" class="add_room_button">Add Rooms</a>
 
 
 </body>

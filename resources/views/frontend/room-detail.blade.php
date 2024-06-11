@@ -10,30 +10,7 @@
                 <div id="main">
                     <div class="page-home">
 
-                        <!-- breadcrumb -->
-                        <nav class="breadcrumb-bg">
-                            <div class="container no-index">
-                                <div class="breadcrumb">
-                                    <ol>
-                                        <li>
-                                            <a href="#">
-                                                <span>Home</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Living Room</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Sofa</span>
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </nav>
+                       
                         <div class="container">
                             <div class="content">
                                 <div class="row">
@@ -192,7 +169,7 @@
                                                     <div class="item col-md-12">
                                                         <div class="product-miniature item-one first-item d-flex">
                                                             <div class="thumbnail-container border">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img class="img-fluid image-cover" src="/frontend/img/product/1.jpg" alt="img">
                                                                     <img class="img-fluid image-secondary" src="/frontend/img/product/22.jpg" alt="img">
                                                                 </a>
@@ -200,7 +177,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo augue</a>
+                                                                        <a href="../room-detail">Best Room 3</a>
                                                                     </div>
                                                                     <div class="rating">
                                                                         <div class="star-content">
@@ -211,11 +188,7 @@
                                                                             <div class="star"></div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="product-group-price">
-                                                                        <div class="product-price-and-shipping">
-                                                                            <span class="price">£28.08</span>
-                                                                        </div>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -223,7 +196,7 @@
                                                     <div class="item col-md-12">
                                                         <div class="product-miniature item-one first-item d-flex">
                                                             <div class="thumbnail-container border">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img class="img-fluid image-cover" src="/frontend/img/product/2.jpg" alt="img">
                                                                     <img class="img-fluid image-secondary" src="/frontend/img/product/11.jpg" alt="img">
                                                                 </a>
@@ -231,7 +204,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo augue</a>
+                                                                        <a href="../room-detail">Best Room 4</a>
                                                                     </div>
                                                                     <div class="rating">
                                                                         <div class="star-content">
@@ -242,11 +215,7 @@
                                                                             <div class="star"></div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="product-group-price">
-                                                                        <div class="product-price-and-shipping">
-                                                                            <span class="price">£31.08</span>
-                                                                        </div>
-                                                                    </div>
+                                                                   
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -254,7 +223,7 @@
                                                     <div class="item col-md-12">
                                                         <div class="product-miniature item-one first-item d-flex">
                                                             <div class="thumbnail-container border">
-                                                                <a href="product-detail.html">
+                                                                <a href="../room-detail">
                                                                     <img class="img-fluid image-cover" src="/frontend/img/product/3.jpg" alt="img">
                                                                     <img class="img-fluid image-secondary" src="/frontend/img/product/14.jpg" alt="img">
                                                                 </a>
@@ -262,7 +231,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo augue</a>
+                                                                        <a href="../room-detail">Best rooms 5</a>
                                                                     </div>
                                                                     <div class="rating">
                                                                         <div class="star-content">
@@ -273,11 +242,7 @@
                                                                             <div class="star"></div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="product-group-price">
-                                                                        <div class="product-price-and-shipping">
-                                                                            <span class="price">£20.08</span>
-                                                                        </div>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -290,52 +255,28 @@
                                         <!-- product tag -->
                                         <div class="sidebar-block product-tags">
                                             <div class="title-block">
-                                                Product Tags
+                                                Populer Tags
                                             </div>
                                             <div class="block-content">
                                                 <ul class="listSidebarBlog list-unstyled">
                                                     <li>
-                                                        <a href="#" title="Show products matching tag Hot Trend">Hot Trend</a>
+                                                        <a href="#" title="Show products matching tag Hot Trend">HCozy Atmosphere</a>
                                                     </li>
 
                                                     <li>
-                                                        <a href="#" title="Show products matching tag Jewelry">Jewelry</a>
+                                                        <a href="#" title="Show products matching tag Jewelry">Warm Lighting</a>
                                                     </li>
 
                                                     <li>
-                                                        <a href="man.html" title="Show products matching tag Man">Man</a>
+                                                        <a href="man.html" title="Show products matching tag Man">Rustic Decor</a>
                                                     </li>
 
                                                     <li>
-                                                        <a href="#" title="Show products matching tag Party">Party</a>
+                                                        <a href="#" title="Show products matching tag Party">Reading Nook</a>
                                                     </li>
 
                                                     <li>
-                                                        <a href="#" title="Show products matching tag SamSung">SamSung</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shirt Dresses">Shirt Dresses</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shoes">Shoes</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Summer">Summer</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Sweaters">Sweaters</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Winter">Winter</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Woman">Woman</a>
+                                                        <a href="#" title="Show products matching tag Winter">Air Cooler Room</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -343,7 +284,7 @@
                                     </div>
                                     <div class="col-sm-8 col-lg-9 col-md-9">
                                         <div class="main-product-detail">
-                                            <h2>Lorem ipsum dolor</h2>
+                                            <h2>Moazzam Hostel Room 1</h2>
                                             <div class="product-single row">
                                                 <div class="product-detail col-xs-12 col-md-5 col-sm-5">
                                                     <div class="page-content" id="content">
@@ -447,8 +388,7 @@
                                                 <div class="product-info col-xs-12 col-md-7 col-sm-7">
                                                     <div class="detail-description">
                                                         
-                                                        <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean lorem quis bibendum
-                                                            auctor, nisi elit consequat etiam non auctor.</p>
+                                                        <p class="description">A cozy room with soft, warm lighting and wooden floors. A plush armchair sits by a large window, adorned with sheer curtains that let in a gentle glow.</p>
                                                     
                                                         <div class="d-flex2 has-border">
                                                             <div class="btn-group">
@@ -493,25 +433,21 @@
                                                             </div>
                                                         </div>
                                                         <div class="content">
-                                                            <p>SKU :
-                                                                <span class="content2">
-                                                                    <a href="#">e-02154</a>
-                                                                </span>
-                                                            </p>
+                                                          
                                                             <p>Categories :
                                                                 <span class="content2">
-                                                                    <a href="#">Clothing</a>,
-                                                                    <a href="#">Men's Jackets</a>
+                                                                    <a href="#">Cozy Living Space</a>,
+                                                                    <a href="#">Beatiful Room</a>
                                                                 </span>
                                                             </p>
                                                             <p>tags :
                                                                 <span class="content2">
-                                                                    <a href="#">Jacket</a>,
-                                                                    <a href="#">Overcoat</a>,
+                                                                    <a href="#">Wooden floors</a>,
+                                                                    <a href="#">Steaming tea</a>,
                                                                     <a href="#">Luxury</a>,
-                                                                    <a href="#">men</a>,
-                                                                    <a href="#">summer</a>,
-                                                                    <a href="#">autumn</a>
+                                                                    <a href="#">Large window</a>,
+                                                                    <a href="#">Bookshelves</a>,
+                                                                    <a href="#">Peaceful</a>
                                                                 </span>
                                                             </p>
                                                         </div>
@@ -525,7 +461,7 @@
                                                         <a data-toggle="tab" href="#description" class="active show">Description</a>
                                                     </li>
                                                     <li>
-                                                        <a data-toggle="tab" href="#tag">Product Tags</a>
+                                                        <a data-toggle="tab" href="#tag">Room Tags</a>
                                                     </li>
                                                     <li>
                                                         <a data-toggle="tab" href="#review">Reviews (2)</a>
@@ -534,15 +470,7 @@
 												
                                                 <div class="tab-content">
                                                     <div id="description" class="tab-pane fade in active show">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                            eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
-                                                            ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                            tempor incididunt ut labore et dolore magna aliqua.
-                                                        </p>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                            eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
-                                                            ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                            tempor incididunt ut labore et dolore magna aliqua.
+                                                        <p>A cozy room with soft, warm lighting and wooden floors. A plush armchair sits by a large window, adorned with sheer curtains that let in a gentle glow. Bookshelves line one wall, filled with an eclectic mix of novels and trinkets. A small, rustic coffee table holds a steaming cup of tea and a stack of magazines. The scent of vanilla and cinnamon lingers in the air, creating a welcoming and peaceful atmosphere.
                                                         </p>
                                                     </div>
 													
@@ -552,8 +480,8 @@
                                                                 <div class="spr-review">
                                                                     <div class="spr-review-header">
                                                                         <span class="spr-review-header-byline">
-                                                                            <strong>Peter Capidal</strong> -
-                                                                            <span>Apr 14, 2018</span>
+                                                                            <strong>Moazzam Hussain</strong> -
+                                                                            <span>June 12, 2024</span>
                                                                         </span>
                                                                         <div class="rating">
                                                                             <div class="star-content">
@@ -566,19 +494,14 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="spr-review-content">
-                                                                        <p class="spr-review-content-body">In feugiat venenatis enim, non finibus metus bibendum
-                                                                            eu. Proin massa justo, eleifend fermentum varius
-                                                                            quis, semper gravida quam. Cras nec enim sed
-                                                                            lacus viverra luctus. Nunc quis accumsan mauris.
-                                                                            Aliquam fermentum sit amet est id scelerisque.
-                                                                            Nam porta risus metus.</p>
+                                                                        <p class="spr-review-content-body">Loved my stay here! The rooms were clean and cozy, and the staff was incredibly friendly. Great location with easy access to attractions. Highly recommend!.</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="spr-review preview2">
                                                                     <div class="spr-review-header">
                                                                         <span class="spr-review-header-byline">
-                                                                            <strong>David James</strong> -
-                                                                            <span>Apr 13, 2018</span>
+                                                                            <strong>Jawad Ahmad</strong> -
+                                                                            <span>June 11, 2024</span>
                                                                         </span>
                                                                         <div class="rating">
                                                                             <div class="star-content">
@@ -591,12 +514,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="spr-review-content">
-                                                                        <p class="spr-review-content-body">In feugiat venenatis enim, non finibus metus bibendum
-                                                                            eu. Proin massa justo, eleifend fermentum varius
-                                                                            quis, semper gravida quam. Cras nec enim sed
-                                                                            lacus viverra luctus. Nunc quis accumsan mauris.
-                                                                            Aliquam fermentum sit amet est id scelerisque.
-                                                                            Nam porta risus metus.</p>
+                                                                        <p class="spr-review-content-body">Amazing hostel with a vibrant community feel. The staff were super helpful, and the beds were comfy. Perfect for meeting new people. Would definitely stay again!</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -648,16 +566,9 @@
                                                         </form>
                                                     </div>
                                                     <div id="tag" class="tab-pane fade in">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                            eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
-                                                            ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                            tempor incididunt ut labore et dolore magna aliqua.
+                                                        <p>Warm lighting, Wooden floors, Plush armchair, Large window, Sheer curtains, Bookshelves, Novels, Trinkets, Rustic coffee table, Steaming tea, Magazines, Vanilla scent, Cinnamon scent, Welcoming atmosphere, Peaceful.
                                                         </p>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                            eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
-                                                            ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                            tempor incididunt ut labore et dolore magna aliqua.
-                                                        </p>
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
@@ -672,7 +583,7 @@
                                                         <div class="item text-center col-md-4">
                                                             <div class="product-miniature js-product-miniature item-one first-item">
                                                                 <div class="thumbnail-container border border">
-                                                                    <a href="product-detail.html">
+                                                                    <a href="../room-detail">
                                                                         <img class="img-fluid image-cover" src="/frontend/img/product/1.jpg" alt="img">
                                                                         <img class="img-fluid image-secondary" src="/frontend/img/product/22.jpg" alt="img">
                                                                     </a>
@@ -687,7 +598,7 @@
                                                                 <div class="product-description">
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
-                                                                            <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                            <a href="../room-detail">Best room 1</a>
                                                                         </div>
                                                                         <div class="rating">
                                                                             <div class="star-content">
@@ -698,24 +609,7 @@
                                                                                 <div class="star"></div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="product-group-price">
-                                                                            <div class="product-price-and-shipping">
-                                                                                <span class="price">£28.08</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-buttons d-flex justify-content-center">
-                                                                        <form action="#" method="post" class="formAddToCart">
-                                                                            <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </form>
-                                                                        <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                        </a>
-                                                                        <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                        </a>
+                                                                       
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -723,9 +617,9 @@
                                                         <div class="item text-center col-md-4">
                                                             <div class="product-miniature js-product-miniature item-one first-item">
                                                                 <div class="thumbnail-container border">
-                                                                    <a href="product-detail.html">
+                                                                    <a href="../room-detail">
                                                                         <img class="img-fluid image-cover" src="/frontend/img/product/2.jpg" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="/frontend//frontend/img/product/11.jpg" alt="img">
+                                                                        <img class="img-fluid image-secondary" src="/frontend/img/product/11.jpg" alt="img">
                                                                     </a>
                                                                     <div class="highlighted-informations">
                                                                         <div class="variant-links">
@@ -738,7 +632,7 @@
                                                                 <div class="product-description">
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
-                                                                            <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                            <a href="../room-detail">Best room 2</a>
                                                                         </div>
                                                                         <div class="rating">
                                                                             <div class="star-content">
@@ -749,32 +643,15 @@
                                                                                 <div class="star"></div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="product-group-price">
-                                                                            <div class="product-price-and-shipping">
-                                                                                <span class="price">£31.08</span>
-                                                                            </div>
-                                                                        </div>
                                                                     </div>
-                                                                    <div class="product-buttons d-flex justify-content-center">
-                                                                        <form action="#" method="post" class="formAddToCart">
-                                                                            <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </form>
-                                                                        <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                        </a>
-                                                                        <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                        </a>
-                                                                    </div>
+                                                                   
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="item text-center col-md-4">
                                                             <div class="product-miniature js-product-miniature item-one first-item">
                                                                 <div class="thumbnail-container border">
-                                                                    <a href="product-detail.html">
+                                                                    <a href="../room-detail">
                                                                         <img class="img-fluid image-cover" src="/frontend/img/product/3.jpg" alt="img">
                                                                         <img class="img-fluid image-secondary" src="/frontend/img/product/14.jpg" alt="img">
                                                                     </a>
@@ -789,7 +666,7 @@
                                                                 <div class="product-description">
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
-                                                                            <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                            <a href="../room-detail">Best Room 3</a>
                                                                         </div>
                                                                         <div class="rating">
                                                                             <div class="star-content">
@@ -800,25 +677,8 @@
                                                                                 <div class="star"></div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="product-group-price">
-                                                                            <div class="product-price-and-shipping">
-                                                                                <span class="price">£20.08</span>
-                                                                            </div>
-                                                                        </div>
                                                                     </div>
-                                                                    <div class="product-buttons d-flex justify-content-center">
-                                                                        <form action="#" method="post" class="formAddToCart">
-                                                                            <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </form>
-                                                                        <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                        </a>
-                                                                        <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                        </a>
-                                                                    </div>
+                                                                   
                                                                 </div>
                                                             </div>
                                                         </div>

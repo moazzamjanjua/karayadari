@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="/frontend/css/style.css">
     <link rel="stylesheet" type="text/css" href="/frontend/css/reponsive.css">
     <style>
+        
         .luxury-button-div {
             display: flex;
             justify-content: center;

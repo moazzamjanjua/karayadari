@@ -20,7 +20,7 @@
                                             <a href="#">About Us</a>
                                         </li>
                                         <li>
-                                            <a href="#">Reasons to shop</a>
+                                            <a href="../owner/login">Add Rooms</a>
                                         </li>
                                         <li>
                                             <a href="#">What our customers say</a>
@@ -29,7 +29,7 @@
                                             <a href="#">Meet the Team</a>
                                         </li>
                                         <li>
-                                            <a href="#">Contact our buyers</a>
+                                            <a href="./contact">Contact our Team</a>
                                         </li>
                                     </ul>
                                 </div>
