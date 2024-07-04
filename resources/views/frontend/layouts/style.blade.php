@@ -68,6 +68,9 @@
             transform: scale(0.95);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
+        .nav-link{
+            text-decoration: none;
+        }
     </style>
     
 </head>
