@@ -79,3 +79,11 @@ Route::get('/admin/login', [LoginController::class, 'login'])->name('admindashbo
 Route::post('/admin/login', [LoginController::class, 'authenticate'])->name('admin.authenticate');
 
 Route::get('/admin/profile', [profileController::class, 'profile']);
+
+
+
+
+
+Route::fallback(function(){
+    return view('pagenotfound');
+});
