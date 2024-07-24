@@ -8,9 +8,7 @@ use App\Models\user_register;
 
 class RegistrationController extends Controller
 {
-   public function register(){
-    return view('frontend.user-register');
-   }
+   
    public function store(Request $request){
    
 
@@ -32,7 +30,7 @@ class RegistrationController extends Controller
 
        $user->save();
 
-       return redirect()->route('frontend.login');
+       return redirect()->route('login');
    }
   
 }

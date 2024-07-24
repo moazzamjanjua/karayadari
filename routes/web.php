@@ -37,10 +37,11 @@ Route::get('/blog', [BloggController::class, 'index']);
 Route::get('/blog_detail', [BloggController::class, 'index']);
 Route::get('/contact', [ContactusController::class, 'index']);
 //authenticate
-Route::get('/register', [RegistrationController::class, 'register']);
 
+Route::view('register' , 'frontend.user-register')->name('register');
 Route::post('/register' , [RegistrationController::class,'store']);
-Route::get('/login', [LoginController::class, 'login'])->name('frontend.login');
+
+Route::view('login' , 'frontend.user-login')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('frontend.authenticate');
 //Room-detail
 Route::get('/product-grid-sidebar-left', [ProductGridLeftController::class , 'productgridleft']);
