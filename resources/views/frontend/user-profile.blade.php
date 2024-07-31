@@ -49,15 +49,15 @@
                                     </tr>
                                     <tr>
                                         <th class="first_item">City :</th>
-                                        <td>tgtr</td>
+                                        <td>{{Auth::user()->city}}</td>
                                     </tr>
                                     <tr>
                                         <th class="first_item">Phone :</th>
-                                        <td>gtr</td>
+                                        <td>{{Auth::user()->phone}}</td>
                                     </tr>
                                     <tr>
                                         <th class="first_item">Country:</th>
-                                        <td>rb</td>
+                                        <td>{{Auth::user()->country}}</td>
                                     </tr>
                                 </tbody>
                             </table>
