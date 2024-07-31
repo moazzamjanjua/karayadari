@@ -37,7 +37,7 @@
                     <div class="container">
                         <h1 class="text-center title-page">Log In</h1>
                         <div class="login-form">
-                            <form id="customer-form" action="{{ route('frontend.authenticate') }}" method="post">
+                            <form id="customer-form" action="{{ route('loginMatch') }}" method="post">
                             @csrf
                                 <div>
                                     <input type="hidden" name="back" value="my-account">

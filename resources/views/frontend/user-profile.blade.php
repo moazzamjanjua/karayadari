@@ -37,27 +37,27 @@
                                 <tbody>
                                     <tr>
                                         <th class="first_item">id :</th>
-                                        <td>{{$userId}}</td>
+                                        <td>{{Auth::user()->id}}</td>
                                     </tr>
                                     <tr>
                                         <th class="first_item">Name:</th>
-                                        <td>{{$user->first_name}}{{$user->last_name ?? 'N/A'}}</td>
+                                        <td>{{Auth::user()->name}}</td>
                                     </tr>
                                     <tr>
                                         <th class="first_item">Address :</th>
-                                        <td>{{$user->address ?? 'N/A'}}</td>
+                                        <td>{{Auth::user()->address}}</td>
                                     </tr>
                                     <tr>
                                         <th class="first_item">City :</th>
-                                        <td>{{$user->city ?? 'N/A'}}</td>
+                                        <td>tgtr</td>
                                     </tr>
                                     <tr>
                                         <th class="first_item">Phone :</th>
-                                        <td>{{$user->phone ?? 'N/A'}}</td>
+                                        <td>gtr</td>
                                     </tr>
                                     <tr>
                                         <th class="first_item">Country:</th>
-                                        <td>{{$user->country ?? 'N/A'}}</td>
+                                        <td>rb</td>
                                     </tr>
                                 </tbody>
                             </table>

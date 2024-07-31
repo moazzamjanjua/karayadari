@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\RoomDetailController;
+use App\Http\Controllers\frontend\UsersController;
 use App\Http\Controllers\Owner\OwnerDashboardController;
 use App\Http\Controllers\Owner\OwnerLoginController;
 use App\Http\Controllers\Owner\HostalFormController;
@@ -39,16 +40,21 @@ Route::get('/contact', [ContactusController::class, 'index']);
 //authenticate
 
 Route::view('register' , 'frontend.user-register')->name('register');
-Route::post('/register' , [RegistrationController::class,'store']);
-
 Route::view('login' , 'frontend.user-login')->name('login');
-Route::post('/login', [LoginController::class, 'authenticate'])->name('frontend.authenticate');
+
+Route::post('registerSave' , [UsersController::class,'userregister'])->name('registerSave');
+Route::post('loginMatch' , [UsersController::class , 'userlogin'])->name('loginMatch');
+
+
+
 //Room-detail
 Route::get('/product-grid-sidebar-left', [ProductGridLeftController::class , 'productgridleft']);
 Route::get('/room-detail' , [RoomDetailController::class , 'roomDetail']);
 
 //profile
-Route::get('/myaccount', [LoginController::class, 'userAccount'])->name('frontend.user-acount');
+Route::view('user-profile','frontend.user-profile' )->name('user-profile');
+Route::get('user-profile' ,[UsersController::class , 'profile'])->name('user-profile');
+
 // Route::get('/myaccount', [LoginController::class, 'authenticate'])->name('frontend.user-acount');
 
 //owner

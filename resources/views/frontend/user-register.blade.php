@@ -13,20 +13,15 @@
                             <div id="content" class="page-content">
                                 <div class="register-form text-center">
                                     <h1 class="text-center title-page">Create Account</h1>
-                                    <form action="{{ url('/') }}/register"  method="post">
+                                    <form action="{{route('registerSave')}}"  method="post">
                                     @csrf
                                         <div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input class="form-control" name="first_name" type="text" placeholder="First name">
+                                                    <input class="form-control" name="name" type="text" placeholder="Name">
                                                 </div>
                                             </div>
-                                           
-                                 
-                                            <div class="form-group">
-                                                <div>
-                                                    <input class="form-control" name="last_name" type="text" placeholder="Last name">
-                                                </div>
+
                                             </div>
                                            
                                   
@@ -35,9 +30,7 @@
                                                     <input class="form-control" name="email" type="email" placeholder="Email">
                                                 </div>
                                             </div>
-                                            @if(session('error'))
-                                  <div class="alert alert-danger">{{ session('error') }}</div>
-                                      @endif
+                                            
                                             <div class="form-group">
                                                 <div>
                                                     <div class="input-group js-parent-focus">
@@ -45,9 +38,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            @if(session('error'))
-                                  <div class="alert alert-danger">{{ session('error') }}</div>
-                                      @endif
+                                            <div class="form-group">
+                                                <div>
+                                                    <div class="input-group js-parent-focus">
+                                                        <input class="form-control js-child-focus js-visible-password" name="password_confirmation" type="password_confirmation" placeholder="Password Confirmation">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
                                       <div class="form-group">
                                                 <div>
                                                     <input class="form-control" name="country" type="text" placeholder="Country">

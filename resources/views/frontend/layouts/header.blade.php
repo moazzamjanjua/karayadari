@@ -165,7 +165,7 @@
                             <div id="acount" class="collapse">
                                 <div class="account-list-content">
                                     <div>
-                                        <a class="login" href="../myaccount" rel="nofollow" title="Log in to your customer account">
+                                        <a class="login" href="{{route('user-profile')}}" rel="nofollow" title="Log in to your customer account">
                                             <i class="fa fa-cog"></i>
                                             <span>My Account</span>
                                         </a>
