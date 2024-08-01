@@ -31,21 +31,21 @@ class OwnerController extends Controller
        ]);
     
     if(Auth::attempt($credentials)){
-        return redirect()->route('owner.index');
+        return redirect()->route('owner.home');
     }
 }
 
-public function profile(){
+public function ownerdashboard(){
     if(Auth::check()){
-        return view('owner.user-profile');
+        return view('owner.home');
 
     }else{
-        return redirect()->route('login');
+        return redirect()->route('owner-login');
     }
 }
 public function logout(){
     Auth::logout();
-    return redirect('login');
+    return redirect('owner-login');
 }
 
 

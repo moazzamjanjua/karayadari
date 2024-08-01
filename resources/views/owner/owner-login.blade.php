@@ -71,7 +71,7 @@
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form action="{{ route('owner.authenticate') }}" method="post">
+        <form action="{{ route('ownerMatch') }}" method="post">
             @csrf
             <label for="login-email">Email</label>
             <input type="email" id="login-email" name="owner_email" required>

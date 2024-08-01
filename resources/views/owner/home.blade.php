@@ -139,7 +139,7 @@
             <div class="hostel-grid">
                 @foreach ($hostels as $hostel)
                     <div class="hostel-card"
-                        onclick="window.location.href='{{ route('owner.hostelDetails', ['hostel_id' => $hostel->owner_id]) }}'"
+                        onclick="window.location.href=''"
                         style="background-image: url('{{ asset('storage/' . $hostel->hostel_front_image) }}');">
                         <div class="hostel-overlay">
                             <h2>{{ $hostel->hostel_name ?? 'N/A' }}</h2>
