@@ -71,7 +71,7 @@
 <body>
     <div class="container">
         <h2>Signup</h2>
-        <form action="{{ url('/') }}/owner/register" method="post">
+        <form action="{{route('ownerSave')}}" method="post">
         @csrf
         <input class="form-control" name="owner_name" type="text" placeholder="Name">
         <input class="form-control" name="owner_email" type="text" placeholder="Email">
