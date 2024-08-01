@@ -10,34 +10,45 @@ use App\Models\Owner\owner_hostels;
 class OwnerDashboardController extends Controller
 {
 
-    public function update(Request $request, $owner_id)
-    {
-        $request->validate([
-            'owner_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'owner_number' => 'required|string|max:255',
-            'owner_country' => 'required|string|max:255',
-            'owner_city' => 'required|string|max:255',
-            'owner_address' => 'required|string|max:255',
-        ]);
-    
-        $owner = owner_register::find($owner_id); // Find by ID from the route
-        if (!$owner) {
-            return redirect()->back()->with('error', 'Owner not found');
-        }
-    
-        if ($request->file('owner_image')) {
-            $avatarPath = $request->file('owner_image')->store('owner_image', 'public');
-            $owner->owner_image = $avatarPath;
-        }
-    
-        $owner->owner_number = $request->owner_number;
-        $owner->owner_country = $request->owner_country;
-        $owner->owner_city = $request->owner_city;
-        $owner->owner_address = $request->owner_address;
-    
-        $owner->save();
-    
-        return redirect()->back()->with('success', 'Profile updated successfully');
+    public function edit()
+{
+    // Get the authenticated owner
+    $owner = Auth::guard('owner')->user();
+
+    // Return the view with owner data
+    return view('owner.edit', compact('owner'));
+}
+
+public function update(Request $request)
+{
+    $data = $request->validate([
+        'owner_name' => 'required',
+        'owner_phone' => 'required',
+        'owner_country' => 'required',
+        'owner_city' => 'required',
+        'owner_address' => 'required',
+        'owner_image' => 'nullable|image|max:2048', // Validate image if uploaded
+    ]);
+
+    $owner = Auth::guard('owner')->user();
+
+    // Update owner fields
+    $owner->name = $data['owner_name'];
+    $owner->phone = $data['owner_phone'];
+    $owner->country = $data['owner_country'];
+    $owner->city = $data['owner_city'];
+    $owner->address = $data['owner_address'];
+
+    // Handle file upload
+    if ($request->hasFile('owner_image')) {
+        $image = $request->file('owner_image');
+        $imagePath = $image->store('avatars', 'public');
+        $owner->image = $imagePath;
     }
-    
+
+    $owner->save();
+
+    return redirect()->route('owner.edit')->with('success', 'Profile updated successfully.');
+}
+
 }

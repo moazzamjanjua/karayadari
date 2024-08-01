@@ -140,20 +140,21 @@
                 @foreach ($hostels as $hostel)
                     <div class="hostel-card"
                         onclick="window.location.href=''"
-                        style="background-image: url('{{ asset('storage/' . $hostel->hostel_front_image) }}');">
+                        style="background-image: url('');">
                         <div class="hostel-overlay">
                             <h2>{{ $hostel->hostel_name ?? 'N/A' }}</h2>
                             <p>{{ $hostel->hostel_detail ?? 'N/A' }}</p>
-                            <p><strong>Address:</strong> {{ $hostel->hostel_address ?? 'N/A' }}</p>
-                            <p><strong>City:</strong> {{ $hostel->city ?? 'N/A' }}</p>
-                            <p><strong>Contact:</strong> {{ $hostel->owner_number ?? 'N/A' }}</p>
+                            <p><strong>Address:</strong> </p>
+                            <p><strong>Address:</strong> </p>
+                            <p><strong>City:</strong> </p>
+                            <p><strong>Contact:</strong> </p>
                         </div>
                     </div>
 
 
                 @endforeach
             </div>
-            <a href="{{ route('owner.hostelForm', ['owner_id' => $owner->owner_id]) }}" class="add_hosten_button">Add
+            <a href="" class="add_hosten_button">Add
                 Hostels</a>
         </div>
     </div>
