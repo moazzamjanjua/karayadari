@@ -6,6 +6,7 @@ use App\Http\Controllers\Owner\OwnerDashboardController;
 use App\Http\Controllers\Owner\OwnerLoginController;
 use App\Http\Controllers\Owner\HostalFormController;
 use App\Http\Controllers\Owner\OwnerRegisterController;
+use App\Http\Controllers\Owner\OwnerController;
 use App\Http\Controllers\Owner\RoomFormController;
 use App\Http\Controllers\Owner\HostalDetailController;
 use App\Http\Controllers\ProductGridLeftController;
@@ -46,6 +47,9 @@ Route::post('registerSave' , [UsersController::class,'userregister'])->name('reg
 Route::post('loginMatch' , [UsersController::class , 'userlogin'])->name('loginMatch');
 
 
+Route::post('loginM' , [OwnerController::class , 'ownerlogin'])->name('loginMatch');
+
+
 
 //Room-detail
 Route::get('/product-grid-sidebar-left', [ProductGridLeftController::class , 'productgridleft']);
@@ -60,8 +64,15 @@ Route::put('user-profile/update' ,[UsersController::class , 'update'])->name('us
 Route::get('logout',[UsersController::class, 'logout'])->name('logout');
 
 //owner
-Route::get('/owner/register', [OwnerRegisterController::class, 'ownerregister']);
-Route::post('/owner/register' , [OwnerRegisterController::class,'store']);
+Route::view('become-owner' , 'owner.owner-register')->name('become-owner');
+Route::view('owner-login' , 'owner.owner-login')->name('owner-login');
+
+Route::post('ownerSave' , [OwnerController::class,'ownerregister'])->name('ownerSave');
+
+Route::view('user-profile','frontend.user-profile' )->name('user-profile');
+
+// Route::get('/owner/register', [OwnerRegisterController::class, 'ownerregister']);
+// Route::post('/owner/register' , [OwnerRegisterController::class,'store']);
 Route::get('/owner/login', [OwnerLoginController::class, 'ownerlogin'])->name('owner.owner-login');
 Route::get('/owner', [OwnerDashboardController::class, 'home'])->name('owner.home');
 Route::post('/owner/login', [OwnerLoginController::class, 'authenticate'])->name('owner.authenticate');

@@ -113,7 +113,7 @@
                                 </li>
 
                                  <!-- Add Hostel button -->
-                                  <a href="../owner/login">
+                                  <a href="{{route('owner-login')}}">
                                   <li style="margin-top: 33px;">
                                 <button style="
                                     background: linear-gradient(45deg, #ff6b6b, #f06595);
