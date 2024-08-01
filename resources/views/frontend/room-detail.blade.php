@@ -400,10 +400,6 @@
                                                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                                                     <span>SEN TO A FRIEND</span>
                                                                 </a>
-                                                                <a href="#" class="print">
-                                                                    <i class="zmdi zmdi-print"></i>
-                                                                    <span>Print</span>
-                                                                </a>
                                                             </div>
                                                         </div>
                                                         <div class="rating-comment has-border d-flex">
@@ -432,25 +428,6 @@
                                                                 </a>
                                                             </div>
                                                         </div>
-                                                        <div class="content">
-                                                          
-                                                            <p>Categories :
-                                                                <span class="content2">
-                                                                    <a href="#">Cozy Living Space</a>,
-                                                                    <a href="#">Beatiful Room</a>
-                                                                </span>
-                                                            </p>
-                                                            <p>tags :
-                                                                <span class="content2">
-                                                                    <a href="#">Wooden floors</a>,
-                                                                    <a href="#">Steaming tea</a>,
-                                                                    <a href="#">Luxury</a>,
-                                                                    <a href="#">Large window</a>,
-                                                                    <a href="#">Bookshelves</a>,
-                                                                    <a href="#">Peaceful</a>
-                                                                </span>
-                                                            </p>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -460,9 +437,7 @@
                                                     <li class="active">
                                                         <a data-toggle="tab" href="#description" class="active show">Description</a>
                                                     </li>
-                                                    <li>
-                                                        <a data-toggle="tab" href="#tag">Room Tags</a>
-                                                    </li>
+                                                    
                                                     <li>
                                                         <a data-toggle="tab" href="#review">Reviews (2)</a>
                                                     </li>
@@ -549,9 +524,7 @@
                                                                 <div class="spr-form-contact-name">
                                                                     <input class="spr-form-input spr-form-input-text form-control" value="" placeholder="Enter your name">
                                                                 </div>
-                                                                <div class="spr-form-contact-email">
-                                                                    <input class="spr-form-input spr-form-input-email form-control" value="" placeholder="Enter your email">
-                                                                </div>
+                                                               
                                                             </fieldset>
                                                             <fieldset>
                                                                 <div class="spr-form-review-body">

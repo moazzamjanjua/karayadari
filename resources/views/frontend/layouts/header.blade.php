@@ -155,13 +155,19 @@
 
                         <!-- acount  -->
                         <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
-    <div class="myaccount-title">
-        <a href="#acount" data-toggle="collapse" class="acount">
-            <i class="fa fa-user" aria-hidden="true"></i>
-            <span>{{ Auth::check() ? Auth::user()->name : 'My Account' }}</span>
-            <i class="fa fa-angle-down" aria-hidden="true"></i>
-        </a>
-    </div>
+                        <div class="myaccount-title">
+    <a href="#acount" data-toggle="collapse" class="acount" style="display: flex; align-items: center;">
+        @if(Auth::check() && Auth::user()->user_image)
+            <img src="{{ asset('storage/user_image/' . Auth::user()->user_image) }}" 
+                 alt="User Avatar" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; margin-right: 8px;">
+        @else
+            <i class="fa fa-user" aria-hidden="true" style="margin-right: 8px;"></i>
+        @endif
+        <span>{{ Auth::check() ? Auth::user()->name : 'My Account' }}</span>
+        <i class="fa fa-angle-down" aria-hidden="true" style="margin-left: 8px;"></i>
+    </a>
+</div>
+
     <div id="acount" class="collapse">
         <div class="account-list-content">
             @auth
