@@ -155,39 +155,59 @@
 
                         <!-- acount  -->
                         <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
-                            <div class="myaccount-title">
-                                <a href="#acount" data-toggle="collapse" class="acount">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <span>Account</span>
-                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div id="acount" class="collapse">
-                                <div class="account-list-content">
-                                    <div>
-                                        <a class="login" href="{{route('user-profile')}}" rel="nofollow" title="Log in to your customer account">
-                                            <i class="fa fa-cog"></i>
-                                            <span>My Account</span>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a class="login" href="../login" rel="nofollow" title="Log in to your customer account">
-                                            <i class="fa fa-sign-in"></i>
-                                            <span>Sign in</span>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a class="register" href="../register" rel="nofollow" title="Register Account">
-                                            <i class="fa fa-user"></i>
-                                            <span>Register Tenant</span>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a class="register" href="../owner/login" rel="nofollow" title="Register Account">
-                                            <i class="fa fa-user"></i>
-                                            <span>Owner</span>
-                                        </a>
-                                    </div>
+    <div class="myaccount-title">
+        <a href="#acount" data-toggle="collapse" class="acount">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span>{{ Auth::check() ? Auth::user()->name : 'My Account' }}</span>
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div id="acount" class="collapse">
+        <div class="account-list-content">
+            @auth
+            <div>
+                <a class="login" href="{{ route('user-profile') }}" rel="nofollow" title="View your profile">
+                    <i class="fa fa-cog"></i>
+                    <span>My Account</span>
+                </a>
+            </div>
+            <div>
+                <a class="register" href="{{ route('logout') }}" 
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();" 
+                   rel="nofollow" title="Logout Account">
+                    <i class="fa fa-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+            @endauth
+
+            @guest
+            <div>
+                <a class="login" href="{{ route('login') }}" rel="nofollow" title="Log in to your customer account">
+                    <i class="fa fa-sign-in"></i>
+                    <span>Sign in</span>
+                </a>
+            </div>
+            <div>
+                <a class="register" href="{{ route('register') }}" rel="nofollow" title="Register Account">
+                    <i class="fa fa-user"></i>
+                    <span>Register Tenant</span>
+                </a>
+            </div>
+            <div>
+                <a class="register" href="../owner/login" rel="nofollow" title="Owner Account">
+                    <i class="fa fa-user"></i>
+                    <span>Owner</span>
+                </a>
+            </div>
+            @endguest
+        </div>
+    </div>
+</div>
+
                                 </div>
                             </div>
                         </div>

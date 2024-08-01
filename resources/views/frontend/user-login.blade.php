@@ -60,6 +60,7 @@
                                             <a href="user-reset-password.html" rel="nofollow">
                                                 Forgot your password?
                                             </a>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -69,6 +70,9 @@
                                         <button class="btn btn-primary" data-link-action="sign-in" type="submit">
                                             Sign in
                                         </button>
+                                        <a href="{{route('register')}}" rel="nofollow">
+                                                Create Account?
+                                            </a>
                                     </div>
                                 </div>
                             </form>

@@ -57,8 +57,13 @@
                                                 <button class="btn btn-primary" data-link-action="sign-in" type="submit">
                                                     Create Account
                                                 </button>
+                                                <a href="{{route('login')}}" rel="nofollow">
+                                                Do you have an Account?
+                                            </a>
                                             </div>
+                                            
                                         </div>
+                                       
                                     </form>
                                 </div>
                             </div>
