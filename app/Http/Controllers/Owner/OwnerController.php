@@ -46,12 +46,17 @@ class OwnerController extends Controller
 
     public function ownerdashboard()
     {
-        if (Auth::guard('owner')->check()) { // Use 'owner' guard to check authentication
-            return view('owner.home');
+        if (Auth::guard('owner')->check()) {
+            $owner = Auth::guard('owner')->user();
+            dd($owner); // Check what is inside the $owner object
+            return view('owner.home', compact('owner'));
+        } else {
+            return redirect()->route('owner-login')->withErrors(['login' => 'You need to log in first.']);
         }
-
-        return redirect()->route('owner-login');
     }
+    
+    
+    
 
     public function logout()
     {

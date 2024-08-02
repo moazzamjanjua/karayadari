@@ -101,7 +101,8 @@ Route::post('/admin/login', [LoginController::class, 'authenticate'])->name('adm
 Route::get('/admin/profile', [profileController::class, 'profile']);
 
 
-
+//logout
+Route::get('logout', [OwnerController::class, 'logout'])->name('logout');
 
 
 Route::fallback(function(){
