@@ -137,22 +137,22 @@
         </div>
         <div class="main-content">
             <div class="hostel-grid">
-                @foreach ($hostels as $hostel)
-                    <div class="hostel-card"
+               
+                    <!-- <div class="hostel-card"
                         onclick="window.location.href=''"
                         style="background-image: url('');">
                         <div class="hostel-overlay">
-                            <h2>{{ $hostel->hostel_name ?? 'N/A' }}</h2>
-                            <p>{{ $hostel->hostel_detail ?? 'N/A' }}</p>
+                            <h2></h2>
+                            <p></p>
                             <p><strong>Address:</strong> </p>
                             <p><strong>Address:</strong> </p>
                             <p><strong>City:</strong> </p>
                             <p><strong>Contact:</strong> </p>
                         </div>
-                    </div>
+                    </div> -->
 
 
-                @endforeach
+             
             </div>
             <a href="" class="add_hosten_button">Add
                 Hostels</a>

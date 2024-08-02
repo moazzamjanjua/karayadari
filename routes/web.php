@@ -70,12 +70,9 @@ Route::view('owner-login' , 'owner.owner-login')->name('owner-login');
 Route::post('ownerSave' , [OwnerController::class,'ownerregister'])->name('ownerSave');
 Route::post('ownerMatch' , [OwnerController::class,'ownerlogin'])->name('ownerMatch');
 Route::view('owner-dashboard', 'owner.home')->name('ownerdashboard');
+Route::get('owner-dashboard' , [OwnerController::class,'ownerdashboard'])->name('ownerdashboard');
 
-// Route::get('/owner/register', [OwnerRegisterController::class, 'ownerregister']);
-// Route::post('/owner/register' , [OwnerRegisterController::class,'store']);
-// Route::get('/owner/login', [OwnerLoginController::class, 'ownerlogin'])->name('owner.owner-login');
-// Route::get('/owner', [OwnerDashboardController::class, 'home'])->name('owner.home');
-// Route::post('/owner/login', [OwnerLoginController::class, 'authenticate'])->name('owner.authenticate');
+
 Route::get('/owner/hostel-form', [HostalFormController::class, 'hostelForm'])->name('owner.hostelForm');
 
 Route::get('/owner/room-form', [RoomFormController::class, 'room'])->name('owner.roomForm');

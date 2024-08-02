@@ -38,7 +38,7 @@ class OwnerController extends Controller
         ]);
 
         if (Auth::guard('owner')->attempt($credentials)) { // Use 'owner' guard for authentication
-            return redirect()->route('owner.home');
+            return view('owner.home');
         }
 
         return back()->withErrors(['login' => 'Invalid credentials.']);
@@ -47,9 +47,8 @@ class OwnerController extends Controller
     public function ownerdashboard()
     {
         if (Auth::guard('owner')->check()) {
-            $owner = Auth::guard('owner')->user();
-            dd($owner); // Check what is inside the $owner object
-            return view('owner.home', compact('owner'));
+         
+            return view('owner.home');
         } else {
             return redirect()->route('owner-login')->withErrors(['login' => 'You need to log in first.']);
         }
