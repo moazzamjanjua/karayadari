@@ -138,7 +138,7 @@
         <div class="main-content">
             <div class="hostel-grid">
                
-                    <!-- <div class="hostel-card"
+                    <div class="hostel-card"
                         onclick="window.location.href=''"
                         style="background-image: url('');">
                         <div class="hostel-overlay">
@@ -149,7 +149,7 @@
                             <p><strong>City:</strong> </p>
                             <p><strong>Contact:</strong> </p>
                         </div>
-                    </div> -->
+                    </div>
 
 
              
