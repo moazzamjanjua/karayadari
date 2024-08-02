@@ -38,7 +38,8 @@ Route::get('/', [HomeController::class, 'index'])->name('frontend.index');
 Route::get('/blog', [BloggController::class, 'index']);
 Route::get('/blog_detail', [BloggController::class, 'index']);
 Route::get('/contact', [ContactusController::class, 'index']);
-//authenticate
+
+//Authenticate
 
 Route::view('register' , 'frontend.user-register')->name('register');
 Route::view('login' , 'frontend.user-login')->name('login');
@@ -47,7 +48,6 @@ Route::post('registerSave' , [UsersController::class,'userregister'])->name('reg
 Route::post('loginMatch' , [UsersController::class , 'userlogin'])->name('loginMatch');
 
 
-Route::post('loginM' , [OwnerController::class , 'ownerlogin'])->name('loginMatch');
 
 
 
@@ -64,13 +64,16 @@ Route::put('user-profile/update' ,[UsersController::class , 'update'])->name('us
 Route::get('logout',[UsersController::class, 'logout'])->name('logout');
 
 //owner
+
+//Authenticate
 Route::view('become-owner' , 'owner.owner-register')->name('become-owner');
 Route::view('owner-login' , 'owner.owner-login')->name('owner-login');
 
 Route::post('ownerSave' , [OwnerController::class,'ownerregister'])->name('ownerSave');
 Route::post('ownerMatch' , [OwnerController::class,'ownerlogin'])->name('ownerMatch');
+
 Route::view('owner-dashboard', 'owner.home')->name('ownerdashboard');
-Route::get('owner-dashboard' , [OwnerController::class,'ownerdashboard'])->name('ownerdashboard');
+Route::get('owner-dashboard' , [OwnerController::class,'ownerdashboard'])->name('owner.home');
 
 
 Route::get('/owner/hostel-form', [HostalFormController::class, 'hostelForm'])->name('owner.hostelForm');
@@ -83,17 +86,13 @@ Route::post('/owner/room-form', [RoomFormController::class, 'store'])->name('roo
 Route::post('/owner/hostel-form', [HostalFormController::class, 'store'])->name('owner.hostalStore');
 
 
-Route::put('/owner/{owner_id}', [OwnerDashboardController::class, 'update'])->name('owner.update');
+
 // Route::get('/cities', [CitiesController::class, 'create'])->name('cities.create');
 
-//home
-Route::get('/owner', [OwnerLoginController::class, 'home'])->name('owner.home');
+
 //admin 
 Route::get('/admin', [adminController::class, 'admin'])->name('admindashboard.index');;
-Route::get('/admin/register', [registerController::class, 'register']);
-Route::post('/admin/register', [registerController::class, 'store']);
-Route::get('/admin/login', [LoginController::class, 'login'])->name('admindashboard.login');
-Route::post('/admin/login', [LoginController::class, 'authenticate'])->name('admin.authenticate');
+
 
 Route::get('/admin/profile', [profileController::class, 'profile']);
 
