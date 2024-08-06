@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Owner;
 use App\Models\Owner;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Owner\Hostels;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -46,12 +47,18 @@ class OwnerController extends Controller
     public function ownerdashboard()
     {
         if (Auth::guard('owner')->check()) {
-         
-            return view('owner.home');
+            $owner = Auth::guard('owner')->user();
+    
+            // Fetch the hostels that belong to the logged-in owner
+            $hostels = Hostels::where('owner_id', $owner->id)->get();
+    
+            // Pass the hostels to the view
+            return view('owner.home', compact('hostels'));
         } else {
             return redirect()->route('owner-login');
         }
     }
+    
     
     
     public function update(Request $request)

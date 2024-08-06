@@ -160,8 +160,8 @@
 
     <div class="container mt-5">
         <h1 class="text-center mb-4"><b>Hostel Details Form</b></h1>
-        <form action="" method="post" enctype="multipart/form-data">
-    @csrf
+        <form action="{{ route('owner.hostels.store') }}" method="post" enctype="multipart/form-data">
+        @csrf
     @method('POST')
     <!-- Add a hidden input field to pass owner_id -->
   

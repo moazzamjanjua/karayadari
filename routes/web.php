@@ -66,11 +66,17 @@ Route::view('owner-login' , 'owner.owner-login')->name('owner-login');
 Route::post('ownerSave' , [OwnerController::class,'ownerregister'])->name('ownerSave');
 Route::post('ownerMatch' , [OwnerController::class,'ownerlogin'])->name('ownerMatch');
 
+
+
+//owner dashboard
 Route::view('owner-dashboard', 'owner.home')->name('ownerdashboard');
 Route::get('owner-dashboard' , [OwnerController::class,'ownerdashboard'])->name('owner.home');
-
-
 Route::get('add-hostel' , [HostelsController::class,'hostelform'])->name('addHostel');
+Route::post('hostels', [HostelsController::class, 'store'])->name('owner.hostels.store');
+// Add this in your web.php
+
+Route::get('hostels/{id}', [HostelsController::class, 'show'])->name('owner.hostel.show');
+
 
 // Route::get('/owner/room-form', [RoomFormController::class, 'room'])->name('owner.roomForm');
 // Route::get('/owner/hostel', [HostelsController::class, 'showHostelDetails'])->name('owner.hostelDetails');

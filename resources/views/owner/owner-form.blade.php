@@ -13,10 +13,14 @@
         <input type="file" name="owner_image" id="avatar-input" class="file-input" accept="image/*" onchange="updateAvatar(event)">
     </div>
     <ul class="profile-info">
-    <li><span>Name:</span> <span>{{ Auth::guard('owner')->user()->owner_name }}</span></li>
-        
-        <li><span>Number:</span> <span>{{ Auth::guard('owner')->user()->owner_number }}</span></li>
-          
+        <li><span>Name:</span> <span><input type="text" name="owner_name" value="{{ Auth::guard('owner')->user()->owner_name }}"></span></li>
+        <li>
+            <span>Phone Number:</span>
+            <span><input type="text" name="owner_number" value="{{ Auth::guard('owner')->user()->owner_number}}"></span>
+            @error('owner_phone')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </li>
         <li><span>Email:</span> <span>{{ Auth::guard('owner')->user()->owner_email }}</span></li>
         <li>
             <span>Country:</span>
