@@ -139,7 +139,7 @@
             <div class="hostel-grid">
                
                     <div class="hostel-card"
-                        onclick="window.location.href=''"
+                        onclick="window.location.href='{{route('hostel-detail')}}'"
                         style="background-image: url('');">
                         <div class="hostel-overlay">
                             <h2></h2>

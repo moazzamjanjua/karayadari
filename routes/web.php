@@ -69,8 +69,10 @@ Route::post('ownerMatch' , [OwnerController::class,'ownerlogin'])->name('ownerMa
 Route::view('owner-dashboard', 'owner.home')->name('ownerdashboard');
 Route::get('owner-dashboard' , [OwnerController::class,'ownerdashboard'])->name('owner.home');
 
-
+Route::view('hostel-details', 'owner.hostel-details')->name('hostel-detail');
+Route::view('room-form', 'owner.room-form')->name('room-form');
 Route::get('add-hostel' , [HostelsController::class,'hostelform'])->name('addHostel');
+
 
 // Route::get('/owner/room-form', [RoomFormController::class, 'room'])->name('owner.roomForm');
 // Route::get('/owner/hostel', [HostelsController::class, 'showHostelDetails'])->name('owner.hostelDetails');
