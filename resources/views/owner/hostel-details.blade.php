@@ -50,25 +50,25 @@
 <body>
 
     <div class="hostel-grid">
-        @foreach ($rooms as $room)
+      
             <div class="hostel-card"
-                onclick="window.location.href='{{ route('owner.hostelDetails', ['room_id' => $room->hostel_id]) }}'"
-                style="background-image: url('{{ asset('storage/' . $room->room_images ?? 'N/A') }}');">
+                onclick="window.location.href=''"
+                style="background-image: url('');">
                 <div class="hostel-overlay">
-                    <p>{{ $room->room_detail ?? 'N/A' }}</p>
-                    <p><strong>Room Size:</strong> {{ $room->room_size ?? 'N/A' }}</p>
-                    <p><strong>Floor Number:</strong> {{ $room->floor_number ?? 'N/A' }}</p>
-                    <p><strong>Contact:</strong> {{ $room->required_occupancy ?? 'N/A' }}</p>
+                    <p></p>
+                    <p><strong>Room Size:</strong> </p>
+                    <p><strong>Floor Number:</strong> </p>
+                    <p><strong>Contact:</strong> </p>
                 </div>
             </div>
 
 
-        @endforeach
+       
     </div>
 
    
 
-    <a href="{{ route('owner.roomForm', [ 'hostel_id' => $hostel_id]) }}" class="add_room_button">Add Rooms</a>
+    <a href="{{route('room-form')}}" class="add_room_button">Add Rooms</a>
 
 
 </body>

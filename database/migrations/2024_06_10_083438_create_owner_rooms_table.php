@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('owner_rooms', function (Blueprint $table) {
             $table->integer('owner_id');
             $table->integer('hostel_id');
-            $table->id('room_id');
+            $table->id();
             $table->json('room_images'); // Store images as JSON array
             $table->enum('room_type', ['single_bed', 'double_bed', 'carpeted']);
             $table->enum('floor_number', ['ground_floor', 'first_floor', 'second_floor', 'third_floor']);

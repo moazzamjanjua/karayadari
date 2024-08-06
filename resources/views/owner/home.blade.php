@@ -138,19 +138,17 @@
         <div class="main-content">
             <a href="{{ route('addHostel') }}" class="add_hosten_button">Add Hostels</a>
             <div class="hostel-grid">
-                @if($hostels->isEmpty())
-                    <p>No hostels available. Please add a new hostel.</p>
-                @else
-                    @foreach ($hostels as $hostel)
-                        <div class="hostel-card"
-                            onclick="window.location.href='{{ route('owner.hostel.show', $hostel->id) }}'"
-                            style="background-image: url('{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}');">
-                            <div class="hostel-overlay">
-                                <h2>{{ $hostel->hostel_name }}</h2>
-                                <p>{{ $hostel->hostel_detail }}</p>
-                                <p><strong>City:</strong> {{ $hostel->city }}</p>
-                                <p><strong>Contact:</strong> {{ $hostel->email }}</p>
-                            </div>
+               
+                    <div class="hostel-card"
+                        onclick="window.location.href=''"
+                        style="background-image: url('');">
+                        <div class="hostel-overlay">
+                            <h2></h2>
+                            <p></p>
+                            <p><strong>Address:</strong> </p>
+                            <p><strong>Address:</strong> </p>
+                            <p><strong>City:</strong> </p>
+                            <p><strong>Contact:</strong> </p>
                         </div>
                     @endforeach
                 @endif
