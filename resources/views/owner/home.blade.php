@@ -154,7 +154,7 @@
 
              
             </div>
-            <a href="" class="add_hosten_button">Add
+            <a href="{{route('addHostel')}}" class="add_hosten_button">Add
                 Hostels</a>
         </div>
     </div>

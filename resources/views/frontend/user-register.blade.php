@@ -41,7 +41,7 @@
                                             <div class="form-group">
                                                 <div>
                                                     <div class="input-group js-parent-focus">
-                                                        <input class="form-control js-child-focus js-visible-password" name="password_confirmation" type="password_confirmation" placeholder="Password Confirmation">
+                                                        <input class="form-control js-child-focus js-visible-password" name="password_confirmation" type="password_confirmation" placeholder="Confirm Password">
                                                     </div>
                                                 </div>
                                             </div>

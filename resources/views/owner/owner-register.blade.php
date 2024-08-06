@@ -75,8 +75,9 @@
         @csrf
         <input class="form-control" name="owner_name" type="text" placeholder="Name">
         <input class="form-control" name="owner_email" type="text" placeholder="Email">
-        <input class="form-control" name="owner_country" type="text" placeholder="Country">
+        <input class="form-control" name="owner_number" type="text" placeholder="Number">
         <input class="form-control" name="password" type="text" placeholder="Password">
+        <input class="form-control" name="password_confirmation" type="text" placeholder="Confirm Password">
             <button type="submit">Signup</button>
         </form>
         <p>Already have an account? <a href="../owner/login">Login</a></p>

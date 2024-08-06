@@ -2,7 +2,7 @@
         <!-- header left mobie -->
         <div class="header-mobile d-md-none">
             <div class="mobile hidden-md-up text-xs-center d-flex align-items-center justify-content-around">
-
+           
                 <!-- menu left -->
                 <div id="mobile_mainmenu" class="item-mobile-top">
                     <i class="fa fa-bars" aria-hidden="true"></i>
@@ -178,13 +178,13 @@
                 </a>
             </div>
             <div>
-                <a class="register" href="{{ route('logout') }}" 
+                <a class="register" href="{{route('user.logout')}}" 
                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();" 
                    rel="nofollow" title="Logout Account">
                     <i class="fa fa-sign-out"></i>
                     <span>Logout</span>
                 </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
+                <form id="logout-form" action="{{route('user.logout')}}" method="GET" style="display: none;">
                     @csrf
                 </form>
             </div>

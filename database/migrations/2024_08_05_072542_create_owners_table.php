@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('owner_name');
             $table->string('owner_email');
-            $table->string('owner_country');
+            $table->string('owner_country')->nullable();
             $table->string('owner_city' , 50)->nullable();
-            $table->string('owner_number' , 50)->nullable();
+            $table->string('owner_number' , 50);
             $table->string('owner_address' , 50)->nullable();
             $table->string('owner_image')->nullable();
-            $table->string('password')->nullable();
+            $table->string('password');
             $table->timestamps();
         });
     }

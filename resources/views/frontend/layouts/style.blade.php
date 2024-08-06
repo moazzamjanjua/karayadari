@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Karayadari</title>
-
+    <link rel="icon" type="image/png" href="{{ asset('frontend/img/home/favicon.png') }}">
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">

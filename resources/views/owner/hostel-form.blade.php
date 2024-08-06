@@ -160,28 +160,14 @@
 
     <div class="container mt-5">
         <h1 class="text-center mb-4"><b>Hostel Details Form</b></h1>
-        <form action="{{ route('owner.hostalStore') }}" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
     @csrf
     @method('POST')
     <!-- Add a hidden input field to pass owner_id -->
   
-    <input type="hidden" name="owner_id" value="{{$owner_id}}">
+    <input type="hidden" name="owner_id" value="">
     <!-- Your form fields -->
      
-    <label for="owner_image">Hostel Owner Image:</label>
-    <div class="avatar-upload">
-        <img id="owner_image_preview" src="/frontend/img/home/avatar.jpg" alt="Owner Image">
-        <input type="file" class="form-control-file d-none" id="owner_image" name="owner_image" accept="image/*" required onchange="updateOwnerImagePreview()">
-        <button type="button" class="edit-button" onclick="document.getElementById('owner_image').click()">✎</button>
-    </div>
-    <div class="form-group">
-        <label for="owner_name">Owner Name:</label>
-        <input type="text" class="form-control" id="owner_name" name="owner_name" placeholder="Enter owner name" required>
-    </div>
-    <div class="form-group">
-        <label for="owner_number">Owner Phone Number:</label>
-        <input type="text" class="form-control" id="owner_number" name="owner_number" placeholder="Enter owner phone number" required>
-    </div>
     <div class="form-group">
         <label for="hostel_name">Hostel Name:</label>
         <input type="text" class="form-control" id="hostel_name" name="hostel_name" placeholder="Enter hostel name" required>

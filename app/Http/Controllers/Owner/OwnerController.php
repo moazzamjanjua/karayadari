@@ -15,8 +15,8 @@ class OwnerController extends Controller
         $data = $request->validate([
             'owner_name' => 'required',
             'owner_email' => 'required|email|unique:owners', // Use the column name 'email'
-            'owner_country' => 'required',
-            'password' => 'required', // Add validation for minimum length
+            'owner_number' => 'required',
+            'password' => 'required|confirmed',
         ]);
 
         $data['password'] = Hash::make($data['password']); // Hash the password
@@ -54,7 +54,40 @@ class OwnerController extends Controller
     }
     
     
-    
+    public function update(Request $request)
+{
+    $owner = Auth::guard('owner')->user();
+
+    // Validate input
+    $validatedData = $request->validate([
+        'owner_name' => 'string|max:255',
+        'owner_number' => 'string|max:15',
+        'owner_country' => 'string|max:255',
+        'owner_city' => 'string|max:255',
+        'owner_address' => 'string|max:255',
+        'owner_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048' // Optional image upload validation
+    ]);
+
+    // Check if a new image is uploaded
+    if ($request->hasFile('owner_image')) {
+        $image = $request->file('owner_image');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->storeAs('public/owner_image', $imageName);
+        $owner->owner_image = $imageName; // Save new image name in the database
+    }
+
+    // Update other owner details
+    $owner->owner_name = $validatedData['owner_name'];
+    $owner->owner_number = $validatedData['owner_number'];
+    $owner->owner_country = $validatedData['owner_country'];
+    $owner->owner_city = $validatedData['owner_city'];
+    $owner->owner_address = $validatedData['owner_address'];
+
+    $owner->save(); // Save updated owner details to the database
+
+    return redirect()->route('owner.home')->with('success', 'Profile updated successfully!');
+}
+
 
     public function logout()
     {

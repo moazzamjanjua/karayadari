@@ -23,7 +23,7 @@ class Owner extends Authenticatable
         'owner_password',
         'owner_address',
         'owner_city',
-        'owner_phone',
+        'owner_number',
         'owner_country',
         'owner_image',
         'password',
