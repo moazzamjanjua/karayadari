@@ -212,7 +212,43 @@
     </div>
     <div class="form-group">
         <label for="facilities">Facilities:</label>
-        <textarea class="form-control" id="facilities" name="facilities" rows="4" placeholder="Enter facilities (optional)"></textarea>
+       
     </div>
+    <div class="form-group">
+        <label>Wi-Fi:</label>
+        <div>
+            <input type="radio" id="wifi_yes" name="wifi" value="yes" required>
+            <label for="wifi_yes">Yes</label>
+        </div>
+        <div>
+            <input type="radio" id="wifi_no" name="wifi" value="no" required>
+            <label for="wifi_no">No</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Security:</label>
+        <div>
+            <input type="radio" id="security_yes" name="security" value="yes" required>
+            <label for="security_yes">Yes</label>
+        </div>
+        <div>
+            <input type="radio" id="security_no" name="security" value="no" required>
+            <label for="security_no">No</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Water Supply:</label>
+        <div>
+            <input type="radio" id="water_supply_yes" name="water_supply" value="yes" required>
+            <label for="water_supply_yes">Yes</label>
+        </div>
+        <div>
+            <input type="radio" id="water_supply_no" name="water_supply" value="no" required>
+            <label for="water_supply_no">No</label>
+        </div>
+    </div>
+
     <button type="submit" class="btn btn-success btn-block">Submit</button>
 </form>
