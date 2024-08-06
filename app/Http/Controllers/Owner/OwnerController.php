@@ -60,13 +60,14 @@ class OwnerController extends Controller
 
     // Validate input
     $validatedData = $request->validate([
-        'owner_name' => 'string|max:255',
-        'owner_number' => 'string|max:15',
-        'owner_country' => 'string|max:255',
-        'owner_city' => 'string|max:255',
-        'owner_address' => 'string|max:255',
-        'owner_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048' // Optional image upload validation
+        'owner_name' => 'nullable|string|max:255',
+        'owner_number' => 'nullable|string|max:15',
+        'owner_country' => 'nullable|string|max:255',
+        'owner_city' => 'nullable|string|max:255',
+        'owner_address' => 'nullable|string|max:255',
+        'owner_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
     ]);
+    
 
     // Check if a new image is uploaded
     if ($request->hasFile('owner_image')) {
