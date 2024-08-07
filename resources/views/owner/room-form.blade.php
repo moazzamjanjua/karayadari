@@ -46,7 +46,7 @@
 
         .preview {
             display: flex;
-            flex-wrap: wrap; /* Allows wrapping for smaller screens */
+            flex-wrap: wrap;
             gap: 10px;
             margin-top: 10px;
         }
@@ -197,44 +197,87 @@
     </div>
 
     <script>
-        function updateImagePreviews() {
-            const fileInput = document.getElementById('room_images');
-            const previewContainer = document.getElementById('image_previews');
-            previewContainer.innerHTML = '';
+let selectedFiles = [];
 
-            const files = Array.from(fileInput.files).slice(0, 4); // Limit to 4 files
-            files.forEach((file, index) => {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const imgContainer = document.createElement('div');
-                    imgContainer.classList.add('image-container');
+function updateImagePreviews() {
+    const fileInput = document.getElementById('room_images');
+    const previewContainer = document.getElementById('image_previews');
 
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
+    // Clear previous error messages
+    const errorContainer = document.getElementById('error_message');
+    if (errorContainer) {
+        errorContainer.innerHTML = '';
+    }
 
-                    const removeButton = document.createElement('button');
-                    removeButton.classList.add('remove-image');
-                    removeButton.innerHTML = '&times;';
-                    removeButton.onclick = () => {
-                        // Remove the image from the preview and the input
-                        const dataTransfer = new DataTransfer();
-                        for (let i = 0; i < fileInput.files.length; i++) {
-                            if (i !== index) {
-                                dataTransfer.items.add(fileInput.files[i]);
-                            }
-                        }
-                        fileInput.files = dataTransfer.files;
-                        updateImagePreviews();
-                    };
-
-                    imgContainer.appendChild(img);
-                    imgContainer.appendChild(removeButton);
-                    previewContainer.appendChild(imgContainer);
-                };
-                reader.readAsDataURL(file);
-            });
+    // Add newly selected files to the array, ensuring no duplicates
+    Array.from(fileInput.files).forEach(file => {
+        if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
+            selectedFiles.push(file);
         }
-    </script>
+    });
+
+    // Limit to 4 files and show error if more than 4
+    if (selectedFiles.length > 4) {
+        const excessFiles = selectedFiles.length - 4;
+        selectedFiles.length = 4;
+        
+        // Display error message
+        const errorMessage = `You can only select up to 4 images. ${excessFiles} file(s) were ignored.`;
+        if (!errorContainer) {
+            const newErrorContainer = document.createElement('div');
+            newErrorContainer.id = 'error_message';
+            newErrorContainer.style.color = 'red';
+            newErrorContainer.textContent = errorMessage;
+            fileInput.parentNode.insertBefore(newErrorContainer, fileInput.nextSibling);
+        } else {
+            errorContainer.textContent = errorMessage;
+        }
+
+        // Remove the ignored files from the input
+        const dataTransfer = new DataTransfer();
+        selectedFiles.forEach(file => dataTransfer.items.add(file));
+        fileInput.files = dataTransfer.files;
+    }
+
+    // Clear the preview container
+    previewContainer.innerHTML = '';
+
+    // Display previews
+    selectedFiles.forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const imgContainer = document.createElement('div');
+            imgContainer.classList.add('image-container');
+
+            const img = document.createElement('img');
+            img.src = e.target.result;
+
+            const removeButton = document.createElement('button');
+            removeButton.classList.add('remove-image');
+            removeButton.innerHTML = '&times;';
+            removeButton.onclick = () => {
+                // Remove the file from selectedFiles array
+                selectedFiles = selectedFiles.filter((_, i) => i !== index);
+
+                // Update the file input
+                const dataTransfer = new DataTransfer();
+                selectedFiles.forEach(file => dataTransfer.items.add(file));
+                fileInput.files = dataTransfer.files;
+
+                // Update the image previews
+                updateImagePreviews();
+            };
+
+            imgContainer.appendChild(img);
+            imgContainer.appendChild(removeButton);
+            previewContainer.appendChild(imgContainer);
+        };
+        reader.readAsDataURL(file);
+    });
+}
+</script>
+
+
 </body>
 
 </html>

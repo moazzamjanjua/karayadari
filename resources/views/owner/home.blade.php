@@ -49,6 +49,7 @@
             flex-direction: column;
             align-items: center;
             overflow-y: auto;
+            position: relative;
         }
 
         .add_hosten_button {
@@ -62,6 +63,9 @@
             text-decoration: none;
             font-size: 18px;
             margin-bottom: 10px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
 
         .add_hosten_button:hover {
@@ -91,6 +95,7 @@
             gap: 20px;
             width: 100%;
             overflow-y: auto;
+            margin-top: 60px; /* Added margin to make space for the button */
         }
 
         .hostel-card {
@@ -103,6 +108,7 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
         }
 
         .hostel-overlay {
@@ -126,6 +132,37 @@
             font-size: 14px;
             /* Reduced font size */
         }
+
+        .no-hostels {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #555;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .no-hostels p {
+            margin: 10px 0;
+        }
+
+        .no-hostels a {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .no-hostels a:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 
@@ -139,7 +176,10 @@
             <a href="{{ route('addHostel') }}" class="add_hosten_button">Add Hostels</a>
             <div class="hostel-grid">
                 @if($hostels->isEmpty())
-                    <p>No hostels available. Please add a new hostel.</p>
+                    <div class="no-hostels">
+                        <p>No hostels available. Please add a new hostel.</p>
+                        
+                    </div>
                 @else
                     @foreach ($hostels as $hostel)
                         <div class="hostel-card"
@@ -173,4 +213,3 @@
 </body>
 
 </html>
-
