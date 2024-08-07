@@ -15,7 +15,7 @@
     <ul class="profile-info">
         <li><span>Name:</span> <span><input type="text" name="owner_name" value="{{ Auth::guard('owner')->user()->owner_name }}"></span></li>
         <li>
-            <span>Phone Number:</span>
+            <span>Phone:</span>
             <span><input type="text" name="owner_number" value="{{ Auth::guard('owner')->user()->owner_number}}"></span>
             @error('owner_phone')
                 <span class="text-danger">{{ $message }}</span>

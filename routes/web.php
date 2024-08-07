@@ -83,18 +83,11 @@ Route::get('hostels/{id}', [HostelsController::class, 'show'])->name('owner.host
 
 
 
-// Route::get('/owner/room-form', [RoomFormController::class, 'room'])->name('owner.roomForm');
-// Route::get('/owner/hostel', [HostelsController::class, 'showHostelDetails'])->name('owner.hostelDetails');
 
 //profile-update
 Route::put('/owner/update', [OwnerController::class, 'update'])->name('owner.update');
 
 Route::post('/owner/room-form', [RoomFormController::class, 'store'])->name('rooms.roomStore');
-
-
-
-
-// Route::get('/cities', [CitiesController::class, 'create'])->name('cities.create');
 
 
 //admin 
