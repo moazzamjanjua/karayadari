@@ -42,10 +42,7 @@ public function store(Request $request)
         'room_detail' => 'nullable|string|max:1000',
     ]);
 
-    // Dump the validated data to check its contents
-    // dd('Validated Data:', $validatedData);
-
-    // Add authenticated owner's ID
+    
     $validatedData['owner_id'] = Auth::guard('owner')->id();
 
     // Handle image files if present

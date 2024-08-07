@@ -94,7 +94,10 @@
             @method('POST')
 
             <!-- Hidden field for hostel ID -->
-            <input type="hidden" name="hostel_id" value="">
+            <input type="hidden" name="hostel_id" value="{{ $hostel->id }}">
+<input type="hidden" name="owner_id" value="{{ Auth::guard('owner')->id() }}">
+
+
 
             <div class="form-group">
                 <label for="room_images">Room Images:</label>
