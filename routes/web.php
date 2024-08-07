@@ -5,6 +5,7 @@ use App\Http\Controllers\frontend\UsersController;
 use App\Http\Controllers\Owner\HostalFormController;
 use App\Http\Controllers\Owner\HostelsController;
 use App\Http\Controllers\Owner\OwnerController;
+use App\Http\Controllers\Owner\RoomController;
 use App\Http\Controllers\Owner\RoomFormController;
 use App\Http\Controllers\Owner\HostalDetailController;
 use App\Http\Controllers\ProductGridLeftController;
@@ -73,13 +74,14 @@ Route::view('owner-dashboard', 'owner.home')->name('ownerdashboard');
 Route::get('owner-dashboard' , [OwnerController::class,'ownerdashboard'])->name('owner.home');
 
 Route::view('hostel-details', 'owner.hostel-details')->name('hostel-detail');
-Route::view('room-form', 'owner.room-form')->name('room-form');
+Route::view('room-form', 'owner.room-form')->name('addRoom');
 
 Route::get('add-hostel' , [HostelsController::class,'hostelform'])->name('addHostel');
 Route::post('hostels', [HostelsController::class, 'store'])->name('owner.hostels.store');
 
 
 Route::get('hostels/{id}', [HostelsController::class, 'show'])->name('owner.hostel.show');
+Route::get('hostel/{id}/add-room', [RoomController::class, 'showroom'])->name('addRoom');
 
 
 

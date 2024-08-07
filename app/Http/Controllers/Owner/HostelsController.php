@@ -59,7 +59,7 @@ public function show($id)
 {
     $hostel = Hostels::findOrFail($id); // Find the hostel by ID or fail with a 404
 
-    return view('owner.hostel.show', compact('hostel'));
+    return view('owner.hostel-show', compact('hostel'));
 }
 
 }
