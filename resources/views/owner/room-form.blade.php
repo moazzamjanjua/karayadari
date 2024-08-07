@@ -89,12 +89,11 @@
 <body>
     <div class="container">
         <h1 class="text-center mb-4">Room Details Form</h1>
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{{ route('rooms.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('POST')
 
-            <!-- Hidden fields for owner and hostel IDs -->
-            <input type="hidden" name="owner_id" value="">
+            <!-- Hidden field for hostel ID -->
             <input type="hidden" name="hostel_id" value="">
 
             <div class="form-group">
@@ -197,87 +196,69 @@
     </div>
 
     <script>
-let selectedFiles = [];
+        let selectedFiles = [];
 
-function updateImagePreviews() {
-    const fileInput = document.getElementById('room_images');
-    const previewContainer = document.getElementById('image_previews');
+        function updateImagePreviews() {
+            const fileInput = document.getElementById('room_images');
+            const previewContainer = document.getElementById('image_previews');
 
-    // Clear previous error messages
-    const errorContainer = document.getElementById('error_message');
-    if (errorContainer) {
-        errorContainer.innerHTML = '';
-    }
+            const errorContainer = document.getElementById('error_message');
+            if (errorContainer) {
+                errorContainer.innerHTML = '';
+            }
 
-    // Add newly selected files to the array, ensuring no duplicates
-    Array.from(fileInput.files).forEach(file => {
-        if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
-            selectedFiles.push(file);
-        }
-    });
+            Array.from(fileInput.files).forEach(file => {
+                if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
+                    selectedFiles.push(file);
+                }
+            });
 
-    // Limit to 4 files and show error if more than 4
-    if (selectedFiles.length > 4) {
-        const excessFiles = selectedFiles.length - 4;
-        selectedFiles.length = 4;
-        
-        // Display error message
-        const errorMessage = `You can only select up to 4 images. ${excessFiles} file(s) were ignored.`;
-        if (!errorContainer) {
-            const newErrorContainer = document.createElement('div');
-            newErrorContainer.id = 'error_message';
-            newErrorContainer.style.color = 'red';
-            newErrorContainer.textContent = errorMessage;
-            fileInput.parentNode.insertBefore(newErrorContainer, fileInput.nextSibling);
-        } else {
-            errorContainer.textContent = errorMessage;
-        }
+            if (selectedFiles.length > 4) {
+                const excessFiles = selectedFiles.length - 4;
+                selectedFiles.length = 4;
+                
+                const errorMessage = `You can only select up to 4 images. ${excessFiles} file(s) were ignored.`;
+                if (!errorContainer) {
+                    const newErrorContainer = document.createElement('div');
+                    newErrorContainer.id = 'error_message';
+                    newErrorContainer.style.color = 'red';
+                    newErrorContainer.textContent = errorMessage;
+                    fileInput.parentNode.insertBefore(newErrorContainer, fileInput.nextSibling);
+                } else {
+                    errorContainer.textContent = errorMessage;
+                }
 
-        // Remove the ignored files from the input
-        const dataTransfer = new DataTransfer();
-        selectedFiles.forEach(file => dataTransfer.items.add(file));
-        fileInput.files = dataTransfer.files;
-    }
-
-    // Clear the preview container
-    previewContainer.innerHTML = '';
-
-    // Display previews
-    selectedFiles.forEach((file, index) => {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const imgContainer = document.createElement('div');
-            imgContainer.classList.add('image-container');
-
-            const img = document.createElement('img');
-            img.src = e.target.result;
-
-            const removeButton = document.createElement('button');
-            removeButton.classList.add('remove-image');
-            removeButton.innerHTML = '&times;';
-            removeButton.onclick = () => {
-                // Remove the file from selectedFiles array
-                selectedFiles = selectedFiles.filter((_, i) => i !== index);
-
-                // Update the file input
                 const dataTransfer = new DataTransfer();
                 selectedFiles.forEach(file => dataTransfer.items.add(file));
                 fileInput.files = dataTransfer.files;
+            }
 
-                // Update the image previews
-                updateImagePreviews();
-            };
+            previewContainer.innerHTML = '';
 
-            imgContainer.appendChild(img);
-            imgContainer.appendChild(removeButton);
-            previewContainer.appendChild(imgContainer);
-        };
-        reader.readAsDataURL(file);
-    });
-}
-</script>
+            selectedFiles.forEach((file, index) => {
+                const imageContainer = document.createElement('div');
+                imageContainer.classList.add('image-container');
 
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(file);
 
+                const removeButton = document.createElement('button');
+                removeButton.classList.add('remove-image');
+                removeButton.textContent = 'x';
+                removeButton.onclick = function() {
+                    selectedFiles.splice(index, 1);
+                    const dataTransfer = new DataTransfer();
+                    selectedFiles.forEach(f => dataTransfer.items.add(f));
+                    fileInput.files = dataTransfer.files;
+                    updateImagePreviews();
+                };
+
+                imageContainer.appendChild(img);
+                imageContainer.appendChild(removeButton);
+
+                previewContainer.appendChild(imageContainer);
+            });
+        }
+    </script>
 </body>
-
 </html>

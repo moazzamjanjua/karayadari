@@ -81,7 +81,10 @@ Route::post('hostels', [HostelsController::class, 'store'])->name('owner.hostels
 
 
 Route::get('hostels/{id}', [HostelsController::class, 'show'])->name('owner.hostel.show');
+
 Route::get('hostel/{id}/add-room', [RoomController::class, 'showroom'])->name('addRoom');
+
+Route::post('rooms', [RoomController::class, 'store'])->name('rooms.store');
 
 
 
@@ -89,7 +92,6 @@ Route::get('hostel/{id}/add-room', [RoomController::class, 'showroom'])->name('a
 //profile-update
 Route::put('/owner/update', [OwnerController::class, 'update'])->name('owner.update');
 
-Route::post('/owner/room-form', [RoomFormController::class, 'store'])->name('rooms.roomStore');
 
 
 //admin 

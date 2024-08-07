@@ -53,7 +53,6 @@ class HostelsController extends Controller
         return redirect()->route('owner.home')->with('success', 'Hostel added successfully!');
     }
 
-    // In your HostelsController
 
 public function show($id)
 {
