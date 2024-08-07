@@ -16,6 +16,10 @@ class RoomController extends Controller
 }
 public function store(Request $request)
 {
+    // Dump the raw request data to see all fields coming through
+    dd('Raw Request Data:', $request->all());
+
+    // Validate the request data
     $validatedData = $request->validate([
         'hostel_id' => 'required|exists:hostels,id',
         'room_images' => 'nullable|array|max:4',
@@ -38,22 +42,34 @@ public function store(Request $request)
         'room_detail' => 'nullable|string|max:1000',
     ]);
 
+    // Dump the validated data to check its contents
+    // dd('Validated Data:', $validatedData);
 
-    dd($validatedData);
+    // Add authenticated owner's ID
     $validatedData['owner_id'] = Auth::guard('owner')->id();
 
+    // Handle image files if present
     if ($request->hasFile('room_images')) {
         $images = [];
         foreach ($request->file('room_images') as $image) {
+            // Generate a unique name for each image
             $imageName = time() . '_' . $image->getClientOriginalName();
+            // Store the image in the 'public/room_images' directory
             $image->storeAs('public/room_images', $imageName);
+            // Add the image name to the array
             $images[] = $imageName;
         }
+        // Convert the array to JSON and add it to validated data
         $validatedData['room_images'] = json_encode($images);
     }
 
+    // Dump the final data including image names before saving to the database
+    dd('Final Data Before Saving:', $validatedData);
+
+    // Create a new HostelRoom record
     HostelRoom::create($validatedData);
 
+    // Redirect with success message
     return redirect()->route('owner.home')->with('success', 'Room details added successfully!');
 }
 
