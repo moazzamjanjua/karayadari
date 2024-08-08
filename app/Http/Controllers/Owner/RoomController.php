@@ -42,7 +42,6 @@ public function store(Request $request)
         'room_detail' => 'nullable|string|max:1000',
     ]);
 
-    
     $validatedData['owner_id'] = Auth::guard('owner')->id();
 
     // Handle image files if present
@@ -64,11 +63,16 @@ public function store(Request $request)
     dd('Final Data Before Saving:', $validatedData);
 
     // Create a new HostelRoom record
-    HostelRoom::create($validatedData);
+    try {
+        HostelRoom::create($validatedData);
+    } catch (\Exception $e) {
+        dd('Database Insertion Error:', $e->getMessage());
+    }
 
     // Redirect with success message
     return redirect()->route('owner.home')->with('success', 'Room details added successfully!');
 }
+
 
 
 

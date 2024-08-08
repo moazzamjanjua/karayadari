@@ -55,10 +55,7 @@ Route::view('user-profile','frontend.user-profile' )->name('user-profile');
 Route::get('user-profile' ,[UsersController::class , 'profile'])->name('user-profile');
 Route::put('user-profile/update' ,[UsersController::class , 'update'])->name('user-profile.update');
 
-//logout
 
-
-//owner
 
 //Authenticate
 Route::view('become-owner' , 'owner.owner-register')->name('become-owner');
