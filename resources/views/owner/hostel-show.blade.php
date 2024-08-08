@@ -18,7 +18,6 @@
             background: url('{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}') no-repeat center center;
             background-size: cover;
             position: relative;
-            opacity: 0.7;
         }
 
         .overlay {
@@ -52,19 +51,19 @@
         }
 
         .add-room-button {
-            position: absolute;
-            top: 20px;
-            right: 2px;
-            left: 400px;
-            padding: 10px 20px;
-            background-color: #007bff;
+            padding: 15px 30px;
+            background-color: #007BFF;
             color: white;
+            text-align: center;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            font-size: 16px;
-            z-index: 2;
+            font-size: 18px;
+            position: absolute;
+           
+            margin-top: -250px;
+            left: 450px;
         }
 
         .add-room-button:hover {
@@ -74,7 +73,7 @@
 </head>
 
 <body>
-    <div class="overlay"></div>
+   
     <a href="{{ route('addRoom', $hostel->id) }}" class="add-room-button">Add Room</a>
 
     <!-- Include Bootstrap JS -->
