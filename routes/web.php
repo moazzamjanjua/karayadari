@@ -81,7 +81,7 @@ Route::get('hostels/{id}', [HostelsController::class, 'show'])->name('owner.host
 
 Route::get('hostel/{id}/add-room', [RoomController::class, 'showroom'])->name('addRoom');
 
-Route::post('rooms', [RoomController::class, 'store'])->name('rooms.store');
+Route::post('rooms.store', [RoomController::class, 'store'])->name('rooms.store');
 
 
 
