@@ -42,6 +42,21 @@
 
         .form-group label {
             font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            border-radius: 8px;
+        }
+
+        .form-check-input:checked + .form-check-label {
+            color: #007bff;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
         .preview {
@@ -55,6 +70,10 @@
             position: relative;
             display: flex;
             align-items: center;
+            justify-content: center;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 5px;
         }
 
         .preview img {
@@ -66,8 +85,8 @@
 
         .preview .remove-image {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: -5px;
+            right: -5px;
             background: rgba(255, 0, 0, 0.7);
             color: #fff;
             border: none;
@@ -78,6 +97,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 12px;
         }
 
         .preview .remove-image:hover {
@@ -95,9 +115,7 @@
 
             <!-- Hidden field for hostel ID -->
             <input type="hidden" name="hostel_id" value="{{ $hostel->id }}">
-<input type="hidden" name="owner_id" value="{{ Auth::guard('owner')->id() }}">
-
-
+            <input type="hidden" name="owner_id" value="{{ Auth::guard('owner')->id() }}">
 
             <div class="form-group">
                 <label for="room_images">Room Images:</label>
@@ -107,10 +125,10 @@
 
             <div id="image_previews" class="preview"></div>
 
-            <!-- Other form fields -->
             <div class="form-group">
                 <label for="room_type">Room Type:</label>
                 <select class="form-control" id="room_type" name="room_type" required>
+                    <option value="" disabled selected>Select Room Type</option>
                     <option value="single_bed">Single Bed</option>
                     <option value="double_bed">Double Bed</option>
                     <option value="carpeted">Carpeted</option>
@@ -120,6 +138,7 @@
             <div class="form-group">
                 <label for="floor_number">Floor Number:</label>
                 <select class="form-control" id="floor_number" name="floor_number" required>
+                    <option value="" disabled selected>Select Floor</option>
                     <option value="ground_floor">Ground Floor</option>
                     <option value="first_floor">First Floor</option>
                     <option value="second_floor">Second Floor</option>
@@ -144,49 +163,69 @@
 
             <div class="form-group">
                 <label>Facilities:</label>
+                
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="wifi" name="wifi">
+                    <input type="hidden" name="wifi" value="0">
+                    <input type="checkbox" class="form-check-input" id="wifi" name="wifi" value="1">
                     <label class="form-check-label" for="wifi">Wi-Fi</label>
                 </div>
+
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="filter_water" name="filter_water">
+                    <input type="hidden" name="filter_water" value="0">
+                    <input type="checkbox" class="form-check-input" id="filter_water" name="filter_water" value="1">
                     <label class="form-check-label" for="filter_water">Filter Water</label>
                 </div>
+
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="gas" name="gas">
+                    <input type="hidden" name="gas" value="0">
+                    <input type="checkbox" class="form-check-input" id="gas" name="gas" value="1">
                     <label class="form-check-label" for="gas">Gas</label>
                 </div>
+
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="chair" name="chair">
+                    <input type="hidden" name="chair" value="0">
+                    <input type="checkbox" class="form-check-input" id="chair" name="chair" value="1">
                     <label class="form-check-label" for="chair">Chair</label>
                 </div>
+
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="almaira" name="almaira">
+                    <input type="hidden" name="almaira" value="0">
+                    <input type="checkbox" class="form-check-input" id="almaira" name="almaira" value="1">
                     <label class="form-check-label" for="almaira">Almaira</label>
                 </div>
+
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="table" name="table">
+                    <input type="hidden" name="table" value="0">
+                    <input type="checkbox" class="form-check-input" id="table" name="table" value="1">
                     <label class="form-check-label" for="table">Table</label>
                 </div>
+
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="fan" name="fan">
+                    <input type="hidden" name="fan" value="0">
+                    <input type="checkbox" class="form-check-input" id="fan" name="fan" value="1">
                     <label class="form-check-label" for="fan">Fan</label>
                 </div>
+
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ac" name="ac">
+                    <input type="hidden" name="ac" value="0">
+                    <input type="checkbox" class="form-check-input" id="ac" name="ac" value="1">
                     <label class="form-check-label" for="ac">AC</label>
                 </div>
+
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="geyser" name="geyser">
+                    <input type="hidden" name="geyser" value="0">
+                    <input type="checkbox" class="form-check-input" id="geyser" name="geyser" value="1">
                     <label class="form-check-label" for="geyser">Geyser</label>
                 </div>
-                <div class="form-check">
-                    <label for="washroom">Washroom:</label>
-                    <select class="form-control" id="washroom" name="washroom" required>
-                        <option value="private">Private</option>
-                        <option value="share">Share</option>
-                    </select>
-                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="washroom">Washroom:</label>
+                <select class="form-control" id="washroom" name="washroom" required>
+                    <option value="" disabled selected>Select Washroom Type</option>
+                    <option value="private">Private</option>
+                    <option value="share">Share</option>
+                </select>
             </div>
 
             <div class="form-group">
@@ -219,7 +258,7 @@
             if (selectedFiles.length > 4) {
                 const excessFiles = selectedFiles.length - 4;
                 selectedFiles.length = 4;
-                
+
                 const errorMessage = `You can only select up to 4 images. ${excessFiles} file(s) were ignored.`;
                 if (!errorContainer) {
                     const newErrorContainer = document.createElement('div');
@@ -248,7 +287,7 @@
                 const removeButton = document.createElement('button');
                 removeButton.classList.add('remove-image');
                 removeButton.textContent = 'x';
-                removeButton.onclick = function() {
+                removeButton.onclick = function () {
                     selectedFiles.splice(index, 1);
                     const dataTransfer = new DataTransfer();
                     selectedFiles.forEach(f => dataTransfer.items.add(f));
@@ -264,4 +303,5 @@
         }
     </script>
 </body>
+
 </html>
