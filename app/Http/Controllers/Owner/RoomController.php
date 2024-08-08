@@ -17,7 +17,7 @@ class RoomController extends Controller
 public function store(Request $request)
 {
     // Dump the raw request data to see all fields coming through
-    dd('Raw Request Data:', $request->all());
+    // dd('Raw Request Data:', $request->all());
 
     // Validate the request data
     $validatedData = $request->validate([
@@ -59,8 +59,8 @@ public function store(Request $request)
         $validatedData['room_images'] = json_encode($images);
     }
 
-    // Dump the final data including image names before saving to the database
-    dd('Final Data Before Saving:', $validatedData);
+    
+    // dd('Final Data Before Saving:', $validatedData);
 
     // Create a new HostelRoom record
     try {
