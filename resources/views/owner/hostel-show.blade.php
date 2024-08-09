@@ -67,6 +67,25 @@
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 40px;
+            background: linear-gradient(45deg, #ff6b6b, #f06595);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            height: 45px;
+            white-space: nowrap;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
 
         .add-room-button:hover {
             transform: scale(1.05);
@@ -85,46 +104,66 @@
         }
 
         .room-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-            flex-basis: 48%;
-            max-width: 48%;
-            position: relative;
-        }
+    background-color: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    flex-basis: 48%;
+    max-width: 48%;
+    position: relative;
+    height: 300px; /* Set a fixed height for the card */
+}
 
-        .room-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
+.room-card img {
+    width: 100%;
+    height: 100%; /* Force the image to fill the height of the card */
+    object-fit: contain; /* Ensure the entire image is shown within the card without distortion */
+}
 
-        .room-card-body {
-            padding: 10px;
-        }
+.room-card-body {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for the text */
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
 
         .room-card-title {
             font-size: 20px;
             margin-bottom: 5px;
-            color: #333;
+            color: white;
         }
 
         .room-card-text {
             font-size: 14px;
-            color: #555;
+            color: white;
         }
 
         .carousel-item img {
-            height: 150px;
+            height: auto;
             object-fit: cover;
+            background-color: pink;
         }
 
         .carousel-control-prev,
         .carousel-control-next {
             width: 5%;
         }
+        .carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: blue; /* Set the background color to blue */
+    border-radius: 50%; /* Make the background a circle */
+    padding: 10px; /* Add some padding to make the circle larger */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 1; /* Ensure the buttons are fully visible */
+}
+
+
     </style>
 </head>
 
@@ -132,7 +171,7 @@
     <div class="overlay"></div>
     <div class="content">
         <h1>{{ $hostel->hostel_name }}</h1>
-       
+        @include('frontend.layouts.back')
         <a href="{{ route('addRoom', $hostel->id) }}" class="add-room-button">Add Room</a>
 
         <div class="room-cards mt-5">
@@ -183,6 +222,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 
 </html>
