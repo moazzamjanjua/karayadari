@@ -51,21 +51,17 @@
         .add-room-button {
             position: absolute;
             top: 20px;
-            right: 20px;
-            padding: 10px 40px;
-            background: linear-gradient(45deg, #ff6b6b, #f06595);
-            border: none;
-            border-radius: 6px;
+            right: 2px;
+            left: 400px;
+            padding: 10px 20px;
+            background-color: #007bff;
             color: white;
-            height: 45px;
-            white-space: nowrap;
-            font-size: 1em;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-size: 16px;
+            z-index: 2;
         }
 
         .add-room-button:hover {
@@ -119,36 +115,7 @@
 
 <body>
     <div class="overlay"></div>
-    <div class="content">
-        <h1>{{ $hostel->hostel_name }}</h1>
-        <a href="{{ route('addRoom', $hostel->id) }}" class="add-room-button">Add Room</a>
-
-        <div class="room-cards mt-5">
-            @if($hostel && $hostel->rooms)
-                @foreach($hostel->rooms as $room)
-                    <div class="room-card">
-                        @php
-                            $images = json_decode($room->room_images, true);
-                        @endphp
-                        @if($images && is_array($images))
-                            @foreach($images as $image)
-                                <img src="{{ asset('storage/room_images/' . $image) }}" alt="Room Image">
-                            @endforeach
-                        @else
-                            <p>No images available</p>
-                        @endif
-                        <div class="room-card-body">
-                            <h2 class="room-card-title">{{ $room->room_type }}</h2>
-                            <p class="room-card-text">Size: {{ $room->room_size }}</p>
-                            <p class="room-card-text">{{ $room->room_detail }}</p>
-                        </div>
-                    </div>
-                @endforeach
-            @else
-                <p>No rooms available for this hostel.</p>
-            @endif
-        </div>
-    </div>
+    <a href="{{ route('addRoom', $hostel->id) }}" class="add-room-button">Add Room</a>
 
     <!-- Include Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
