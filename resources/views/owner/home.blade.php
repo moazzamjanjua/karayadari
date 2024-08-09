@@ -181,18 +181,21 @@
                         
                     </div>
                 @else
-                    @foreach ($hostels as $hostel)
-                        <div class="hostel-card"
-                            onclick="window.location.href='{{ route('owner.hostel.show', $hostel->id) }}'"
-                            style="background-image: url('{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}');">
-                            <div class="hostel-overlay">
-                                <h2>{{ $hostel->hostel_name }}</h2>
-                                <p>{{ $hostel->hostel_detail }}</p>
-                                <p><strong>City:</strong> {{ $hostel->city }}</p>
-                                <p><strong>Contact:</strong> {{ $hostel->email }}</p>
-                            </div>
-                        </div>
-                    @endforeach
+                @foreach ($hostels as $hostel)
+    <div class="hostel-card"
+        onclick="window.location.href='{{ route('owner.hostel.show', $hostel->id) }}'"
+        style="background-image: url('{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}');">
+        <div class="hostel-overlay">
+            <h2>{{ $hostel->hostel_name }}</h2>
+            <p>{{ $hostel->hostel_detail }}</p>
+            <p><strong>City:</strong> {{ $hostel->city }}</p>
+            <p><strong>Contact:</strong> {{ $hostel->email }}</p>
+            <!-- Edit Button -->
+            <a href="{{ route('owner.hostel.edit', $hostel->id) }}" class="edit-button">Edit</a>
+        </div>
+    </div>
+@endforeach
+
                 @endif
             </div>
         </div>
