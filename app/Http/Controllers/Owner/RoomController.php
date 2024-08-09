@@ -11,9 +11,12 @@ class RoomController extends Controller
 {
     public function showroom($id)
 {
-    $hostel = Hostels::findOrFail($id);
+    // Fetch the hostel with its associated rooms
+    $hostel = Hostels::with('rooms')->findOrFail($id);
     return view('owner.room-form', compact('hostel'));
 }
+
+
 public function store(Request $request)
 {
     $validatedData = $request->validate([
@@ -38,8 +41,10 @@ public function store(Request $request)
         'room_detail' => 'nullable|string|max:1000',
     ]);
 
+    // Set owner_id from the authenticated owner
     $validatedData['owner_id'] = Auth::guard('owner')->id();
 
+    // Handle file uploads
     if ($request->hasFile('room_images')) {
         $images = [];
         foreach ($request->file('room_images') as $image) {
@@ -52,10 +57,14 @@ public function store(Request $request)
         $validatedData['room_images'] = json_encode([]);
     }
 
-    HostelRoom::create($validatedData);
+    // Create the room with validated data
+    $room = HostelRoom::create($validatedData);
 
-    return redirect()->route('owner.home')->with('success', 'Room details added successfully!');
+    // Redirect to the hostel's detail page
+    return redirect()->route('owner.hostel.show', ['id' => $validatedData['hostel_id']])
+                     ->with('success', 'Room details added successfully!');
 }
+
 
 
 

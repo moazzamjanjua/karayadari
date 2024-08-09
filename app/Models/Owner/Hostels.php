@@ -24,4 +24,8 @@ class Hostels extends Model
         'security',
         'water_supply',
     ];
+    public function rooms()
+    {
+        return $this->hasMany(HostelRoom::class, 'hostel_id');
+    }
 }

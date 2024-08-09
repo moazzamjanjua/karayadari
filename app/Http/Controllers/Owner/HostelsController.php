@@ -14,7 +14,7 @@ class HostelsController extends Controller
         
         
         $cities = Cities::all();
-        // Assuming you're using Laravel's authentication
+        
         return view('owner.hostel-form', ['cities' => $cities]);
     }
 
