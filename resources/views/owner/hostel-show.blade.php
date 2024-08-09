@@ -92,6 +92,7 @@
             margin-bottom: 20px;
             flex-basis: 48%;
             max-width: 48%;
+            position: relative;
         }
 
         .room-card img {
@@ -114,6 +115,16 @@
             font-size: 14px;
             color: #555;
         }
+
+        .carousel-item img {
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+        }
     </style>
 </head>
 
@@ -121,7 +132,7 @@
     <div class="overlay"></div>
     <div class="content">
         <h1>{{ $hostel->hostel_name }}</h1>
-        <p>{{ $hostel->hostel_detail }}</p>
+       
         <a href="{{ route('addRoom', $hostel->id) }}" class="add-room-button">Add Room</a>
 
         <div class="room-cards mt-5">
@@ -132,9 +143,26 @@
                             $images = json_decode($room->room_images, true);
                         @endphp
                         @if($images && is_array($images))
-                            @foreach($images as $image)
-                                <img src="{{ asset('storage/room_images/' . $image) }}" alt="Room Image">
-                            @endforeach
+                           
+                            @if(count($images) > 1)
+                                <div id="carousel-{{ $room->id }}" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        @foreach($images as $key => $image)
+                                            <div class="carousel-item @if($key === 0) active @endif">
+                                                <img src="{{ asset('storage/room_images/' . $image) }}" class="d-block w-100" alt="Room Image">
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carousel-{{ $room->id }}" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carousel-{{ $room->id }}" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            @endif
                         @else
                             <p>No images available</p>
                         @endif
