@@ -36,12 +36,15 @@
                  style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; padding: 10px; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px; display: flex; justify-content: space-around; align-items: center; opacity: 0; transition: bottom 1s ease-in-out, opacity 1s ease-in-out; z-index: 1000;">
                 <input type="text" placeholder="Desired Location" 
                        style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none;">
-                <select style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none;">
-                    <option value="" disabled selected>Select Categories</option>
-                    <option value="boys-hostel">Boys Hostel</option>
-                    <option value="girls-hostel">Girls Hostel</option>
-                    <option value="guest-house">Guest House</option>
-                </select>
+                       <select style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none;">
+
+                       
+    <option value="" disabled selected>Select Categories</option>
+    @foreach($categories as $category)
+        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+    @endforeach
+</select>
+
                 <div style="display: flex; align-items: center;">
                     <input type="range" id="price-range" min="1000" max="10000" step="500" 
                            style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none;">

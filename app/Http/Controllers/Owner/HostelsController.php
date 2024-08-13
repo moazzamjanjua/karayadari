@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
+use App\Models\CategoryList;
 use Illuminate\Http\Request;
 use App\Models\cities;
 use App\Models\Owner\Hostels;
@@ -12,10 +13,12 @@ class HostelsController extends Controller
     public function hostelform(Request $request)
     {
         
+        $categories = CategoryList::all();
         
+    
         $cities = Cities::all();
         
-        return view('owner.hostel-form', ['cities' => $cities]);
+        return view('owner.hostel-form', ['cities' => $cities] , compact('categories'));
     }
     public function edit($id)
     {

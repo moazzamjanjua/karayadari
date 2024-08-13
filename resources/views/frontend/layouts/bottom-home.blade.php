@@ -19,31 +19,22 @@
                                                     </h2>
                                                 </div>
                                                 <!-- <div class="btn dropdown-toggle toggle-cate-child-vertical hidden-md-up mr-auto">Select category</div> -->
+                                                
+                                                @foreach($categories as $category)
                                                 <div class="cate-child-vertical">
-                                                    <ul class="d-flex align-items-start flex-column">
-                                                        <li>
-                                                            <a href="../room-detail"> <h6> Male-Only Hostels</h6> </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="../room-detail"><h6>Female-Only Hostels</h6></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="../room-detail"><h6>Work/Study Hostels</h6></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="../room-detail"><h6>Luxury Hostels</h6></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="../room-detail"><h6>Private Hostels</h6></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="../room-detail"><h6>Public Hostels</h6></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="../room-detail"><h6>Party Hostels</h6></a>
+                             <ul class="d-flex align-items-start flex-column">
+       
+            <li>
+                <a href="{{ url('room-detail/' . $category->id) }}">
+                    <h6>{{ $category->category_name }}</h6> 
+                </a>
+            </li>
+    
+    </ul>
+</div>
 
-                                                    </ul>
-                                                </div>
+
+                                                @endforeach
                                             </div>
                                             <div class="categoriestab-left product-tab col-md-9 flex-9">
                                                 <div class="title-tab-content d-flex justify-content-start">

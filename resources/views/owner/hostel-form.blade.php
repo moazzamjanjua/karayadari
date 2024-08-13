@@ -172,10 +172,7 @@
         <label for="hostel_name">Hostel Name:</label>
         <input type="text" class="form-control" id="hostel_name" name="hostel_name" placeholder="Enter hostel name" required>
     </div>
-    <div class="form-group">
-        <label for="hostel_address">Hostel Address:</label>
-        <textarea class="form-control" id="hostel_address" name="hostel_address" rows="4" placeholder="Enter hostel address" required></textarea>
-    </div>
+    
     <div class="form-group">
         <label>City:</label><br>
         @foreach($cities as $city)
@@ -185,19 +182,26 @@
             </div>
         @endforeach
     </div>
+   
+
+
     <div class="form-group">
-        <label for="hostel_location">Hostel Location:</label>
-        <input type="text" class="form-control" id="hostel_location" name="hostel_location" placeholder="Enter hostel location (optional)">
-    </div>
+    <select style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none;">
+
+                       
+<option value="" disabled selected>Select Categories</option>
+@foreach($categories as $category)
+    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+@endforeach
+</select>
+</div>
+
     <div class="form-group">
         <label for="hostel_front_image">Hostel Front Image:</label>
         <input type="file" class="form-control-file" id="hostel_front_image" name="hostel_front_image" accept="image/*" required onchange="updateFrontImagePreview()">
         <div id="front_image_preview" class="preview mt-2"></div>
     </div>
-    <div class="form-group">
-        <label for="hostel_detail">Hostel Detail:</label>
-        <textarea class="form-control" id="hostel_detail" name="hostel_detail" rows="4" required></textarea>
-    </div>
+    
     <div class="form-group">
         <label for="capacity">Capacity:</label>
         <input type="number" class="form-control" id="capacity" name="capacity" placeholder="Enter capacity (optional)">
@@ -248,6 +252,18 @@
             <input type="radio" id="water_supply_no" name="water_supply" value="no" required>
             <label for="water_supply_no">No</label>
         </div>
+    </div>
+    <div class="form-group">
+        <label for="hostel_address">Hostel Address:</label>
+        <textarea class="form-control" id="hostel_address" name="hostel_address" rows="4" placeholder="Enter hostel address" required></textarea>
+    </div>
+     <div class="form-group">
+        <label for="hostel_location">Hostel Location:</label>
+        <input type="text" class="form-control" id="hostel_location" name="hostel_location" placeholder="Enter hostel location (optional)">
+    </div>
+    <div class="form-group">
+        <label for="hostel_detail">Hostel Detail:</label>
+        <textarea class="form-control" id="hostel_detail" name="hostel_detail" rows="4" required></textarea>
     </div>
 
     <button type="submit" class="btn btn-success btn-block">Submit</button>
