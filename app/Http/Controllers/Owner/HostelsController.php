@@ -34,6 +34,7 @@ class HostelsController extends Controller
         // Validate the request data
         $validatedData = $request->validate([
             'hostel_name' => 'required|string|max:255',
+            'category_name' => 'required|string|max:255',
             'hostel_address' => 'required|string',
             'city' => 'required|string|max:255',
             'hostel_location' => 'nullable|string|max:255',
@@ -69,6 +70,8 @@ class HostelsController extends Controller
         
         $validatedData = $request->validate([
             'hostel_name' => 'required|string|max:255',
+          
+            'category_name' => 'nullable|string|max:255',
             'hostel_address' => 'required|string|max:1000',
             'city' => 'required|string|max:255',
             'hostel_location' => 'nullable|string|max:255',

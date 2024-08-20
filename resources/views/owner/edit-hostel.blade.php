@@ -52,6 +52,8 @@
                 <textarea class="form-control" id="hostel_address" name="hostel_address" rows="4" required>{{ $hostel->hostel_address }}</textarea>
             </div>
 
+            
+
             <!-- City Selection -->
             <div class="form-group">
                 <label>City:</label><br>

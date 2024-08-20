@@ -184,17 +184,17 @@
     </div>
    
 
-
     <div class="form-group">
-    <select style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none;">
-
-                       
+    <label for="categories">Categories:</label><br>
+    <select class="form-control" id="category_name" name="category_name" required style=" border-radius: 5px; border: none; font-size: 16px; outline: 1px;">                     
 <option value="" disabled selected>Select Categories</option>
 @foreach($categories as $category)
-    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+    <option value="category_name">{{ $category->category_name }}</option>
 @endforeach
 </select>
 </div>
+
+
 
     <div class="form-group">
         <label for="hostel_front_image">Hostel Front Image:</label>

@@ -13,6 +13,7 @@ class Hostels extends Model
         'owner_id',
         'hostel_name',
         'hostel_address',
+        'category_name',
         'city',
         'hostel_location',
         'hostel_front_image',

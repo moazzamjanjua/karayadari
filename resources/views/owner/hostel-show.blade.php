@@ -165,6 +165,42 @@
 }
 
 
+.room-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .ribbon {
+        position: absolute;
+        top: 10px;
+        left: -10px;
+        z-index: 1000;
+        overflow: hidden;
+        width: 150px;
+        height: 150px;
+        text-align: center;
+    }
+
+    .ribbon span {
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 20px;
+        transform: rotate(-45deg);
+        width: 200%;
+        display: block;
+        background: #79A70A;
+        box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 20px;
+        left: -35px;
+    }
+
+
+
     </style>
 </head>
 
@@ -176,47 +212,53 @@
         <a href="{{ route('addRoom', $hostel->id) }}" class="add-room-button">Add Room</a>
 
         <div class="room-cards mt-5">
-            @if($hostel && $hostel->rooms)
-                @foreach($hostel->rooms as $room)
-                    <div class="room-card">
-                        @php
-                            $images = json_decode($room->room_images, true);
-                        @endphp
-                        @if($images && is_array($images))
-                           
-                            @if(count($images) > 1)
-                                <div id="carousel-{{ $room->id }}" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner">
-                                        @foreach($images as $key => $image)
-                                            <div class="carousel-item @if($key === 0) active @endif">
-                                                <img src="{{ asset('storage/room_images/' . $image) }}" class="d-block w-100" alt="Room Image">
-                                            </div>
-                                        @endforeach
+    @if($hostel && $hostel->rooms)
+        @foreach($hostel->rooms as $room)
+            <div class="room-card">
+                @php
+                    $images = json_decode($room->room_images, true);
+                @endphp
+                @if($images && is_array($images))
+                    @if(count($images) > 1)
+                        <div id="carousel-{{ $room->id }}" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                @foreach($images as $key => $image)
+                                    <div class="carousel-item @if($key === 0) active @endif">
+                                        <img src="{{ asset('storage/room_images/' . $image) }}" class="d-block w-100" alt="Room Image">
                                     </div>
-                                    <a class="carousel-control-prev" href="#carousel-{{ $room->id }}" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carousel-{{ $room->id }}" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
-                            @endif
-                        @else
-                            <p>No images available</p>
-                        @endif
-                        <div class="room-card-body">
-                            <h2 class="room-card-title">{{ $room->room_type }}</h2>
-                            <p class="room-card-text">Size: {{ $room->room_size }}</p>
-                            <p class="room-card-text">{{ $room->room_detail }}</p>
+                                @endforeach
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel-{{ $room->id }}" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel-{{ $room->id }}" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
-                    </div>
-                @endforeach
-            @else
-                <p>No rooms available for this hostel.</p>
-            @endif
-        </div>
+                    @endif
+                @else
+                    <p>No images available</p>
+                @endif
+
+                <!-- Ribbon with Pricing -->
+                <div class="ribbon">
+                    <span>Price: ${{ $room->price }}</span>
+                </div>
+
+                <div class="room-card-body">
+                    <h2 class="room-card-title">{{ $room->room_type }}</h2>
+                    <p class="room-card-text">Size: {{ $room->room_size }}</p>
+                    <p class="room-card-text">{{ $room->room_detail }}</p>
+                </div>
+            </div>
+        @endforeach
+    @else
+        <p>No rooms available for this hostel.</p>
+    @endif
+</div>
+
     </div>
 
     <!-- Include Bootstrap JS -->
