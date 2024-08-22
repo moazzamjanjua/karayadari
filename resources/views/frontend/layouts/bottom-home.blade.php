@@ -49,13 +49,47 @@
                                                     </ul>
                                                 </div>
                                                 <div class="tab-content">
-    <div id="new" class="tab-pane fade in active show">
-    <div id="new" class="tab-pane fade in active show">
+    <div id="toprated" class="tab-pane fade in active show">
+    
+    
     <div class="category-product-index owl-carousel owl-theme">
         @foreach($topRatedHostels as $hostel)
             <div class="item text-center">
                 <div class="product-miniature first-item js-product-miniature item-one">
-                    <div class="">
+                    <div class="image-container">
+                        <a href="{{ route('owner.hostel.show', $hostel->id) }}">
+                            <img class="img-fluid image-cover" src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
+                        </a>
+                    </div>
+                    <div class="product-description">
+                        <div class="product-groups">
+                            <div class="product-title">
+                                <a href="{{ route('owner.hostel.show', $hostel->id) }}">{{ $hostel->hostel_name }}</a>
+                            </div>
+                            <div class="rating">
+                                <div class="star-content">
+                                    @for($i = 0; $i < 5; $i++)
+                                        <div class="star{{ $i < $hostel->rating ? ' filled' : '' }}"></div>
+                                    @endfor
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+
+
+    </div>
+
+    <div class="tab-pane fade" id="featured">
+    <div class="category-product-index owl-carousel owl-theme">
+        @foreach($featuredHostels as $hostel)
+            <div class="item text-center">
+                <div class="product-miniature first-item js-product-miniature item-one">
+                    <div class="image-container">
                         <a href="{{ route('owner.hostel.show', $hostel->id) }}">
                             <img class="img-fluid image-cover" src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
                         </a>
@@ -80,38 +114,6 @@
     </div>
 </div>
 
-    </div>
-
-    <div class="tab-pane fade" id="featured">
-        <div class="category-product-index owl-carousel owl-theme">
-            @foreach($featuredHostels as $hostel)
-                <div class="item text-center">
-                    <div class="product-miniature js-product-miniature item-one first-item">
-                        <div class="">
-                            <a href="{{ route('owner.hostel.show', $hostel->id) }}">
-                                <img class="img-fluid image-cover" src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
-                            </a>
-                            
-                        <div class="product-description">
-                            <div class="product-groups">
-                                <div class="product-title">
-                                    <a href="{{ route('owner.hostel.show', $hostel->id) }}">{{ $hostel->hostel_name }}</a>
-                                </div>
-                                <div class="rating">
-                                    <div class="star-content">
-                                        @for($i = 0; $i < 5; $i++)
-                                            <div class="star{{ $i < $hostel->rating ? ' filled' : '' }}"></div>
-                                        @endfor
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</div>
 
                                             </div>
                                         </div>

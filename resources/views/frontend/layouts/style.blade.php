@@ -71,6 +71,20 @@
         .nav-link{
             text-decoration: none;
         }
+
+        .image-container {
+    width: 200px; /* Set your desired width */
+    height: 200px; /* Set your desired height */
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+}
+
     </style>
     
 </head>
