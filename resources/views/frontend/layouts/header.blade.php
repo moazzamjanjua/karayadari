@@ -113,31 +113,60 @@
                                 </li>
 
                                  <!-- Add Hostel button -->
-                                  <a href="{{route('owner-login')}}">
-                                  <li style="margin-top: 33px;">
-                                <button style="
-                                    background: linear-gradient(45deg, #ff6b6b, #f06595);
-                                    border: none;
-                                    border-radius: 6px;
-                                     padding: 5px 30px;  
-                                    color: white;
-                                    height: 45px;
-                                    white-space: nowrap;
-                                    font-size: 1em;
-                                    font-weight: bold;
-                                    text-transform: uppercase;
-                                    text-decoration: none;
-                                    transition: transform 0.2s, box-shadow 0.2s;
-                                    cursor: pointer;
-                                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-                                " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.3)';" 
-                                onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';"
-                                onmousedown="this.style.transform='scale(0.95)'; this.style.boxShadow='0 5px 10px rgba(0, 0, 0, 0.2)';"
-                                onmouseup="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.3)';">
-                                    Add Hostel
-                                </button>
-                            </li>
-                                  </a>
+                                 @if(auth()->guard('owner')->check())
+    <a href="{{ route('owner.home') }}">
+        <li style="margin-top: 33px;">
+            <button style="
+                background: linear-gradient(45deg, #ff6b6b, #f06595);
+                border: none;
+                border-radius: 6px;
+                padding: 5px 30px;  
+                color: white;
+                height: 45px;
+                white-space: nowrap;
+                font-size: 1em;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-decoration: none;
+                transition: transform 0.2s, box-shadow 0.2s;
+                cursor: pointer;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.3)';" 
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';"
+            onmousedown="this.style.transform='scale(0.95)'; this.style.boxShadow='0 5px 10px rgba(0, 0, 0, 0.2)';"
+            onmouseup="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.3)';">
+                Add Hostel
+            </button>
+        </li>
+    </a>
+@else
+    <a href="{{ route('owner-login') }}">
+        <li style="margin-top: 33px;">
+            <button style="
+                background: linear-gradient(45deg, #ff6b6b, #f06595);
+                border: none;
+                border-radius: 6px;
+                padding: 5px 30px;  
+                color: white;
+                height: 45px;
+                white-space: nowrap;
+                font-size: 1em;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-decoration: none;
+                transition: transform 0.2s, box-shadow 0.2s;
+                cursor: pointer;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.3)';" 
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';"
+            onmousedown="this.style.transform='scale(0.95)'; this.style.boxShadow='0 5px 10px rgba(0, 0, 0, 0.2)';"
+            onmouseup="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.3)';">
+                Add Hostel
+            </button>
+        </li>
+    </a>
+@endif
+
                             
                             </ul>
                         </div>
