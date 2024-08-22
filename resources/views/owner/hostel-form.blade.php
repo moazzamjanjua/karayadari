@@ -161,110 +161,118 @@
     <div class="container mt-5">
         <h1 class="text-center mb-4"><b>Hostel Details Form</b></h1>
         <form action="{{ route('owner.hostels.store') }}" method="post" enctype="multipart/form-data">
-        @csrf
-    @method('POST')
-    <!-- Add a hidden input field to pass owner_id -->
-  
-    <input type="hidden" name="owner_id" value="">
-    <!-- Your form fields -->
-     
-    <div class="form-group">
-        <label for="hostel_name">Hostel Name:</label>
-        <input type="text" class="form-control" id="hostel_name" name="hostel_name" placeholder="Enter hostel name" required>
-    </div>
-    
-    <div class="form-group">
-        <label>City:</label><br>
-        @foreach($cities as $city)
-            <div class="form-check">
-                <input type="radio" class="form-check-input" id="{{ $city->city_name }}_option" name="city" value="{{ $city->city_name }}" onclick="toggleLocationOptions('{{ $city->id }}')">
-                <label class="form-check-label" for="{{ $city->city_name }}_option">{{ $city->city_name }}</label>
+            @csrf
+            @method('POST')
+            <!-- Add a hidden input field to pass owner_id -->
+
+            <input type="hidden" name="owner_id" value="">
+            <!-- Your form fields -->
+
+            <div class="form-group">
+                <label for="hostel_name">Hostel Name:</label>
+                <input type="text" class="form-control" id="hostel_name" name="hostel_name"
+                    placeholder="Enter hostel name" required>
             </div>
-        @endforeach
-    </div>
-   
 
-    <div class="form-group">
-    <label for="categories">Categories:</label><br>
-    <select class="form-control" id="category_name" name="category_name" required style=" border-radius: 5px; border: none; font-size: 16px; outline: 1px;">                     
-<option value="" disabled selected>Select Categories</option>
-@foreach($categories as $category)
-    <option value="category_name">{{ $category->category_name }}</option>
-@endforeach
-</select>
-</div>
+            <div class="form-group">
+                <label>City:</label><br>
+                @foreach($cities as $city)
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="{{ $city->city_name }}_option" name="city"
+                            value="{{ $city->city_name }}" onclick="toggleLocationOptions('{{ $city->id }}')">
+                        <label class="form-check-label" for="{{ $city->city_name }}_option">{{ $city->city_name }}</label>
+                    </div>
+                @endforeach
+            </div>
 
 
+            <div class="form-group">
+                <label for="categories">Categories:</label><br>
+                <select class="form-control" id="category_name" name="category_name" required
+                    style=" border-radius: 5px; border: none; font-size: 16px; outline: 1px;">
+                    <option value="" disabled selected>Select Categories</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-    <div class="form-group">
-        <label for="hostel_front_image">Hostel Front Image:</label>
-        <input type="file" class="form-control-file" id="hostel_front_image" name="hostel_front_image" accept="image/*" required onchange="updateFrontImagePreview()">
-        <div id="front_image_preview" class="preview mt-2"></div>
-    </div>
-    
-    <div class="form-group">
-        <label for="capacity">Capacity:</label>
-        <input type="number" class="form-control" id="capacity" name="capacity" placeholder="Enter capacity (optional)">
-    </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email (optional)">
-    </div>
-    <div class="form-group">
-        <label for="num_rooms">Number of Rooms:</label>
-        <input type="number" class="form-control" id="num_rooms" name="num_rooms" placeholder="Enter number of rooms (optional)">
-    </div>
-    <div class="form-group">
-        <label for="facilities">Facilities:</label>
-       
-    </div>
-    <div class="form-group">
-        <label>Wi-Fi:</label>
-        <div>
-            <input type="radio" id="wifi_yes" name="wifi" value="yes" required>
-            <label for="wifi_yes">Yes</label>
-        </div>
-        <div>
-            <input type="radio" id="wifi_no" name="wifi" value="no" required>
-            <label for="wifi_no">No</label>
-        </div>
-    </div>
 
-    <div class="form-group">
-        <label>Security:</label>
-        <div>
-            <input type="radio" id="security_yes" name="security" value="yes" required>
-            <label for="security_yes">Yes</label>
-        </div>
-        <div>
-            <input type="radio" id="security_no" name="security" value="no" required>
-            <label for="security_no">No</label>
-        </div>
-    </div>
 
-    <div class="form-group">
-        <label>Water Supply:</label>
-        <div>
-            <input type="radio" id="water_supply_yes" name="water_supply" value="yes" required>
-            <label for="water_supply_yes">Yes</label>
-        </div>
-        <div>
-            <input type="radio" id="water_supply_no" name="water_supply" value="no" required>
-            <label for="water_supply_no">No</label>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="hostel_address">Hostel Address:</label>
-        <textarea class="form-control" id="hostel_address" name="hostel_address" rows="4" placeholder="Enter hostel address" required></textarea>
-    </div>
-     <div class="form-group">
-        <label for="hostel_location">Hostel Location:</label>
-        <input type="text" class="form-control" id="hostel_location" name="hostel_location" placeholder="Enter hostel location (optional)">
-    </div>
-    <div class="form-group">
-        <label for="hostel_detail">Hostel Detail:</label>
-        <textarea class="form-control" id="hostel_detail" name="hostel_detail" rows="4" required></textarea>
-    </div>
+            <div class="form-group">
+                <label for="hostel_front_image">Hostel Front Image:</label>
+                <input type="file" class="form-control-file" id="hostel_front_image" name="hostel_front_image"
+                    accept="image/*" required onchange="updateFrontImagePreview()">
+                <div id="front_image_preview" class="preview mt-2"></div>
+            </div>
 
-    <button type="submit" class="btn btn-success btn-block">Submit</button>
-</form>
+            <div class="form-group">
+                <label for="capacity">Capacity:</label>
+                <input type="number" class="form-control" id="capacity" name="capacity"
+                    placeholder="Enter capacity (optional)">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email (optional)">
+            </div>
+            <div class="form-group">
+                <label for="num_rooms">Number of Rooms:</label>
+                <input type="number" class="form-control" id="num_rooms" name="num_rooms"
+                    placeholder="Enter number of rooms (optional)">
+            </div>
+            <div class="form-group">
+                <label for="facilities">Facilities:</label>
+
+            </div>
+            <div class="form-group">
+                <label>Wi-Fi:</label>
+                <div>
+                    <input type="radio" id="wifi_yes" name="wifi" value="yes" required>
+                    <label for="wifi_yes">Yes</label>
+                </div>
+                <div>
+                    <input type="radio" id="wifi_no" name="wifi" value="no" required>
+                    <label for="wifi_no">No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Security:</label>
+                <div>
+                    <input type="radio" id="security_yes" name="security" value="yes" required>
+                    <label for="security_yes">Yes</label>
+                </div>
+                <div>
+                    <input type="radio" id="security_no" name="security" value="no" required>
+                    <label for="security_no">No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Water Supply:</label>
+                <div>
+                    <input type="radio" id="water_supply_yes" name="water_supply" value="yes" required>
+                    <label for="water_supply_yes">Yes</label>
+                </div>
+                <div>
+                    <input type="radio" id="water_supply_no" name="water_supply" value="no" required>
+                    <label for="water_supply_no">No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hostel_address">Hostel Address:</label>
+                <textarea class="form-control" id="hostel_address" name="hostel_address" rows="4"
+                    placeholder="Enter hostel address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="hostel_location">Hostel Location:</label>
+                <input type="text" class="form-control" id="hostel_location" name="hostel_location"
+                    placeholder="Enter hostel location (optional)">
+            </div>
+            <div class="form-group">
+                <label for="hostel_detail">Hostel Detail:</label>
+                <textarea class="form-control" id="hostel_detail" name="hostel_detail" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-block">Submit</button>
+        </form>

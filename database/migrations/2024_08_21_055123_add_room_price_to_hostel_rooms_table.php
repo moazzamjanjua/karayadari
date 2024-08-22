@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('hostels', function (Blueprint $table) {
-            $table->string('category_name')->nullable();
+        Schema::table('hostel_rooms', function (Blueprint $table) {
+            $table->integer('room_price')->nullable();
         });
     }
 
@@ -21,6 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hostels');
+        Schema::dropIfExists('hostel_rooms');
     }
 };

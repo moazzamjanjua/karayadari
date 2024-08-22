@@ -128,6 +128,11 @@
             <div id="image_previews" class="preview"></div>
 
             <div class="form-group">
+                <label for="room_price">Room Price:</label>
+                <input type="number" class="form-control" id="room_price" name="room_price" placeholder="Enter Room Price" required>
+            </div>
+
+            <div class="form-group">
                 <label for="room_type">Room Type:</label>
                 <select class="form-control" id="room_type" name="room_type" required>
                     <option value="" disabled selected>Select Room Type</option>

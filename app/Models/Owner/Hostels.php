@@ -12,6 +12,7 @@ class Hostels extends Model
     protected $fillable = [
         'owner_id',
         'hostel_name',
+        'slug',
         'hostel_address',
         'category_name',
         'city',
@@ -24,7 +25,14 @@ class Hostels extends Model
         'wifi',
         'security',
         'water_supply',
+        'best_hostel',
+        'is_verified',
+        'is_approved',
+        'top_rated_hostel',
+        'homepage',
+        'featured_hostel',
     ];
+
     public function rooms()
     {
         return $this->hasMany(HostelRoom::class, 'hostel_id');

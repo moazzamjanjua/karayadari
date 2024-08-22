@@ -164,40 +164,39 @@
     opacity: 1; /* Ensure the buttons are fully visible */
 }
 
-
 .room-card {
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-    }
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
 
-    .ribbon {
-        position: absolute;
-        top: 10px;
-        left: -10px;
-        z-index: 1000;
-        overflow: hidden;
-        width: 150px;
-        height: 150px;
-        text-align: center;
-    }
+.price-ribbon {
+    background: linear-gradient(45deg, #ff6b6b, #f06595);
+    color: #fff;
+    padding: 5px 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    
+    border-bottom-right-radius: 5px;
+    font-weight: bold;
+}
 
-    .ribbon span {
-        font-size: 14px;
-        font-weight: bold;
-        color: #fff;
-        text-transform: uppercase;
-        text-align: center;
-        line-height: 20px;
-        transform: rotate(-45deg);
-        width: 200%;
-        display: block;
-        background: #79A70A;
-        box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
-        position: absolute;
-        top: 20px;
-        left: -35px;
-    }
+.price-ribbon:before {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #ff6b6b, #f06595);
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+
 
 
 
@@ -212,14 +211,23 @@
         <a href="{{ route('addRoom', $hostel->id) }}" class="add-room-button">Add Room</a>
 
         <div class="room-cards mt-5">
+
+        
     @if($hostel && $hostel->rooms)
         @foreach($hostel->rooms as $room)
+        
             <div class="room-card">
+
+            <div class="price-ribbon">
+            {{$room->room_price}} Rs / month
+        </div>
+                
                 @php
                     $images = json_decode($room->room_images, true);
                 @endphp
                 @if($images && is_array($images))
                     @if(count($images) > 1)
+                    
                         <div id="carousel-{{ $room->id }}" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 @foreach($images as $key => $image)
@@ -242,10 +250,8 @@
                     <p>No images available</p>
                 @endif
 
-                <!-- Ribbon with Pricing -->
-                <div class="ribbon">
-                    <span>Price: ${{ $room->price }}</span>
-                </div>
+              
+               
 
                 <div class="room-card-body">
                     <h2 class="room-card-title">{{ $room->room_type }}</h2>
