@@ -62,6 +62,32 @@
         </div>
 
         @include('frontend.layouts.bottom-home')
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+    $(".category-product-index").owlCarousel({
+      items: 3,             
+      loop: false,          
+      margin: 10,           
+      nav: true,            
+      dots: false,          
+      responsive: {
+          0: {
+              items: 1       
+          },
+          600: {
+              items: 2       
+          },
+          1000: {
+              items: 3       
+          }
+      }
+    });
+  });
+</script>
+
 
         <script>
             window.addEventListener('load', function () {

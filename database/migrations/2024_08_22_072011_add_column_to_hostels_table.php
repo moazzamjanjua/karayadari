@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('hostels', function (Blueprint $table) {
-            $table->string('category_name')->nullable();
             $table->string('slug')->unique();
             $table->boolean('best_hostel')->default(false);
             $table->boolean('is_verified')->default(false);
@@ -28,6 +27,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hostels');
+        Schema::table('hostels', function (Blueprint $table) {
+            //
+        });
     }
 };

@@ -25,7 +25,7 @@
                                                                                  <ul class="d-flex align-items-start flex-column">
 
                                                                 <li>
-                                                                    <a href="{{ url('room-detail/' . $category->id) }}">
+                                                                    <a href="{{ url('room-detail/' . $category->category_name) }}">
                                                                         <h6>{{ $category->category_name }}</h6> 
                                                                     </a>
                                                                 </li>
@@ -50,42 +50,36 @@
                                                 </div>
                                                 <div class="tab-content">
     <div id="new" class="tab-pane fade in active show">
-        <div class="category-product-index owl-carousel owl-theme owl-loaded owl-drag">
-            @foreach($topRatedHostels as $hostel)
-                <div class="item text-center">
-                    <div class="product-miniature first-item js-product-miniature item-one">
-                        <div class="thumbnail-container">
-                            <a href="{{ route('owner.hostel.show', $hostel->id) }}">
-                                <img class="img-fluid image-cover" src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
-                            </a>
-                            <!-- <div class="product-flags discount">-30%</div> -->
-                            <div class="highlighted-informations">
-                                <div class="variant-links">
-                                    <!-- Assuming you have color variants or similar -->
-                                    <a href="#" class="color beige" title="Beige"></a>
-                                    <a href="#" class="color orange" title="Orange"></a>
-                                    <a href="#" class="color green" title="Green"></a>
-                                </div>
+    <div id="new" class="tab-pane fade in active show">
+    <div class="category-product-index owl-carousel owl-theme">
+        @foreach($topRatedHostels as $hostel)
+            <div class="item text-center">
+                <div class="product-miniature first-item js-product-miniature item-one">
+                    <div class="">
+                        <a href="{{ route('owner.hostel.show', $hostel->id) }}">
+                            <img class="img-fluid image-cover" src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
+                        </a>
+                    </div>
+                    <div class="product-description">
+                        <div class="product-groups">
+                            <div class="product-title">
+                                <a href="{{ route('owner.hostel.show', $hostel->id) }}">{{ $hostel->hostel_name }}</a>
                             </div>
-                        </div>
-                        <div class="product-description">
-                            <div class="product-groups">
-                                <div class="product-title">
-                                    <a href="{{ route('owner.hostel.show', $hostel->id) }}">{{ $hostel->hostel_name }}</a>
-                                </div>
-                                <div class="rating">
-                                    <div class="star-content">
-                                        @for($i = 0; $i < 5; $i++)
-                                            <div class="star{{ $i < $hostel->rating ? ' filled' : '' }}"></div>
-                                        @endfor
-                                    </div>
+                            <div class="rating">
+                                <div class="star-content">
+                                    @for($i = 0; $i < 5; $i++)
+                                        <div class="star{{ $i < $hostel->rating ? ' filled' : '' }}"></div>
+                                    @endfor
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+
     </div>
 
     <div class="tab-pane fade" id="featured">
@@ -93,19 +87,11 @@
             @foreach($featuredHostels as $hostel)
                 <div class="item text-center">
                     <div class="product-miniature js-product-miniature item-one first-item">
-                        <div class="thumbnail-container">
+                        <div class="">
                             <a href="{{ route('owner.hostel.show', $hostel->id) }}">
                                 <img class="img-fluid image-cover" src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
                             </a>
-                            <!-- <div class="product-flags discount">-30%</div>
-                            <div class="highlighted-informations">
-                                <div class="variant-links">
-                                    <a href="#" class="color beige" title="Beige"></a>
-                                    <a href="#" class="color orange" title="Orange"></a>
-                                    <a href="#" class="color green" title="Green"></a>
-                                </div>
-                            </div> -->
-                        <!-- </div>  -->
+                            
                         <div class="product-description">
                             <div class="product-groups">
                                 <div class="product-title">
@@ -155,7 +141,7 @@
                                 </div>
                             </div>
 
-                            <!-- best seller -->
+                            <!-- best Hostels -->
                             <div class="section best-sellers col-lg-12 col-xs-12">
                                 <div class="row">
                                     <div class="col-md-12 col-xs-12">
@@ -966,3 +952,4 @@
 
     <!-- footer -->
   @include('frontend.layouts.footer')
+  
