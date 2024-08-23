@@ -207,6 +207,13 @@
             </div>
 
             <div class="form-group">
+                <label for="hostel_video">Hostel Video:</label>
+                <input type="file" class="form-control-file" id="hostel_video" name="hostel_video"
+                    accept="video/*" required onchange="updateFrontImagePreview()">
+                <div id="hostel_video_preview" class="preview mt-2"></div>
+            </div>
+
+            <div class="form-group">
                 <label for="capacity">Capacity:</label>
                 <input type="number" class="form-control" id="capacity" name="capacity"
                     placeholder="Enter capacity (optional)">

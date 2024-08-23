@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
 use App\Models\CategoryList;
-use Illuminate\Http\Request;
-use App\Models\cities;
+use App\Models\Cities; // Ensure this matches your Cities model
 use App\Models\Owner\Hostels;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HostelsController extends Controller
@@ -17,7 +17,7 @@ class HostelsController extends Controller
     public function hostelform(Request $request)
     {
         $categories = CategoryList::all();
-        $cities = Cities::all();
+        $cities = Cities::all(); // Ensure this is the correct model name
 
         return view('owner.hostel-form', compact('cities', 'categories'));
     }
@@ -57,9 +57,11 @@ class HostelsController extends Controller
             'capacity' => 'nullable|integer',
             'email' => 'nullable|email',
             'num_rooms' => 'nullable|integer',
-            'wifi' => 'required|string|in:yes,no',
-            'security' => 'required|string|in:yes,no',
-            'water_supply' => 'required|string|in:yes,no',
+            'wifi' => 'required|boolean',
+            'security' => 'required|boolean',
+            'water_supply' => 'required|boolean',
+            'hostel_price' => 'nullable|integer',
+            'hostel_video' => 'nullable|string|max:255', 
         ]);
 
         // Handle the file upload
@@ -73,7 +75,7 @@ class HostelsController extends Controller
         // Capitalize hostel name and generate slug
         $validatedData['hostel_name'] = strtoupper($validatedData['hostel_name']);
         $validatedData['slug'] = strtolower(str_replace(' ', '-', $validatedData['hostel_name']));
-
+        
         // Add the logged-in owner's ID
         $validatedData['owner_id'] = Auth::guard('owner')->id();
 
@@ -112,6 +114,8 @@ class HostelsController extends Controller
             'wifi' => 'required|boolean',
             'security' => 'required|boolean',
             'water_supply' => 'required|boolean',
+            'hostel_price' => 'nullable|integer',
+            'hostel_video' => 'nullable|string|max:255', 
         ]);
 
         // Handle the file upload

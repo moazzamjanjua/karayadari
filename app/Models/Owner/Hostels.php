@@ -31,6 +31,8 @@ class Hostels extends Model
         'top_rated_hostel',
         'homepage',
         'featured_hostel',
+        'hostel_price',     // Adding the hostel price
+        'hostel_video',     // Adding the video URL or path
     ];
 
     public function rooms()
