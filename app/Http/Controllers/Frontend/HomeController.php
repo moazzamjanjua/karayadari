@@ -13,18 +13,20 @@ class HomeController extends Controller
     {
 
            // Fetch top-rated hostels
-          
-           $topRatedHostels = Hostels::where('top_rated_hostel', 1)->distinct()->get();
+           $topRatedHostels = Hostels::where('top_rated_hostel', 1)->get()->unique('hostel_name');
 
-           // Fetch new hostels (or however you define "new")
+           // Fetch featured hostels 
            $featuredHostels = Hostels::where('featured_hostel', 1)->get()->unique('hostel_name');
+
+             // Fetch best hostels
+             $bestHostels = Hostels::where('best_hostel', 1)->take(6)->get();;
    
           
         // IDs 1 aur 2 ko match karte hue categories fetch kar rahe hain
         $categories = CategoryList::all();
        
         
-        return view('frontend.index', compact('categories','topRatedHostels', 'featuredHostels'));
+        return view('frontend.index', compact('categories','topRatedHostels', 'featuredHostels','bestHostels'));
     }
 }
 

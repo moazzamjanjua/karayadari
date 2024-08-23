@@ -73,8 +73,8 @@
         }
 
         .image-container {
-    width: 200px; /* Set your desired width */
-    height: 200px; /* Set your desired height */
+    width: 300px; /* Set your desired width */
+    height: 300px; /* Set your desired height */
     overflow: hidden; /* Hide overflow */
     position: relative;
 }
@@ -83,6 +83,21 @@
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ensure the image covers the container */
+}
+
+.best_image-container {
+    width: 200px; /* Set your desired width */
+    height: 200px; /* Set your desired height */
+    overflow: hidden; /* Ensures that images larger than the container are cropped */
+    margin: 0 auto; /* Center the container horizontally if needed */
+}
+
+
+.best_image-container img {
+    width: 100%; /* Ensures the image takes the full width of the container */
+    height: 100%; /* Ensures the image takes the full height of the container */
+    object-fit: cover; /* Maintains aspect ratio without distortion, cropping the excess */
+    border-radius: 10px; /* Optional: Adds rounded corners to images */
 }
 
     </style>
