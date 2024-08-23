@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -37,14 +36,15 @@
     <link rel="stylesheet" type="text/css" href="/frontend/css/style.css">
     <link rel="stylesheet" type="text/css" href="/frontend/css/reponsive.css">
     <style>
-        
         .luxury-button-div {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full screen height */
+            height: 100vh;
+            /* Full screen height */
             background-color: #f0f0f0;
         }
+
         .luxury-button {
             background: linear-gradient(45deg, #ff6b6b, #f06595);
             border: none;
@@ -60,46 +60,65 @@
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
+
         .luxury-button:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
+
         .luxury-button:active {
             transform: scale(0.95);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
-        .nav-link{
+
+        .nav-link {
             text-decoration: none;
         }
 
         .image-container {
-    width: 300px; /* Set your desired width */
-    height: 300px; /* Set your desired height */
-    overflow: hidden; /* Hide overflow */
-    position: relative;
-}
+            width: 250px;
+            /* Set your desired width */
+            height: 250px;
+            /* Set your desired height */
+            overflow: hidden;
+            /* Ensures that images larger than the container are cropped */
+            margin: 0 auto;
+            /* Center the container horizontally if needed */
+        }
 
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the image covers the container */
-}
+        .image-container img {
+            width: 100%;
+            /* Ensures the image takes the full width of the container */
+            height: 100%;
+            /* Ensures the image takes the full height of the container */
+            object-fit: cover;
+            /* Maintains aspect ratio without distortion, cropping the excess */
+            border-radius: 10px;
+            /* Optional: Adds rounded corners to images */
+        }
 
-.best_image-container {
-    width: 200px; /* Set your desired width */
-    height: 200px; /* Set your desired height */
-    overflow: hidden; /* Ensures that images larger than the container are cropped */
-    margin: 0 auto; /* Center the container horizontally if needed */
-}
+        .best_image-container {
+            width: 200px;
+            /* Set your desired width */
+            height: 200px;
+            /* Set your desired height */
+            overflow: hidden;
+            /* Ensures that images larger than the container are cropped */
+            margin: 0 auto;
+            /* Center the container horizontally if needed */
+        }
 
 
-.best_image-container img {
-    width: 100%; /* Ensures the image takes the full width of the container */
-    height: 100%; /* Ensures the image takes the full height of the container */
-    object-fit: cover; /* Maintains aspect ratio without distortion, cropping the excess */
-    border-radius: 10px; /* Optional: Adds rounded corners to images */
-}
-
+        .best_image-container img {
+            width: 100%;
+            /* Ensures the image takes the full width of the container */
+            height: 100%;
+            /* Ensures the image takes the full height of the container */
+            object-fit: cover;
+            /* Maintains aspect ratio without distortion, cropping the excess */
+            border-radius: 10px;
+            /* Optional: Adds rounded corners to images */
+        }
     </style>
-    
+
 </head>

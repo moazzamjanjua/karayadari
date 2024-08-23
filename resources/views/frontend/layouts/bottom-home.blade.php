@@ -58,7 +58,7 @@
                 <div class="product-miniature first-item js-product-miniature item-one">
                     <div class="image-container">
                         <a href="{{ route('owner.hostel.show', $hostel->id) }}">
-                            <img class="img-fluid image-cover" src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
+                            <img  src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
                         </a>
                     </div>
                     <div class="product-description">
@@ -91,7 +91,7 @@
                 <div class="product-miniature first-item js-product-miniature item-one">
                     <div class="image-container">
                         <a href="{{ route('owner.hostel.show', $hostel->id) }}">
-                            <img class="img-fluid image-cover" src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
+                            <img  src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
                         </a>
                     </div>
                     <div class="product-description">
