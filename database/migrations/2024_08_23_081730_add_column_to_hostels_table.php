@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('hostels', function (Blueprint $table) {
-            $table->boolean('best_hostel')->default(false);
-            $table->boolean('is_verified')->default(false);
-            $table->boolean('is_approved')->default(false);
-            $table->boolean('top_rated_hostel')->default(false);
-            $table->boolean('homepage')->default(false);
-            $table->boolean('featured_hostel')->default(false);
-            $table->integer('hostel_price')->nullable();
-            $table->string('hostel_video')->nullable();
+            // $table->boolean('best_hostel')->default(false);
+            // $table->boolean('is_verified')->default(false);
+            // $table->boolean('is_approved')->default(false);
+            // $table->boolean('top_rated_hostel')->default(false);
+            // $table->boolean('homepage')->default(false);
+            // $table->boolean('featured_hostel')->default(false);
+            
+           
         });
     }
 

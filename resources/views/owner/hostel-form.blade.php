@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hostel Details Form</title>
+    <title>Add Hostel</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -37,7 +37,7 @@
             border: 2px solid #ddd;
         }
 
-        .avatar-upload .edit-button {
+        .avatar-upload .add-button {
             position: absolute;
             bottom: 5px;
             left: 100px;
@@ -91,6 +91,36 @@
         .location-options {
             display: none;
             margin-top: 10px;
+        }
+
+        .video-container {
+            position: relative;
+        }
+
+        .video-container video {
+            width: 200px;
+            /* Make the video match the image size */
+            height: 200px;
+            /* Maintain the image size */
+            object-fit: cover;
+            /* Ensure the video covers the container without distortion */
+        }
+
+        .remove-video {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255, 0, 0, 0.7);
+            border: none;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
     <script>
@@ -153,27 +183,66 @@
                 locationOptions.style.display = 'none';
             }
         }
+
+        function updateVideoPreview() {
+            const videoInput = document.getElementById('hostel_video');
+            const videoPreviewContainer = document.getElementById('hostel_video_preview');
+            videoPreviewContainer.innerHTML = '';
+
+            if (videoInput.files.length > 0) {
+                const file = videoInput.files[0];
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const videoContainer = document.createElement('div');
+                    videoContainer.classList.add('video-container');
+
+                    const video = document.createElement('video');
+                    video.src = e.target.result;
+                    video.controls = true;
+
+                    const removeButton = document.createElement('button');
+                    removeButton.classList.add('remove-image');
+                    removeButton.innerHTML = '&times;';
+                    removeButton.onclick = () => removeVideo();
+
+                    videoContainer.appendChild(video);
+                    videoContainer.appendChild(removeButton);
+                    videoPreviewContainer.appendChild(videoContainer);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removeVideo() {
+            const videoInput = document.getElementById('hostel_video');
+            const videoPreviewContainer = document.getElementById('hostel_video_preview');
+            videoInput.value = '';
+            videoPreviewContainer.innerHTML = '';
+        }
+
     </script>
+
+
 </head>
 
 <body>
 
     <div class="container mt-5">
-        <h1 class="text-center mb-4"><b>Hostel Details Form</b></h1>
+
         <form action="{{ route('owner.hostels.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('POST')
-            <!-- Add a hidden input field to pass owner_id -->
 
-            <input type="hidden" name="owner_id" value="">
+            <input type="hidden" name="owner_id" value="{{ Auth::guard('owner')->id() }}">
             <!-- Your form fields -->
 
+            <!-- Hostel Name -->
             <div class="form-group">
                 <label for="hostel_name">Hostel Name:</label>
-                <input type="text" class="form-control" id="hostel_name" name="hostel_name"
-                    placeholder="Enter hostel name" required>
+                <input type="text" class="form-control" id="hostel_name" name="hostel_name" value="" required>
             </div>
 
+            <!-- City Selection -->
             <div class="form-group">
                 <label>City:</label><br>
                 @foreach($cities as $city)
@@ -184,7 +253,6 @@
                     </div>
                 @endforeach
             </div>
-
 
             <div class="form-group">
                 <label for="categories">Categories:</label><br>
@@ -197,8 +265,7 @@
                 </select>
             </div>
 
-
-
+            <!-- Hostel Front Image -->
             <div class="form-group">
                 <label for="hostel_front_image">Hostel Front Image:</label>
                 <input type="file" class="form-control-file" id="hostel_front_image" name="hostel_front_image"
@@ -208,25 +275,39 @@
 
             <div class="form-group">
                 <label for="hostel_video">Hostel Video:</label>
-                <input type="file" class="form-control-file" id="hostel_video" name="hostel_video"
-                    accept="video/*" required onchange="updateFrontImagePreview()">
+                <input type="file" class="form-control-file" id="hostel_video" name="hostel_video" accept="video/*"
+                    required onchange="updateVideoPreview()">
                 <div id="hostel_video_preview" class="preview mt-2"></div>
             </div>
 
             <div class="form-group">
+                <label for="room_price">Hostel Price:</label>
+                <input type="number" class="form-control" id="hostel_price" name="hostel_price"
+                    placeholder="Enter Hostel Price" required>
+            </div>
+
+            <!-- Capacity -->
+            <div class="form-group">
                 <label for="capacity">Capacity:</label>
-                <input type="number" class="form-control" id="capacity" name="capacity"
+                <input type="number" class="form-control" id="capacity" name="capacity" value=""
                     placeholder="Enter capacity (optional)">
             </div>
+
+            <!-- Email -->
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email (optional)">
+                <input type="email" class="form-control" id="email" name="email" value=""
+                    placeholder="Enter email (optional)">
             </div>
+
+            <!-- Number of Rooms -->
             <div class="form-group">
                 <label for="num_rooms">Number of Rooms:</label>
-                <input type="number" class="form-control" id="num_rooms" name="num_rooms"
+                <input type="number" class="form-control" id="num_rooms" name="num_rooms" value=""
                     placeholder="Enter number of rooms (optional)">
             </div>
+
+            <!-- Facilities (Wi-Fi, Security, Water Supply) -->
             <div class="form-group">
                 <label for="facilities">Facilities:</label>
 
@@ -234,11 +315,11 @@
             <div class="form-group">
                 <label>Wi-Fi:</label>
                 <div>
-                    <input type="radio" id="wifi_yes" name="wifi" value="yes" required>
+                    <input type="radio" id="wifi_yes" name="wifi" value="1">
                     <label for="wifi_yes">Yes</label>
                 </div>
                 <div>
-                    <input type="radio" id="wifi_no" name="wifi" value="no" required>
+                    <input type="radio" id="wifi_no" name="wifi" value="0">
                     <label for="wifi_no">No</label>
                 </div>
             </div>
@@ -246,11 +327,11 @@
             <div class="form-group">
                 <label>Security:</label>
                 <div>
-                    <input type="radio" id="security_yes" name="security" value="yes" required>
+                    <input type="radio" id="security_yes" name="security" value="1">
                     <label for="security_yes">Yes</label>
                 </div>
                 <div>
-                    <input type="radio" id="security_no" name="security" value="no" required>
+                    <input type="radio" id="security_no" name="security" value="0">
                     <label for="security_no">No</label>
                 </div>
             </div>
@@ -258,28 +339,51 @@
             <div class="form-group">
                 <label>Water Supply:</label>
                 <div>
-                    <input type="radio" id="water_supply_yes" name="water_supply" value="yes" required>
+                    <input type="radio" id="water_supply_yes" name="water_supply" value="1">
                     <label for="water_supply_yes">Yes</label>
                 </div>
                 <div>
-                    <input type="radio" id="water_supply_no" name="water_supply" value="no" required>
+                    <input type="radio" id="water_supply_no" name="water_supply" value="0">
                     <label for="water_supply_no">No</label>
                 </div>
             </div>
+
+            <!-- Hostel Address -->
             <div class="form-group">
                 <label for="hostel_address">Hostel Address:</label>
-                <textarea class="form-control" id="hostel_address" name="hostel_address" rows="4"
-                    placeholder="Enter hostel address" required></textarea>
+                <textarea class="form-control" id="hostel_address" name="hostel_address" rows="4" required></textarea>
             </div>
+
+
+
+
+
+
+
+            <!-- Hostel Location -->
             <div class="form-group">
                 <label for="hostel_location">Hostel Location:</label>
                 <input type="text" class="form-control" id="hostel_location" name="hostel_location"
                     placeholder="Enter hostel location (optional)">
             </div>
+
+
+            <!-- Hostel Details -->
             <div class="form-group">
                 <label for="hostel_detail">Hostel Detail:</label>
                 <textarea class="form-control" id="hostel_detail" name="hostel_detail" rows="4" required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-success btn-block">Submit</button>
+
+
+
+
+            <!-- Update Button -->
+            <button type="submit" class="btn btn-success btn-block">Add Hostel</button>
         </form>
+    </div>
+
+
+</body>
+
+</html>
