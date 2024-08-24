@@ -52,7 +52,7 @@
             position: relative;
         }
 
-        .add_hosten_button {
+        .add_hostel_button {
             padding: 15px 30px;
             background-color: #007BFF;
             color: white;
@@ -95,7 +95,8 @@
             gap: 20px;
             width: 100%;
             overflow-y: auto;
-            margin-top: 60px; /* Added margin to make space for the button */
+            margin-top: 60px;
+            /* Added margin to make space for the button */
         }
 
         .hostel-card {
@@ -163,6 +164,40 @@
         .no-hostels a:hover {
             background-color: #0056b3;
         }
+
+        .price-ribbon {
+    background: linear-gradient(45deg, #007BFF, #0056b3); /* Changed from pink gradient to blue gradient */
+    color: #fff;
+    padding: 5px 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    border-bottom-right-radius: 5px;
+    font-weight: bold;
+}
+
+.price-ribbon:before {
+    background-color: #007BFF; /* Changed background color to #007BFF */
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #007BFF, #0056b3); /* Changed gradient to blue */
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+        .edit-button{
+background-color: blue;
+border-radius: 5px;
+color: white;
+        }
+        .edit-button:hover{
+            background-color: black;
+        }
     </style>
 </head>
 
@@ -173,28 +208,31 @@
             @include('owner.owner-form')
         </div>
         <div class="main-content">
-            <a href="{{ route('addHostel') }}" class="add_hosten_button">Add Hostels</a>
+            <a href="{{ route('addHostel') }}" class="add_hostel_button">Add Hostels</a>
             <div class="hostel-grid">
                 @if($hostels->isEmpty())
                     <div class="no-hostels">
                         <p>No hostels available. Please add a new hostel.</p>
-                        
+
                     </div>
                 @else
-                @foreach ($hostels as $hostel)
-    <div class="hostel-card"
-        onclick="window.location.href='{{ route('owner.hostel.show', $hostel->id) }}'"
-        style="background-image: url('{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}');">
-        <div class="hostel-overlay">
-            <h2>{{ $hostel->hostel_name }}</h2>
-            <p>{{ $hostel->hostel_detail }}</p>
-            <p><strong>City:</strong> {{ $hostel->city }}</p>
-            <p><strong>Contact:</strong> {{ $hostel->email }}</p>
-            <!-- Edit Button -->
-            <a href="{{ route('owner.hostel.edit', $hostel->id) }}" class="edit-button">Edit</a>
-        </div>
-    </div>
-@endforeach
+                    @foreach ($hostels as $hostel)
+                        <div class="hostel-card" onclick="window.location.href='{{ route('owner.hostel.show', $hostel->id) }}'"
+                            style="background-image: url('{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}');">
+
+                            <div class="price-ribbon">
+                                {{$hostel->hostel_price}} Rs / month
+                            </div>
+                            <div class="hostel-overlay">
+                                <h2>{{ $hostel->hostel_name }}</h2>
+                                <p>{{ $hostel->hostel_detail }}</p>
+                                <p><strong>City:</strong> {{ $hostel->city }}</p>
+                                <p><strong>Contact:</strong> {{ $hostel->email }}</p>
+                                <!-- Edit Button -->
+                                <a href="{{ route('owner.hostel.edit', $hostel->id) }}" class="edit-button">Edit</a>
+                            </div>
+                        </div>
+                    @endforeach
 
                 @endif
             </div>
