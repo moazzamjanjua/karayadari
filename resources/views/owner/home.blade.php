@@ -166,24 +166,24 @@
         }
 
         .price-ribbon {
-    background: linear-gradient(45deg, #007BFF, #0056b3); /* Changed from pink gradient to blue gradient */
+    background: linear-gradient(45deg, #ff6b6b, #f06595);
     color: #fff;
     padding: 5px 25px;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 3;
+    
     border-bottom-right-radius: 5px;
     font-weight: bold;
 }
 
 .price-ribbon:before {
-    background-color: #007BFF; /* Changed background color to #007BFF */
     position: absolute;
     content: '';
     width: 50px;
     height: 50px;
-    background: linear-gradient(45deg, #007BFF, #0056b3); /* Changed gradient to blue */
+    background: linear-gradient(45deg, #ff6b6b, #f06595);
     top: 0;
     left: 0;
     transform: rotate(45deg);
@@ -191,8 +191,9 @@
 }
 
         .edit-button{
-background-color: blue;
+            background: linear-gradient(45deg, #ff6b6b, #f06595);
 border-radius: 5px;
+
 color: white;
         }
         .edit-button:hover{
