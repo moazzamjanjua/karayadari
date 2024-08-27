@@ -155,10 +155,10 @@
                                                     <div class="page-content" id="content">
                                                         <div class="images-container">
                                                         <div class="js-qv-mask mask tab-content border" style="height: 300px; width: 350px; border-radius: 5px; overflow: hidden;">
-    <div id="item1" class="tab-pane fade active in show" style="height: 100%; width: 100%; object-fit: cover;">
+    <div id="hostel_front_image" class="tab-pane fade active in show" style="height: 100%; width: 100%; object-fit: cover;">
         <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
-    <div id="item2" class="tab-pane fade" style="height: 100%; width: 100%;">
+    <div id="hostel_video" class="tab-pane fade" style="height: 100%; width: 100%;">
    <video controls style="width: 100%; height: 100%; object-fit: cover;">
     <source src="{{ asset('storage/hostel_videos/' . $hostel->hostel_video) }}" type="video/mp4">
     Your browser does not support the video tag.
@@ -172,12 +172,12 @@
                                                             </div>
                                                             <ul class="product-tab nav nav-tabs d-flex">
                                                                 <li class=" active col">
-                                                                    <a href="#item1" data-toggle="tab"  class="active show">
+                                                                    <a href="#hostel_front_image" data-toggle="tab"  class="active show">
                                                                     <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img" style="width: 100%; height: 100px; object-fit: cover;">
                                                                     </a>
                                                                 </li>
                                                                 <li class="col">
-                                                                    <a href="#item2" data-toggle="tab">
+                                                                    <a href="#hostel_video" data-toggle="tab">
                                                                         <img src="/frontend/img/product/2.jpg" alt="vidio" style="width: 100%; height: 100px; object-fit: cover;">
                                                                     </a>
                                                                 </li>
@@ -470,8 +470,8 @@
                                                         </form>
                                                     </div>
                                                     <div id="rooms" class="tab-pane fade">
-<div class="room-cards mt-5">
-    @if($hostel && $hostel->rooms)
+                                                    <div class="room-cards mt-5">
+    @if($hostel && $hostel->rooms && !$hostel->rooms->isEmpty())
         <div class="room-rows-container">
             @foreach($hostel->rooms as $room)
                 <div class="room-row">
@@ -497,6 +497,7 @@
         <p>No rooms available for this hostel.</p>
     @endif
 </div>
+
 
 
 </div>
