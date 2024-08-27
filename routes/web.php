@@ -9,12 +9,15 @@ use App\Http\Controllers\Owner\RoomController;
 use App\Http\Controllers\Owner\RoomFormController;
 use App\Http\Controllers\Owner\HostalDetailController;
 use App\Http\Controllers\ProductGridLeftController;
+use App\Models\Owner\Hostels;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\BloggController;
 use App\Http\Controllers\Frontend\ContactusController;
 use App\Http\Controllers\admin\adminController;
 use App\Http\Controllers\admin\profileController;
+use App\Http\Controllers\ReviewController;
+
 
 
 /*
@@ -116,7 +119,11 @@ Route::fallback(function () {
 });
 
 Route::get('room-detail/{id}', [RoomDetailController::class, 'show'])->name('room-detail.show');
-Route::get('hostel-detail/{slug}', [HomeController::class, 'show'])->name('hostel-detail.show');
+
+Route::get('hostel/{slug}', [HomeController::class, 'show'])->name('hostel-detail.show');
+
+Route::post('/hostels/{id}/reviews', [HostelsController::class, 'storeReview'])->name('reviews.store');
+
 
 
 

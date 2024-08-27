@@ -1,9 +1,10 @@
 <?php
 // app/Models/Review.php
 namespace App\Models;
-namespace App\Models\Owner\Hostels;
+
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Owner\Hostels;
 
 class Review extends Model
 {

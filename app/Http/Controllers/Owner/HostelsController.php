@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
 use App\Models\CategoryList;
+use App\Models\Review;
 use App\Models\Cities; // Ensure this matches your Cities model
 use App\Models\Owner\Hostels;
 use Illuminate\Http\Request;
@@ -176,5 +177,54 @@ class HostelsController extends Controller
 
         return view('owner.hostel-show', compact('hostel'));
     }
+
+    
+    public function storeReview(Request $request, $id)
+    {
+        // Check if user is authenticated
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Please log in to submit your review.');
+        }
+    
+        // Validate the form data
+        $request->validate([
+            'rating' => 'required|integer|between:1,5',
+            'review' => 'required|string|max:500',
+        ]);
+    
+        // Create the review
+        Review::create([
+            'hostel_id' => $id, // Use the $id parameter to identify the hostel
+            'user_id' => Auth::id(),
+            'rating' => $request->rating,
+            'review' => $request->review,
+        ]);
+    
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Your review has been submitted!');
+    }
+
+    public function showReview($id)
+    {
+        // Fetch the hostel
+        $hostel = Hostels::with('rooms')->findOrFail($id);
+    
+        // Fetch reviews related to this hostel
+        $reviews = Review::where('hostel_id', $id)
+                         ->with('user') // Assuming Review has a relationship with User
+                         ->orderBy('created_at', 'desc')
+                         ->get();
+    
+        // Pass both $hostel and $reviews to the view
+        return view('frontend.hostel-detail', compact('hostel', 'reviews'));
+    }
+
+    
+    
+    
+
+
+
+    
   
 }

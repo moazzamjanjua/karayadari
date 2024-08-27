@@ -5,6 +5,7 @@ use App\Models\CategoryList;
 use App\Http\Controllers\Controller;
 use App\Models\Owner\Hostels;
 use Illuminate\Http\Request;
+use App\Models\Review;
 
 
 
@@ -33,18 +34,21 @@ class HomeController extends Controller
 
  
     public function show($slug)
-{
-    // Hostels table se slug ke through record fetch kero
-    $hostel = Hostels::where('slug', $slug)->first();
+    {
+        // Fetch the hostel using both slug and id to ensure it's the correct record
+        $hostel = Hostels::where('slug', $slug)->first();
     
-
-    // Agar record mil jaye to view mein pass kero, warna 404 error show karo
-    if ($hostel) {
+        // Check if the hostel exists
+        if (!$hostel) {
+            abort(404, 'Hostel not found');
+        }
+    
+        // Fetch reviews related to this hostel
+       
+    
+        // Pass both $hostel and $reviews to the view
         return view('frontend.hostel-detail', compact('hostel'));
-    } else {
-        abort(404, 'Hostel not found');
     }
-}
-
+    
 }
 

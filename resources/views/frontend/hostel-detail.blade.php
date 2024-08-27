@@ -304,7 +304,6 @@
     transition: box-shadow 0.3s ease; /* Smooth hover effect */
     }
 
-
     .room-row {
     display: flex;
     justify-content: space-between;
@@ -323,19 +322,22 @@
 }
 
 .room-image {
-    width: 30%; /* Image takes left 30% */
+    width: 30%; /* Image takes left 30% of the row */
     height: 100%; /* Match the height of the row */
+    position: relative; /* Required for the ribbon positioning */
+    overflow: hidden; /* Ensures the image does not overflow */
 }
 
 .room-image img {
     width: 100%;
     height: 100%;
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+    display: block; /* Removes bottom space due to inline-block nature */
     border-radius: 8px; /* Rounded corners for images */
-    object-fit: cover; /* Maintain aspect ratio while filling the container */
 }
 
 .room-description {
-    width: 50%; /* Description takes right 50% */
+    width: 50%; /* Description takes right 50% of the row */
     padding-left: 10px;
     display: flex;
     flex-direction: column;
@@ -356,6 +358,38 @@
     flex-direction: column;
     max-height: 400px; /* Adjust based on your design */
     overflow-y: auto;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: blue; /* Set the background color to blue */
+    border-radius: 50%; /* Make the background a circle */
+    padding: 10px; /* Add some padding to make the circle larger */
+}
+
+.carousel-control-prev, .carousel-control-next {
+    opacity: 1; /* Ensure the buttons are fully visible */
+}
+
+.ribbon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transform: rotate(45deg);
+    white-space: nowrap;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
 
@@ -383,91 +417,106 @@
                                                 <div id="review" class="tab-pane fade in active show">
                                                         <div class="spr-form">
                                                             <div class="user-comment">
-                                                                <div class="spr-review">
-                                                                    <div class="spr-review-header">
-                                                                        <span class="spr-review-header-byline">
-                                                                            <strong>Moazzam Hussain</strong> -
-                                                                            <span>June 12, 2024</span>
-                                                                        </span>
-                                                                        <div class="rating">
-                                                                            <div class="star-content">
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="spr-review-content">
-                                                                        <p class="spr-review-content-body">Loved my stay here! The rooms were clean and cozy, and the staff was incredibly friendly. Great location with easy access to attractions. Highly recommend!.</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="spr-review preview2">
-                                                                    <div class="spr-review-header">
-                                                                        <span class="spr-review-header-byline">
-                                                                            <strong>Jawad Ahmad</strong> -
-                                                                            <span>June 11, 2024</span>
-                                                                        </span>
-                                                                        <div class="rating">
-                                                                            <div class="star-content">
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="spr-review-content">
-                                                                        <p class="spr-review-content-body">Amazing hostel with a vibrant community feel. The staff were super helpful, and the beds were comfy. Perfect for meeting new people. Would definitely stay again!</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+    <div class="reviews-section">
+       
+           
+            <div class="spr-review">
+                <div class="spr-review-header">
+                    <span class="spr-review-header-byline">
+                        {{-- Assuming $review->user returns the user who submitted the review --}}
+                        Reviewed by: {{ $review->user->name ?? 'Anonymous' }} 
+                    </span>
+                    <div class="rating">
+                        <div class="star-content">
+                            {{-- Display the rating as stars (assuming $review->rating is between 1 and 5) --}}
+                          
+                                    <span class="fa fa-star checked"></span> {{-- filled star --}}
+                            
+                                    <span class="fa fa-star"></span> {{-- empty star --}}
+                             
+                        </div>
+                    </div>
+                </div>
+                <div class="spr-review-content">
+                    <p></p> {{-- Display the review text --}}
+                </div>
+            </div>
+         
+       
+            <p>No reviews yet. Be the first to write one!</p>
+       
+    </div>
+</div>
+
                                                         </div>
-                                                        <form method="post" action="#" class="new-review-form">
-                                                            <input type="hidden" name="review[rating]" value="3">
-                                                            <input type="hidden" name="product_id">
-                                                            <h3 class="spr-form-title">Write a review</h3>
-                                                            <fieldset>
-                                                                <div class="spr-form-review-rating">
-                                                                    <label class="spr-form-label">Your Rating</label>
-                                                                    <fieldset class="ratings">
-                                                                        <input type="radio" id="star5" name="rating" value="5" />
-                                                                        <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                                                                        <input type="radio" id="star4half" name="rating" value="4 and a half" />
-                                                                        <input type="radio" id="star4" name="rating" value="4" />
-                                                                        <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                                                                        <input type="radio" id="star3half" name="rating" value="3 and a half" />
-                                                                        <input type="radio" id="star3" name="rating" value="3" />
-                                                                        <label class="full" for="star3" title="Meh - 3 stars"></label>
-                                                                        <input type="radio" id="star2half" name="rating" value="2 and a half" />
-                                                                        <input type="radio" id="star2" name="rating" value="2" />
-                                                                        <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                                                                        <input type="radio" id="star1half" name="rating" value="1 and a half" />
-                                                                        <input type="radio" id="star1" name="rating" value="1" />
-                                                                        <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                                                                        <input type="radio" id="starhalf" name="rating" value="half" />
-                                                                    </fieldset>
-                                                                </div>
-                                                            </fieldset>
-                                                            <fieldset class="spr-form-contact">
-                                                                <div class="spr-form-contact-name">
-                                                                    <input class="spr-form-input spr-form-input-text form-control" value="" placeholder="Enter your name">
-                                                                </div>
-                                                               
-                                                            </fieldset>
-                                                            <fieldset>
-                                                                <div class="spr-form-review-body">
-                                                                    <div class="spr-form-input">
-                                                                        <textarea class="spr-form-input-textarea" rows="10" placeholder="Write your comments here"></textarea>
-                                                                    </div>
-                                                                </div>
-                                                            </fieldset>
-                                                            <div class="submit">
-                                                                <input type="submit" name="addComment" id="submitComment" class="btn btn-default" value="Submit Review">
-                                                            </div>
-                                                        </form>
+                                                        <div class="reviews-section">
+                                                            <style>
+  .star-content {
+    display: flex;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    background: url('/path-to-empty-star-icon.png') no-repeat;
+    background-size: contain;
+}
+
+.star.filled {
+    background: url('/path-to-filled-star-icon.png') no-repeat;
+    background-size: contain;
+}
+
+                                                            </style>
+                                                      
+    <form method="POST" action="{{ route('reviews.store', $hostel->id) }}" class="new-review-form">
+        @csrf
+        <h3 class="spr-form-title">Write a Review</h3>
+
+        <!-- Ratings -->
+        <fieldset>
+            <div class="spr-form-review-rating">
+                <label class="spr-form-label">Your Rating</label>
+                <fieldset class="ratings">
+                    <input type="radio" id="star5" name="rating" value="5" required/>
+                    <label class="full" for="star5" title="Awesome - 5 stars"></label>
+
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label class="full" for="star3" title="Meh - 3 stars"></label>
+
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                </fieldset>
+            </div>
+        </fieldset>
+
+        <!-- Review Text -->
+        <fieldset class="spr-form-contact">
+            <div class="spr-form-contact-name">
+                <textarea name="review" class="spr-form-input-textarea form-control" placeholder="Write your comments here" required></textarea>
+            </div>
+        </fieldset>
+
+        <!-- Submit Button -->
+        <div class="submit">
+            <button type="submit" class="btn btn-default">Submit Review</button>
+        </div>
+    </form>
+
+    <!-- Success Message -->
+    @if(session('success'))
+        <div id="success-message">
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif
+</div>
+
                                                     </div>
                                                     <div id="rooms" class="tab-pane fade">
                                                     <div class="room-cards mt-5">
@@ -480,7 +529,29 @@
                     @endphp
                     <div class="room-image">
                         @if($images && is_array($images) && count($images) > 0)
-                            <img src="{{ asset('storage/room_images/' . $images[0]) }}" class="d-block w-100" alt="Room Image">
+                            <div id="carousel-{{ $room->id }}" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    @foreach($images as $index => $image)
+                                        <li data-target="#carousel-{{ $room->id }}" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                                    @endforeach
+                                </ol>
+                                <div class="carousel-inner">
+                                    @foreach($images as $index => $image)
+                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                            <img src="{{ asset('storage/room_images/' . $image) }}" class="d-block w-100" alt="Room Image">
+                                            <div class="ribbon">Special</div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <a class="carousel-control-prev" href="#carousel-{{ $room->id }}" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carousel-{{ $room->id }}" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
                         @else
                             <p>No image available</p>
                         @endif
@@ -497,6 +568,7 @@
         <p>No rooms available for this hostel.</p>
     @endif
 </div>
+
 
 
 
