@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Owner\Hostels;
 use Illuminate\Http\Request;
 use App\Models\Review;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class HomeController extends Controller
@@ -35,7 +35,7 @@ class HomeController extends Controller
  
     public function show($slug)
     {
-        // Fetch the hostel using both slug and id to ensure it's the correct record
+        // Fetch the hostel using slug
         $hostel = Hostels::where('slug', $slug)->first();
     
         // Check if the hostel exists
@@ -44,11 +44,46 @@ class HomeController extends Controller
         }
     
         // Fetch reviews related to this hostel
-       
+        $reviews = Review::where('hostel_id', $hostel->id)->orderBy('created_at', 'desc')->get();
+        
+        // Count the reviews
+        $reviewCount = $reviews->count();
+        
+        // Calculate the average rating
+        $averageRating = $reviews->avg('rating');
     
-        // Pass both $hostel and $reviews to the view
-        return view('frontend.hostel-detail', compact('hostel'));
+        // Pass $hostel, $reviews, $reviewCount, and $averageRating to the view
+        return view('frontend.hostel-detail', compact('hostel', 'reviews', 'reviewCount', 'averageRating'));
     }
+    
+
+    
+    
+
+    public function storeReview(Request $request, $id)
+    {
+        // Check if user is authenticated
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Please log in to submit your review.');
+        }
+        // Validate the form data
+        $request->validate([
+            'rating' => 'required|integer|between:1,5',
+            'review' => 'required|string|max:500',
+        ]);
+    
+        // Create the review
+        Review::create([
+            'hostel_id' => $id, // Use the $id parameter to identify the hostel
+            'user_id' => Auth::id(),
+            'rating' => $request->rating,
+            'review' => $request->review,
+        ]);
+    
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Your review has been submitted!');
+    }
+
     
 }
 

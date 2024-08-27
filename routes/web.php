@@ -122,7 +122,7 @@ Route::get('room-detail/{id}', [RoomDetailController::class, 'show'])->name('roo
 
 Route::get('hostel/{slug}', [HomeController::class, 'show'])->name('hostel-detail.show');
 
-Route::post('/hostels/{id}/reviews', [HostelsController::class, 'storeReview'])->name('reviews.store');
+Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->name('reviews.store');
 
 
 

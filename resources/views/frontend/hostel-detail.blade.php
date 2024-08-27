@@ -3,10 +3,172 @@
 <body id="product-detail">
 @include('frontend.layouts.header')
 
+<!-- CSS -->
+<style>
+       
+  .star-content {
+    display: flex;
+}
 
-   
+.star {
+    width: 20px;
+    height: 20px;
+    background: url('/path-to-empty-star-icon.png') no-repeat;
+    background-size: contain;
+}
+
+.star.filled {
+    background: url('/path-to-filled-star-icon.png') no-repeat;
+    background-size: contain;
+}
+
+                                                        
+    .hostel-details-container {
+        border: 2px solid #e0e0e0;
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 600px;
+        margin: 30px auto;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+    }
+    .facility-group {
+        margin-bottom: 15px;
+    }
+    p {
+        font-size: 16px;
+        margin: 5px 0;
+        color: #333;
+    }
+    p span {
+        
+    }
+    .category-name {
+        font-size: 18px;
+        color: #555;
+    }
+    .hostel-address, .hostel-location {
+        color: #777;
+    }
+    .hostel-detail {
+        
+        color: #444;
+    }
+    .facility-group p::before {
+        content: "• ";
+        color: #007bff;
+         
+    }
 
 
+    .review{
+        padding: 15px;
+         border: 2px solid #e0e0e0; /* Light gray border */
+    border-radius: 12px; /* Smooth rounded corners */
+    background-color: #f9f9f9; /* Soft background color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    transition: box-shadow 0.3s ease; /* Smooth hover effect */
+    }
+
+    .room-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 2px solid #e0e0e0; /* Light gray border */
+    border-radius: 12px; /* Smooth rounded corners */
+    background-color: #f9f9f9; /* Soft background color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    transition: box-shadow 0.3s ease; /* Smooth hover effect */
+    height: 200px; /* Fixed height for each row */
+}
+
+.room-row:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Darker shadow on hover */
+}
+
+.room-image {
+    width: 30%; /* Image takes left 30% of the row */
+    height: 100%; /* Match the height of the row */
+    position: relative; /* Required for the ribbon positioning */
+    overflow: hidden; /* Ensures the image does not overflow */
+}
+.fa-star {
+    color: #ccc; /* Grey color for unfilled stars */
+}
+
+.fa-star.checked {
+    color: #ffc107; /* Yellow color for filled stars */
+}
+
+
+.room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+    display: block; /* Removes bottom space due to inline-block nature */
+    border-radius: 8px; /* Rounded corners for images */
+}
+
+.room-description {
+    width: 50%; /* Description takes right 50% of the row */
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the description */
+}
+
+.room-description h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.room-description p {
+    margin-bottom: 8px;
+}
+
+.room-rows-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px; /* Adjust based on your design */
+    overflow-y: auto;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: blue; /* Set the background color to blue */
+    border-radius: 50%; /* Make the background a circle */
+    padding: 10px; /* Add some padding to make the circle larger */
+}
+
+.carousel-control-prev, .carousel-control-next {
+    opacity: 1; /* Ensure the buttons are fully visible */
+}
+
+.ribbon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transform: rotate(45deg);
+    white-space: nowrap;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+</style>
     <!-- main content -->
     <div class="main-content">
         <div id="wrapper-site">
@@ -198,33 +360,29 @@
                                                     
                                                         <div class="d-flex2 has-border">
                                                         <div class="facility-group">
-        {{ $hostel->hostel_detail }}
-    </div>
+                                                         {{ $hostel->hostel_detail }}
+                                                       </div>
                                                         </div>
                                                         <div class="rating-comment has-border d-flex">
                                                             <div class="review-description d-flex">
-                                                                <span>REVIEW :</span>
-                                                                <div class="rating">
-                                                                    <div class="star-content">
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            <span style="font-size: medium;">RATING</span>
+                                                            <div class="rating">
+                                                            
+        
+    </div>
+    <span style="font-size: medium;">{{ number_format($averageRating, 1) }}(/5)</span>
+</div>
                                                             <div class="read after-has-border">
                                                                 <a href="#review">
                                                                     <i class="fa fa-commenting-o color" aria-hidden="true" ></i>
-                                                                    <span>READ REVIEWS (3)</span>
+                                                                    <span style="font-size: medium;">READ REVIEWS ({{ $reviewCount }})</span>
                                                                 </a>
                                                             </div>
                                                           
                                                             <div class="btn-group">
                                                                 <a href="#">
                                                                     <i class="zmdi zmdi-share"></i>
-                                                                    <span>Share</span>
+                                                                    <span style="font-size: medium;">Share</span>
                                                                 </a>
                                                             </div>
 
@@ -254,146 +412,7 @@
     </div>
 </div>
 
-<!-- CSS -->
-<style>
-    .hostel-details-container {
-        border: 2px solid #e0e0e0;
-        padding: 20px;
-        border-radius: 12px;
-        max-width: 600px;
-        margin: 30px auto;
-        background-color: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        font-family: Arial, sans-serif;
-    }
-    .facility-group {
-        margin-bottom: 15px;
-    }
-    p {
-        font-size: 16px;
-        margin: 5px 0;
-        color: #333;
-    }
-    p span {
-        
-    }
-    .category-name {
-        font-size: 18px;
-        color: #555;
-    }
-    .hostel-address, .hostel-location {
-        color: #777;
-    }
-    .hostel-detail {
-        
-        color: #444;
-    }
-    .facility-group p::before {
-        content: "• ";
-        color: #007bff;
-         
-    }
 
-
-    .review{
-        padding: 15px;
-         border: 2px solid #e0e0e0; /* Light gray border */
-    border-radius: 12px; /* Smooth rounded corners */
-    background-color: #f9f9f9; /* Soft background color */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
-    transition: box-shadow 0.3s ease; /* Smooth hover effect */
-    }
-
-    .room-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 2px solid #e0e0e0; /* Light gray border */
-    border-radius: 12px; /* Smooth rounded corners */
-    background-color: #f9f9f9; /* Soft background color */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
-    transition: box-shadow 0.3s ease; /* Smooth hover effect */
-    height: 200px; /* Fixed height for each row */
-}
-
-.room-row:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Darker shadow on hover */
-}
-
-.room-image {
-    width: 30%; /* Image takes left 30% of the row */
-    height: 100%; /* Match the height of the row */
-    position: relative; /* Required for the ribbon positioning */
-    overflow: hidden; /* Ensures the image does not overflow */
-}
-
-.room-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the image covers the container without distortion */
-    display: block; /* Removes bottom space due to inline-block nature */
-    border-radius: 8px; /* Rounded corners for images */
-}
-
-.room-description {
-    width: 50%; /* Description takes right 50% of the row */
-    padding-left: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically center the description */
-}
-
-.room-description h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.room-description p {
-    margin-bottom: 8px;
-}
-
-.room-rows-container {
-    display: flex;
-    flex-direction: column;
-    max-height: 400px; /* Adjust based on your design */
-    overflow-y: auto;
-}
-
-.carousel-control-prev, .carousel-control-next {
-    width: 5%;
-}
-
-.carousel-control-prev-icon, .carousel-control-next-icon {
-    background-color: blue; /* Set the background color to blue */
-    border-radius: 50%; /* Make the background a circle */
-    padding: 10px; /* Add some padding to make the circle larger */
-}
-
-.carousel-control-prev, .carousel-control-next {
-    opacity: 1; /* Ensure the buttons are fully visible */
-}
-
-.ribbon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: red;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transform: rotate(45deg);
-    white-space: nowrap;
-}
-
-.carousel-inner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-
-</style>
 
                                                     </div>
                                                 </div>
@@ -404,7 +423,7 @@
                                             <div class="review">
                                                 <ul class="nav nav-tabs">
                                                     <li class="active">
-                                                    <a data-toggle="tab" href="#review" class="active show">Reviews (2)</a>
+                                                    <a data-toggle="tab" href="#review" class="active show">Reviews ({{ $reviewCount }})</a>
                                                     </li>
                                                     
                                                     <li>
@@ -417,57 +436,37 @@
                                                 <div id="review" class="tab-pane fade in active show">
                                                         <div class="spr-form">
                                                             <div class="user-comment">
-    <div class="reviews-section">
-       
-           
+                                                            <div class="reviews-section">
+    @if($reviews->isNotEmpty())
+        @foreach($reviews as $review)
             <div class="spr-review">
                 <div class="spr-review-header">
                     <span class="spr-review-header-byline">
-                        {{-- Assuming $review->user returns the user who submitted the review --}}
-                        Reviewed by: {{ $review->user->name ?? 'Anonymous' }} 
+                        {{ $review->user->name }} - {{ $review->created_at->format('d M Y') }}
                     </span>
                     <div class="rating">
                         <div class="star-content">
-                            {{-- Display the rating as stars (assuming $review->rating is between 1 and 5) --}}
-                          
-                                    <span class="fa fa-star checked"></span> {{-- filled star --}}
-                            
-                                    <span class="fa fa-star"></span> {{-- empty star --}}
-                             
+                            @for($i = 0; $i < 5; $i++)
+                                <span class="fa fa-star{{ $i < $review->rating ? ' checked' : '' }}"></span>
+                            @endfor
                         </div>
                     </div>
                 </div>
                 <div class="spr-review-content">
-                    <p></p> {{-- Display the review text --}}
+                    <p>{{ $review->review }}</p>
                 </div>
             </div>
-         
-       
-            <p>No reviews yet. Be the first to write one!</p>
-       
-    </div>
+        @endforeach
+    @else
+        <p>No reviews yet. Be the first to write one!</p>
+    @endif
 </div>
 
-                                                        </div>
-                                                        <div class="reviews-section">
-                                                            <style>
-  .star-content {
-    display: flex;
-}
+</div>
 
-.star {
-    width: 20px;
-    height: 20px;
-    background: url('/path-to-empty-star-icon.png') no-repeat;
-    background-size: contain;
-}
-
-.star.filled {
-    background: url('/path-to-filled-star-icon.png') no-repeat;
-    background-size: contain;
-}
-
-                                                            </style>
+</div>
+<div class="reviews-section">
+                                                         
                                                       
     <form method="POST" action="{{ route('reviews.store', $hostel->id) }}" class="new-review-form">
         @csrf
@@ -502,7 +501,7 @@
                 <textarea name="review" class="spr-form-input-textarea form-control" placeholder="Write your comments here" required></textarea>
             </div>
         </fieldset>
-
+<br>
         <!-- Submit Button -->
         <div class="submit">
             <button type="submit" class="btn btn-default">Submit Review</button>
