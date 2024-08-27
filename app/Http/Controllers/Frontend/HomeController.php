@@ -36,6 +36,7 @@ class HomeController extends Controller
 {
     // Hostels table se slug ke through record fetch kero
     $hostel = Hostels::where('slug', $slug)->first();
+    
 
     // Agar record mil jaye to view mein pass kero, warna 404 error show karo
     if ($hostel) {

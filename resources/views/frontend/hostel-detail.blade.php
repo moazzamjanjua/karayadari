@@ -275,8 +275,7 @@
         color: #333;
     }
     p span {
-        font-weight: bold;
-        color: #007bff;
+        
     }
     .category-name {
         font-size: 18px;
@@ -292,7 +291,7 @@
     .facility-group p::before {
         content: "• ";
         color: #007bff;
-          font-weight: bold;
+         
     }
 
 
@@ -375,7 +374,7 @@
                                                     </li>
                                                     
                                                     <li>
-                                                    <a data-toggle="tab" href="#rooms" >Rooms</a>
+                                                    <a data-toggle="tab" href="#rooms" >Rooms ({{$hostel->rooms->count();}})</a>
                                                         
                                                     </li>
                                                 </ul>
