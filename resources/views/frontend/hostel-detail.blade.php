@@ -297,7 +297,7 @@
 
 
     .review{
-        
+        padding: 15px;
          border: 2px solid #e0e0e0; /* Light gray border */
     border-radius: 12px; /* Smooth rounded corners */
     background-color: #f9f9f9; /* Soft background color */
@@ -333,7 +333,7 @@
 
 .room-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 8px; /* Rounded corners for images */
     object-fit: cover;
 }
@@ -350,7 +350,8 @@
 
 
 .room-image {
-    width: 34%; /* Image takes left 45% */
+    width: 30%; /* Image takes left 30% */
+    height: 30%;
 }
 
 
@@ -526,7 +527,7 @@
                                             <div class="related">
                                                 <div class="title-tab-content  text-center">
                                                     <div class="title-product justify-content-start">
-                                                        <h2>Related Products</h2>
+                                                        <h2>Related Hostels</h2>
                                                     </div>
                                                 </div>
                                                 <div class="tab-content">
