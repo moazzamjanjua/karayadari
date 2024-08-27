@@ -116,3 +116,7 @@ Route::fallback(function () {
 });
 
 Route::get('room-detail/{id}', [RoomDetailController::class, 'show'])->name('room-detail.show');
+Route::get('hostel-detail/{slug}', [HomeController::class, 'show'])->name('hostel-detail.show');
+
+
+

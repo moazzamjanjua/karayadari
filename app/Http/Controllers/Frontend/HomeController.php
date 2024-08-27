@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Owner\Hostels;
 use Illuminate\Http\Request;
 
+
+
 class HomeController extends Controller
 {
     public function index()
@@ -28,5 +30,20 @@ class HomeController extends Controller
 
         return view('frontend.index', compact('categories', 'topRatedHostels', 'featuredHostels', 'bestHostels'));
     }
+
+ 
+    public function show($slug)
+{
+    // Hostels table se slug ke through record fetch kero
+    $hostel = Hostels::where('slug', $slug)->first();
+
+    // Agar record mil jaye to view mein pass kero, warna 404 error show karo
+    if ($hostel) {
+        return view('frontend.hostel-detail', compact('hostel'));
+    } else {
+        abort(404, 'Hostel not found');
+    }
+}
+
 }
 

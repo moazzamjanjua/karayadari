@@ -176,4 +176,5 @@ class HostelsController extends Controller
 
         return view('owner.hostel-show', compact('hostel'));
     }
+  
 }
