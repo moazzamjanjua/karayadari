@@ -306,7 +306,6 @@
     }
 
 
-
     .room-row {
     display: flex;
     justify-content: space-between;
@@ -317,47 +316,31 @@
     background-color: #f9f9f9; /* Soft background color */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
     transition: box-shadow 0.3s ease; /* Smooth hover effect */
+    height: 200px; /* Fixed height for each row */
 }
 
 .room-row:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Darker shadow on hover */
 }
 
-.room-description {
-    width: 50%;
-    padding-left: 10px;
-    color: #333; /* Text color */
+.room-image {
+    width: 30%; /* Image takes left 30% */
+    height: 100%; /* Match the height of the row */
 }
-
-
 
 .room-image img {
     width: 100%;
     height: 100%;
     border-radius: 8px; /* Rounded corners for images */
-    object-fit: cover;
+    object-fit: cover; /* Maintain aspect ratio while filling the container */
 }
-
-    
-
-.room-rows-container {
-    display: flex;
-    flex-direction: column;
-    max-height: 400px; /* Adjust based on your design */
-    overflow-y: auto;
-}
-
-
-
-.room-image {
-    width: 30%; /* Image takes left 30% */
-    height: 30%;
-}
-
 
 .room-description {
     width: 50%; /* Description takes right 50% */
     padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the description */
 }
 
 .room-description h2 {
@@ -369,6 +352,12 @@
     margin-bottom: 8px;
 }
 
+.room-rows-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px; /* Adjust based on your design */
+    overflow-y: auto;
+}
 
 
 </style>
