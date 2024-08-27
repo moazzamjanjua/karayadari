@@ -5,6 +5,9 @@ use App\Models\CategoryList;
 use App\Http\Controllers\Controller;
 use App\Models\Owner\Hostels;
 use Illuminate\Http\Request;
+use App\Models\Review;
+
+
 
 class HomeController extends Controller
 {
@@ -28,5 +31,24 @@ class HomeController extends Controller
 
         return view('frontend.index', compact('categories', 'topRatedHostels', 'featuredHostels', 'bestHostels'));
     }
+
+ 
+    public function show($slug)
+    {
+        // Fetch the hostel using both slug and id to ensure it's the correct record
+        $hostel = Hostels::where('slug', $slug)->first();
+    
+        // Check if the hostel exists
+        if (!$hostel) {
+            abort(404, 'Hostel not found');
+        }
+    
+        // Fetch reviews related to this hostel
+       
+    
+        // Pass both $hostel and $reviews to the view
+        return view('frontend.hostel-detail', compact('hostel'));
+    }
+    
 }
 

@@ -60,7 +60,7 @@
                                                             <div
                                                                 class="product-miniature first-item js-product-miniature item-one">
                                                                 <div class="image-container">
-                                                                    <a href="{{ route('owner.hostel.show', $hostel->id) }}">
+                                                                <a href="{{ route('hostel-detail.show', $hostel->slug) }}">
                                                                         <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
                                                                             alt="img">
                                                                     </a>
@@ -69,7 +69,7 @@
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
                                                                             <a
-                                                                                href="{{ route('owner.hostel.show', $hostel->id) }}">{{ $hostel->hostel_name }}</a>
+                                                                                href="{{ route('hostel-detail.show', $hostel->slug) }}">{{ $hostel->hostel_name }}</a>
                                                                         </div>
                                                                         <div class="rating">
                                                                             <div class="star-content">
@@ -98,7 +98,7 @@
                                                             <div
                                                                 class="product-miniature first-item js-product-miniature item-one">
                                                                 <div class="image-container">
-                                                                    <a href="{{ route('owner.hostel.show', $hostel->id) }}">
+                                                                <a href="{{ route('hostel-detail.show', $hostel->slug) }}">
                                                                         <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
                                                                             alt="img">
                                                                     </a>
@@ -107,7 +107,7 @@
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
                                                                             <a
-                                                                                href="{{ route('owner.hostel.show', $hostel->id) }}">{{ $hostel->hostel_name }}</a>
+                                                                                href="{{ route('hostel-detail.show', $hostel->id) }}">{{ $hostel->hostel_name }}</a>
                                                                         </div>
                                                                         <div class="rating">
                                                                             <div class="star-content">
@@ -165,6 +165,8 @@
                                         <div class="row d-flex align-items-center">
                                             <!-- column 4 -->
                                             <div class="flex-4 col-lg-4 flex-4">
+                                                <br>
+                                                <br>
                                                 <h2 class="title-block">
                                                     <span class="sub-title">Best Hostels</span>Best Hostels
                                                 </h2>
@@ -191,12 +193,11 @@
                                                                         <div
                                                                             class="product-miniature js-product-miniature item-one first-item">
                                                                             <div class="best_image-container">
-                                                                                <a
-                                                                                    href="{{ route('owner.hostel.show', $hostel->id) }}">
-                                                                                    <img class=""
-                                                                                        src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
-                                                                                        alt="img">
-                                                                                </a>
+                                                                                
+                                                                            <a href="{{ route('hostel-detail.show', $hostel->slug) }}">
+                                                                        <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
+                                                                            alt="img">
+                                                                    </a>
                                                                             </div>
                                                                             <div class="product-description">
                                                                                 <div class="product-groups">
