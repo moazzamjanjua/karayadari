@@ -36,6 +36,31 @@
     <link rel="stylesheet" type="text/css" href="/frontend/css/style.css">
     <link rel="stylesheet" type="text/css" href="/frontend/css/reponsive.css">
     <style>
+   .price-ribbon {
+    background: linear-gradient(45deg, #ff6b6b, #f06595);
+    color: #fff;
+    padding: 5px 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    border-bottom-right-radius: 5px;
+    font-weight: bold;
+    margin-top: 7px;
+}
+
+.price-ribbon:before {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #ff6b6b, #f06595);
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+    z-index: -1;
+    
+}
         .luxury-button-div {
             display: flex;
             justify-content: center;

@@ -370,12 +370,12 @@
                                                             
         
     </div>
-    <span style="font-size: medium;">{{ number_format($averageRating, 1) }}(/5)</span>
+    <span style="font-size: medium;">{{ $reviews->avg('rating')}}(/5)</span>
 </div>
                                                             <div class="read after-has-border">
                                                                 <a href="#review">
                                                                     <i class="fa fa-commenting-o color" aria-hidden="true" ></i>
-                                                                    <span style="font-size: medium;">READ REVIEWS ({{ $reviewCount }})</span>
+                                                                    <span style="font-size: medium;">READ REVIEWS ({{$reviews->count();}})</span>
                                                                 </a>
                                                             </div>
                                                           
@@ -423,7 +423,7 @@
                                             <div class="review">
                                                 <ul class="nav nav-tabs">
                                                     <li class="active">
-                                                    <a data-toggle="tab" href="#review" class="active show">Reviews ({{ $reviewCount }})</a>
+                                                    <a data-toggle="tab" href="#review" class="active show">Reviews ({{$reviews->count();}})</a>
                                                     </li>
                                                     
                                                     <li>

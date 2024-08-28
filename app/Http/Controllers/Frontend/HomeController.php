@@ -45,15 +45,9 @@ class HomeController extends Controller
     
         // Fetch reviews related to this hostel
         $reviews = Review::where('hostel_id', $hostel->id)->orderBy('created_at', 'desc')->get();
-        
-        // Count the reviews
-        $reviewCount = $reviews->count();
-        
-        // Calculate the average rating
-        $averageRating = $reviews->avg('rating');
     
         // Pass $hostel, $reviews, $reviewCount, and $averageRating to the view
-        return view('frontend.hostel-detail', compact('hostel', 'reviews', 'reviewCount', 'averageRating'));
+        return view('frontend.hostel-detail', compact('hostel', 'reviews',));
     }
     
 
