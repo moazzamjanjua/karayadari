@@ -149,17 +149,7 @@
     opacity: 1; /* Ensure the buttons are fully visible */
 }
 
-.ribbon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: red;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transform: rotate(45deg);
-    white-space: nowrap;
-}
+
 
 .carousel-inner {
     position: relative;
@@ -316,6 +306,11 @@
                                                 <div class="product-detail col-xs-12 col-md-5 col-sm-5">
                                                     <div class="page-content" id="content">
                                                         <div class="images-container">
+
+                                                        <div class="price-ribbon">
+                                                                        {{$hostel->hostel_price}} Rs / month
+                                                                    </div>
+                                                                    
                                                         <div class="js-qv-mask mask tab-content border" style="height: 300px; width: 350px; border-radius: 5px; overflow: hidden;">
     <div id="hostel_front_image" class="tab-pane fade active in show" style="height: 100%; width: 100%; object-fit: cover;">
         <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img" style="width: 100%; height: 100%; object-fit: cover;">
@@ -335,6 +330,11 @@
                                                             <ul class="product-tab nav nav-tabs d-flex">
                                                                 <li class=" active col">
                                                                     <a href="#hostel_front_image" data-toggle="tab"  class="active show">
+
+                                                                    <div class="price-ribbon">
+                                                                        {{$hostel->hostel_price}} Rs / month
+                                                                    </div>
+
                                                                     <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img" style="width: 100%; height: 100px; object-fit: cover;">
                                                                     </a>
                                                                 </li>
@@ -535,10 +535,17 @@
                                     @endforeach
                                 </ol>
                                 <div class="carousel-inner">
+
+
+                                <div class="price-ribbon">
+                                                                        {{$hostel->hostel_price}} Rs / month
+                                                                    </div>
+
+
                                     @foreach($images as $index => $image)
                                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                             <img src="{{ asset('storage/room_images/' . $image) }}" class="d-block w-100" alt="Room Image">
-                                            <div class="ribbon">Special</div>
+                                            <div class="ribbon"></div>
                                         </div>
                                     @endforeach
                                 </div>

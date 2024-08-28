@@ -36,30 +36,44 @@
     <link rel="stylesheet" type="text/css" href="/frontend/css/style.css">
     <link rel="stylesheet" type="text/css" href="/frontend/css/reponsive.css">
     <style>
-   .price-ribbon {
+  .price-ribbon {
     background: linear-gradient(45deg, #ff6b6b, #f06595);
     color: #fff;
-    padding: 5px 25px;
+    padding: 5px 20px; /* Reduced padding for better height */
     position: absolute;
-    top: 0;
-    left: 0;
+    ; /* Adjust the distance from the top */
+   ; /* Adjust the distance from the left */
     z-index: 3;
     border-bottom-right-radius: 5px;
     font-weight: bold;
-    margin-top: 7px;
+    font-size: 14px; /* Adjusted font size to match the ribbon */
+    width: auto; /* Let width adjust based on content */
+    height: auto; /* Let height adjust naturally */
 }
 
 .price-ribbon:before {
     position: absolute;
     content: '';
-    width: 50px;
-    height: 50px;
+    width: 50px; /* Adjusted width */
+    height:50px; /* Adjusted height */
     background: linear-gradient(45deg, #ff6b6b, #f06595);
-    top: 0;
-    left: 0;
+    top: -10px; /* Adjust to align with the ribbon */
+    left: -10px; /* Adjust to align with the ribbon */
     transform: rotate(45deg);
     z-index: -1;
-    
+}
+
+.image-container, .best_image-container ,.images-container, .product-tab {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.image-container img, .best_image-container img , .images-container img  , .product-tab img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
         .luxury-button-div {
             display: flex;
