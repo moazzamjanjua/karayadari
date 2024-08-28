@@ -22,7 +22,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .preview img {
+        .preview img, .preview video {
             width: 100px;
             height: 100px;
             object-fit: cover;
@@ -46,13 +46,43 @@
                 <input type="text" class="form-control" id="hostel_name" name="hostel_name" value="{{ $hostel->hostel_name }}" required>
             </div>
 
+            <!-- Hostel Price -->
+            <div class="form-group">
+                <label for="hostel_price">Hostel Price:</label>
+                <input type="number" class="form-control" id="hostel_price" name="hostel_price" value="{{ $hostel->hostel_price }}" placeholder="Enter Hostel Price" required>
+            </div>
+
+            <!-- Hostel Front Image -->
+            <div class="form-group">
+                <label for="hostel_front_image">Hostel Front Image:</label>
+                <input type="file" class="form-control-file" id="hostel_front_image" name="hostel_front_image" accept="image/*" onchange="updateFrontImagePreview()">
+                <div id="front_image_preview" class="preview mt-2">
+                    @if($hostel->hostel_front_image)
+                        <div class="image-container">
+                            <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="Hostel Front Image">
+                        </div>
+                    @endif
+                </div>
+            </div>
+
+            <!-- Hostel Video -->
+            <div class="form-group">
+                <label for="hostel_video">Hostel Video:</label>
+                <input type="file" class="form-control-file" id="hostel_video" name="hostel_video" accept="video/*" onchange="updateVideoPreview()">
+                <div id="hostel_video_preview" class="preview mt-2">
+                    @if($hostel->hostel_video)
+                        <div class="video-container">
+                            <video src="{{ asset('storage/hostel_videos/' . $hostel->hostel_video) }}" controls></video>
+                        </div>
+                    @endif
+                </div>
+            </div>
+
             <!-- Hostel Address -->
             <div class="form-group">
                 <label for="hostel_address">Hostel Address:</label>
                 <textarea class="form-control" id="hostel_address" name="hostel_address" rows="4" required>{{ $hostel->hostel_address }}</textarea>
             </div>
-
-            
 
             <!-- City Selection -->
             <div class="form-group">
@@ -69,19 +99,6 @@
             <div class="form-group">
                 <label for="hostel_location">Hostel Location:</label>
                 <input type="text" class="form-control" id="hostel_location" name="hostel_location" value="{{ $hostel->hostel_location }}" placeholder="Enter hostel location (optional)">
-            </div>
-
-            <!-- Hostel Front Image -->
-            <div class="form-group">
-                <label for="hostel_front_image">Hostel Front Image:</label>
-                <input type="file" class="form-control-file" id="hostel_front_image" name="hostel_front_image" accept="image/*" onchange="updateFrontImagePreview()">
-                <div id="front_image_preview" class="preview mt-2">
-                    @if($hostel->hostel_front_image)
-                        <div class="image-container">
-                            <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="Hostel Front Image">
-                        </div>
-                    @endif
-                </div>
             </div>
 
             <!-- Hostel Details -->
@@ -172,7 +189,31 @@
                 reader.readAsDataURL(file);
             }
         }
+
+        function updateVideoPreview() {
+            const videoInput = document.getElementById('hostel_video');
+            const videoPreviewContainer = document.getElementById('hostel_video_preview');
+            videoPreviewContainer.innerHTML = '';
+
+            if (videoInput.files.length > 0) {
+                const file = videoInput.files[0];
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const videoContainer = document.createElement('div');
+                    videoContainer.classList.add('video-container');
+
+                    const video = document.createElement('video');
+                    video.src = e.target.result;
+                    video.controls = true;
+                    videoContainer.appendChild(video);
+
+                    videoPreviewContainer.appendChild(videoContainer);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
     </script>
+
 </body>
 
 </html>
