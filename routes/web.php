@@ -8,6 +8,7 @@ use App\Http\Controllers\Owner\OwnerController;
 use App\Http\Controllers\Owner\RoomController;
 use App\Http\Controllers\Owner\RoomFormController;
 use App\Http\Controllers\Owner\HostalDetailController;
+use App\Http\Controllers\popup\PopupController;
 use App\Http\Controllers\ProductGridLeftController;
 use App\Models\Owner\Hostels;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,13 @@ Route::view('login', 'frontend.user-login')->name('login');
 
 Route::post('registerSave', [UsersController::class, 'userregister'])->name('registerSave');
 Route::post('loginMatch', [UsersController::class, 'userlogin'])->name('loginMatch');
+
+
+
+//popup login register
+
+Route::post('popupregisterSave', [PopupController::class, 'userregister'])->name('popregisterSave');
+Route::post('popuploginMatch', [PopupController::class, 'userlogin'])->name('poploginMatch');
 
 
 
@@ -123,6 +131,12 @@ Route::get('room-detail/{id}', [RoomDetailController::class, 'show'])->name('roo
 Route::get('hostel/{slug}', [HomeController::class, 'show'])->name('hostel-detail.show');
 
 Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->name('reviews.store');
+
+
+// routes/web.php
+
+
+
 
 
 

@@ -52,31 +52,33 @@ class HomeController extends Controller
     
 
     
-    
-
     public function storeReview(Request $request, $id)
-    {
-        // Check if user is authenticated
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'Please log in to submit your review.');
-        }
-        // Validate the form data
-        $request->validate([
-            'rating' => 'required|integer|between:1,5',
-            'review' => 'required|string|max:500',
-        ]);
-    
-        // Create the review
-        Review::create([
-            'hostel_id' => $id, // Use the $id parameter to identify the hostel
-            'user_id' => Auth::id(),
-            'rating' => $request->rating,
-            'review' => $request->review,
-        ]);
-    
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Your review has been submitted!');
+{
+    // Check if user is authenticated
+    if (!Auth::check()) {
+        // Set a session flag for login required and redirect back
+        return redirect()->back()->with('login_required', true);
     }
+
+    // Validate the form data
+    $request->validate([
+        'rating' => 'required|integer|between:1,5',
+        'review' => 'required|string|max:500',
+    ]);
+
+    // Create the review
+    Review::create([
+        'hostel_id' => $id,
+        'user_id' => Auth::id(),
+        'rating' => $request->rating,
+        'review' => $request->review,
+    ]);
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Your review has been submitted!');
+}
+
+    
 
     
 }

@@ -71,8 +71,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
+       
     <!-- footer -->
     @include('frontend.layouts.footer')

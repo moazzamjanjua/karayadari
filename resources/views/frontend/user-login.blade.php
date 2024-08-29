@@ -4,6 +4,7 @@
    
 @include('frontend.layouts.header')
 
+
     <!-- main content -->
     <div class="main-content">
         <div class="wrap-banner">
@@ -42,14 +43,14 @@
                                 <div>
                                     <input type="hidden" name="back" value="my-account">
                                     <div class="form-group no-gutters">
-                                        <input class="form-control" name="email" type="email" placeholder=" Email">
+                                        <input class="form-control" name="email" type="email" placeholder=" Enter Your Email">
                                     </div>
                                     @if(session('error'))
                                   <div class="alert alert-danger">{{ session('error') }}</div>
                                       @endif
                                     <div class="form-group no-gutters">
                                         <div class="input-group js-parent-focus">
-                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password" value="" placeholder="Password">
+                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password" value="" placeholder="Enter Your Password">
                                         </div>
                                     </div>
                                     @if(session('error'))

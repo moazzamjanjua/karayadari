@@ -714,5 +714,10 @@
             </div>
         </div>
     </div>
+    <!-- Include this at the bottom of your main layout -->
+     <!-- Check if login_required flag exists and show modal -->
+
+@include('popups.login-register-popup')
+
 
     @include('frontend.layouts.footer')
