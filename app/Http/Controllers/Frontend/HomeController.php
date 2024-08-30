@@ -47,9 +47,9 @@ class HomeController extends Controller
         $reviews = Review::where('hostel_id', $hostel->id)->orderBy('created_at', 'desc')->get();
 
         $relatedHostels = Hostels::inRandomOrder()->take(6)->get();
-    
+        $bestHostels = Hostels::where('best_hostel', 1)->take(3)->get();    
         // Pass $hostel, $reviews, $reviewCount, and $averageRating to the view
-        return view('frontend.hostel-detail', compact('hostel', 'reviews','relatedHostels'));
+        return view('frontend.hostel-detail', compact('hostel', 'reviews','relatedHostels' ,'bestHostels'));
     }
     
 
