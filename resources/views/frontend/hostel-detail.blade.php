@@ -434,6 +434,7 @@
 												
                                                 <div class="tab-content">
                                                 <div id="review" class="tab-pane fade in active show">
+
                                                         <div class="spr-form">
                                                             <div class="user-comment">
                                                             <div class="reviews-section">
@@ -465,6 +466,7 @@
 </div>
 
 </div>
+
 <div class="reviews-section">
                                                          
                                                       
@@ -517,6 +519,7 @@
 </div>
 
                                                     </div>
+                                                    
                                                     <div id="rooms" class="tab-pane fade">
                                                     <div class="room-cards mt-5">
     @if($hostel && $hostel->rooms && !$hostel->rooms->isEmpty())
@@ -591,120 +594,111 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="related">
-                                                <div class="title-tab-content  text-center">
-                                                    <div class="title-product justify-content-start">
-                                                        <h2>Related Hostels</h2>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-content">
-                                                    <div class="row">
-                                                        <div class="item text-center col-md-4">
-                                                            <div class="product-miniature js-product-miniature item-one first-item">
-                                                                <div class="thumbnail-container border border">
-                                                                    <a href="../room-detail">
-                                                                        <img class="img-fluid image-cover" src="/frontend/img/product/1.jpg" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="/frontend/img/product/22.jpg" alt="img">
-                                                                    </a>
-                                                                    <div class="highlighted-informations">
-                                                                        <div class="variant-links">
-                                                                            <a href="#" class="color beige" title="Beige"></a>
-                                                                            <a href="#" class="color orange" title="Orange"></a>
-                                                                            <a href="#" class="color green" title="Green"></a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-description">
-                                                                    <div class="product-groups">
-                                                                        <div class="product-title">
-                                                                            <a href="../room-detail">Best room 1</a>
-                                                                        </div>
-                                                                        <div class="rating">
-                                                                            <div class="star-content">
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                       
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item text-center col-md-4">
-                                                            <div class="product-miniature js-product-miniature item-one first-item">
-                                                                <div class="thumbnail-container border">
-                                                                    <a href="../room-detail">
-                                                                        <img class="img-fluid image-cover" src="/frontend/img/product/2.jpg" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="/frontend/img/product/11.jpg" alt="img">
-                                                                    </a>
-                                                                    <div class="highlighted-informations">
-                                                                        <div class="variant-links">
-                                                                            <a href="#" class="color beige" title="Beige"></a>
-                                                                            <a href="#" class="color orange" title="Orange"></a>
-                                                                            <a href="#" class="color green" title="Green"></a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-description">
-                                                                    <div class="product-groups">
-                                                                        <div class="product-title">
-                                                                            <a href="../room-detail">Best room 2</a>
-                                                                        </div>
-                                                                        <div class="rating">
-                                                                            <div class="star-content">
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                   
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item text-center col-md-4">
-                                                            <div class="product-miniature js-product-miniature item-one first-item">
-                                                                <div class="thumbnail-container border">
-                                                                    <a href="../room-detail">
-                                                                        <img class="img-fluid image-cover" src="/frontend/img/product/3.jpg" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="/frontend/img/product/14.jpg" alt="img">
-                                                                    </a>
-                                                                    <div class="highlighted-informations">
-                                                                        <div class="variant-links">
-                                                                            <a href="#" class="color beige" title="Beige"></a>
-                                                                            <a href="#" class="color orange" title="Orange"></a>
-                                                                            <a href="#" class="color green" title="Green"></a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-description">
-                                                                    <div class="product-groups">
-                                                                        <div class="product-title">
-                                                                            <a href="../room-detail">Best Room 3</a>
-                                                                        </div>
-                                                                        <div class="rating">
-                                                                            <div class="star-content">
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                                <div class="star"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                   
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+
+                                            <!-- related hostels -->
+
+                                            <style>
+                                                /* Main Div Border Styling */
+.related {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+
+
+/* Navigation Buttons Styling */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.prev-btn, .next-btn {
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    cursor: pointer;
+    
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+                                            </style>
+
+                                          
+
+
+<div class="related">
+    <div class="title-tab-content d-flex justify-content-between align-items-center nav-tabs">
+        <div class="title-product">
+            <h2>Related Hostels</h2>
+        </div>
+        <!-- Next/Previous buttons -->
+        <div class="navigation-buttons">
+            <button class="prev-btn">
+                <i > Previous</i> <!-- Font Awesome icon for Previous -->
+            </button>
+            <button class="next-btn">
+                <i >Next</i> <!-- Font Awesome icon for Next -->
+            </button>
+        </div>
+    </div>
+
+    <div class="section related-hostels col-lg-12 col-xs-12">
+        <div class="row">
+            <div class="category-product-index owl-carousel owl-theme">
+                @foreach($relatedHostels as $hostel)
+                    <div class="item text-center">
+                        <div class="product-miniature first-item js-product-miniature item-one">
+                            <div class="image-container">
+                                <div class="price-ribbon">
+                                    {{$hostel->hostel_price}} Rs / month
+                                </div>
+                                <a href="{{ route('hostel-detail.show', $hostel->slug) }}">
+                                    <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
+                                </a>
+                            </div>
+                            <div class="product-description">
+                                <div class="product-groups">
+                                    <div class="product-title">
+                                        <a href="{{ route('hostel-detail.show', $hostel->slug) }}">{{ $hostel->hostel_name }}</a>
+                                    </div>
+                                    <div class="rating">
+                                        <div class="star-content">
+                                            @for($i = 0; $i < 5; $i++)
+                                                <div class="star{{ $i < $hostel->rating ? ' filled' : '' }}"></div>
+                                            @endfor
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+
                                     </div>
                                 </div>
                             </div>

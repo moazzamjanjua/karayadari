@@ -162,5 +162,38 @@
 
         
     </style>
+                    <!-- for related hostel -->
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl.carousel/1.3.3/owl.carousel.min.js"></script>
+
+<!-- Initialize Owl Carousel -->
+<script>
+$(document).ready(function(){
+  $(".category-product-index").owlCarousel({
+    items: 3,
+    loop: false,
+    margin: 10,
+    nav: false,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true
+  });
+
+  // Next/Previous buttons
+  $(".prev-btn").click(function(){
+    $(".category-product-index").trigger('prev.owl.carousel');
+  });
+  $(".next-btn").click(function(){
+    $(".category-product-index").trigger('next.owl.carousel');
+  });
+});
+</script>
+
+
+
 
 </head>
