@@ -459,37 +459,64 @@
 												
                                                 <div class="tab-content">
                                                 <div id="review" class="tab-pane fade in active show">
-                                                        <div class="spr-form">
-                                                            <div class="user-comment">
-                                                            <div class="reviews-section">
-    @if($reviews->isNotEmpty())
-        @foreach($reviews as $review)
-            <div class="spr-review">
-                <div class="spr-review-header">
-                    <span class="spr-review-header-byline">
-                        {{ $review->user->name }} - {{ $review->created_at->format('d M Y') }}
-                    </span>
-                    <div class="rating">
-                        <div class="star-content">
-                            @for($i = 0; $i < 5; $i++)
-                                <span class="fa fa-star{{ $i < $review->rating ? ' checked' : '' }}"></span>
-                            @endfor
+                                                <div class="spr-form">
+    <div class="user-comment">
+        <div class="reviews-section">
+            @if($reviews->isNotEmpty())
+                @foreach($reviews->take(4) as $review) <!-- Show only the first 4 reviews initially -->
+                    <div class="spr-review">
+                        <div class="spr-review-header">
+                            <span class="spr-review-header-byline">
+                                {{ $review->user->name }} - {{ $review->created_at->format('d M Y') }}
+                            </span>
+                            <div class="rating">
+                                <div class="star-content">
+                                    @for($i = 0; $i < 5; $i++)
+                                        <span class="fa fa-star{{ $i < $review->rating ? ' checked' : '' }}"></span>
+                                    @endfor
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spr-review-content">
+                            <p>{{ $review->review }}</p>
                         </div>
                     </div>
+                @endforeach
+
+                <!-- Hidden Reviews -->
+                <div id="more-reviews" style="display: none;">
+                    @foreach($reviews->skip(4) as $review) <!-- The remaining reviews -->
+                        <div class="spr-review">
+                            <div class="spr-review-header">
+                                <span class="spr-review-header-byline">
+                                    {{ $review->user->name }} - {{ $review->created_at->format('d M Y') }}
+                                </span>
+                                <div class="rating">
+                                    <div class="star-content">
+                                        @for($i = 0; $i < 5; $i++)
+                                            <span class="fa fa-star{{ $i < $review->rating ? ' checked' : '' }}"></span>
+                                        @endfor
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spr-review-content">
+                                <p>{{ $review->review }}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="spr-review-content">
-                    <p>{{ $review->review }}</p>
-                </div>
-            </div>
-        @endforeach
-    @else
-        <p>No reviews yet. Be the first to write one!</p>
-    @endif
+
+                <!-- Read More Button -->
+                @if($reviews->count() > 4)
+                    <button id="show-more-reviews" class="btn btn-primary">Read More Reviews</button>
+                @endif
+            @else
+                <p>No reviews yet. Be the first to write one!</p>
+            @endif
+        </div>
+    </div>
 </div>
 
-</div>
-
-</div>
 <div class="reviews-section">
                                                          
                                                       
@@ -655,17 +682,6 @@
     background-color: #0056b3;
     border-color: #0056b3;
 }
-
-
-
-
-
-
-
-
-
-
-
                                             </style>
 
                                           
@@ -796,6 +812,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const showMoreButton = document.getElementById('show-more-reviews');
+    const moreReviews = document.getElementById('more-reviews');
+
+    if (showMoreButton) {
+        showMoreButton.addEventListener('click', function () {
+            // Show the hidden reviews
+            moreReviews.style.display = 'block';
+
+            // Optionally, scroll to the newly revealed reviews
+            moreReviews.scrollIntoView({ behavior: 'smooth' });
+
+            // Hide the "Read More" button after reviews are shown
+            showMoreButton.style.display = 'none';
+        });
+    }
+});
 document.addEventListener('DOMContentLoaded', function () {
     const showMoreButton = document.getElementById('show-more-reviews');
     const moreReviews = document.getElementById('more-reviews');
