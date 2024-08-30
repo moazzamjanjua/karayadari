@@ -122,9 +122,7 @@ Route::get('owner.logout', [OwnerController::class, 'logout'])->name('owner.logo
 
 
 
-Route::fallback(function () {
-    return view('pagenotfound');
-});
+
 
 Route::get('room-detail/{id}', [RoomDetailController::class, 'show'])->name('room-detail.show');
 
@@ -141,3 +139,6 @@ Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->na
 
 
 
+Route::fallback(function () {
+    return view('pagenotfound');
+});
