@@ -859,7 +859,7 @@
 </div>
 
 <!-- Page Loader -->
-<div id="page-preloader">
+<!-- <div id="page-preloader">
     <div class="page-loading">
         <div class="dot"></div>
         <div class="dot"></div>
@@ -867,7 +867,7 @@
         <div class="dot"></div>
         <div class="dot"></div>
     </div>
-</div>
+</div> -->
 <!-- Vendor JS -->
 <script src="/frontend/libs/jquery/jquery.min.js"></script>
 <script src="/frontend/libs/popper/popper.min.js"></script>

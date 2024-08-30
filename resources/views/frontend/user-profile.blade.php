@@ -3,7 +3,15 @@
 <body class="user-acount">
    @include('frontend.layouts.header')
     <!-- main content -->
-   
+    <div id="page-preloader">
+    <div class="page-loading">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
     <!-- main content -->
     <div class="main-content">
         <div class="wrap-banner">
