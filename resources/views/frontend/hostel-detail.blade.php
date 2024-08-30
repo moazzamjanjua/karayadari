@@ -46,7 +46,14 @@
     background: url('/path-to-filled-star-icon.png') no-repeat;
     background-size: contain;
 }
-
+.best_hostels{
+    border: 2px solid #e0e0e0; 
+    padding: 10px;
+    border-radius: 12px; 
+    background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+}
                                                         
     .hostel-details-container {
         border: 2px solid #e0e0e0;
@@ -199,98 +206,48 @@
 
                         
 
-                                        <!-- best seller -->
-                                        <div class="sidebar-block">
-                                            <div class="title-block">
-                                                Best seller
-                                            </div>
-                                            <div class="product-content tab-content">
-                                                <div class="row">
-                                                    <div class="item col-md-12">
-                                                        <div class="product-miniature item-one first-item d-flex">
-                                                            <div class="thumbnail-container border">
-                                                                <a href="../room-detail">
-                                                                    <img class="img-fluid image-cover" src="/frontend/img/product/1.jpg" alt="img">
-                                                                    <img class="img-fluid image-secondary" src="/frontend/img/product/22.jpg" alt="img">
-                                                                </a>
-                                                            </div>
-                                                            <div class="product-description">
-                                                                <div class="product-groups">
-                                                                    <div class="product-title">
-                                                                        <a href="../room-detail">Best Room 3</a>
-                                                                    </div>
-                                                                    <div class="rating">
-                                                                        <div class="star-content">
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item col-md-12">
-                                                        <div class="product-miniature item-one first-item d-flex">
-                                                            <div class="thumbnail-container border">
-                                                                <a href="../room-detail">
-                                                                    <img class="img-fluid image-cover" src="/frontend/img/product/2.jpg" alt="img">
-                                                                    <img class="img-fluid image-secondary" src="/frontend/img/product/11.jpg" alt="img">
-                                                                </a>
-                                                            </div>
-                                                            <div class="product-description">
-                                                                <div class="product-groups">
-                                                                    <div class="product-title">
-                                                                        <a href="../room-detail">Best Room 4</a>
-                                                                    </div>
-                                                                    <div class="rating">
-                                                                        <div class="star-content">
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                   
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item col-md-12">
-                                                        <div class="product-miniature item-one first-item d-flex">
-                                                            <div class="thumbnail-container border">
-                                                                <a href="../room-detail">
-                                                                    <img class="img-fluid image-cover" src="/frontend/img/product/3.jpg" alt="img">
-                                                                    <img class="img-fluid image-secondary" src="/frontend/img/product/14.jpg" alt="img">
-                                                                </a>
-                                                            </div>
-                                                            <div class="product-description">
-                                                                <div class="product-groups">
-                                                                    <div class="product-title">
-                                                                        <a href="../room-detail">Best rooms 5</a>
-                                                                    </div>
-                                                                    <div class="rating">
-                                                                        <div class="star-content">
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <!-- best hostels -->
+                                        <div class="best_hostels">
+                                        <div class="title-block">
+    Best Hostels
+</div>
+<div class="product-content tab-content">
+    <div class="row">
+        @foreach($bestHostels as $hostel)
+            <div class="item col-md-12">
+                <div class="product-miniature js-product-miniature item-one first-item d-flex">
+                    <!-- Updated IDs and Names from Code 1 -->
+                    <div class="best_image-container border">
+                        <div class="price-ribbon">
+                            {{$hostel->hostel_price}} Rs / month
+                        </div>
+                        <a href="{{ route('hostel-detail.show', $hostel->slug) }}">
+                            <img  src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
+                        </a>
+                    </div>
+                    <div class="product-description">
+                        <div class="product-groups">
+                            <div class="product-title">
+                                <a href="{{ route('hostel-detail.show', $hostel->slug) }}">{{ $hostel->hostel_name }}</a>
+                            </div>
+                            <div class="rating">
+                                <div class="star-content">
+                                    @for($i = 0; $i < 5; $i++)
+                                        <div class="star{{ $i < $hostel->rating ? ' filled' : '' }}"></div>
+                                    @endfor
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
 
-                                        </div>
+</div>
+
+
 
                                         <!-- product tag -->
                                         <div class="sidebar-block product-tags">
