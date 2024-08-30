@@ -124,7 +124,6 @@ Route::get('owner.logout', [OwnerController::class, 'logout'])->name('owner.logo
 
 
 
-Route::get('room-detail/{id}', [RoomDetailController::class, 'show'])->name('room-detail.show');
 
 Route::get('hostel/{slug}', [HomeController::class, 'show'])->name('hostel-detail.show');
 
