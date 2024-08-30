@@ -2,9 +2,34 @@
 
 <body id="product-detail">
 @include('frontend.layouts.header')
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- CSS -->
 <style>
+    /* Style for Read More Reviews Button */
+#read-more-reviews {
+    font-size: 14px;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+/* Style for Larger Rating Stars */
+.ratings input[type="radio"] + label.full {
+    font-size: 24px; /* Adjust size as needed */
+    margin-right: 5px;
+    color: #FFD700;
+}
+
+/* Optional: Add some hover effects */
+#read-more-reviews:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
        
   .star-content {
     display: flex;
@@ -391,7 +416,6 @@
 												
                                                 <div class="tab-content">
                                                 <div id="review" class="tab-pane fade in active show">
-
                                                         <div class="spr-form">
                                                             <div class="user-comment">
                                                             <div class="reviews-section">
@@ -423,12 +447,12 @@
 </div>
 
 </div>
-
 <div class="reviews-section">
                                                          
                                                       
-    <form method="POST" action="{{ route('reviews.store', $hostel->id) }}" class="new-review-form">
-        @csrf
+<form id="new-review-form" method="POST" action="{{ route('reviews.store', $hostel->id) }}" class="new-review-form">
+@csrf
+        
         <h3 class="spr-form-title">Write a Review</h3>
 
         <!-- Ratings -->
@@ -436,7 +460,7 @@
             <div class="spr-form-review-rating">
                 <label class="spr-form-label">Your Rating</label>
                 <fieldset class="ratings">
-                    <input type="radio" id="star5" name="rating" value="5" required/>
+                    <input type="radio" id="star5" name="rating" value="5" />
                     <label class="full" for="star5" title="Awesome - 5 stars"></label>
 
                     <input type="radio" id="star4" name="rating" value="4" />
@@ -669,6 +693,85 @@
      <!-- Check if login_required flag exists and show modal -->
 
 @include('popups.login-register-popup')
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    const reviewForm = document.getElementById('new-review-form');
+
+    reviewForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(reviewForm);
+
+        fetch(reviewForm.action, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                'Accept': 'application/json',
+            },
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.login_required) {
+                // Show the login modal
+                $('#loginModal').modal('show');
+            } else if (data.success) {
+                // Show a SweetAlert2 success popup
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Review Submitted!',
+                    text: 'Your review has been submitted successfully.',
+                    showConfirmButton: false,
+                    timer: 2000 // Popup will automatically close after 2 seconds
+                }).then(() => {
+                    // Reload the page after the popup is closed
+                    location.reload();
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const showMoreButton = document.getElementById('show-more-reviews');
+    const moreReviews = document.getElementById('more-reviews');
+
+    if (showMoreButton) {
+        showMoreButton.addEventListener('click', function () {
+            // Show the hidden reviews
+            moreReviews.style.display = 'block';
+
+            // Optionally, scroll to the newly revealed reviews
+            moreReviews.scrollIntoView({ behavior: 'smooth' });
+
+            // Hide the "Read More" button after reviews are shown
+            showMoreButton.style.display = 'none';
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const showMoreButton = document.getElementById('show-more-reviews');
+    const moreReviews = document.getElementById('more-reviews');
+
+    if (showMoreButton) {
+        showMoreButton.addEventListener('click', function () {
+            // Show the hidden reviews
+            moreReviews.style.display = 'block';
+
+            // Optionally, scroll to the newly revealed reviews
+            moreReviews.scrollIntoView({ behavior: 'smooth' });
+
+            // Hide the "Read More" button after reviews are shown
+            showMoreButton.style.display = 'none';
+        });
+    }
+});
+
+</script>
 
 
     @include('frontend.layouts.footer')
