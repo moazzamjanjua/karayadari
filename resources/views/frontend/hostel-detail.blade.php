@@ -17,35 +17,36 @@
     border-radius: 5px;
 }
 
-/* Style for Larger Rating Stars */
-.ratings input[type="radio"] + label.full {
+.ratings {
+    direction: rtl; /* To make stars appear in reverse order */
+    unicode-bidi: bidi-override;
+}
+
+.ratings input[type="radio"] {
+    display: none; /* Hide radio buttons */
+}
+
+.ratings label.full {
     font-size: 24px; /* Adjust size as needed */
     margin-right: 5px;
-    color: #FFD700;
+    color: #ccc; /* Default color for unselected stars */
+    cursor: pointer;
 }
 
-/* Optional: Add some hover effects */
-#read-more-reviews:hover {
-    background-color: #0056b3;
-    color: white;
+.ratings label.full:hover,
+.ratings label.full:hover ~ label.full {
+    color: #FFD700; /* Hover effect to color stars */
 }
 
-       
-  .star-content {
-    display: flex;
+.ratings input[type="radio"]:checked ~ label.full {
+    color: #FFD700; /* Color stars when selected */
 }
 
-.star {
-    width: 20px;
-    height: 20px;
-    background: url('/path-to-empty-star-icon.png') no-repeat;
-    background-size: contain;
-}
 
-.star.filled {
-    background: url('/path-to-filled-star-icon.png') no-repeat;
-    background-size: contain;
-}
+
+
+
+
 .best_hostels{
     border: 2px solid #e0e0e0; 
     padding: 10px;
@@ -187,6 +188,10 @@
     position: relative;
     width: 100%;
     overflow: hidden;
+}
+.readmore{
+    height: 10px;
+    width: 10px;
 }
 
 
@@ -465,7 +470,7 @@
 
                 <!-- Read More Button -->
                 @if($reviews->count() > 4)
-                    <button id="show-more-reviews" class="btn btn-primary">Read More Reviews</button>
+                    <button id="show-more-reviews" class="readmore">Read More Reviews</button>
                 @endif
             @else
                 <p>No reviews yet. Be the first to write one!</p>
@@ -769,23 +774,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const showMoreButton = document.getElementById('show-more-reviews');
-    const moreReviews = document.getElementById('more-reviews');
 
-    if (showMoreButton) {
-        showMoreButton.addEventListener('click', function () {
-            // Show the hidden reviews
-            moreReviews.style.display = 'block';
-
-            // Optionally, scroll to the newly revealed reviews
-            moreReviews.scrollIntoView({ behavior: 'smooth' });
-
-            // Hide the "Read More" button after reviews are shown
-            showMoreButton.style.display = 'none';
-        });
-    }
-});
 document.addEventListener('DOMContentLoaded', function () {
     const showMoreButton = document.getElementById('show-more-reviews');
     const moreReviews = document.getElementById('more-reviews');
