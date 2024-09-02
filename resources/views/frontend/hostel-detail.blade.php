@@ -213,27 +213,27 @@
 </div>
 <div class="product-content tab-content">
     <div class="row">
-        @foreach($bestHostels as $hostel)
+        @foreach($bestHostels as $besthostel)
             <div class="item col-md-12">
                 <div class="product-miniature js-product-miniature item-one first-item d-flex">
                     <!-- Updated IDs and Names from Code 1 -->
                     <div class="best_image-container border">
                         <div class="price-ribbon">
-                            {{$hostel->hostel_price}} Rs / month
+                            {{$besthostel->hostel_price}} Rs / month
                         </div>
-                        <a href="{{ route('hostel-detail.show', $hostel->slug) }}">
-                            <img  src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
+                        <a href="{{ route('hostel-detail.show', $besthostel->slug) }}">
+                            <img  src="{{ asset('storage/hostel_images/' . $besthostel->hostel_front_image) }}" alt="img">
                         </a>
                     </div>
                     <div class="product-description">
                         <div class="product-groups">
                             <div class="product-title">
-                                <a href="{{ route('hostel-detail.show', $hostel->slug) }}">{{ $hostel->hostel_name }}</a>
+                                <a href="{{ route('hostel-detail.show', $besthostel->slug) }}">{{ $besthostel->hostel_name }}</a>
                             </div>
                             <div class="rating">
                                 <div class="star-content">
                                     @for($i = 0; $i < 5; $i++)
-                                        <div class="star{{ $i < $hostel->rating ? ' filled' : '' }}"></div>
+                                        <div class="star{{ $i < $besthostel->rating ? ' filled' : '' }}"></div>
                                     @endfor
                                 </div>
                             </div>
@@ -663,26 +663,26 @@
     <div class="section related-hostels col-lg-12 col-xs-12">
         <div class="row">
             <div class="category-product-index owl-carousel owl-theme">
-                @foreach($relatedHostels as $hostel)
+                @foreach($relatedHostels as $reletedhostel)
                     <div class="item text-center">
                         <div class="product-miniature first-item js-product-miniature item-one">
                             <div class="image-container">
                                 <div class="price-ribbon">
-                                    {{$hostel->hostel_price}} Rs / month
+                                    {{$reletedhostel->hostel_price}} Rs / month
                                 </div>
-                                <a href="{{ route('hostel-detail.show', $hostel->slug) }}">
-                                    <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
+                                <a href="{{ route('hostel-detail.show', $reletedhostel->slug) }}">
+                                    <img src="{{ asset('storage/hostel_images/' . $reletedhostel->hostel_front_image) }}" alt="img">
                                 </a>
                             </div>
                             <div class="product-description">
                                 <div class="product-groups">
                                     <div class="product-title">
-                                        <a href="{{ route('hostel-detail.show', $hostel->slug) }}">{{ $hostel->hostel_name }}</a>
+                                        <a href="{{ route('hostel-detail.show', $reletedhostel->slug) }}">{{ $reletedhostel->hostel_name }}</a>
                                     </div>
                                     <div class="rating">
                                         <div class="star-content">
                                             @for($i = 0; $i < 5; $i++)
-                                                <div class="star{{ $i < $hostel->rating ? ' filled' : '' }}"></div>
+                                                <div class="star{{ $i < $reletedhostel->rating ? ' filled' : '' }}"></div>
                                             @endfor
                                         </div>
                                     </div>
