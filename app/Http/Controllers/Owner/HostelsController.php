@@ -41,7 +41,7 @@ class HostelsController extends Controller
     {
         // Log the entire request data to see what's being sent
         // Log::info('Request data: ', $request->all());
-    
+    // dd($request->all());
         // Validate the request data
         $validatedData = $request->validate([
             'hostel_name' => 'required|string|max:255',
@@ -58,7 +58,8 @@ class HostelsController extends Controller
             'hostel_front_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'hostel_detail' => 'required|string|max:1000',
             'capacity' => 'nullable|integer',
-            'email' => 'nullable|email|max:255',
+            'owner_number' => 'nullable|integer',
+            'owner_email' => 'nullable|email|max:255',
             'num_rooms' => 'nullable|integer',
             'wifi' => 'required|boolean',
             'security' => 'required|boolean',
@@ -92,7 +93,9 @@ class HostelsController extends Controller
     
         // Add the logged-in owner's ID
         $validatedData['owner_id'] = Auth::guard('owner')->id();
-    
+    $validatedData['owner_number'] = Auth::guard('owner')->user()->owner_number;
+    $validatedData['owner_email'] = Auth::guard('owner')->user()->owner_email;
+
         // Log data before creating record
        
     
@@ -128,7 +131,8 @@ class HostelsController extends Controller
             'hostel_front_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'hostel_detail' => 'required|string|max:1000',
             'capacity' => 'nullable|integer',
-            'email' => 'nullable|email|max:255',
+            'owner_number' => 'nullable|integer',
+            'owner_email' => 'nullable|email|max:255',
             'num_rooms' => 'nullable|integer',
             'wifi' => 'required|boolean',
             'security' => 'required|boolean',

@@ -233,7 +233,7 @@
             @csrf
             @method('POST')
 
-            <input type="hidden" name="owner_id" value="{{ Auth::guard('owner')->id() }}">
+    
             <!-- Your form fields -->
 
             <!-- Hostel Name -->
@@ -293,13 +293,7 @@
                     placeholder="Enter capacity (optional)">
             </div>
 
-            <!-- Email -->
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" value=""
-                    placeholder="Enter email (optional)">
-            </div>
-
+        
             <!-- Number of Rooms -->
             <div class="form-group">
                 <label for="num_rooms">Number of Rooms:</label>

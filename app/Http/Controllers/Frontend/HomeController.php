@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\CategoryList;
 use App\Http\Controllers\Controller;
+use App\Models\Owner;
 use App\Models\Owner\Hostels;
 use Illuminate\Http\Request;
 use App\Models\Review;
@@ -74,6 +75,23 @@ class HomeController extends Controller
     
         return response()->json(['success' => true]);
     }
+
+    public function allHostels(Request $request)
+{
+    // Fetch all hostels with pagination (10 per page)
+    $sort = $request->query('sort', 'date'); // Default sort by date
+
+    if ($sort == 'rating') {
+        $hostels = Review::orderBy('rating', 'desc')->paginate(10);
+    } elseif ($sort == 'date') {
+        $hostels = Hostels::orderBy('created_at', 'desc')->paginate(10);
+    } else {
+        $hostels = Hostels::paginate(10);
+    }
+
+    return view('frontend.all-hostels', compact('hostels'));
+}
+
     
     
 

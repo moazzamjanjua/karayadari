@@ -59,7 +59,6 @@ Route::post('popuploginMatch', [PopupController::class, 'userlogin'])->name('pop
 
 //Room-detail
 Route::get('/product-grid-sidebar-left', [ProductGridLeftController::class, 'productgridleft']);
-Route::get('/room-detail', [RoomDetailController::class, 'roomDetail']);
 
 //profile
 Route::view('user-profile', 'frontend.user-profile')->name('user-profile');
@@ -141,3 +140,5 @@ Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->na
 Route::fallback(function () {
     return view('pagenotfound');
 });
+
+Route::get('/all-hostels', [HomeController::class, 'allHostels'])->name('hostels.all');

@@ -189,10 +189,26 @@
     width: 100%;
     overflow: hidden;
 }
-.readmore{
-    height: 10px;
-    width: 10px;
+.readmore {
+    display: inline-block;
+    height: auto; /* Adjust for better appearance */
+    width: 15%;
+    background-color: burlywood; /* Blue background */
+    color: white; /* Icon color */
+    border-radius: 30px; /* Circular button */
+    text-align: center;
+    line-height: 40px; /* Vertically center the icon */
+    font-size: 14px; /* Icon size */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for better look */
 }
+
+.readmore:hover {
+    background-color: red; /* Darker blue on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    cursor: pointer;
+}
+
 
 
 </style>
@@ -424,19 +440,20 @@
                                                 <div class="spr-form">
     <div class="user-comment">
         <div class="reviews-section">
+           
             @if($reviews->isNotEmpty())
-                @foreach($reviews->take(4) as $review) <!-- Show only the first 4 reviews initially -->
-                    <div class="spr-review">
-                        <div class="spr-review-header">
-                            <span class="spr-review-header-byline">
-                                {{ $review->user->name }} - {{ $review->created_at->format('d M Y') }}
-                            </span>
-                            <div class="rating">
-                                <div class="star-content">
-                                    @for($i = 0; $i < 5; $i++)
-                                        <span class="fa fa-star{{ $i < $review->rating ? ' checked' : '' }}"></span>
-                                    @endfor
-                                </div>
+            @foreach($reviews as $index => $review)
+                <div class="spr-review" style="{{ $index >= 4 ? 'display: none;' : '' }}"> <!-- Hide reviews after the first 4 -->
+                    <div class="spr-review-header">
+                        <span class="spr-review-header-byline">
+                            {{ $review->user->name }} - {{ $review->created_at->format('d M Y') }}
+                        </span>
+                        <div class="rating">
+                            <div class="star-content">
+                                @for($i = 0; $i < 5; $i++)
+                                    <span class="fa fa-star{{ $i < $review->rating ? ' checked' : '' }}"></span>
+                                @endfor
+                                          </div>
                             </div>
                         </div>
                         <div class="spr-review-content">
@@ -470,7 +487,7 @@
 
                 <!-- Read More Button -->
                 @if($reviews->count() > 4)
-                    <button id="show-more-reviews" class="readmore">Read More Reviews</button>
+                    <button id="show-more-reviews" class="readmore">Read More</button>
                 @endif
             @else
                 <p>No reviews yet. Be the first to write one!</p>
@@ -756,42 +773,32 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-document.addEventListener('DOMContentLoaded', function () {
-    const showMoreButton = document.getElementById('show-more-reviews');
-    const moreReviews = document.getElementById('more-reviews');
 
-    if (showMoreButton) {
-        showMoreButton.addEventListener('click', function () {
-            // Show the hidden reviews
-            moreReviews.style.display = 'block';
-
-            // Optionally, scroll to the newly revealed reviews
-            moreReviews.scrollIntoView({ behavior: 'smooth' });
-
-            // Hide the "Read More" button after reviews are shown
-            showMoreButton.style.display = 'none';
-        });
-    }
-});
 
 
 document.addEventListener('DOMContentLoaded', function () {
     const showMoreButton = document.getElementById('show-more-reviews');
-    const moreReviews = document.getElementById('more-reviews');
+    const allReviews = document.querySelectorAll('.spr-review');
+    let reviewsShown = 4; // Initially show 4 reviews
 
     if (showMoreButton) {
         showMoreButton.addEventListener('click', function () {
-            // Show the hidden reviews
-            moreReviews.style.display = 'block';
+            // Show the next 4 reviews
+            for (let i = reviewsShown; i < reviewsShown + 4 && i < allReviews.length; i++) {
+                allReviews[i].style.display = 'block';
+            }
 
-            // Optionally, scroll to the newly revealed reviews
-            moreReviews.scrollIntoView({ behavior: 'smooth' });
+            // Update the number of reviews shown
+            reviewsShown += 4;
 
-            // Hide the "Read More" button after reviews are shown
-            showMoreButton.style.display = 'none';
+            // If all reviews are shown, hide the button
+            if (reviewsShown >= allReviews.length) {
+                showMoreButton.style.display = 'none';
+            }
         });
     }
 });
+
 
 </script>
 

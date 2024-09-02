@@ -142,10 +142,7 @@ document.getElementById('edit-profile-btn').addEventListener('click', function()
             </div>
         </div>
     </div>
-
-    <!-- footer -->
-   @include('frontend.layouts.footer')
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#edit-profile-btn').on('click', function() {
@@ -157,3 +154,6 @@ document.getElementById('edit-profile-btn').addEventListener('click', function()
         });
     });
 </script>
+    <!-- footer -->
+   @include('frontend.layouts.footer')
+ 

@@ -10,7 +10,7 @@ class Hostels extends Model
     use HasFactory;
 
     protected $fillable = [
-        'owner_id','hostel_name', 'best_hostel', 'is_verified', 'is_approved',
+        'owner_id','owner_number', 'owner_email', 'hostel_name', 'best_hostel', 'is_verified', 'is_approved',
     'top_rated_hostel', 'homepage', 'featured_hostel', 'category_name',
     'hostel_address', 'city', 'hostel_location', 'hostel_front_image',
     'hostel_detail', 'capacity', 'email', 'num_rooms', 'wifi', 'security',
