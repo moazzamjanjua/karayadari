@@ -50,7 +50,9 @@
     width: auto; /* Let width adjust based on content */
     height: auto; /* Let height adjust naturally */
 }
-
+.header-top{
+    position: fixed;
+}
 .price-ribbon:before {
     position: absolute;
     content: '';

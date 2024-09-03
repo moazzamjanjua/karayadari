@@ -24,18 +24,16 @@
                                         @foreach($categories as $category)
                                             <div class="cate-child-vertical">
                                                 <ul class="d-flex align-items-start flex-column">
-
                                                     <li>
-                                                        <a href="{{ url('room-detail/' . $category->category_name) }}">
+                                                        <a
+                                                            href="{{ url('all-hostels?category=' . urlencode($category->category_name)) }}">
                                                             <h6>{{ $category->category_name }}</h6>
                                                         </a>
                                                     </li>
-
                                                 </ul>
                                             </div>
-
-
                                         @endforeach
+
                                     </div>
                                     <div class="categoriestab-left product-tab col-md-9 flex-9">
                                         <div class="title-tab-content d-flex justify-content-start">
@@ -103,7 +101,7 @@
                                                             <div
                                                                 class="product-miniature first-item js-product-miniature item-one">
                                                                 <div class="image-container">
-                                                                <div class="price-ribbon">
+                                                                    <div class="price-ribbon">
                                                                         {{$hostel->hostel_price}} Rs / month
                                                                     </div>
                                                                     <a
@@ -202,9 +200,9 @@
                                                                         <div
                                                                             class="product-miniature js-product-miniature item-one first-item">
                                                                             <div class="best_image-container">
-                                                                            <div class="price-ribbon">
-                                                                        {{$hostel->hostel_price}} Rs / month
-                                                                    </div>
+                                                                                <div class="price-ribbon">
+                                                                                    {{$hostel->hostel_price}} Rs / month
+                                                                                </div>
 
                                                                                 <a
                                                                                     href="{{ route('hostel-detail.show', $hostel->slug) }}">

@@ -77,23 +77,34 @@ class HomeController extends Controller
     }
 
     public function allHostels(Request $request)
-{
-    // Fetch all hostels with pagination (10 per page)
-    $sort = $request->query('sort', 'date'); // Default sort by date
-
-    if ($sort == 'rating') {
-        $hostels = Review::orderBy('rating', 'desc')->paginate(10);
-    } elseif ($sort == 'date') {
-        $hostels = Hostels::orderBy('created_at', 'desc')->paginate(10);
-    } else {
-        $hostels = Hostels::paginate(10);
+    {
+        $sort = $request->query('sort', 'date'); // Default sort by date
+        $category = $request->query('category'); // Get the category filter from the request
+    
+        $query = Hostels::query(); // Initialize the query
+    
+        if ($category) {
+            // Filter by category if it is set
+            $query->where('category_name', $category);
+        }
+    
+        if ($sort == 'rating') {
+            // Sort by rating if selected
+            $query->orderBy('rating', 'desc');
+        } elseif ($sort == 'date') {
+            // Sort by date if selected
+            $query->orderBy('created_at', 'desc');
+        }
+    
+        // Paginate the results (10 per page)
+        $hostels = $query->paginate(10);
+    
+        // Get the categories to display in the view
+        $categories = CategoryList::all();
+    
+        return view('frontend.all-hostels', compact('hostels', 'categories'));
     }
-
-    return view('frontend.all-hostels', compact('hostels'));
-}
-
-    
-    
+      
 
     
 }
