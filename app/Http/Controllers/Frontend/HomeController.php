@@ -81,10 +81,10 @@ class HomeController extends Controller
     // Fetch all hostels with pagination (10 per page)
     $sort = $request->query('sort', 'date'); // Default sort by date
 
-    if ($sort == 'rating') {
-        $hostels = Review::orderBy('rating', 'desc')->paginate(10);
-    } elseif ($sort == 'date') {
+    if ($sort == 'date') {
         $hostels = Hostels::orderBy('created_at', 'desc')->paginate(10);
+    
+       
     } else {
         $hostels = Hostels::paginate(10);
     }
