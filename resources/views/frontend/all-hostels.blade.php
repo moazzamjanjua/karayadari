@@ -4,73 +4,92 @@
     @include('frontend.layouts.header')
 
     <style>
-    .hostel-card {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        background-color: #fff;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-bottom: 1.5rem;
-        display: flex;
-        flex-wrap: wrap;
-    }
+        .hostel-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    .hostel-image-container {
-        width: 100%;
-        max-width: 300px;
-        height: 200px;
-        overflow: hidden;
-        margin-right: 20px;
-        flex-shrink: 0;
-    }
+        .hostel-image-container {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            overflow: hidden;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
 
-    .hostel-image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+        .hostel-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .hostel-details {
-        flex: 1; 
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+        .hostel-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    .pagination .page-item.active .page-link {
-        background-color: #007bff;
-        border-color: #007bff;
-        color: white;
-    }
+        .pagination .page-item.active .page-link {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
 
-    .pagination .page-link {
-        color: #007bff;
-    }
+        .pagination .page-link {
+            color: #007bff;
+        }
 
-    .pagination .page-link:hover {
-        background-color: #0056b3;
-        color: white;
-    }
+        .pagination .page-link:hover {
+            background-color: #0056b3;
+            color: white;
+        }
 
-    .categoty_hostel {
-        width: auto;
-        height: 10%;
-        font-size: 1.3rem;
-        font-weight: bold;
-        color: #fff;
-        background-color: #007bff;
-        padding: 8px 16px;
-        border-radius: 5px;
-        display: inline-block;
-        text-transform: uppercase;
-        margin-bottom: 15px;
-    }
-    .verified_tag{
-        
-        width: 10%;
-        height: 10%;
-        margin-bottom: 15px;
-    }
+        /* Container to hold both the category and verified tag */
+        .category_verified_container {
+            display: inline-block;
+            text-align: center;
+            /* Center the elements */
+            margin-bottom: 15px;
+            /* Space below the container */
+        }
+
+        /* Category hostel styling */
+        .categoty_hostel {
+            display: block;
+            /* Ensure it's on its own line */
+            width: auto;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            /* Space between category and verified tag */
+        }
+
+        /* Verified tag styling */
+        .verified_tag {
+            width: 30px;
+            /* Adjust size as needed */
+            height:150px;
+            width: 140px;
+            margin-top: 0;
+            /* Remove margin from top */
+            display: block;
+            /* Ensure it's on its own line */
+            margin: 0 auto;
+            /* Center the verified tag */
+        }
     </style>
 
     <!-- Main content -->
@@ -82,10 +101,14 @@
 
                     <!-- Filter Buttons -->
                     <div class="text-center mb-4">
-                        <button class="btn btn-primary {{ $view == 'all' ? 'active' : '' }}" onclick="filterHostels('all')">All Hostels</button>
-                        <button class="btn btn-secondary {{ $view == 'featured' ? 'active' : '' }}" onclick="filterHostels('featured')">Featured Hostels</button>
-                        <button class="btn btn-info {{ $view == 'top-rated' ? 'active' : '' }}" onclick="filterHostels('top-rated')">Top Rated Hostels</button>
-                        <button class="btn btn-success {{ $view == 'best' ? 'active' : '' }}" onclick="filterHostels('best')">Best Hostels</button>
+                        <button class="btn btn-primary {{ $view == 'all' ? 'active' : '' }}"
+                            onclick="filterHostels('all')">All Hostels</button>
+                        <button class="btn btn-secondary {{ $view == 'featured' ? 'active' : '' }}"
+                            onclick="filterHostels('featured')">Featured Hostels</button>
+                        <button class="btn btn-info {{ $view == 'top-rated' ? 'active' : '' }}"
+                            onclick="filterHostels('top-rated')">Top Rated Hostels</button>
+                        <button class="btn btn-success {{ $view == 'best' ? 'active' : '' }}"
+                            onclick="filterHostels('best')">Best Hostels</button>
                     </div>
 
                     @if($hostels->isNotEmpty())
@@ -108,11 +131,14 @@
                                     <p><strong>Number:</strong> {{ $hostel->owner_number }}</p>
                                     <p>{{ Str::limit($hostel->hostel_description, 150) }}</p>
                                 </div>
-                                <p class="categoty_hostel">{{ $hostel->category_name }}</p>
-                                  <!-- Show verification image if hostel is verified -->
-                                  @if($hostel->is_verified)
-                                        <img src="{{ asset('storage/verified_hostel/verified_tag.png') }}" class="verified_tag" alt="Verified Hostel">
+                                <div class="category_verified_container">
+                                    <p class="categoty_hostel">{{ $hostel->category_name }}</p>
+                                    @if($hostel->is_verified)
+                                        <img src="{{ asset('storage/verified_hostel/verified_tag.png') }}" class="verified_tag"
+                                            alt="Verified Hostel">
                                     @endif
+                                </div>
+
                             </div>
                         @endforeach
 
@@ -147,12 +173,12 @@
     </div>
 
     <script>
-    function filterHostels(viewType) {
-        const params = new URLSearchParams(window.location.search);
-        const sortType = params.get('sort') || 'date'; // Default sort by date
-        const url = `?view=${viewType}&sort=${sortType}`;
-        window.location.href = url;
-    }
+        function filterHostels(viewType) {
+            const params = new URLSearchParams(window.location.search);
+            const sortType = params.get('sort') || 'date'; // Default sort by date
+            const url = `?view=${viewType}&sort=${sortType}`;
+            window.location.href = url;
+        }
     </script>
 
     <!-- Footer -->
