@@ -31,7 +31,7 @@
     }
 
     .hostel-details {
-        flex: 1;
+        flex: 1; 
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -52,7 +52,6 @@
         color: white;
     }
 
-
     .categoty_hostel {
         width: auto;
         height: 10%;
@@ -66,6 +65,12 @@
         text-transform: uppercase;
         margin-bottom: 15px;
     }
+    .verified_tag{
+        
+        width: 10%;
+        height: 10%;
+        margin-bottom: 15px;
+    }
     </style>
 
     <!-- Main content -->
@@ -75,14 +80,21 @@
                 <div class="container">
                     <h1 class="text-center mb-4">All Hostels</h1>
 
+                    <!-- Filter Buttons -->
+                    <div class="text-center mb-4">
+                        <button class="btn btn-primary {{ $view == 'all' ? 'active' : '' }}" onclick="filterHostels('all')">All Hostels</button>
+                        <button class="btn btn-secondary {{ $view == 'featured' ? 'active' : '' }}" onclick="filterHostels('featured')">Featured Hostels</button>
+                        <button class="btn btn-info {{ $view == 'top-rated' ? 'active' : '' }}" onclick="filterHostels('top-rated')">Top Rated Hostels</button>
+                        <button class="btn btn-success {{ $view == 'best' ? 'active' : '' }}" onclick="filterHostels('best')">Best Hostels</button>
+                    </div>
+
                     @if($hostels->isNotEmpty())
                         @foreach($hostels as $hostel)
                             <div class="row row-fixed hostel-card">
                                 <!-- Hostel Image -->
                                 <div class="hostel-image-container">
                                     @if($hostel->hostel_front_image)
-                                    <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
-                                    alt="img">
+                                        <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
                                     @else
                                         <p>No image available</p>
                                     @endif
@@ -92,12 +104,15 @@
                                 <div class="hostel-details">
                                     <h5>{{ $hostel->hostel_name }}</h5>
                                     <p><strong>Detail:</strong> {{ $hostel->hostel_detail }}</p>
-                                    
-                                    <p><strong>Address:</strong> {{ $hostel->hostel_address }}</p>
+                                    <p>Average Rating: {{ round($hostel->reviews_avg_rating ?? 0, 1) ?: 'No ratings yet' }}</p>
                                     <p><strong>Number:</strong> {{ $hostel->owner_number }}</p>
                                     <p>{{ Str::limit($hostel->hostel_description, 150) }}</p>
                                 </div>
                                 <p class="categoty_hostel">{{ $hostel->category_name }}</p>
+                                  <!-- Show verification image if hostel is verified -->
+                                  @if($hostel->is_verified)
+                                        <img src="{{ asset('storage/verified_hostel/verified_tag.png') }}" class="verified_tag" alt="Verified Hostel">
+                                    @endif
                             </div>
                         @endforeach
 
@@ -130,17 +145,15 @@
             </div>
         </div>
     </div>
+
     <script>
-    function sortHostels(sortType) {
+    function filterHostels(viewType) {
         const params = new URLSearchParams(window.location.search);
-        const category = params.get('category');
-        let url = '?sort=' + sortType;
-        if (category) {
-            url += '&category=' + encodeURIComponent(category);
-        }
+        const sortType = params.get('sort') || 'date'; // Default sort by date
+        const url = `?view=${viewType}&sort=${sortType}`;
         window.location.href = url;
     }
-</script>
+    </script>
 
     <!-- Footer -->
     @include('frontend.layouts.footer')

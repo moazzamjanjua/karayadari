@@ -78,18 +78,23 @@ class HomeController extends Controller
 
     public function allHostels(Request $request)
     {
+        $view = $request->query('view', 'all'); // Default view is 'all'
         $sort = $request->query('sort', 'date'); // Default sort by date
-        $category = $request->query('category'); // Get the category filter from the request
-    
         $query = Hostels::query(); // Initialize the query
     
-        if ($category) {
-            // Filter by category if it is set
-            $query->where('category_name', $category);
+        if ($view === 'featured') {
+            // Fetch only featured hostels
+            $query->where('featured_hostel', 1);
+        } elseif ($view === 'top-rated') {
+            // Fetch only top-rated hostels
+            $query->where('top_rated_hostel', 1);
+        } elseif ($view === 'best') {
+            // Fetch only best hostels
+            $query->where('best_hostel', 1);
         }
     
         if ($sort == 'date') {
-            // Sort by rating if selected
+            // Sort by date if selected
             $query->orderBy('created_at', 'desc');
         }
     
@@ -98,9 +103,14 @@ class HomeController extends Controller
     
         // Get the categories to display in the view
         $categories = CategoryList::all();
-    
-        return view('frontend.all-hostels', compact('hostels', 'categories'));
+
+           foreach ($hostels as $hostel) {
+        $hostel->reviews_avg_rating = Review::where('hostel_id', $hostel->id)->avg('rating');
     }
+    
+        return view('frontend.all-hostels', compact('hostels', 'categories', 'view'));
+    }
+    
     
     
 

@@ -26,4 +26,5 @@ class Hostels extends Model
     {
         return $this->hasMany(HostelRoom::class, 'hostel_id');
     }
+    
 }

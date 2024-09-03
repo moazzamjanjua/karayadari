@@ -19,4 +19,12 @@ class Review extends Model
     {
         return $this->belongsTo(Hostels::class);
     }
+    public function reviews()
+
+{
+
+    return $this->hasMany(Review::class, 'hostel_id');
+
+}
+
 }
