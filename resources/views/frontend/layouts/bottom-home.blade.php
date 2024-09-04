@@ -50,8 +50,6 @@
                                         </div>
                                         <div class="tab-content">
                                             <div id="toprated" class="tab-pane fade in active show">
-
-
                                                 <div class="category-product-index owl-carousel owl-theme">
                                                     @foreach($topRatedHostels as $hostel)
                                                         <div class="item text-center">

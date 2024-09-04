@@ -51,8 +51,12 @@
     height: auto; /* Let height adjust naturally */
 }
 .header-top{
+    width: 100%;
+    height: 17%;
+    background-color: white;
     position: fixed;
 }
+
 .price-ribbon:before {
     position: absolute;
     content: '';
