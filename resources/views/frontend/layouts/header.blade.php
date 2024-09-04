@@ -44,7 +44,7 @@
         </div>
 
         <!-- header desktop -->
-        <div class="header-top d-xs-none ">
+        <div class="header-top">
             <div class="container">
                 <div class="row">
                     <!-- logo -->
@@ -70,9 +70,7 @@
                                     <a href="../blog" class="parent">Blog</a>
                                 </li>
                                
-                                <li>
-                                    <a href="../contact" class="parent">Contact US</a>
-                                </li>
+                               
 
                                  <!-- Add Hostel button -->
                                  @if(auth()->guard('owner')->check())
@@ -138,7 +136,12 @@
                     <!-- search-->
                     <div id="search_widget" class="col-sm-6 col-md-5 align-items-center justify-content-end d-flex">
                         
-
+                    <!-- <form method="get" action="#">
+                            <input type="text" name="s" value="" placeholder="Search ..." class="ui-autocomplete-input" autocomplete="off">
+                            <button type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form> -->
                         <!-- acount  -->
                         <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
                         <div class="myaccount-title">
