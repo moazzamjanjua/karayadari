@@ -160,6 +160,11 @@
             border-radius: 10px;
             /* Optional: Adds rounded corners to images */
         }
+
+        .view-all-button{
+            width: 100%;
+            height: 100%;
+        }
         
 
         

@@ -23,7 +23,8 @@ class Review extends Model
 
 {
 
-    return $this->hasMany(Review::class, 'hostel_id');
+   
+    return $this->hasMany('App\Models\Review', 'hostel_id');
 
 }
 

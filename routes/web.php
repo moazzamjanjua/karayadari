@@ -141,4 +141,5 @@ Route::fallback(function () {
     return view('pagenotfound');
 });
 
-Route::get('/all-hostels', [HomeController::class, 'allHostels'])->name('hostels.all');
+Route::get('/all-hostels', [HomeController::class, 'allHostels'])->name('all-hostels');
+

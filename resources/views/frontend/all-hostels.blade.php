@@ -52,20 +52,14 @@
             color: white;
         }
 
-        /* Container to hold both the category and verified tag */
         .category_verified_container {
             display: inline-block;
             text-align: center;
-            /* Center the elements */
             margin-bottom: 15px;
-            /* Space below the container */
         }
 
-        /* Category hostel styling */
         .categoty_hostel {
             display: block;
-            /* Ensure it's on its own line */
-            width: auto;
             font-size: 1.3rem;
             font-weight: bold;
             color: #fff;
@@ -74,21 +68,13 @@
             border-radius: 5px;
             text-transform: uppercase;
             margin-bottom: 5px;
-            /* Space between category and verified tag */
         }
 
-        /* Verified tag styling */
         .verified_tag {
-            width: 30px;
-            /* Adjust size as needed */
-            height:150px;
             width: 140px;
-            margin-top: 0;
-            /* Remove margin from top */
-            display: block;
-            /* Ensure it's on its own line */
+            height: 150px;
             margin: 0 auto;
-            /* Center the verified tag */
+            display: block;
         }
     </style>
 
@@ -97,27 +83,47 @@
         <div id="content-wrapper" class="full-width">
             <div id="main">
                 <div class="container">
-                    <h1 class="text-center mb-4">All Hostels</h1>
+                    <!-- Dynamically Set the Heading Based on the Query Parameter -->
+@php
+    $view = request('view', 'all'); // Default to 'all' if no view parameter is present
+    $sortedHostels = $hostels;
+
+    // If the view is 'top-rated', sort hostels by average rating
+    if ($view === 'top-rated') {
+        $sortedHostels = $hostels->sortByDesc(function ($hostel) {
+            return $hostel->reviews_avg_rating ?? 0; // Sort by avg rating, default to 0 if no ratings
+        });
+    }
+@endphp
+<h1 class="text-center mb-4">
+    @if($view === 'featured-hostel')
+     All   Featured Hostels ({{ $hostels->total() }})
+    @elseif($view === 'top-rated')
+        Top Rated Hostels  ({{ $hostels->total() }})
+        @elseif($view === 'best-hostels')
+        All Best Hostels ({{ $hostels->total() }})
+    @else
+        All Hostels
+       
+    @endif
+</h1>
 
                     <!-- Filter Buttons -->
-                    <div class="text-center mb-4">
-                        <button class="btn btn-primary {{ $view == 'all' ? 'active' : '' }}"
-                            onclick="filterHostels('all')">All Hostels</button>
-                        <button class="btn btn-secondary {{ $view == 'featured' ? 'active' : '' }}"
-                            onclick="filterHostels('featured')">Featured Hostels</button>
-                        <button class="btn btn-info {{ $view == 'top-rated' ? 'active' : '' }}"
-                            onclick="filterHostels('top-rated')">Top Rated Hostels</button>
-                        <button class="btn btn-success {{ $view == 'best' ? 'active' : '' }}"
-                            onclick="filterHostels('best')">Best Hostels</button>
-                    </div>
+               
 
                     @if($hostels->isNotEmpty())
                         @foreach($hostels as $hostel)
                             <div class="row row-fixed hostel-card">
+                            <div class="price-ribbon">
+                                                                                    {{$hostel->hostel_price}} Rs / month
+                                                                                </div>
                                 <!-- Hostel Image -->
                                 <div class="hostel-image-container">
                                     @if($hostel->hostel_front_image)
-                                        <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="img">
+                                    <a href="{{ route('hostel-detail.show', $hostel->slug) }}">
+    <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="Hostel Image">
+</a>
+
                                     @else
                                         <p>No image available</p>
                                     @endif
@@ -131,6 +137,7 @@
                                     <p><strong>Number:</strong> {{ $hostel->owner_number }}</p>
                                     <p>{{ Str::limit($hostel->hostel_description, 150) }}</p>
                                 </div>
+                                
                                 <div class="category_verified_container">
                                     <p class="categoty_hostel">{{ $hostel->category_name }}</p>
                                     @if($hostel->is_verified)
@@ -138,7 +145,6 @@
                                             alt="Verified Hostel">
                                     @endif
                                 </div>
-
                             </div>
                         @endforeach
 
@@ -173,14 +179,20 @@
     </div>
 
     <script>
-        function filterHostels(viewType) {
-            const params = new URLSearchParams(window.location.search);
-            const sortType = params.get('sort') || 'date'; // Default sort by date
-            const url = `?view=${viewType}&sort=${sortType}`;
-            window.location.href = url;
-        }
-    </script>
+    function filterHostels(viewType) {
+        const params = new URLSearchParams(window.location.search);
+        let sortType = params.get('sort') || 'date'; // Default sort by date
 
-    <!-- Footer -->
+        // If the view is 'top-rated', sort by rating
+        if (viewType === 'top-rated') {
+            sortType = params.get('sort') || 'rating';; // Force sort by rating for top-rated hostels
+        }
+
+        const url = `?view=${viewType}&sort=${sortType}`;
+        window.location.href = url;
+    }
+</script>
+
+
     @include('frontend.layouts.footer')
 </body>

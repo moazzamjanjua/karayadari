@@ -3,7 +3,6 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\CategoryList;
 use App\Http\Controllers\Controller;
-use App\Models\Owner;
 use App\Models\Owner\Hostels;
 use Illuminate\Http\Request;
 use App\Models\Review;
@@ -33,87 +32,94 @@ class HomeController extends Controller
         return view('frontend.index', compact('categories', 'topRatedHostels', 'featuredHostels', 'bestHostels'));
     }
 
- 
+
     public function show($slug)
     {
         // Fetch the hostel using slug
         $hostel = Hostels::where('slug', $slug)->first();
-    
+
         // Check if the hostel exists
         if (!$hostel) {
             abort(404, 'Hostel not found');
         }
-    
+
         // Fetch reviews related to this hostel
         $reviews = Review::where('hostel_id', $hostel->id)->orderBy('created_at', 'desc')->get();
 
         $relatedHostels = Hostels::inRandomOrder()->take(6)->get();
-        $bestHostels = Hostels::where('best_hostel', 1)->take(3)->get();    
+        $bestHostels = Hostels::where('best_hostel', 1)->take(3)->get();
         // Pass $hostel, $reviews, $reviewCount, and $averageRating to the view
-        return view('frontend.hostel-detail', compact('hostel', 'reviews','relatedHostels' ,'bestHostels'));
+        return view('frontend.hostel-detail', compact('hostel', 'reviews', 'relatedHostels', 'bestHostels'));
     }
-    
 
-    
+
+
     public function storeReview(Request $request, $id)
     {
         if (!Auth::check()) {
             return response()->json(['login_required' => true]);
         }
-    
+
         $request->validate([
             'rating' => 'required|integer|between:1,5',
             'review' => 'required|string|max:500',
         ]);
-    
+
         Review::create([
             'hostel_id' => $id,
             'user_id' => Auth::id(),
             'rating' => $request->rating,
             'review' => $request->review,
         ]);
-    
+
         return response()->json(['success' => true]);
     }
-
     public function allHostels(Request $request)
     {
+        $hostel = Hostels::all();
         $view = $request->query('view', 'all'); // Default view is 'all'
         $sort = $request->query('sort', 'date'); // Default sort by date
+
+        $queryReviews = Hostels::with('reviews'); // Load the related reviews
         $query = Hostels::query(); // Initialize the query
-    
-        if ($view === 'featured') {
+
+        if ($view === 'featured-hostel') {
             // Fetch only featured hostels
             $query->where('featured_hostel', 1);
         } elseif ($view === 'top-rated') {
             // Fetch only top-rated hostels
-            $query->where('top_rated_hostel', 1);
-        } elseif ($view === 'best') {
+// Fetch hostels with average rating calculated
+          
+        } elseif ($view === 'best-hostels') {
             // Fetch only best hostels
             $query->where('best_hostel', 1);
         }
-    
+
         if ($sort == 'date') {
             // Sort by date if selected
             $query->orderBy('created_at', 'desc');
         }
-    
+
         // Paginate the results (10 per page)
         $hostels = $query->paginate(10);
-    
+
         // Get the categories to display in the view
         $categories = CategoryList::all();
 
-           foreach ($hostels as $hostel) {
-        $hostel->reviews_avg_rating = Review::where('hostel_id', $hostel->id)->avg('rating');
-    }
-    
+        // Calculate average rating for each hostel
+        foreach ($hostels as $hostel) {
+            $hostel->reviews_avg_rating = Review::where('hostel_id', $hostel->id)->avg('rating');
+        }
+
+
+
         return view('frontend.all-hostels', compact('hostels', 'categories', 'view'));
     }
-    
-    
-    
 
-    
+
+
+
+
+
 }
 
