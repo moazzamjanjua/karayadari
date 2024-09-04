@@ -79,6 +79,7 @@
         </div>
     @endforeach
 
+
     <!-- View All Button as the 6th Item -->
     @if($topRatedHostels->count() > 5)
         <div class="item text-center">
@@ -92,6 +93,92 @@
         </div>
     @endif
 </div>
+
+                                            </ul>
+                                        </div>
+                                        <div class="tab-content">
+                                            <div id="toprated" class="tab-pane fade in active show">
+                                                <div class="category-product-index owl-carousel owl-theme">
+                                                    @foreach($topRatedHostels as $hostel)
+                                                        <div class="item text-center">
+                                                            <div
+                                                                class="product-miniature first-item js-product-miniature item-one">
+
+                                                                <div class="image-container">
+                                                                    <div class="price-ribbon">
+                                                                        {{$hostel->hostel_price}} Rs / month
+                                                                    </div>
+                                                                    <a
+                                                                        href="{{ route('hostel-detail.show', $hostel->slug) }}">
+                                                                        <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
+                                                                            alt="img">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="product-description">
+                                                                    <div class="product-groups">
+                                                                        <div class="product-title">
+                                                                            <a
+                                                                                href="{{ route('hostel-detail.show', $hostel->slug) }}">{{ $hostel->hostel_name }}</a>
+                                                                        </div>
+                                                                        <div class="rating">
+                                                                            <div class="star-content">
+                                                                                @for($i = 0; $i < 5; $i++)
+                                                                                    <div
+                                                                                        class="star{{ $i < $hostel->rating ? ' filled' : '' }}">
+                                                                                    </div>
+                                                                                @endfor
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+
+
+
+                                            </div>
+
+                                            <div class="tab-pane fade" id="featured">
+                                                <div class="category-product-index owl-carousel owl-theme">
+                                                    @foreach($featuredHostels as $hostel)
+                                                        <div class="item text-center">
+                                                            <div
+                                                                class="product-miniature first-item js-product-miniature item-one">
+                                                                <div class="image-container">
+                                                                    <div class="price-ribbon">
+                                                                        {{$hostel->hostel_price}} Rs / month
+                                                                    </div>
+                                                                    <a
+                                                                        href="{{ route('hostel-detail.show', $hostel->slug) }}">
+                                                                        <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
+                                                                            alt="img">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="product-description">
+                                                                    <div class="product-groups">
+                                                                        <div class="product-title">
+                                                                            <a
+                                                                                href="{{ route('hostel-detail.show', $hostel->id) }}">{{ $hostel->hostel_name }}</a>
+                                                                        </div>
+                                                                        <div class="rating">
+                                                                            <div class="star-content">
+                                                                                @for($i = 0; $i < 5; $i++)
+                                                                                    <div
+                                                                                        class="star{{ $i < $hostel->rating ? ' filled' : '' }}">
+                                                                                    </div>
+                                                                                @endfor
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+
 
         </div>
 
