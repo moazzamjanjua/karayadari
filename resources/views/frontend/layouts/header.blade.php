@@ -56,19 +56,31 @@
                         </div>
                     </div>
 
+                    <style>
+                        .menu-top  li.active a {
+    font-weight: bold;
+    color: #007bff;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+   
+   
+}
+
+                    </style>
+
                     <!-- menu -->
                     <div class="main-menu col-sm-4 col-md-5 align-items-center justify-content-center navbar-expand-md">
                         <div class="menu navbar collapse navbar-collapse">
                             <ul class="menu-top navbar-nav">
-                                <li class="nav-link">
-                                    <a href="/" class="parent">Home</a>
-                                </li>
-                                <li>
-                                    <a href="../all-hostels" class="parent">All Hostel</a>
-                                </li>
-                                <li>
-                                    <a href="../blog" class="parent">Blog</a>
-                                </li>
+                            <li class="{{ request()->is('/') ? 'active' : '' }}">
+        <a href="/" class="parent">Home</a>
+    </li>
+    <li class="{{ request()->is('all-hostels*') ? 'active' : '' }}">
+        <a href="../all-hostels" class="parent">All Hostel</a>
+    </li>
+    <li class="{{ request()->is('blog*') ? 'active' : '' }}">
+        <a href="../blog" class="parent">Blog</a>
+    </li>
                                
                                
 

@@ -76,48 +76,50 @@ class HomeController extends Controller
     }
     public function allHostels(Request $request)
     {
-        $hostel = Hostels::all();
+        $selectedCategory = $request->query('category');
         $view = $request->query('view', 'all'); // Default view is 'all'
         $sort = $request->query('sort', 'date'); // Default sort by date
-
-        $queryReviews = Hostels::with('reviews'); // Load the related reviews
-        $query = Hostels::query(); // Initialize the query
-
+    
+        // Initialize the query to fetch hostels
+        $query = Hostels::query();
+    
+        // Filter by category if selected
+        if ($selectedCategory) {
+            $query->whereHas('category', function ($q) use ($selectedCategory) {
+                $q->where('category_name', $selectedCategory);
+            });
+        }
+    
+        // Filter by view type
         if ($view === 'featured-hostel') {
-            // Fetch only featured hostels
             $query->where('featured_hostel', 1);
         } elseif ($view === 'top-rated') {
-            // Fetch only top-rated hostels
-// Fetch hostels with average rating calculated
+            // Sort hostels by average rating
           
         } elseif ($view === 'best-hostels') {
-            // Fetch only best hostels
             $query->where('best_hostel', 1);
         }
-
+    
+        // Sort hostels
         if ($sort == 'date') {
-            // Sort by date if selected
             $query->orderBy('created_at', 'desc');
         }
-
-        // Paginate the results (10 per page)
+    
+        // Paginate results (10 per page)
         $hostels = $query->paginate(10);
-
-        // Get the categories to display in the view
+    
+        // Get categories to display in the view
         $categories = CategoryList::all();
-
+    
         // Calculate average rating for each hostel
         foreach ($hostels as $hostel) {
             $hostel->reviews_avg_rating = Review::where('hostel_id', $hostel->id)->avg('rating');
         }
-
-
-
-        return view('frontend.all-hostels', compact('hostels', 'categories', 'view'));
+    
+        // Pass data to the view
+        return view('frontend.all-hostels', compact('hostels', 'categories', 'view', 'selectedCategory'));
     }
-
-
-
+    
 
 
 

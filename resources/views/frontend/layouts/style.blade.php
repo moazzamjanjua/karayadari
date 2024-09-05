@@ -184,22 +184,33 @@
 <!-- Initialize Owl Carousel -->
 <script>
 $(document).ready(function(){
-  $(".category-product-index").owlCarousel({
+  var owl = $(".category-product-index");
+
+  owl.owlCarousel({
     items: 3,
-    loop: false,
+    loop: false, // Disable looping
     margin: 10,
     nav: false,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoplayHoverPause: true
+    autoplay: true, // Enable auto start
+    autoplayTimeout: 3000, // Set the autoplay delay (3 seconds)
+    autoplayHoverPause: true, // Pause on hover
+    onTranslated: function(event) {
+      // Check if the last item is reached
+      if (event.item.index + event.page.size >= event.item.count) {
+        // If last item reached, jump back to the start
+        setTimeout(function() {
+          owl.trigger('to.owl.carousel', [0, 300]);
+        }, 3000); // Wait 3 seconds before resetting
+      }
+    }
   });
 
   // Next/Previous buttons
   $(".prev-btn").click(function(){
-    $(".category-product-index").trigger('prev.owl.carousel');
+    owl.trigger('prev.owl.carousel');
   });
   $(".next-btn").click(function(){
-    $(".category-product-index").trigger('next.owl.carousel');
+    owl.trigger('next.owl.carousel');
   });
 });
 </script>

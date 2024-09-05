@@ -76,6 +76,24 @@
             margin: 0 auto;
             display: block;
         }
+
+        .hostel-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add a deeper shadow on hover */
+            transform: translateY(-5px); /* Slightly lift the card */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .hostel-card:hover .hostel-details h5 {
+            color: #007bff; /* Change the title color on hover */
+        }
+
+        .hostel-card:hover .hostel-details p {
+            color: #333; /* Darken the paragraph text on hover */
+        }
+
+        .hostel-card:hover .price-ribbon {
+            background-color: #0056b3; /* Darken the price ribbon on hover */
+        }
     </style>
 
     <!-- Main content -->
@@ -84,68 +102,60 @@
             <div id="main">
                 <div class="container">
                     <!-- Dynamically Set the Heading Based on the Query Parameter -->
-@php
-    $view = request('view', 'all'); // Default to 'all' if no view parameter is present
-    $sortedHostels = $hostels;
-
-    // If the view is 'top-rated', sort hostels by average rating
-    if ($view === 'top-rated') {
-        $sortedHostels = $hostels->sortByDesc(function ($hostel) {
-            return $hostel->reviews_avg_rating ?? 0; // Sort by avg rating, default to 0 if no ratings
-        });
-    }
-@endphp
-<h1 class="text-center mb-4">
-    @if($view === 'featured-hostel')
-     All   Featured Hostels ({{ $hostels->total() }})
-    @elseif($view === 'top-rated')
-        Top Rated Hostels  ({{ $hostels->total() }})
-        @elseif($view === 'best-hostels')
-        All Best Hostels ({{ $hostels->total() }})
-    @else
-        All Hostels
-       
-    @endif
-</h1>
+                    @php
+                        $view = request('view', 'all');
+                        $selectedCategory = request('category');
+                    @endphp
+                    <h1 class="text-center mb-4">
+                        @if($view === 'featured-hostel')
+                            All Featured Hostels ({{ $hostels->total() }})
+                        @elseif($view === 'top-rated')
+                            Top Rated Hostels ({{ $hostels->total() }})
+                        @elseif($view === 'best-hostels')
+                            All Best Hostels ({{ $hostels->total() }})
+                        @elseif($selectedCategory)
+                            Hostels in "{{ $selectedCategory }}" Category ({{ $hostels->total() }})
+                        @else
+                            All Hostels
+                        @endif
+                    </h1>
 
                     <!-- Filter Buttons -->
-               
+                    <!-- Add your filter buttons here if needed -->
 
                     @if($hostels->isNotEmpty())
                         @foreach($hostels as $hostel)
-                            <div class="row row-fixed hostel-card">
-                            <div class="price-ribbon">
-                                                                                    {{$hostel->hostel_price}} Rs / month
-                                                                                </div>
-                                <!-- Hostel Image -->
-                                <div class="hostel-image-container">
-                                    @if($hostel->hostel_front_image)
-                                    <a href="{{ route('hostel-detail.show', $hostel->slug) }}">
-    <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="Hostel Image">
-</a>
+                            <a href="{{ route('hostel-detail.show', $hostel->slug) }}" class="hostel-link">
+                                <div class="row row-fixed hostel-card">
+                                    <div class="price-ribbon">
+                                        {{ $hostel->hostel_price }} Rs / month
+                                    </div>
+                                    <!-- Hostel Image -->
+                                    <div class="hostel-image-container">
+                                        @if($hostel->hostel_front_image)
+                                            <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="Hostel Image">
+                                        @else
+                                            <p>No image available</p>
+                                        @endif
+                                    </div>
 
-                                    @else
-                                        <p>No image available</p>
-                                    @endif
-                                </div>
+                                    <!-- Hostel Details -->
+                                    <div class="hostel-details">
+                                        <h5>{{ $hostel->hostel_name }}</h5>
+                                        <p><strong>Detail:</strong> {{ $hostel->hostel_detail }}</p>
+                                        <p>Average Rating: {{ round($hostel->reviews_avg_rating ?? 0, 1) ?: 'No ratings yet' }}</p>
+                                        <p><strong>Number:</strong> {{ $hostel->owner_number }}</p>
+                                        <p>{{ Str::limit($hostel->hostel_description, 150) }}</p>
+                                    </div>
 
-                                <!-- Hostel Details -->
-                                <div class="hostel-details">
-                                    <h5>{{ $hostel->hostel_name }}</h5>
-                                    <p><strong>Detail:</strong> {{ $hostel->hostel_detail }}</p>
-                                    <p>Average Rating: {{ round($hostel->reviews_avg_rating ?? 0, 1) ?: 'No ratings yet' }}</p>
-                                    <p><strong>Number:</strong> {{ $hostel->owner_number }}</p>
-                                    <p>{{ Str::limit($hostel->hostel_description, 150) }}</p>
+                                    <div class="category_verified_container">
+                                        <p class="categoty_hostel">{{ $hostel->category_name }}</p>
+                                        @if($hostel->is_verified)
+                                            <img src="{{ asset('storage/verified_hostel/verified_tag.png') }}" class="verified_tag" alt="Verified Hostel">
+                                        @endif
+                                    </div>
                                 </div>
-                                
-                                <div class="category_verified_container">
-                                    <p class="categoty_hostel">{{ $hostel->category_name }}</p>
-                                    @if($hostel->is_verified)
-                                        <img src="{{ asset('storage/verified_hostel/verified_tag.png') }}" class="verified_tag"
-                                            alt="Verified Hostel">
-                                    @endif
-                                </div>
-                            </div>
+                            </a>
                         @endforeach
 
                         <!-- Pagination Links -->
@@ -179,20 +189,19 @@
     </div>
 
     <script>
-    function filterHostels(viewType) {
-        const params = new URLSearchParams(window.location.search);
-        let sortType = params.get('sort') || 'date'; // Default sort by date
+        function filterHostels(viewType) {
+            const params = new URLSearchParams(window.location.search);
+            let sortType = params.get('sort') || 'date'; // Default sort by date
 
-        // If the view is 'top-rated', sort by rating
-        if (viewType === 'top-rated') {
-            sortType = params.get('sort') || 'rating';; // Force sort by rating for top-rated hostels
+            // If the view is 'top-rated', sort by rating
+            if (viewType === 'top-rated') {
+                sortType = 'rating'; // Force sort by rating for top-rated hostels
+            }
+
+            const url = `?view=${viewType}&sort=${sortType}`;
+            window.location.href = url;
         }
-
-        const url = `?view=${viewType}&sort=${sortType}`;
-        window.location.href = url;
-    }
-</script>
-
+    </script>
 
     @include('frontend.layouts.footer')
 </body>

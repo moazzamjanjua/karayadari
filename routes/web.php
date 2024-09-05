@@ -72,7 +72,7 @@ Route::view('become-owner', 'owner.owner-register')->name('become-owner');
 Route::view('owner-login', 'owner.owner-login')->name('owner-login');
 
 Route::post('ownerSave', [OwnerController::class, 'ownerregister'])->name('ownerSave');
-Route::post('ownerMatch', [OwnerController::class, 'ownerlogin'])->name('ownerMatch');
+Route::post('ownerMatch', [OwnerController::class, 'ownerlogin']);
 
 
 

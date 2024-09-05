@@ -80,7 +80,7 @@
         <input class="form-control" name="password_confirmation" type="text" placeholder="Confirm Password">
             <button type="submit">Signup</button>
         </form>
-        <p>Already have an account? <a href="../owner/login">Login</a></p>
+        <p>Already have an account? <a href="../owner-login">Login</a></p>
     </div>
 </body>
 </html>

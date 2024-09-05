@@ -2,6 +2,7 @@
 
 namespace App\Models\Owner;
 
+use App\Models\CategoryList;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,6 +26,11 @@ class Hostels extends Model
     public function rooms()
     {
         return $this->hasMany(HostelRoom::class, 'hostel_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(CategoryList::class, 'category_name', 'category_name');
     }
     
 }
