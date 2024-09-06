@@ -193,10 +193,8 @@
             const params = new URLSearchParams(window.location.search);
             let sortType = params.get('sort') || 'date'; // Default sort by date
 
-            // If the view is 'top-rated', sort by rating
-            if (viewType === 'top-rated') {
-                sortType = 'rating'; // Force sort by rating for top-rated hostels
-            }
+          
+           
 
             const url = `?view=${viewType}&sort=${sortType}`;
             window.location.href = url;

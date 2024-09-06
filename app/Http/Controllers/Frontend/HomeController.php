@@ -95,7 +95,7 @@ class HomeController extends Controller
             $query->where('featured_hostel', 1);
         } elseif ($view === 'verified-hostels') {
             // Sort hostels by average rating
-          
+            $query->where('is_verified', 1);
         } elseif ($view === 'best-hostels') {
             $query->where('best_hostel', 1);
         }

@@ -83,7 +83,7 @@
                     <div class="item text-center">
                         <div class="product-miniature first-item js-product-miniature item-one">
                             <div class="image-container">
-                                <a href="{{ route('all-hostels') }}?view=verified-hostel" class="btn btn-info" style="width: 100%; height:100%; display: block;">
+                                <a href="{{ route('all-hostels') }}?view=verified-hostels" class="btn btn-info" style="width: 100%; height:100%; display: block;">
                                     View All <br>  Verified Hostels
                                 </a>
                             </div>
