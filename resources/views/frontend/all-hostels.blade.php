@@ -192,10 +192,6 @@
         function filterHostels(viewType) {
             const params = new URLSearchParams(window.location.search);
             let sortType = params.get('sort') || 'date'; // Default sort by date
-
-          
-           
-
             const url = `?view=${viewType}&sort=${sortType}`;
             window.location.href = url;
         }
