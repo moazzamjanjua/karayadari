@@ -39,7 +39,7 @@
     <div class="title-tab-content d-flex justify-content-start">
         <ul class="nav nav-tabs">
             <li>
-                <a href="#toprated" data-toggle="tab" class="active">Top Rated Hostels</a>
+                <a href="#verified" data-toggle="tab" class="active">Verified Hostels</a>
             </li>
             <li>
                 <a href="#featured" data-toggle="tab">Featured Hostels</a>
@@ -47,10 +47,10 @@
         </ul>
     </div>
     <div class="tab-content">
-        <!-- Top Rated Hostels Tab -->
-        <div id="toprated" class="tab-pane fade active show">
+        <!-- Verfied Hostels Tab -->
+        <div id="verified" class="tab-pane fade active show">
             <div class="category-product-index owl-carousel owl-theme">
-                @foreach($topRatedHostels->take(5) as $hostel)
+                @foreach($verifiedHostels->take(5) as $hostel)
                     <div class="item text-center">
                         <div class="product-miniature first-item js-product-miniature item-one">
                             <div class="image-container">
@@ -79,12 +79,12 @@
                     </div>
                 @endforeach
                 <!-- View All Button as the 6th Item -->
-                @if($topRatedHostels->count() > 5)
+                @if($verifiedHostels->count() > 5)
                     <div class="item text-center">
                         <div class="product-miniature first-item js-product-miniature item-one">
                             <div class="image-container">
-                                <a href="{{ route('all-hostels') }}?view=top-rated" class="btn btn-info" style="width: 100%; height:100%; display: block;">
-                                    View All <br> Top Rated Hostels
+                                <a href="{{ route('all-hostels') }}?view=verified-hostel" class="btn btn-info" style="width: 100%; height:100%; display: block;">
+                                    View All <br>  Verified Hostels
                                 </a>
                             </div>
                         </div>
