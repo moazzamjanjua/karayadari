@@ -114,7 +114,7 @@
                         @elseif($view === 'best-hostels')
                             All Best Hostels ({{ $hostels->total() }})
                         @elseif($selectedCategory)
-                            Hostels in "{{ $selectedCategory }}" Category ({{ $hostels->total() }})
+                            All {{ $selectedCategory }} ({{ $hostels->total() }})
                         @else
                             All Hostels
                         @endif

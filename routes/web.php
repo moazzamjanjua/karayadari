@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\ResultController;
 use App\Http\Controllers\Frontend\RoomDetailController;
 use App\Http\Controllers\frontend\UsersController;
 use App\Http\Controllers\Owner\HostalFormController;
@@ -72,7 +73,7 @@ Route::view('become-owner', 'owner.owner-register')->name('become-owner');
 Route::view('owner-login', 'owner.owner-login')->name('owner-login');
 
 Route::post('ownerSave', [OwnerController::class, 'ownerregister'])->name('ownerSave');
-Route::post('ownerMatch', [OwnerController::class, 'ownerlogin']);
+Route::post('ownerMatch', [OwnerController::class, 'ownerlogin'])->name('ownerMatch');
 
 
 
@@ -130,6 +131,7 @@ Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->na
 
 
 // routes/web.php
+Route::get('/result', [ResultController::class, 'index']);
 
 
 
