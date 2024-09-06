@@ -109,8 +109,8 @@
                     <h1 class="text-center mb-4">
                         @if($view === 'featured-hostel')
                             All Featured Hostels ({{ $hostels->total() }})
-                        @elseif($view === 'top-rated')
-                            Top Rated Hostels ({{ $hostels->total() }})
+                        @elseif($view === 'verified-hostels')
+                           Verified Hostels ({{ $hostels->total() }})
                         @elseif($view === 'best-hostels')
                             All Best Hostels ({{ $hostels->total() }})
                         @elseif($selectedCategory)

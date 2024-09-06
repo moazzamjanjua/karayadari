@@ -58,29 +58,27 @@
 
                     <style>
                         .menu-top  li.active a {
-    font-weight: bold;
-    color: #007bff;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-   
-   
-}
+                      font-weight: bold;
+                      color: #007bff;
+                       background-color: #f0f0f0;
+                     border-radius: 5px;
+   }
 
                     </style>
 
                     <!-- menu -->
                     <div class="main-menu col-sm-4 col-md-5 align-items-center justify-content-center navbar-expand-md">
-                        <div class="menu navbar collapse navbar-collapse">
-                            <ul class="menu-top navbar-nav">
-                            <li class="{{ request()->is('/') ? 'active' : '' }}">
+                    <div class="menu navbar collapse navbar-collapse">
+                    <ul class="menu-top navbar-nav">
+                    <li class="{{ request()->is('/') ? 'active' : '' }}">
         <a href="/" class="parent">Home</a>
-    </li>
-    <li class="{{ request()->is('all-hostels*') ? 'active' : '' }}">
-        <a href="../all-hostels" class="parent">All Hostel</a>
-    </li>
+       </li>
+      <li class="{{ request()->is('all-hostels*') ? 'active' : '' }}">
+     <a href="../all-hostels" class="parent">All Hostel</a>
+     </li>
     <li class="{{ request()->is('blog*') ? 'active' : '' }}">
-        <a href="../blog" class="parent">Blog</a>
-    </li>
+     <a href="../blog" class="parent">Blog</a>
+     </li>
                                
                                
 
@@ -157,9 +155,9 @@
                         <!-- acount  -->
                         <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
                         <div class="myaccount-title">
-    <a href="#acount" data-toggle="collapse" class="acount" style="display: flex; align-items: center;">
-        @if(Auth::check() && Auth::user()->user_image)
-            <img src="{{ asset('storage/user_image/' . Auth::user()->user_image) }}" 
+                <a href="#acount" data-toggle="collapse" class="acount" style="display: flex; align-items: center;">
+              @if(Auth::check() && Auth::user()->user_image)
+             <img src="{{ asset('storage/user_image/' . Auth::user()->user_image) }}" 
                  alt="User Avatar" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; margin-right: 8px;">
         @else
             <i class="fa fa-user" aria-hidden="true" style="margin-right: 8px;"></i>
