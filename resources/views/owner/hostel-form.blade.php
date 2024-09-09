@@ -244,7 +244,7 @@
 
             <div class="form-group">
                 <label for="city">City:</label><br>
-                <select class="form-control" id="city_name" name="city_name" required>
+                <select class="form-control" id="city" name="city" required>
                     <option value="" disabled selected>Select City</option>
                     @foreach($cities as $city)
                         <option value="{{ $city->city_name }}">{{ $city->city_name }}</option>
@@ -254,13 +254,10 @@
 
             <div class="form-group">
                 <label for="area">Area:</label><br>
-                <select name="area" class="form-control" id="area" required>
-
+                <select class="form-control" id="area" name="area" required>
                     <option value="" disabled selected>Select Area</option>
                     @foreach($areas as $area)
-                        <option value="{{ $area->id }}">
-                            {{ $area->area_name }}
-                        </option>
+                        <option value="{{ $area->area_name }}">{{ $area->area_name }}</option>
                     @endforeach
                 </select>
             </div>

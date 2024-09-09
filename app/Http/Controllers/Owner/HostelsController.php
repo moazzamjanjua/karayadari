@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Owner;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryList;
 use App\Models\Review;
+use App\Models\areas;
 use App\Models\Cities; // Ensure this matches your Cities model
 use App\Models\Owner\Hostels;
 use Illuminate\Http\Request;
@@ -19,8 +20,8 @@ class HostelsController extends Controller
     {
         $categories = CategoryList::all();
         $cities = Cities::all(); // Ensure this is the correct model name
-
-        return view('owner.hostel-form', compact('cities', 'categories'));
+        $areas = areas::all();
+        return view('owner.hostel-form', compact('cities', 'categories' , 'areas'));
     }
 
     /**
@@ -53,7 +54,8 @@ class HostelsController extends Controller
             'featured_hostel' => 'boolean',
             'category_name' => 'nullable|string|max:255',
             'hostel_address' => 'required|string|max:1000',
-            'city' => 'required|string|max:255',
+            'city' => 'nullable|string|max:255',
+            'area' => 'nullable|string|max:255' ,
             'hostel_location' => 'nullable|string|max:255',
             'hostel_front_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'hostel_detail' => 'required|string|max:1000',
