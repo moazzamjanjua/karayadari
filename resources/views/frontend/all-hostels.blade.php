@@ -84,7 +84,7 @@
         }
 
         .hostel-card:hover .hostel-details h5 {
-            color: #007bff; /* Change the title color on hover */
+            color: red; /* Change the title color on hover */
         }
 
         .hostel-card:hover .hostel-details p {
@@ -187,7 +187,6 @@
             </div>
         </div>
     </div>
-
     <script>
         function filterHostels(viewType) {
             const params = new URLSearchParams(window.location.search);

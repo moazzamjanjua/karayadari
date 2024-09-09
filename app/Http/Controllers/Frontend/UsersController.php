@@ -8,32 +8,48 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 class UsersController extends Controller
 {
-    public function userregister(Request $request){
+    public function userregister(Request $request) {
         $data = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'country' => 'required',
             'password' => 'required|confirmed',
-
         ]);
-
-        $user = User::create($data);
-
-        if($user){
-            return redirect()->route('login');
-        }
-  }
-
-  public function userlogin(Request $request){
-    $credentials = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required'
-       ]);
     
-    if(Auth::attempt($credentials)){
-        return redirect()->route('frontend.index');
+        // Remove password_confirmation from the $data array
+        unset($data['password_confirmation']);
+    
+        $user = User::create($data);
+    
+        if ($user) {
+            return redirect()->route('login')->with('success', 'Your account has been created successfully.');
+        }
+    
+        return redirect()->back()->withErrors(['error' => 'There was a problem creating your account.']);
     }
-}
+    
+
+  public function userlogin(Request $request)
+  {
+      $credentials = $request->validate([
+          'email' => 'required|email',
+          'password' => 'required',
+      ]);
+  
+      if (Auth::attempt($credentials)) {
+          return redirect()->route('frontend.index')->with('success', 'Login successful');
+      } else {
+          // Check if the email exists in the database
+          $emailExists = User::where('email', $request->email)->exists();
+  
+          if (!$emailExists) {
+              return back()->with('error', 'Your email is not correct');
+          } else {
+              return back()->with('error', 'Your password does not match');
+          }
+      }
+  }
+  
 
 public function profile(){
     if(Auth::check()){

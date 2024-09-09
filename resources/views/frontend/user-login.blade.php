@@ -1,8 +1,8 @@
 @include('frontend.layouts.style')
 
 <body class="user-login blog">
-   
-@include('frontend.layouts.header')
+
+    @include('frontend.layouts.header')
 
 
     <!-- main content -->
@@ -39,29 +39,31 @@
                         <h1 class="text-center title-page">Log In</h1>
                         <div class="login-form">
                             <form id="customer-form" action="{{ route('loginMatch') }}" method="post">
-                            @csrf
+                                @csrf
                                 <div>
                                     <input type="hidden" name="back" value="my-account">
                                     <div class="form-group no-gutters">
-                                        <input class="form-control" name="email" type="email" placeholder=" Enter Your Email">
+                                        <input class="form-control" name="email" type="email"
+                                            placeholder="Enter Your Email">
                                     </div>
-                                    @if(session('error'))
-                                  <div class="alert alert-danger">{{ session('error') }}</div>
-                                      @endif
+                                    @if(session('error') && session('error') == 'Your email is not correct')
+                                        <div class="alert alert-danger">{{ session('error') }}</div>
+                                    @endif
                                     <div class="form-group no-gutters">
                                         <div class="input-group js-parent-focus">
-                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password" value="" placeholder="Enter Your Password">
+                                            <input class="form-control js-child-focus js-visible-password"
+                                                name="password" type="password" value=""
+                                                placeholder="Enter Your Password">
                                         </div>
                                     </div>
-                                    @if(session('error'))
-                                  <div class="alert alert-danger">{{ session('error') }}</div>
-                                      @endif
+                                    @if(session('error') && session('error') == 'Your password does not match')
+                                        <div class="alert alert-danger">{{ session('error') }}</div>
+                                    @endif
                                     <div class="no-gutters text-center">
                                         <div class="forgot-password">
                                             <a href="user-reset-password.html" rel="nofollow">
                                                 Forgot your password?
                                             </a>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -71,12 +73,17 @@
                                         <button class="btn btn-primary" data-link-action="sign-in" type="submit">
                                             Sign in
                                         </button>
-                                        <a href="{{route('register')}}" rel="nofollow">
-                                                Create Account?
-                                            </a>
+                                        <a href="{{ route('register') }}" rel="nofollow">
+                                            Create Account?
+                                        </a>
                                     </div>
                                 </div>
                             </form>
+
+                            @if(session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -84,4 +91,4 @@
         </div>
     </div>
 
-   @include('frontend.layouts.footer')
+    @include('frontend.layouts.footer')
