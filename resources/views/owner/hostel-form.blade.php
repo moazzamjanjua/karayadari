@@ -233,7 +233,7 @@
             @csrf
             @method('POST')
 
-    
+
             <!-- Your form fields -->
 
             <!-- Hostel Name -->
@@ -242,22 +242,32 @@
                 <input type="text" class="form-control" id="hostel_name" name="hostel_name" value="" required>
             </div>
 
-            <!-- City Selection -->
             <div class="form-group">
-                <label>City:</label><br>
-                @foreach($cities as $city)
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" id="{{ $city->city_name }}_option" name="city"
-                            value="{{ $city->city_name }}" onclick="toggleLocationOptions('{{ $city->id }}')">
-                        <label class="form-check-label" for="{{ $city->city_name }}_option">{{ $city->city_name }}</label>
-                    </div>
-                @endforeach
+                <label for="city">City:</label><br>
+                <select class="form-control" id="city_name" name="city_name" required>
+                    <option value="" disabled selected>Select City</option>
+                    @foreach($cities as $city)
+                        <option value="{{ $city->city_name }}">{{ $city->city_name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="area">Area:</label><br>
+                <select name="area" class="form-control" id="area" required>
+
+                    <option value="" disabled selected>Select Area</option>
+                    @foreach($areas as $area)
+                        <option value="{{ $area->id }}">
+                            {{ $area->area_name }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="categories">Categories:</label><br>
-                <select class="form-control" id="category_name" name="category_name" required
-                    style=" border-radius: 5px; border: none; font-size: 16px; outline: 1px;">
+                <select class="form-control" id="category_name" name="category_name" required>
                     <option value="" disabled selected>Select Categories</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
@@ -293,7 +303,7 @@
                     placeholder="Enter capacity (optional)">
             </div>
 
-        
+
             <!-- Number of Rooms -->
             <div class="form-group">
                 <label for="num_rooms">Number of Rooms:</label>

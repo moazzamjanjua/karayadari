@@ -131,7 +131,15 @@ Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->na
 
 
 // routes/web.php
-Route::get('/result', [ResultController::class, 'index']);
+// Route for the general search page
+Route::get('/result', [ResultController::class, 'index'])->name('search.index');
+
+// Route for detailed hostel results based on search parameters
+Route::get('/result', [ResultController::class, 'allHostels']);
+
+Route::get('/result', [ResultController::class, 'searchHostel'])->name('search.result');
+
+
 
 
 

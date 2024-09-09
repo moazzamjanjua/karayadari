@@ -32,7 +32,7 @@
 
                 <div class="welcome-text" id="welcome-text"
                     style="position: absolute; top: 50%; left: 35%; transform: translate(-50%, -50%) scale(1.5); color: white; font-size: 20px; z-index: 1000;">
-                    Search Results<br>
+                    <br> Search Resultsaaaaa<br>
                     <h1>Find Hostels</h1>
                     Search The Location And Select The Category To Find Hostels Accordingly.
                 </div>
@@ -52,26 +52,49 @@
 
         <!-- Navbar Section (moved here and animation removed) -->
         <div class="navbar" id="navbar-section"
-            style="position: relative; width: 90%; max-width: 1200px; margin: 0 auto; padding: 10px; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px; display: flex; justify-content: space-around; align-items: center; z-index: 1000; margin-top: 20px;">
-            <input type="text" placeholder="Desired City"
-                style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none;">
-            <select style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none;">
-                <option value="" disabled selected>Select Categories</option>
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                @endforeach
-            </select>
+    style="position: relative; width: 90%; max-width: 1200px; margin: 0 auto; padding: 10px; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px; display: flex; justify-content: space-around; align-items: center; z-index: 1000; margin-top: 20px;">
+    
+    <form method="GET" action="{{ route('search.result') }}" style="display: flex; gap: 10px; align-items: center; width: 100%;">
+        <!-- City Dropdown, populated from database -->
+        <select name="city" style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; flex: 1;">
+            <option value="" disabled selected>Select City</option>
+            @foreach($cities as $city)
+                <option value="{{ $city->id }}" {{ request('city') == $city->id ? 'selected' : '' }}>
+                    {{ $city->city_name }}
+                </option>
+            @endforeach
+        </select>
+    
+        <!-- Category Dropdown, populated from database -->
+        <select name="category" style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; flex: 1;">
+            <option value="" disabled selected>Select Categories</option>
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
+                    {{ $category->category_name }}
+                </option>
+            @endforeach
+        </select>
 
-            <div style="display: flex; align-items: center;">
-                <input type="range" id="price-range" min="1000" max="10000" step="500"
-                    style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none;">
-                <span id="range-value" style="margin-left: 10px; color: white; font-size: 16px;">1000</span>
-            </div>
-            <button
-                style="padding: 10px 20px; border-radius: 5px; border: none; background-color: #007BFF; color: white; font-size: 16px; cursor: pointer;">
-                Find Hostels
-            </button>
-        </div>
+        <!-- Area Input Field -->
+        <select name="area" style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; flex: 1;">
+
+        <option value="" disabled selected>Select Area</option>
+            @foreach($areas as $area)
+                <option value="{{ $area->id }}" {{ request('area') == $area->id ? 'selected' : '' }}>
+                    {{ $area->area_name }}
+                </option>
+            @endforeach
+            style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; flex: 1;">
+            </select>
+        <!-- Submit Button -->
+        <button type="submit"
+            style="padding: 10px 20px; border-radius: 5px; border: none; background-color: #007BFF; color: white; font-size: 16px; cursor: pointer;">
+            Find Hostels
+        </button>
+    </form>
+</div>
+
+
         <!-- End of Navbar Section -->
 
 
@@ -164,25 +187,25 @@
         @include('frontend.layouts.footer')
 
         <script>
-            window.addEventListener('load', function () {
-                const priceRange = document.getElementById('price-range');
-                const rangeValue = document.getElementById('range-value');
-                const welcomeText = document.getElementById('welcome-text');
+   window.addEventListener('load', function () {
+ 
 
-                // Set initial value of the range to the minimum
-                priceRange.value = priceRange.min;
-                rangeValue.textContent = priceRange.value;
+    // Set a smooth transition for transform and opacity over 3 seconds
+    const welcomeText = document.getElementById('welcome-text');
+    welcomeText.style.transition = 'transform 2s ease-in-out, opacity 3s ease-in-out';
 
-                // Animate the welcome text
-                welcomeText.style.transform = 'translate(-50%, -50%) scale(1)';
-                welcomeText.style.opacity = '1';
+    // Animate the welcome text (smooth and 3 seconds duration)
+    welcomeText.style.transform = 'translate(-50%, -50%) scale(1)';
+    welcomeText.style.opacity = '1';
 
-                // Update the range value display on input
-                priceRange.addEventListener('input', function () {
-                    rangeValue.textContent = this.value;
-                });
-            });
-        </script>
+    // Update the range value display on input
+    priceRange.addEventListener('input', function () {
+        rangeValue.textContent = this.value;
+    });
+});
+
+</script>
+
 
 
 
