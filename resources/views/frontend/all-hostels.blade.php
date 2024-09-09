@@ -84,7 +84,7 @@
         }
 
         .hostel-card:hover .hostel-details h5 {
-            color: red; /* Change the title color on hover */
+            color: #007bff; /* Change the title color on hover */
         }
 
         .hostel-card:hover .hostel-details p {

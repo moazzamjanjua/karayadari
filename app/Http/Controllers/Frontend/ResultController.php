@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\areas;
+use App\Models\CategoryList;
+use App\Models\cities;
 use App\Http\Controllers\Controller;
 use App\Models\Owner\Hostels;
-use App\Models\CategoryList;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Review;
+use App\Models\Review;
+
+
+
 
 class ResultController extends Controller
 {
-    //
+
     public function index()
     {
 
@@ -22,9 +27,9 @@ class ResultController extends Controller
 
         // Fetch best hostels
         $bestHostels = Hostels::where('best_hostel', 1)->take(6)->get();
-        
 
 
+   
         // IDs 1 aur 2 ko match karte hue categories fetch kar rahe hain
         $categories = CategoryList::all();
 
@@ -34,20 +39,21 @@ class ResultController extends Controller
 
     public function allHostels(Request $request)
     {
+
         $selectedCategory = $request->query('category');
         $view = $request->query('view', 'all'); // Default view is 'all'
         $sort = $request->query('sort', 'date'); // Default sort by date
-    
+
         // Initialize the query to fetch hostels
         $query = Hostels::query();
-    
+
         // Filter by category if selected
         if ($selectedCategory) {
             $query->whereHas('category', function ($q) use ($selectedCategory) {
                 $q->where('category_name', $selectedCategory);
             });
         }
-    
+
         // Filter by view type
         if ($view === 'featured-hostel') {
             $query->where('featured_hostel', 1);
@@ -57,24 +63,67 @@ class ResultController extends Controller
         } elseif ($view === 'best-hostels') {
             $query->where('best_hostel', 1);
         }
-    
+
         // Sort hostels
         if ($sort == 'date') {
             $query->orderBy('created_at', 'desc');
         }
-    
+
         // Paginate results (10 per page)
         $hostels = $query->paginate(10);
-    
+
         // Get categories to display in the view
         $categories = CategoryList::all();
-    
+
         // Calculate average rating for each hostel
         foreach ($hostels as $hostel) {
             $hostel->reviews_avg_rating = Review::where('hostel_id', $hostel->id)->avg('rating');
         }
-    
+
         // Pass data to the view
-        return view('frontend.all-hostels', compact('hostels', 'categories', 'view', 'selectedCategory'));
+        return view('frontend.result', compact('hostels', 'categories', 'view', 'selectedCategory'));
     }
+    public function searchHostel(Request $request)
+    {
+
+
+        $selectedCategory = $request->query('category');
+        $selectedPrice = $request->query('hostel_price'); // Hostel price ke liye alag variable
+        $selectedCity = $request->query('city'); // City ke liye alag variable
+
+        $query = Hostels::query();
+
+        // Filter by city if provided (partial match using LIKE)
+        if ($request->filled('city')) {
+            $query->where('city', 'LIKE', '%' . $selectedCity . '%');
+        }
+
+        // Filter by hostel_price if provided
+        if ($request->filled('hostel_price')) {
+            $query->where('hostel_price', '<=', $selectedPrice);
+        }
+
+        // Filter by category if provided
+        if ($selectedCategory) {
+            $query->whereHas('category', function ($q) use ($selectedCategory) {
+                $q->where('category_name', $selectedCategory);
+            });
+        }
+
+        // Paginate results (10 per page)
+        $hostels = $query->paginate(10);
+
+        // Calculate average rating for each hostel
+        foreach ($hostels as $hostel) {
+            $hostel->reviews_avg_rating = Review::where('hostel_id', $hostel->id)->avg('rating');
+        }
+        $categories = CategoryList::all();
+        $cities = cities::all();
+        $areas = areas::all();
+
+        // Pass data to the view
+        return view('frontend.result', compact('hostels','cities', 'areas','selectedCategory', 'selectedPrice', 'selectedCity', 'categories'));
+    }
+
+
 }

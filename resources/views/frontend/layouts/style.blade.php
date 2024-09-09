@@ -52,8 +52,9 @@
 }
 .header-top{
     width: 100%;
-    height: 17%;
-    background-color: white;
+    height: 20%;
+    z-index: 2000; /* Higher than the welcome text */
+    background-color: white; /* Ensure the header has a solid background */
     position: fixed;
 }
 
@@ -214,6 +215,100 @@ $(document).ready(function(){
   });
 });
 </script>
+
+<style>
+        .hostel-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .hostel-image-container {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            overflow: hidden;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .hostel-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hostel-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
+
+        .pagination .page-link {
+            color: #007bff;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .category_verified_container {
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .categoty_hostel {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .verified_tag {
+            width: 140px;
+            height: 150px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .hostel-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add a deeper shadow on hover */
+            transform: translateY(-5px); /* Slightly lift the card */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .hostel-card:hover .hostel-details h5 {
+            color: #007bff; /* Change the title color on hover */
+        }
+
+        .hostel-card:hover .hostel-details p {
+            color: #333; /* Darken the paragraph text on hover */
+        }
+
+        .hostel-card:hover .price-ribbon {
+            background-color: #0056b3; /* Darken the price ribbon on hover */
+        }
+    </style>
+
 
 
 
