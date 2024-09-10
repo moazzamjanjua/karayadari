@@ -107,7 +107,7 @@ Route::put('/owner/update', [OwnerController::class, 'update'])->name('owner.upd
 
 //admin 
 Route::get('/admin', [adminController::class, 'admin'])->name('admindashboard.index');
-;
+
 
 
 Route::get('/admin/profile', [profileController::class, 'profile']);
@@ -132,10 +132,9 @@ Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->na
 
 // routes/web.php
 // Route for the general search page
-Route::get('/result', [ResultController::class, 'index'])->name('search.index');
 
 // Route for detailed hostel results based on search parameters
-Route::get('/result', [ResultController::class, 'allHostels']);
+
 
 Route::get('/result', [ResultController::class, 'searchHostel'])->name('search.result');
 
