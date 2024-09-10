@@ -32,7 +32,7 @@
 
                 <div class="welcome-text" id="welcome-text"
                     style="position: absolute; top: 50%; left: 35%; transform: translate(-50%, -50%) scale(1.5); color: white; font-size: 20px; z-index: 1000;">
-                    <br> Search Resultsaaaaa<br>
+                    <br> Search Result<br>
                     <h1>Find Hostels</h1>
                     Search The Location And Select The Category To Find Hostels Accordingly.
                 </div>
@@ -59,7 +59,7 @@
         <select name="city" style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; flex: 1;">
             <option value="" disabled selected>Select City</option>
             @foreach($cities as $city)
-                <option value="{{ $city->id }}" {{ request('city') == $city->id ? 'selected' : '' }}>
+                <option value="{{ $city->city_name }}" {{ request('city') == $city->city_name ? 'selected' : '' }}>
                     {{ $city->city_name }}
                 </option>
             @endforeach
@@ -69,7 +69,7 @@
         <select name="category" style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; flex: 1;">
             <option value="" disabled selected>Select Categories</option>
             @foreach($categories as $category)
-                <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
+                <option value="{{ $category->category_name }}" {{ request('category') == $category->category_name ? 'selected' : '' }}>
                     {{ $category->category_name }}
                 </option>
             @endforeach
@@ -80,7 +80,7 @@
 
         <option value="" disabled selected>Select Area</option>
             @foreach($areas as $area)
-                <option value="{{ $area->id }}" {{ request('area') == $area->id ? 'selected' : '' }}>
+                <option value="{{ $area->area_name }}" {{ request('area') == $area->area_name ? 'selected' : '' }}>
                     {{ $area->area_name }}
                 </option>
             @endforeach
@@ -115,12 +115,9 @@
                         @elseif($selectedCategory)
                             All {{ $selectedCategory }} ({{ $hostels->total() }})
                         @else
-                            All Hostels
+                           
                         @endif
                     </h1>
-
-                    <!-- Filter Buttons -->
-                    <!-- Add your filter buttons here if needed -->
 
                     @if($hostels->isNotEmpty())
                         @foreach($hostels as $hostel)
@@ -186,7 +183,7 @@
 
         @include('frontend.layouts.footer')
 
-        <script>
+    <script>
    window.addEventListener('load', function () {
  
 
