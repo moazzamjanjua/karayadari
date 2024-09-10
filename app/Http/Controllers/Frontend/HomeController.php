@@ -64,21 +64,32 @@ class HomeController extends Controller
         if (!Auth::check()) {
             return response()->json(['login_required' => true]);
         }
-
+    
+        // Check if the user has already submitted a review for this hostel
+        $existingReview = Review::where('hostel_id', $id)
+                                ->where('user_id', Auth::id())
+                                ->first();
+    
+        if ($existingReview) {
+            return response()->json(['error' => 'You have already submitted a review for this hostel.']);
+        }
+    
         $request->validate([
             'rating' => 'required|integer|between:1,5',
             'review' => 'required|string|max:500',
         ]);
-
+    
+        // Create new review
         Review::create([
             'hostel_id' => $id,
             'user_id' => Auth::id(),
             'rating' => $request->rating,
             'review' => $request->review,
         ]);
-
+    
         return response()->json(['success' => true]);
     }
+    
     public function allHostels(Request $request)
     {
         $selectedCategory = $request->query('category');

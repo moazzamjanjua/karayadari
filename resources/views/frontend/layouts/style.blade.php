@@ -69,102 +69,101 @@
     transform: rotate(45deg);
     z-index: -1;
 }
-
-.image-container, .best_image-container ,.images-container, .product-tab {
+.image-container, .best_image-container, .images-container, .product-tab {
     position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.image-container img, .best_image-container img, .images-container img, .product-tab img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+}
+
+.image-container:hover img, .best_image-container:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+.image-container:hover, .best_image-container:hover {
+    transform: scale(1.02); /* Slight zoom to the container */
+}
+
+/* Optional: For a more dynamic hover effect, you can add a filter */
+.image-container:hover img, .best_image-container:hover img {
+    filter: brightness(1.1); /* Brightens the image on hover */
+}
+
+.luxury-button-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.luxury-button {
+    background: linear-gradient(45deg, #ff6b6b, #f06595);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.luxury-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.luxury-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.image-container {
+    width: 250px;
+    height: 250px;
     overflow: hidden;
     margin: 0 auto;
 }
 
-.image-container img, .best_image-container img , .images-container img  , .product-tab img{
+.image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
 }
-        .luxury-button-div {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            /* Full screen height */
-            background-color: #f0f0f0;
-        }
 
-        .luxury-button {
-            background: linear-gradient(45deg, #ff6b6b, #f06595);
-            border: none;
-            border-radius: 50px;
-            padding: 15px 30px;
-            color: white;
-            font-size: 1.2em;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-align: center;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
+.best_image-container {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+}
 
-        .luxury-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
+.best_image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
 
-        .luxury-button:active {
-            transform: scale(0.95);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav-link {
-            text-decoration: none;
-        }
-
-        .image-container {
-            width: 250px;
-            /* Set your desired width */
-            height: 250px;
-            /* Set your desired height */
-            overflow: hidden;
-            /* Ensures that images larger than the container are cropped */
-            margin: 0 auto;
-            /* Center the container horizontally if needed */
-        }
-
-        .image-container img {
-            width: 100%;
-            /* Ensures the image takes the full width of the container */
-            height: 100%;
-            /* Ensures the image takes the full height of the container */
-            object-fit: cover;
-            /* Maintains aspect ratio without distortion, cropping the excess */
-            border-radius: 10px;
-            /* Optional: Adds rounded corners to images */
-        }
-
-        .best_image-container {
-            width: 200px;
-            /* Set your desired width */
-            height: 200px;
-            /* Set your desired height */
-            overflow: hidden;
-            /* Ensures that images larger than the container are cropped */
-            margin: 0 auto;
-            /* Center the container horizontally if needed */
-        }
-
-
-        .best_image-container img {
-            width: 100%;
-            /* Ensures the image takes the full width of the container */
-            height: 100%;
-            /* Ensures the image takes the full height of the container */
-            object-fit: cover;
-            /* Maintains aspect ratio without distortion, cropping the excess */
-            border-radius: 10px;
-            /* Optional: Adds rounded corners to images */
-        }
 
         .view-all-button{
             width: 100%;

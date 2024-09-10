@@ -497,7 +497,8 @@
 </div>
 
 <div class="reviews-section">
-                                                         
+ 
+
                                                       
 <form id="new-review-form" method="POST" action="{{ route('reviews.store', $hostel->id) }}" class="new-review-form">
 @csrf
@@ -766,6 +767,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Reload the page after the popup is closed
                     location.reload();
                 });
+            } else if (data.error) {
+                // Show a SweetAlert2 error popup if review is already submitted
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: data.error, // The error message from the server
+                    showConfirmButton: true,
+                });
             }
         })
         .catch(error => {
@@ -773,33 +782,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    const showMoreButton = document.getElementById('show-more-reviews');
-    const allReviews = document.querySelectorAll('.spr-review');
-    let reviewsShown = 4; // Initially show 4 reviews
-
-    if (showMoreButton) {
-        showMoreButton.addEventListener('click', function () {
-            // Show the next 4 reviews
-            for (let i = reviewsShown; i < reviewsShown + 4 && i < allReviews.length; i++) {
-                allReviews[i].style.display = 'block';
-            }
-
-            // Update the number of reviews shown
-            reviewsShown += 4;
-
-            // If all reviews are shown, hide the button
-            if (reviewsShown >= allReviews.length) {
-                showMoreButton.style.display = 'none';
-            }
-        });
-    }
-});
-
-
 
 
 
