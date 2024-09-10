@@ -26,7 +26,7 @@ class HomeController extends Controller
         $bestHostels = Hostels::where('best_hostel', 1)->take(6)->get();
         ;
 
-
+        
         // IDs 1 aur 2 ko match karte hue categories fetch kar rahe hain
         $categories = CategoryList::all();
 
