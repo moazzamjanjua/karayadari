@@ -36,10 +36,10 @@
                 <!-- Animated Navbar -->
                 <div class="navbar" id="animated-navbar"
     style="position: absolute; gap: 10px; bottom: 0; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; padding: 10px; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px; display: flex; justify-content: space-around; align-items: center; opacity: 0; transition: bottom 1s ease-in-out, opacity 1s ease-in-out; z-index: 1000;">
-    
+    <form>
     <!-- City Dropdown, populated from database -->
-    <select name="city" style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; flex: 1;">
-            <option value="" disabled selected>Select City</option>
+    <select name="city" style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; flex: 1;" required>
+            <option value="" disabled selected >Select City</option>
             @foreach($cities as $city)
                 <option value="{{ $city->id }}" >
                     {{ $city->city_name }}
@@ -57,17 +57,16 @@
             {{ $area->area_name }}
         </option>
     @endforeach
-    style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; flex: 1;">
     </select>
            
     <!-- Category Dropdown, populated from database -->
-    <select name="category" style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; flex: 1;">
+    <select name="category" style="padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; flex: 1;" >
     <option value="" disabled selected>Select Category</option>
         @foreach($categories as $category)
             <option value="{{ $category->id }}">{{ $category->category_name }}</option>
         @endforeach
     </select>
-
+    </form>
     <!-- Find Hostels Button -->
     <a href="{{ route('search.result') }}">
         <button style="padding: 10px 20px; border-radius: 5px; border: none; background-color: #007BFF; color: white; font-size: 16px; cursor: pointer;">

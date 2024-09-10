@@ -3,6 +3,8 @@
 namespace App\Models\Owner;
 
 use App\Models\CategoryList;
+use App\Models\cities;
+use App\Models\areas;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,5 +34,16 @@ class Hostels extends Model
     {
         return $this->belongsTo(CategoryList::class, 'category_name', 'category_name');
     }
+
+    public function city()
+    {
+        return $this->belongsTo(cities::class, 'city', 'id'); // 'city' is the foreign key in the hostels table, referencing 'id' in the cities table
+    }
+    
+    public function area()
+    {
+        return $this->belongsTo(areas::class, 'area', 'id'); // 'area' is the foreign key in the hostels table, referencing 'id' in the areas table
+    }
+    
     
 }
