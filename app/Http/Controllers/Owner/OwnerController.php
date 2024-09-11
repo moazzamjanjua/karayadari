@@ -37,12 +37,25 @@ class OwnerController extends Controller
             'owner_email' => 'required|email',
             'password' => 'required',
         ]);
-
-        if (Auth::guard('owner')->attempt($credentials)) { // Use 'owner' guard for authentication
-            return redirect()->route('owner.home');
+    
+        // Attempt to log in using the 'owner' guard
+        if (Auth::guard('owner')->attempt($credentials)) {
+            return redirect()->route('owner.home')->with('success', 'Login successful');
+        } else {
+            // Check if the email exists in the database
+            $emailExists = Owner::where('owner_email', $request->owner_email)->exists();
+    
+            if (!$emailExists) {
+                // If the email does not exist
+                return back()->with('error', 'Your email is not correct');
+            } else {
+                // If the email exists but password is incorrect
+                return back()->with('error', 'Your password does not match');
+            }
         }
-
     }
+    
+    
 
     public function ownerdashboard()
     {

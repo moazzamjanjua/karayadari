@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Form</title>
+    <title>Owner Signup Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +40,12 @@
             border-radius: 4px;
         }
 
+        .alert {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
         button {
             width: 100%;
             padding: 10px;
@@ -71,16 +77,44 @@
 <body>
     <div class="container">
         <h2>Signup</h2>
-        <form action="{{route('ownerSave')}}" method="post">
-        @csrf
-        <input class="form-control" name="owner_name" type="text" placeholder="Name">
-        <input class="form-control" name="owner_email" type="text" placeholder="Email">
-        <input class="form-control" name="owner_number" type="text" placeholder="Number">
-        <input class="form-control" name="password" type="text" placeholder="Password">
-        <input class="form-control" name="password_confirmation" type="text" placeholder="Confirm Password">
+        <form action="{{ route('ownerSave') }}" method="post">
+            @csrf
+
+            <!-- Name Field -->
+            <input class="form-control" name="owner_name" type="text" placeholder="Name" value="{{ old('owner_name') }}">
+            @error('owner_name')
+                <div class="alert">{{ $message }}</div>
+            @enderror
+
+            <!-- Email Field -->
+            <input class="form-control" name="owner_email" type="email" placeholder="Email" value="{{ old('owner_email') }}">
+            @error('owner_email')
+                <div class="alert">{{ $message }}</div>
+            @enderror
+
+            <!-- Number Field -->
+            <input class="form-control" name="owner_number" type="text" placeholder="Number" value="{{ old('owner_number') }}">
+            @error('owner_number')
+                <div class="alert">{{ $message }}</div>
+            @enderror
+
+            <!-- Password Field -->
+            <input class="form-control" name="password" type="password" placeholder="Password">
+            @error('password')
+                <div class="alert">{{ $message }}</div>
+            @enderror
+
+            <!-- Confirm Password Field -->
+            <input class="form-control" name="password_confirmation" type="password" placeholder="Confirm Password">
+            @error('password_confirmation')
+                <div class="alert">{{ $message }}</div>
+            @enderror
+
+            <!-- Submit Button -->
             <button type="submit">Signup</button>
         </form>
-        <p>Already have an account? <a href="../owner-login">Login</a></p>
+
+        <p>Already have an account? <a href="{{ route('owner-login') }}">Login</a></p>
     </div>
 </body>
 </html>

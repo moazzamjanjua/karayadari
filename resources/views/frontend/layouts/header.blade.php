@@ -203,7 +203,7 @@
                 </a>
             </div>
             <div>
-                <a class="register" href="../owner/login" rel="nofollow" title="Owner Account">
+                <a class="register" href="{{route('owner-login')}}" rel="nofollow" title="Owner Account">
                     <i class="fa fa-user"></i>
                     <span>Owner</span>
                 </a>

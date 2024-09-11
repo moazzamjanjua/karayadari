@@ -69,17 +69,54 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <form action="{{ route('ownerMatch') }}" method="post">
-            @csrf
-            <label for="login-email">Email</label>
-            <input type="email" id="login-email" name="owner_email" required>
-            <label for="login-password">Password</label>
-            <input type="password" id="login-password" name="password" required>
-            <button type="submit">Login</button>
-        </form>
-        <p>Don't have an account? <a href="{{route('become-owner')}}">Create Account</a></p>
-    </div>
+<div class="container">
+                        <h1 class="text-center title-page">Owner Log In</h1>
+                        <div class="login-form">
+                            <form id="owner-form" action="{{ route('ownerMatch') }}" method="post">
+                                @csrf
+                                <div>
+                                    <input type="hidden" name="back" value="my-account">
+                                    <div class="form-group no-gutters">
+                                        <input class="form-control" name="owner_email" type="email"
+                                            placeholder="Enter Your Email">
+                                    </div>
+
+                                    @if(session('error') && session('error') == 'Your email is not correct')
+                                        <div class="alert alert-danger" style="color: red;">{{ session('error') }}</div>
+                                    @endif
+
+                                    <div class="form-group no-gutters">
+                                        <div class="input-group js-parent-focus">
+                                            <input class="form-control js-child-focus js-visible-password"
+                                                name="password" type="password" value=""
+                                                placeholder="Enter Your Password">
+                                        </div>
+                                    </div>
+
+                                    @if(session('error') && session('error') == 'Your password does not match')
+                                        <div class="alert alert-danger" style="color: red;">{{ session('error') }}</div>
+                                    @endif
+
+                                  
+                                </div>
+                                <div class="clearfix">
+                                    <div class="text-center no-gutters">
+                                        <input type="hidden" name="submitLogin" value="1">
+                                        <button class="btn btn-primary" data-link-action="sign-in" type="submit">
+                                            Sign in
+                                        </button>
+                                        <p>Don't have an Account?<a href="{{ route('become-owner') }}" rel="nofollow">
+                                            Create Account?
+                                        </a></p>
+                                    </div>
+                                </div>
+                            </form>
+
+                            @if(session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+
+                        </div>
+                    </div>
 </body>
 </html>
