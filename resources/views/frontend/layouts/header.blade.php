@@ -1,47 +1,40 @@
 <header>
-        <!-- header left mobie -->
-        <div class="header-mobile d-md-none">
-            <div class="mobile hidden-md-up text-xs-center d-flex align-items-center justify-content-around">
-           
-                <!-- menu left -->
-                <div id="mobile_mainmenu" class="item-mobile-top">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </div>
-
-                <!-- logo -->
-                <div class="mobile-logo">
-                    <a href="index-2.html">
-                        <img class="logo-mobile img-fluid" src="/frontend/img/home/logo-mobie.png" alt="Prestashop_Furnitica">
-                    </a>
-                </div>
-
-                <!-- menu right -->
-                <div class="mobile-menutop" data-target="#mobile-pagemenu">
-                    <i class="zmdi zmdi-more"></i>
-                </div>
-            </div>
-
-            <!-- search -->
-            <div id="mobile_search" class="d-flex">
-                <div id="mobile_search_content">
-                    <form method="get" action="#">
-                        <input type="text" name="s" value="" placeholder="Search">
-                        <button type="submit">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </form>
-                </div>
-                <div class="desktop_cart">
-                    <div class="blockcart block-cart cart-preview tiva-toggle">
-                        <div class="header-cart tiva-toggle-btn">
-                            <span class="cart-products-count">1</span>
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
+    <!-- Mobile menu button and logo -->
+    <div class="mobile-header d-block d-md-none">
+        <div class="mobile-menu-icon">
+            <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
+        <div class="mobile-logo">
+            <a href="/">
+                <img class="img-fluid" src="/frontend/img/home/logo.png" alt="logo">
+            </a>
+        </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile_mainmenu_content">
+        <ul class="mobile-menu">
+            <li class="{{ request()->is('/') ? 'active' : '' }}">
+                <a href="/" class="parent">Home</a>
+            </li>
+            <li class="{{ request()->is('all-hostels*') ? 'active' : '' }}">
+                <a href="../all-hostels" class="parent">All Hostel</a>
+            </li>
+            <li class="{{ request()->is('blog*') ? 'active' : '' }}">
+                <a href="../blog" class="parent">Blog</a>
+            </li>
+            <!-- Add Hostel button -->
+            @if(auth()->guard('owner')->check())
+            <li>
+                <a href="{{ route('owner.home') }}" class="btn-add-hostel">Add Hostel</a>
+            </li>
+            @else
+            <li>
+                <a href="{{ route('owner-login') }}" class="btn-add-hostel">Add Hostel</a>
+            </li>
+            @endif
+        </ul>
+    </div>
 
         <!-- header desktop -->
         <div class="header-top">
@@ -63,8 +56,113 @@
                        background-color: #f0f0f0;
                      border-radius: 5px;
    }
+   
+
+   /* Mobile header styles */
+.mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.mobile-menu-icon {
+    font-size: 24px;
+    margin-left: 90%;
+    cursor: pointer;
+}
+
+.mobile-logo img {
+    height: 80px; /* Adjust as needed */
+    margin-top: -40px;
+}
+
+/* Mobile menu styles */
+#mobile_mainmenu_content {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 50px; /* Adjust based on the height of the mobile header */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    z-index: 1000; /* Ensure it appears on top */
+}
+
+#mobile_mainmenu_content.active {
+    display: block; /* Show when active */
+}
+
+.mobile-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu li {
+    border-bottom: 1px solid #ddd;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+.mobile-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Show menu when menu icon is clicked */
+#mobile_mainmenu_content.active {
+    display: block;
+}
+
+/* Header for desktop view */
+.header-top {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .header-top {
+        display: block;
+    }
+
+    #mobile_mainmenu_content {
+        display: none;
+    }
+
+    .mobile-header {
+        display: none;
+    }
+}
+
 
                     </style>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var menuIcon = document.querySelector('.mobile-menu-icon');
+        var mobileMenu = document.getElementById('mobile_mainmenu_content');
+        
+        menuIcon.addEventListener('click', function () {
+            // Toggle the visibility of the mobile menu
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                mobileMenu.style.display = 'none';
+            } else {
+                mobileMenu.classList.add('active');
+                mobileMenu.style.display = 'block';
+            }
+        });
+    });
+</script>
+
 
                     <!-- menu -->
                     <div class="main-menu col-sm-4 col-md-5 align-items-center justify-content-center navbar-expand-md">
@@ -146,13 +244,7 @@
                     <!-- search-->
                     <div id="search_widget" class="col-sm-6 col-md-5 align-items-center justify-content-end d-flex">
                         
-                    <!-- <form method="get" action="#">
-                            <input type="text" name="s" value="" placeholder="Search ..." class="ui-autocomplete-input" autocomplete="off">
-                            <button type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </form> -->
-                        <!-- acount  -->
+                   
                         <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
                         <div class="myaccount-title">
                 <a href="#acount" data-toggle="collapse" class="acount" style="display: flex; align-items: center;">
