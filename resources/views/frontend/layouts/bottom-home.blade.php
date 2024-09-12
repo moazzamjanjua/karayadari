@@ -408,11 +408,10 @@
                                             </span>
                                         </div>
                                         <div class="post-title">
-                                            <a href="../blog_detail">Lorem ipsum dolor sit amet</a>
+                                            <a href="../blog_detail">Royal Boys Hostel in Bahawalpur</a>
                                         </div>
                                         <div class="post-desc">
-                                            Lorem ipsum dolor sit amet, consecte adipis cing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna
+                                            Best Boys Hostel in Bahawalpur ! Are you looking for a nice and safety hostel in Bahwalpur.
                                         </div>
                                     </div>
                                 </div>
@@ -436,11 +435,10 @@
                                             </span>
                                         </div>
                                         <div class="post-title">
-                                            <a href="../blog_detail">Lorem ipsum dolor sit amet</a>
+                                            <a href="../blog_detail">Manhas Hostel in Bahawalpur</a>
                                         </div>
                                         <div class="post-desc">
-                                            Lorem ipsum dolor sit amet, consecte adipis cing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna
+                                            furnished Light Hostel in Bahwalpur are you looking for safe and affordable price room..
                                         </div>
                                     </div>
                                 </div>
