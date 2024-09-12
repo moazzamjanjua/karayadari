@@ -47,13 +47,20 @@
 
                                     <!-- Email Field -->
                                     <div class="form-group">
-                                        <input class="form-control" name="email" type="email" placeholder="Email"
+                                        <input class="form-control" name="email" type="email" placeholder="Enter Your Email"
                                             value="{{ old('email') }}">
                                         @error('email')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-
+                                 <!-- Country Field -->
+                                 <div class="form-group">
+                                        <input class="form-control" name="phone" type="text" placeholder="Enter Your Number"
+                                            value="{{ old('phone') }}">
+                                        @error('phone')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                     <!-- Password Field -->
                                     <div class="form-group position-relative">
                                         <input class="form-control" id="password" name="password" type="password"
@@ -70,14 +77,7 @@
                                         <span id="password-match-icon" class="password-icon"></span>
                                     </div>
 
-                                    <!-- Country Field -->
-                                    <div class="form-group">
-                                        <input class="form-control" name="country" type="text" placeholder="Country"
-                                            value="{{ old('country') }}">
-                                        @error('country')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+                                   
 
                                     <!-- Submit Button -->
                                     <div>

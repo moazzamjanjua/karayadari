@@ -12,7 +12,7 @@ class UsersController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'country' => 'required',
+            'number' => 'required',
             'password' => 'required|confirmed',
         ]);
     
