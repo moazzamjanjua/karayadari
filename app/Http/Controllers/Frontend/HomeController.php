@@ -126,6 +126,8 @@ class HomeController extends Controller
     
         // Get categories to display in the view
         $categories = CategoryList::all();
+        $cities = cities::all();
+        $areas = areas::all();
     
         // Calculate average rating for each hostel
         foreach ($hostels as $hostel) {
@@ -133,7 +135,7 @@ class HomeController extends Controller
         }
     
         // Pass data to the view
-        return view('frontend.all-hostels', compact('hostels', 'categories', 'view', 'selectedCategory'));
+        return view('frontend.all-hostels', compact('hostels', 'categories', 'view', 'selectedCategory','cities','areas'));
     }
     
 

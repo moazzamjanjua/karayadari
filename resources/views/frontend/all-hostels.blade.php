@@ -78,29 +78,42 @@
         }
 
         .hostel-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add a deeper shadow on hover */
-            transform: translateY(-5px); /* Slightly lift the card */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            /* Add a deeper shadow on hover */
+            transform: translateY(-5px);
+            /* Slightly lift the card */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transition for hover effect */
         }
 
         .hostel-card:hover .hostel-details h5 {
-            color: #007bff; /* Change the title color on hover */
+            color: #007bff;
+            /* Change the title color on hover */
         }
 
         .hostel-card:hover .hostel-details p {
-            color: #333; /* Darken the paragraph text on hover */
+            color: #333;
+            /* Darken the paragraph text on hover */
         }
 
         .hostel-card:hover .price-ribbon {
-            background-color: #0056b3; /* Darken the price ribbon on hover */
+            background-color: #0056b3;
+            /* Darken the price ribbon on hover */
         }
     </style>
 
-    <!-- Main content -->
+
     <div id="wrapper-site">
         <div id="content-wrapper" class="full-width">
+
             <div id="main">
+
+
                 <div class="container">
+
+                    <!-- Main content -->
+                    @include('frontend.layouts.nav-bar')
+
                     <!-- Dynamically Set the Heading Based on the Query Parameter -->
                     @php
                         $view = request('view', 'all');
@@ -110,7 +123,7 @@
                         @if($view === 'featured-hostel')
                             All Featured Hostels ({{ $hostels->total() }})
                         @elseif($view === 'verified-hostels')
-                           Verified Hostels ({{ $hostels->total() }})
+                            Verified Hostels ({{ $hostels->total() }})
                         @elseif($view === 'best-hostels')
                             All Best Hostels ({{ $hostels->total() }})
                         @elseif($selectedCategory)
@@ -133,7 +146,8 @@
                                     <!-- Hostel Image -->
                                     <div class="hostel-image-container">
                                         @if($hostel->hostel_front_image)
-                                            <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}" alt="Hostel Image">
+                                            <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
+                                                alt="Hostel Image">
                                         @else
                                             <p>No image available</p>
                                         @endif
@@ -143,7 +157,8 @@
                                     <div class="hostel-details">
                                         <h5>{{ $hostel->hostel_name }}</h5>
                                         <p><strong>Detail:</strong> {{ $hostel->hostel_detail }}</p>
-                                        <p>Average Rating: {{ round($hostel->reviews_avg_rating ?? 0, 1) ?: 'No ratings yet' }}</p>
+                                        <p>Average Rating: {{ round($hostel->reviews_avg_rating ?? 0, 1) ?: 'No ratings yet' }}
+                                        </p>
                                         <p><strong>Number:</strong> {{ $hostel->owner_number }}</p>
                                         <p>{{ Str::limit($hostel->hostel_description, 150) }}</p>
                                     </div>
@@ -151,7 +166,8 @@
                                     <div class="category_verified_container">
                                         <p class="categoty_hostel">{{ $hostel->category_name }}</p>
                                         @if($hostel->is_verified)
-                                            <img src="{{ asset('storage/verified_hostel/verified_tag.png') }}" class="verified_tag" alt="Verified Hostel">
+                                            <img src="{{ asset('storage/verified_hostel/verified_tag.png') }}" class="verified_tag"
+                                                alt="Verified Hostel">
                                         @endif
                                     </div>
                                 </div>
