@@ -312,4 +312,37 @@ $(document).ready(function(){
 
 
 
+
+
+
+
+
+<style>
+    @media (max-width: 768px) {
+    /* Mobile View for Navbar */
+    .navbar {
+        flex-direction: column; /* Stack elements vertically */
+        left: 5%; /* Adjust position for smaller screens */
+        width: 90%; /* Ensure navbar takes full width on mobile */
+        padding: 15px;
+        right: 5%; /* Add padding for better spacing */
+    }
+
+    /* Adjust form layout */
+    form {
+        flex-direction: column; /* Stack form elements vertically */
+        gap: 15px; /* Add spacing between form elements */
+    }
+
+    /* Make dropdowns and buttons take full width */
+    select, button {
+        width: 100%;
+    }
+}
+
+  </style>
+
+
+
+
 </head>
