@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\Api\\UsersController' => $baseDir . '/app/Http/Controllers/Api/UsersController.php',
     'App\\Http\\Controllers\\CitiesController' => $baseDir . '/app/Http/Controllers/CitiesController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\Frontend\\BloggController' => $baseDir . '/app/Http/Controllers/Frontend/BloggController.php',
@@ -15,6 +16,7 @@ return array(
     'App\\Http\\Controllers\\Frontend\\ContactusController' => $baseDir . '/app/Http/Controllers/Frontend/ContactusController.php',
     'App\\Http\\Controllers\\Frontend\\HomeController' => $baseDir . '/app/Http/Controllers/Frontend/HomeController.php',
     'App\\Http\\Controllers\\Frontend\\ResultController' => $baseDir . '/app/Http/Controllers/Frontend/ResultController.php',
+    'App\\Http\\Controllers\\Frontend\\UsersController' => $baseDir . '/app/Http/Controllers/Frontend/UsersController.php',
     'App\\Http\\Controllers\\Owner\\HostelsController' => $baseDir . '/app/Http/Controllers/Owner/HostelsController.php',
     'App\\Http\\Controllers\\Owner\\OwnerController' => $baseDir . '/app/Http/Controllers/Owner/OwnerController.php',
     'App\\Http\\Controllers\\Owner\\RoomController' => $baseDir . '/app/Http/Controllers/Owner/RoomController.php',

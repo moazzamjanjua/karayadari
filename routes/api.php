@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,10 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/login', function(){
-    return "Hellow this is get";
-});
 
-Route::post('/login' , function(){
- return response()->json("successfully hit the api");
+Route::get('/test', function(){
+   p('Working');
 });
+Route::post('user/register' , 'App\Http\Controllers\Api\UsersController@store');

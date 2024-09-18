@@ -31,6 +31,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'f57d353b41eb2e234b26064d63d8c5dd' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'b6185d03aa7d3c2139a429dcadd32265' => __DIR__ . '/../..' . '/app/Http/Helper/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -458,6 +459,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Api\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/UsersController.php',
         'App\\Http\\Controllers\\CitiesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CitiesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Frontend\\BloggController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/BloggController.php',
@@ -465,6 +467,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Controllers\\Frontend\\ContactusController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ContactusController.php',
         'App\\Http\\Controllers\\Frontend\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/HomeController.php',
         'App\\Http\\Controllers\\Frontend\\ResultController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ResultController.php',
+        'App\\Http\\Controllers\\Frontend\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/UsersController.php',
         'App\\Http\\Controllers\\Owner\\HostelsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Owner/HostelsController.php',
         'App\\Http\\Controllers\\Owner\\OwnerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Owner/OwnerController.php',
         'App\\Http\\Controllers\\Owner\\RoomController' => __DIR__ . '/../..' . '/app/Http/Controllers/Owner/RoomController.php',
