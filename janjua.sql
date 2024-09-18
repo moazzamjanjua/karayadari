@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2024 at 12:41 PM
+-- Generation Time: Sep 18, 2024 at 07:14 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -56,7 +56,17 @@ CREATE TABLE `areas` (
 
 INSERT INTO `areas` (`id`, `area_name`, `city_id`, `created_at`, `updated_at`) VALUES
 (5, 'Riaz Colony', 1, '2024-05-30 19:00:00', '2024-05-30 19:00:00'),
-(6, 'One Unit Chock', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43');
+(6, 'One Unit Chock', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43'),
+(7, 'Uni chowk', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43'),
+(8, 'Faisal Colony', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43'),
+(9, 'Farid gate', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43'),
+(10, 'Sadar Pully', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43'),
+(11, 'Bahawal Chowk', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43'),
+(12, 'Shadab Colony', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43'),
+(13, 'Commercial Area', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43'),
+(14, 'Settlite Town', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43'),
+(15, 'Husseni Chowk', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43'),
+(16, 'Mala galli', 1, '2024-05-30 19:00:00', '2024-05-31 09:56:43');
 
 -- --------------------------------------------------------
 
@@ -162,23 +172,23 @@ CREATE TABLE `hostels` (
 --
 
 INSERT INTO `hostels` (`id`, `owner_id`, `owner_number`, `owner_email`, `hostel_name`, `hostel_address`, `city`, `area`, `hostel_location`, `hostel_front_image`, `hostel_detail`, `capacity`, `email`, `num_rooms`, `wifi`, `security`, `water_supply`, `created_at`, `updated_at`, `category_name`, `slug`, `hostel_price`, `best_hostel`, `is_verified`, `is_approved`, `top_rated_hostel`, `featured_hostel`, `homepage`, `hostel_video`) VALUES
-(3, 1, NULL, NULL, 'MOAZZAM HOSTEL', 'University Chowk Bahawalpur', 'Bahwalpur', NULL, 'University Chowk Bahawalpur', '1725444533_8.jpg', 'near to abbasia campus', 12, 'coccoc6588@gmail.com', 23, '1', '1', '1', '2024-08-07 03:13:15', '2024-09-04 05:08:53', 'Boys Hotel', 'moazzam-hostel', 2000, 1, 1, 0, 1, 1, 0, '1724836955_download.mp4'),
-(4, 1, NULL, NULL, 'JAWAD HOSTEL', 'rw', 'Bahwalpur', NULL, 'kiu', '1724062148_ashley-byrd-yzkTCP4uc9E-unsplash.jpg', 'amazing hostel', 12, 'Mahnoor6588@gmail.com', 1313, '1', '1', '1', '2024-08-07 03:19:07', '2024-08-28 04:23:22', 'Boys Hostel', 'jawad-hostel', 4000, 1, 1, 0, 1, 1, 0, NULL),
-(5, 1, NULL, NULL, 'Nimra HOSTEL', 'University Chowk Bahawalpur', 'Bahwalpur', NULL, 'University Chowk Bahawalpur', '1723019182.png', 'near to old campus', 32, 'Rimsha6588@gmail.com', 12, '1', '1', '1', '2024-08-07 03:26:22', '2024-08-24 08:23:14', 'Girs Hostel', 'nimra-hostel', 2500, 1, 1, 0, 1, 1, 0, NULL),
-(21, 1, NULL, NULL, 'KIRAN  GIRLS HOSTEL', 'univrsity chowk bahawalpur', 'Bahwalpur', NULL, 'bahawalpur', '1724659066_uwp4158565.jpeg', 'near  point place', 15, 'kiran6588@gmail.com', 5, '1', '1', '1', '2024-08-26 02:57:46', '2024-08-26 02:57:46', 'Girls Hostel', 'kiran--girls-hostel', 2500, 1, 1, 0, 1, 0, 0, '1724659066.mp4'),
-(22, 1, NULL, NULL, 'FATIMA HOSTAL', 'wbdwdfdfsd', 'Bahwalpur', NULL, 'sa', '1724921651_ashley-byrd-yzkTCP4uc9E-unsplash.jpg', 'sd', 32, 'coccoc6588@gmail.com', 35, '1', '1', '0', '2024-08-29 03:54:11', '2024-08-29 03:54:53', 'Girls Hostel', 'fatima-hostal', 3400, 0, 1, 0, 1, 0, 0, '1724921651.mp4'),
-(23, 1, '03086315926', 'coccoc6588@gmail.com', 'BUSHRA GIRL HOSTEL', 'hhhh', 'Bahwalpur', NULL, 'b', '1725286218_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:10:18', '2024-09-02 09:10:18', 'Girls Hostel', 'bushra-girl-hostel', 4700, 0, 0, 0, 1, 0, 0, '1725286218.mp4'),
-(24, 1, '03086315926', 'coccoc6588@gmail.com', 'ANUM GIRL HOSTEL', 'hhhh', 'Bahwalpur', NULL, 'b', '1725286232_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:10:32', '2024-09-02 09:10:32', 'Girls Hostel', 'anum-girl-hostel', 4700, 0, 0, 0, 1, 1, 0, '1725286232.mp4'),
-(25, 1, '03086315926', 'coccoc6588@gmail.com', 'MAHNOOR GIRL HOSTEL', 'hhhh', 'Bahwalpur', NULL, 'b', '1725286246_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:10:46', '2024-09-02 09:10:46', 'Girls Hostel', 'mahnoor-girl-hostel', 4700, 0, 1, 0, 1, 1, 0, '1725286246.mp4'),
-(26, 1, '03086315926', 'coccoc6588@gmail.com', 'SIMRAN GIRL HOSTEL', 'hhhh', 'Bahwalpur', NULL, 'b', '1725286261_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:11:01', '2024-09-02 09:11:01', 'Girls Hostel', 'simran-girl-hostel', 4700, 0, 0, 0, 0, 0, 0, '1725286261.mp4'),
-(27, 1, '03086315926', 'coccoc6588@gmail.com', 'KAIRA GIRL HOSTEL', 'hhhh', 'Bahwalpur', NULL, 'b', '1725286283_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:11:23', '2024-09-02 09:11:23', 'Girls Hostel', 'kaira-girl-hostel', 4700, 0, 1, 0, 0, 1, 0, '1725286283.mp4'),
-(28, 1, '03086315926', 'coccoc6588@gmail.com', 'MARYAM GIRL HOSTEL', 'hhhh', 'Bahwalpur', NULL, 'b', '1725286295_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:11:36', '2024-09-02 09:11:36', 'Girls Hostel', 'maryam-girl-hostel', 4700, 1, 1, 0, 0, 0, 0, '1725286295.mp4'),
-(29, 1, '03086315926', 'coccoc6588@gmail.com', 'HUMZA BOYS HOSTEL', 'universty chowk', 'Bahwalpur', NULL, NULL, '1725607068_lotus-design-n-print-zLT3VqWEgOQ-unsplash.jpg', 'open', NULL, NULL, 12, '1', '0', '0', '2024-09-06 02:17:48', '2024-09-06 02:17:48', 'Boys Hostel', 'humza-boys-hostel', 4000, 0, 0, 0, 0, 0, 0, '1725607068.mp4'),
-(30, 1, '03086315926', 'coccoc6588@gmail.com', 'KIRAN HOSTEL', 'Universty Chock bahawalpur', 'Bahwalpur', NULL, NULL, '1725607234_8.jpg', 'Goood', 123, NULL, 21, '1', '1', '0', '2024-09-06 02:20:34', '2024-09-06 02:20:34', 'Guests House', 'kiran-hostel', 6000, 0, 0, 0, 0, 0, 0, '1725607234.mp4'),
-(31, 3, '03468763576', 'moazzamjanjua92@gmail.com', 'RIMSHAYT HOSTELS', 'Universty Chock', 'Bahwalpur', NULL, 'ee', '1725608115_images (2).jpeg', 'Boys hostel,all facilties availble,furnished carpeted room with matress,peacefull enviorment,4 seater,3 seater,2 seater availble for jobians, home made delicious mess & without mess.near riaz colony abdul sattar departmental store', 55, NULL, 32, '1', '1', '0', '2024-09-06 02:35:16', '2024-09-06 02:36:34', 'Boys Hostel', 'rimshayt-hostels', 3998, 0, 1, 0, 0, 0, 0, '1725608194_165+ Free Templates for \'Pakistan defense day\'.mp4'),
-(32, 3, '03468763576', 'moazzamjanjua92@gmail.com', 'RASHID HOSTEL IN BAHAWALPUR', 'Bagdad Campus IUB', 'Bahwalpur', NULL, 'not', '1725608407_download (6).jpeg', 'This is hostel is very good', 56, NULL, 5, '1', '1', '1', '2024-09-06 02:40:07', '2024-09-06 02:40:07', 'Boys Hostel', 'rashid-hostel-in-bahawalpur', 6000, 0, 1, 0, 0, 0, 0, '1725608407.mp4'),
-(33, 3, '03468763576', 'moazzamjanjua92@gmail.com', 'SHEHZAD HOSTEL', 'fksdf', 'Bahwalpur', NULL, 'e', '1725876833_WhatsApp_Image_2024-09-09_at_13.40.16_78fa0aaf-removebg-preview.png', 'fxn', 39, NULL, 33, '1', '1', '1', '2024-09-09 05:13:54', '2024-09-09 05:14:18', 'Girls Hostel', 'shehzad-hostel', 5500, 0, 0, 0, 0, 0, 0, '1725876833.mp4'),
-(35, 3, '03468763576', 'moazzamjanjua92@gmail.com', 'JAWAD BOYS HOSTEL', 'sjdbsjf', 'Bahwalpur', NULL, 'ds', '1725877150_1725694837360.png', 'jdshjs', 33, NULL, 23, '1', '1', '1', '2024-09-09 05:19:10', '2024-09-09 05:19:10', 'Boys Hostel', 'jawad-boys-hostel', 6472, 0, 0, 0, 0, 0, 0, '1725877150.mp4'),
+(3, 1, NULL, NULL, 'MOAZZAM HOSTEL', 'University Chowk Bahawalpur', 'Bahwalpur', 'Riaz Colony', 'University Chowk Bahawalpur', '1725444533_8.jpg', 'near to abbasia campus', 12, 'coccoc6588@gmail.com', 23, '1', '1', '1', '2024-08-07 03:13:15', '2024-09-04 05:08:53', 'Boys Hotel', 'moazzam-hostel', 2000, 1, 1, 0, 1, 1, 0, '1724836955_download.mp4'),
+(4, 1, NULL, NULL, 'JAWAD HOSTEL', 'rw', 'Bahwalpur', 'Faisal Colony', 'kiu', '1724062148_ashley-byrd-yzkTCP4uc9E-unsplash.jpg', 'amazing hostel', 12, 'Mahnoor6588@gmail.com', 1313, '1', '1', '1', '2024-08-07 03:19:07', '2024-08-28 04:23:22', 'Boys Hostel', 'jawad-hostel', 4000, 1, 1, 0, 1, 1, 0, NULL),
+(5, 1, NULL, NULL, 'Nimra HOSTEL', 'University Chowk Bahawalpur', 'Bahwalpur', '8', 'University Chowk Bahawalpur', '1723019182.png', 'near to old campus', 32, 'Rimsha6588@gmail.com', 12, '1', '1', '1', '2024-08-07 03:26:22', '2024-08-24 08:23:14', 'Girs Hostel', 'nimra-hostel', 2500, 1, 1, 0, 1, 1, 0, NULL),
+(21, 1, NULL, NULL, 'KIRAN  GIRLS HOSTEL', 'univrsity chowk bahawalpur', 'Bahwalpur', '9', 'bahawalpur', '1724659066_uwp4158565.jpeg', 'near  point place', 15, 'kiran6588@gmail.com', 5, '1', '1', '1', '2024-08-26 02:57:46', '2024-08-26 02:57:46', 'Girls Hostel', 'kiran--girls-hostel', 2500, 1, 1, 0, 1, 0, 0, '1724659066.mp4'),
+(22, 1, NULL, NULL, 'FATIMA HOSTAL', 'wbdwdfdfsd', 'Bahwalpur', 'Sadar Pully', 'sa', '1724921651_ashley-byrd-yzkTCP4uc9E-unsplash.jpg', 'sd', 32, 'coccoc6588@gmail.com', 35, '1', '1', '0', '2024-08-29 03:54:11', '2024-08-29 03:54:53', 'Girls Hostel', 'fatima-hostal', 3400, 0, 1, 0, 1, 0, 0, '1724921651.mp4'),
+(23, 1, '03086315926', 'coccoc6588@gmail.com', 'BUSHRA GIRL HOSTEL', 'hhhh', 'Bahwalpur', '15', 'b', '1725286218_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:10:18', '2024-09-02 09:10:18', 'Girls Hostel', 'bushra-girl-hostel', 4700, 0, 0, 0, 1, 0, 0, '1725286218.mp4'),
+(24, 1, '03086315926', 'coccoc6588@gmail.com', 'ANUM GIRL HOSTEL', 'hhhh', 'Bahwalpur', '12', 'b', '1725286232_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:10:32', '2024-09-02 09:10:32', 'Girls Hostel', 'anum-girl-hostel', 4700, 0, 0, 0, 1, 1, 0, '1725286232.mp4'),
+(25, 1, '03086315926', 'coccoc6588@gmail.com', 'MAHNOOR GIRL HOSTEL', 'hhhh', 'Bahwalpur', 'Riaz Colony', 'Shadab Colony', '1725286246_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:10:46', '2024-09-02 09:10:46', 'Girls Hostel', 'mahnoor-girl-hostel', 4700, 0, 1, 0, 1, 1, 0, '1725286246.mp4'),
+(26, 1, '03086315926', 'coccoc6588@gmail.com', 'SIMRAN GIRL HOSTEL', 'hhhh', 'Bahwalpur', '12', 'b', '1725286261_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:11:01', '2024-09-02 09:11:01', 'Girls Hostel', 'simran-girl-hostel', 4700, 0, 0, 0, 0, 0, 0, '1725286261.mp4'),
+(27, 1, '03086315926', 'coccoc6588@gmail.com', 'KAIRA GIRL HOSTEL', 'hhhh', 'Bahwalpur', '6', 'b', '1725286283_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:11:23', '2024-09-02 09:11:23', 'Girls Hostel', 'kaira-girl-hostel', 4700, 0, 1, 0, 0, 1, 0, '1725286283.mp4'),
+(28, 1, '03086315926', 'coccoc6588@gmail.com', 'MARYAM GIRL HOSTEL', 'hhhh', 'Bahwalpur', 'Settlite Town', 'Settlite Town', '1725286295_home1-post3.jpg', 'nnbn', 32, NULL, 12, '1', '1', '1', '2024-09-02 09:11:36', '2024-09-02 09:11:36', 'Girls Hostel', 'maryam-girl-hostel', 4700, 1, 1, 0, 0, 0, 0, '1725286295.mp4'),
+(29, 1, '03086315926', 'coccoc6588@gmail.com', 'HUMZA BOYS HOSTEL', 'universty chowk', 'Layyah', '14', NULL, '1725607068_lotus-design-n-print-zLT3VqWEgOQ-unsplash.jpg', 'open', NULL, NULL, 12, '1', '0', '0', '2024-09-06 02:17:48', '2024-09-06 02:17:48', 'Boys Hostel', 'humza-boys-hostel', 4000, 0, 0, 0, 0, 0, 0, '1725607068.mp4'),
+(30, 1, '03086315926', 'coccoc6588@gmail.com', 'KIRAN HOSTEL', 'Universty Chock bahawalpur', 'Bahwalpur', '16', NULL, '1725607234_8.jpg', 'Goood', 123, NULL, 21, '1', '1', '0', '2024-09-06 02:20:34', '2024-09-06 02:20:34', 'Guests House', 'kiran-hostel', 6000, 0, 0, 0, 0, 0, 0, '1725607234.mp4'),
+(31, 3, '03468763576', 'moazzamjanjua92@gmail.com', 'RIMSHAYT HOSTELS', 'Universty Chock', 'Bahwalpur', '13', 'ee', '1725608115_images (2).jpeg', 'Boys hostel,all facilties availble,furnished carpeted room with matress,peacefull enviorment,4 seater,3 seater,2 seater availble for jobians, home made delicious mess & without mess.near riaz colony abdul sattar departmental store', 55, NULL, 32, '1', '1', '0', '2024-09-06 02:35:16', '2024-09-06 02:36:34', 'Boys Hostel', 'rimshayt-hostels', 3998, 0, 1, 0, 0, 0, 0, '1725608194_165+ Free Templates for \'Pakistan defense day\'.mp4'),
+(32, 3, '03468763576', 'moazzamjanjua92@gmail.com', 'RASHID HOSTEL IN BAHAWALPUR', 'Bagdad Campus IUB', 'Bahwalpur', '14', 'not', '1725608407_download (6).jpeg', 'This is hostel is very good', 56, NULL, 5, '1', '1', '1', '2024-09-06 02:40:07', '2024-09-06 02:40:07', 'Boys Hostel', 'rashid-hostel-in-bahawalpur', 6000, 0, 1, 0, 0, 0, 0, '1725608407.mp4'),
+(33, 3, '03468763576', 'moazzamjanjua92@gmail.com', 'SHEHZAD HOSTEL', 'fksdf', 'Bahwalpur', '9', 'e', '1725876833_WhatsApp_Image_2024-09-09_at_13.40.16_78fa0aaf-removebg-preview.png', 'fxn', 39, NULL, 33, '1', '1', '1', '2024-09-09 05:13:54', '2024-09-09 05:14:18', 'Girls Hostel', 'shehzad-hostel', 5500, 0, 0, 0, 0, 0, 0, '1725876833.mp4'),
+(35, 3, '03468763576', 'moazzamjanjua92@gmail.com', 'JAWAD BOYS HOSTEL', 'sjdbsjf', 'Bahwalpur', '13', 'ds', '1725877150_1725694837360.png', 'jdshjs', 33, NULL, 23, '1', '1', '1', '2024-09-09 05:19:10', '2024-09-09 05:19:10', 'Boys Hostel', 'jawad-boys-hostel', 6472, 0, 0, 0, 0, 0, 0, '1725877150.mp4'),
 (36, 3, '03468763576', 'moazzamjanjua92@gmail.com', 'NADAAN GIRLS HOSTAL IN BAHAWALPUR', 'fbjdbf', 'Bahwalpur', 'One Unit Chock', 'ew', '1725877582_images (1).jpeg', 'ef', 631, NULL, 31, '1', '1', '1', '2024-09-09 05:26:22', '2024-09-09 05:26:22', 'Boys Hostel', 'nadaan-girls-hostal-in-bahawalpur', 6760, 0, 0, 0, 0, 0, 0, '1725877582.mp4');
 
 -- --------------------------------------------------------
@@ -337,7 +347,7 @@ CREATE TABLE `owners` (
 INSERT INTO `owners` (`id`, `owner_name`, `owner_email`, `owner_country`, `owner_city`, `owner_number`, `owner_address`, `owner_image`, `password`, `created_at`, `updated_at`) VALUES
 (1, 'Jawad Ahmad', 'coccoc6588@gmail.com', 'Pakistan', 'kahror pakka', '03086315926', 'kahor pakka district lodhran', '1724062373.jpg', '$2y$12$OS/2t1/Azivu1a1GisKB9eLSFvvhhzq/ntOskvdrYc6fMKtacUo8G', '2024-08-06 01:38:24', '2024-08-19 05:12:53'),
 (2, 'shahzad aslam', 'shahzadaslam198@gmail.com', NULL, NULL, '03047833984', NULL, NULL, '$2y$12$cp9jb43RGvgNT6GKs7XRMOCg4Eoet3j1Ko1Zet27O5CZCeNQN.oEy', '2024-09-04 05:47:08', '2024-09-04 05:47:08'),
-(3, 'moazzam hussain', 'moazzamjanjua92@gmail.com', NULL, NULL, '03468763576', NULL, NULL, '$2y$12$dtphYsmFZcWClj6Mz5sBgez1yVawGclQ4T/chBNKWN/yZd3Uq8KTS', '2024-09-06 02:28:55', '2024-09-06 02:28:55');
+(3, 'moazzam hussain', 'moazzamjanjua92@gmail.com', NULL, NULL, '03468763576', NULL, '1726300976.png', '$2y$12$dtphYsmFZcWClj6Mz5sBgez1yVawGclQ4T/chBNKWN/yZd3Uq8KTS', '2024-09-06 02:28:55', '2024-09-14 03:02:56');
 
 -- --------------------------------------------------------
 
@@ -403,7 +413,11 @@ INSERT INTO `reviews` (`id`, `user_id`, `hostel_id`, `rating`, `review`, `create
 (15, 9, 5, 2, 'Admin', '2024-08-29 01:04:27', '2024-08-29 01:04:27'),
 (16, 10, 5, 4, 'alllah', '2024-08-29 04:47:33', '2024-08-29 04:47:33'),
 (17, 10, 5, 4, 'review 1', '2024-08-29 05:21:33', '2024-08-29 05:21:33'),
-(18, 10, 5, 4, 'review2', '2024-08-29 05:21:50', '2024-08-29 05:21:50');
+(18, 10, 5, 4, 'review2', '2024-08-29 05:21:50', '2024-08-29 05:21:50'),
+(19, 11, 36, 5, 'Good', '2024-09-10 02:29:35', '2024-09-10 02:29:35'),
+(20, 11, 4, 5, 'good', '2024-09-10 03:32:39', '2024-09-10 03:32:39'),
+(21, 11, 3, 5, 'nbd', '2024-09-10 11:03:16', '2024-09-10 11:03:16'),
+(22, 11, 5, 5, 'nn', '2024-09-10 11:03:57', '2024-09-10 11:03:57');
 
 -- --------------------------------------------------------
 
@@ -444,7 +458,14 @@ INSERT INTO `users` (`id`, `name`, `email`, `user_image`, `country`, `phone`, `p
 (9, 'admin', 'admin@gmail.com', NULL, 'admin', NULL, NULL, NULL, NULL, NULL, '$2y$12$LflFXc4sU/Koz11y/95H4O8c2A2tQ4E7xxNzXDAiFJ9wAsDGIpMy2', NULL, '2024-08-29 00:50:52', '2024-08-29 00:50:52'),
 (10, 'alia', 'alia@gmail.com', NULL, 'Pakistan', NULL, NULL, NULL, NULL, NULL, '$2y$12$2EOHCldNtLZjJJph/7aW/.CXWpcJDU8gr8cdTXWzmhYWKjzSJmFqC', NULL, '2024-08-29 01:06:17', '2024-08-29 01:06:17'),
 (11, 'moazzam hussain', 'moazzamjanjua92@gmail.com', NULL, 'Pakistan', NULL, NULL, NULL, NULL, NULL, '$2y$12$PsVaTabu4qCBiDc6.FeCBuvPxN4XHcjiBDrjFGvaC1PtrlZBpG9mm', NULL, '2024-09-06 04:56:08', '2024-09-06 04:56:08'),
-(12, 'moazzam hussain', 'moazzamjanjua@gmail.com', NULL, 'Pakistan', NULL, NULL, NULL, NULL, NULL, '$2y$12$DhMQHUnD4F38Bl4VwsIrI.qiVeFAb5EO9oSWD7IoG20SEXZgwD5WW', NULL, '2024-09-06 05:16:40', '2024-09-06 05:16:40');
+(12, 'moazzam hussain', 'moazzamjanjua@gmail.com', NULL, 'Pakistan', NULL, NULL, NULL, NULL, NULL, '$2y$12$DhMQHUnD4F38Bl4VwsIrI.qiVeFAb5EO9oSWD7IoG20SEXZgwD5WW', NULL, '2024-09-06 05:16:40', '2024-09-06 05:16:40'),
+(13, 'moazzam hussain', 'moazzamjanjua92864684@gmail.com', NULL, NULL, '03468763576', NULL, NULL, NULL, NULL, '$2y$12$VdFyJXckKb5ofY/E20w01OIF6gzl216O0SbVgKOIrK3FyGRqJHjWa', NULL, '2024-09-12 01:46:52', '2024-09-12 01:46:52'),
+(14, 'Janjua Ali', 'janjua92@gmail.com', NULL, NULL, '03468763576', NULL, NULL, NULL, NULL, '$2y$12$HHJGuoB4Yd7u9xitc5lWFesvua9tm7lhYhTBtPNw96yODyKkPgTgC', NULL, '2024-09-12 01:52:34', '2024-09-12 01:52:34'),
+(15, 'moazzam hussain', 'moazzamjanjua9278@gmail.com', NULL, NULL, '03468763576', NULL, NULL, NULL, NULL, '$2y$12$8mEzShNKXEgjVEK.ov3wuuXkSHznC/PnqRcLAB4CsnztCJ6Pj8x.e', NULL, '2024-09-14 03:26:24', '2024-09-14 03:26:24'),
+(16, 'moazzam hussain', 'moazzamjanjua92787837@gmail.com', NULL, NULL, '03468763576', NULL, NULL, NULL, NULL, '$2y$12$G6RI3lo21TfhdylEkS9au.VAzTQr8wUWhocOH0mQ5SOIynYamRhby', NULL, '2024-09-14 03:33:28', '2024-09-14 03:33:28'),
+(17, 'iub', 'iub@gmail.com', NULL, NULL, '0235632', NULL, NULL, NULL, NULL, '$2y$12$hpeebo3ZJyz/biGA7ClSguhdyQKqdtrioApi/WPyFeofNvXZqSusG', NULL, '2024-09-17 23:07:13', '2024-09-17 23:07:13'),
+(18, 'iub', 'iub1@gmail.com', NULL, NULL, '0235632', NULL, NULL, NULL, NULL, '$2y$12$a76l2Qm0GsX3fMxW6571d.aI6bAI6AyWM4xhKVlnajVBq4Dk6xC2e', NULL, '2024-09-17 23:16:45', '2024-09-17 23:16:45'),
+(19, 'IUBB', 'iub2@gmail.com', NULL, NULL, '0235632', NULL, NULL, NULL, NULL, '$2y$12$CzSJEJibFgioxsEGgfGQLOX9b9YPaCylkn0TevVTkSYwEp7WFYrfm', NULL, '2024-09-17 23:50:43', '2024-09-17 23:50:43');
 
 --
 -- Indexes for dumped tables
@@ -554,7 +575,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `areas`
 --
 ALTER TABLE `areas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `category_list`
@@ -608,13 +629,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
