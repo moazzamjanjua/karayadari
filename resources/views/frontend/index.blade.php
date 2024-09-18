@@ -2,7 +2,10 @@
 
 <body id="home">
 
-    @include('frontend.layouts.header')
+    <!-- Fixed Header -->
+    <header id="header" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
+        @include('frontend.layouts.header')
+    </header>
 
     <!-- Preloader -->
     <div id="page-preloader">
@@ -16,11 +19,11 @@
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
+    <div class="main-content" style="margin-top: 60px;"> <!-- Adjust this value based on the header height -->
         <div class="wrap-banner">
 
             <!-- Slide Show -->
-            <div class="section banner" style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
+            <div class="section banner" style="position: relative; width: 100%; height: 80vh; overflow: hidden;">
                 <div class="tiva-slideshow-wrapper" style="width: 100%; height: 100%;">
                     <div style="width: 100%; height: 100%;">
                         <img class="img-responsive" src="/frontend/img/home/home1-banner2.jpg" title="#caption2"
@@ -30,7 +33,7 @@
 
                 <!-- Welcome Text -->
                 <div class="welcome-text" id="welcome-text"
-                     style="position: absolute; top: 35%; left: 36%; transform: translate(-50%, -50%) scale(1.5); color: white; font-size: 22px; z-index: 1000; opacity: 0; transition: transform 1s ease-in-out, opacity 1s ease-in-out;">
+                     style="position: absolute; top: 40%; left: 31%; transform: translate(-50%, -50%) scale(1.5); color: white; font-size: 22px; z-index: 1000; opacity: 0; transition: transform 1s ease-in-out, opacity 1s ease-in-out;">
                     Search Hostels In A Certain Area.<br>
                     <h3>Find Hostels</h3>
                     Search The Location And Select The Category To Find Hostels Accordingly.
@@ -91,10 +94,10 @@
                 setTimeout(() => {
                     // Show the navbar by changing its opacity and moving it up from the bottom
                     navbar.style.opacity = '1';
-                    navbar.style.bottom = '20%'; // Adjust this value to position the navbar just below the welcome text
+                    navbar.style.bottom = '10%'; // Adjust this value to position the navbar just below the welcome text
 
                     // Animate the welcome text appearance
-                    welcomeText.style.transform = 'translate(-50%, -50%) scale(1)';
+                    welcomeText.style.transform = 'translate(-40%, -40%) scale(1)';
                     welcomeText.style.opacity = '1';
                 }, 2000); // Delay for animation to start
             });
