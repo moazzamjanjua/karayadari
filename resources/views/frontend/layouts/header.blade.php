@@ -37,7 +37,7 @@
     </div>
 
         <!-- header desktop -->
-        <div class="header-top">
+        <div class="header-top d-none d-md-block">
             <div class="container">
                 <div class="row">
                     <!-- logo -->
@@ -75,20 +75,20 @@
 }
 
 .mobile-logo img {
-    height: 80px; /* Adjust as needed */
-    margin-top: -40px;
+    height: 60px; /* Adjust as needed */
+    margin-top: -30px;
 }
 
 /* Mobile menu styles */
 #mobile_mainmenu_content {
     display: none; /* Initially hidden */
     position: absolute;
-    top: 50px; /* Adjust based on the height of the mobile header */
+    top: 40px; /* Adjust based on the height of the mobile header */
     left: 0;
     width: 100%;
     background-color: #fff;
     border-top: 1px solid #ddd;
-    z-index: 1000; /* Ensure it appears on top */
+    z-index: 1500; /* Ensure it appears on top */
 }
 
 #mobile_mainmenu_content.active {
@@ -98,6 +98,7 @@
 .mobile-menu {
     list-style: none;
     padding: 0;
+  
     margin: 0;
 }
 
@@ -131,6 +132,7 @@
     .header-top {
         display: block;
     }
+    
 
     #mobile_mainmenu_content {
         display: none;

@@ -34,7 +34,7 @@ class OwnerController extends Controller
     public function ownerlogin(Request $request)
     {
         $credentials = $request->validate([
-            'owner_email' => 'required|email',
+            'owner_number' => 'required',
             'password' => 'required',
         ]);
     
@@ -43,11 +43,11 @@ class OwnerController extends Controller
             return redirect()->route('owner.home')->with('success', 'Login successful');
         } else {
             // Check if the email exists in the database
-            $emailExists = Owner::where('owner_email', $request->owner_email)->exists();
+            $numberExists = Owner::where('owner_number', $request->owner_number)->exists();
     
-            if (!$emailExists) {
+            if (!$numberExists) {
                 // If the email does not exist
-                return back()->with('error', 'Your email is not correct');
+                return back()->with('error', 'Your number is not correct');
             } else {
                 // If the email exists but password is incorrect
                 return back()->with('error', 'Your password does not match');
