@@ -10,6 +10,7 @@ use App\Http\Controllers\Owner\RoomController;
 use App\Http\Controllers\Owner\RoomFormController;
 use App\Http\Controllers\Owner\HostalDetailController;
 use App\Http\Controllers\popup\PopupController;
+use App\Http\Controllers\popup\FeedbackController;
 use App\Http\Controllers\ProductGridLeftController;
 use App\Models\Owner\Hostels;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,7 @@ Route::post('loginMatch', [UsersController::class, 'userlogin'])->name('loginMat
 
 Route::post('popupregisterSave', [PopupController::class, 'userregister'])->name('popregisterSave');
 Route::post('popuploginMatch', [PopupController::class, 'userlogin'])->name('poploginMatch');
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
 
 
@@ -137,6 +139,7 @@ Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->na
 
 
 Route::get('/result', [ResultController::class, 'searchHostel'])->name('search.result');
+
 
 
 

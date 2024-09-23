@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <div class="feedback-form">
-                    <form action="" method="post">
+                    <form action="{{ route('feedback.store') }}" method="post">
                         @csrf
                         <div class="form-group">
                             <label>Phone Number</label>
