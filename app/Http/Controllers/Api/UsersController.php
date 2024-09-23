@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-use App\Models\User;
+
 use App\Http\Controllers\Controller;
 use Hash;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+
 class UsersController extends Controller
 {
     /**
@@ -30,42 +32,40 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(),[
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'phone' => 'required',
             'password' => 'required|confirmed',
         ]);
-        if ($validator->fails()) {
-            return response()->json($validator->messages(), 400);
-        } else {
+        if($validator->fails()){
+            return response()->json($validator->messages(),400);
+        }else{
             $data = [
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'password' => Hash::make($request->password)
+             'name' => $request->name,
+             'email' => $request->email,
+             'phone' => $request->phone,
+             'password' => Hash::make($request->password),
             ];
-
             DB::beginTransaction();
-            try {
+            try{
                $user = User::create($data);
                 DB::commit();
-            } catch (\Exception $e) {
-                DB::rollBack();
-                p($e->getMessage());
-                $user = null;
+            } catch(\Exception $e){
+            DB::rollBack();
+            p($e->getMessage());
+            $user = null;
             }
             if($user != null){
                 return response()->json([
-                    'message' => 'User Registed Successfully'
-                ] , status: 200);
-            }else{
+                    'message' => 'User Register Successfully'
+                ],200);
+            } else{
                 return response()->json([
-                    'message' => 'Internal Server Error'
-                ],500); 
+                    'message' => 'Internal Sercver Error'
+                ]);
             }
         }
-
     }
 
     /**

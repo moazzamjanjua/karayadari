@@ -144,8 +144,6 @@ Route::get('/result', [ResultController::class, 'searchHostel'])->name('search.r
 
 
 
-
-
 Route::fallback(function () {
     return view('pagenotfound');
 });
