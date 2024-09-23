@@ -95,14 +95,7 @@
     }
 
 
-    .review{
-        padding: 15px;
-         border: 2px solid #e0e0e0; /* Light gray border */
-    border-radius: 12px; /* Smooth rounded corners */
-    background-color: #f9f9f9; /* Soft background color */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
-    transition: box-shadow 0.3s ease; /* Smooth hover effect */
-    }
+ 
 
     .room-row {
     display: flex;
@@ -209,6 +202,14 @@
     cursor: pointer;
 }
 
+@media (max-width: 767px) {
+    .best_hostels {
+        display: none;
+    }
+    .sidebar-block{
+        display: none;
+    }
+}
 
 
 </style>
@@ -396,9 +397,15 @@
                                                            <h2 >Hostel Details</h2> 
     <div class="facility-group">
         <p class="category-name">Category: <span>{{ $hostel->category_name }}</span></p>
-        <p class="hostel-address">Address: <span>{{ $hostel->hostel_address }}, {{ $hostel->city }}</span></p>
         <p class="hostel-location">Location: <span>{{ $hostel->hostel_location }}</span></p>
-        <p class="hostel-detail">Detail:{{ $hostel->hostel_detail }}</p>
+       
+    <p class="hostel-detail">Contact Number: 
+    @if(Auth::check()){{ $hostel->owner_number }}
+    @else
+    <a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal" style="color: red; text-decoration: none;">See Number</a>
+    @endif
+    </p>
+
     </div>
     
     <div class="facility-group">
@@ -434,6 +441,9 @@
                                                         
                                                     </li>
                                                 </ul>
+
+                                                
+                                         
 												
                                                 <div class="tab-content">
                                                 <div id="review" class="tab-pane fade in active show">
