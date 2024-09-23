@@ -10,7 +10,7 @@
                                     <img src="/frontend/img/home/logo.png" alt="img">
                                 </p>
                                 <p class="content-logo">KARAYADARI is a platform that helps students and professionals
-                                    easily find hostels or rooms in a new city. You can browse hostels, read reviews,
+                                    easily find hostels or rooms in BAHAWALPUR. You can browse hostels, read reviews,
                                     and directly contact room owners to book
                                 </p>
                             </div>
@@ -28,7 +28,7 @@
                                         <a href="#">What our customers say</a>
                                     </li>
                                     <li>
-                                        <a href="#">Meet the Team</a>
+                                          <a href="javascript:void(0);" id="openFeedback">Feedback</a>
                                     </li>
                                     <li>
                                         <a href="./contact">Contact our Team</a>
@@ -36,13 +36,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="block">
-                            <div class="block-content">
-                                <p class="img-payment ">
-                                    <img class="img-fluid" src="/frontend/img/home/payment-footer.png" alt="img">
-                                </p>
-                            </div>
-                        </div>
+                      
                     </div>
                     <div class="tiva-html col-lg-4 col-md-6">
                         <div class="block m-top">
@@ -56,7 +50,7 @@
                                         <span>Address :</span>
                                     </div>
                                     <div class="content-contact address-contact">
-                                        <p>chak Number 310/TDA Tehsil choubara District layyah</p>
+                                        <p>Islamia University Of Bahawalpur Bagdad Campus Main Library Basement Regional Plan9 Center</p>
                                     </div>
                                 </div>
                                 <div class="contact-us">
@@ -65,7 +59,7 @@
                                         <span>Email :</span>
                                     </div>
                                     <div class="content-contact mail-contact">
-                                        <p>moazzamjanjua92@gmail.com</p>
+                                        <p>karayadari@gmail.com</p>
                                     </div>
                                 </div>
                                 <div class="contact-us">
@@ -75,6 +69,7 @@
                                     </div>
                                     <div class="content-contact phone-contact">
                                         <p>+92 346-8763576</p>
+                                         <p>+92 308-6315926</p>
                                     </div>
                                 </div>
                                 <div class="contact-us">
@@ -83,8 +78,7 @@
                                         <span>Opening Hours :</span>
                                     </div>
                                     <div class="content-contact hours-contact">
-                                        <p>Monday - Sunday / 08.00AM - 19.00</p>
-                                        <span>(Except Holidays)</span>
+                                        <p>Monday - Sunday / 08.00AM - 07.00pm</p>
                                     </div>
                                 </div>
                             </div>
@@ -168,17 +162,7 @@
             </div>
         </div>
     </div>
-    <div id="tiva-copyright">
-        <div class="container">
-            <div class="row">
-                <div class="text-center col-lg-12 ">
-                    <span>
-                        <a target="_blank" href="https://www.templateshub.net">Templates Hub</a>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 </footer>
 
 <!-- back top top -->
@@ -868,6 +852,8 @@
         <div class="dot"></div>
     </div>
 </div> -->
+
+@include('popups.feedback')
 <!-- Vendor JS -->
 <script src="/frontend/libs/jquery/jquery.min.js"></script>
 <script src="/frontend/libs/popper/popper.min.js"></script>
