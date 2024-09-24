@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\DataController;
 use App\Http\Controllers\Api\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,4 @@ Route::get('/test', function(){
    p('Working');
 });
 Route::post('user/register' , 'App\Http\Controllers\Api\UsersController@store');
+Route::get('/public/get-data', [DataController::class, 'getData']);
