@@ -5,6 +5,7 @@ namespace App\Http\Controllers\popup;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Feedbacks;
+
 class FeedbackController extends Controller
 {
     public function store(Request $request)
@@ -20,7 +21,7 @@ class FeedbackController extends Controller
         // Store the feedback in the database
         Feedbacks::create($validatedData);
 
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Thank you for your feedback!');
+        // Return a JSON response with a success message
+        return response()->json(['success' => true, 'message' => 'Thank you for your feedback!']);
     }
 }

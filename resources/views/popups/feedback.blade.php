@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <div class="feedback-form">
-                    <form action="{{ route('feedback.store') }}" method="post">
+                    <form id="feedback-form" action="{{ route('feedback.store') }}" method="post">
                         @csrf
                         <div class="form-group">
                             <label>Phone Number</label>
@@ -44,17 +44,67 @@
     </div>
 </div>
 
+<button id="openFeedback" class="btn btn-secondary">Open Feedback</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Show feedback modal if feedback_required session exists
         @if(session('feedback_required'))
-        $('#feedbackModal').modal('show');
+            $('#feedbackModal').modal('show');
         @endif
 
         // Open feedback modal when the link is clicked
         document.getElementById("openFeedback").onclick = function() {
             $('#feedbackModal').modal('show');
         };
+
+        // Handle form submission
+        const feedbackForm = document.getElementById('feedback-form');
+
+        feedbackForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(feedbackForm);
+
+            fetch(feedbackForm.action, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                    'Accept': 'application/json',
+                },
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success popup
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Feedback Submitted!',
+                        text: 'Thank you for your feedback.',
+                        showConfirmButton: false,
+                        timer: 2000 // Auto-close after 2 seconds
+                    }).then(() => {
+                        $('#feedbackModal').modal('hide'); // Close the modal
+                        feedbackForm.reset(); // Reset the form fields
+                    });
+                } else if (data.error) {
+                    // Show error popup
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: data.error,
+                        showConfirmButton: true,
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
     });
 </script>
-
