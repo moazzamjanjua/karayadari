@@ -43,10 +43,10 @@
                                 <div>
                                     <input type="hidden" name="back" value="my-account">
                                     <div class="form-group no-gutters">
-                                        <input class="form-control" name="email" type="email"
-                                            placeholder="Enter Your Email">
+                                        <input class="form-control" name="phone" type="phone"
+                                            placeholder="Enter Your Number">
                                     </div>
-                                    @if(session('error') && session('error') == 'Your email is not correct')
+                                    @if(session('error') && session('error') == 'Your number is not correct')
                                         <div class="alert alert-danger">{{ session('error') }}</div>
                                     @endif
                                     <div class="form-group no-gutters">

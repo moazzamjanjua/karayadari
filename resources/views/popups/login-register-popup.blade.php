@@ -13,8 +13,8 @@
                     <form id="login-form" action="{{ route('poploginMatch') }}" method="post">
                         @csrf
                         <div class="form-group">
-                            <input class="form-control" name="email" type="email" placeholder="Enter Your Email">
-                            <span class="error-message text-danger" id="email-error"></span>
+                            <input class="form-control" name="phone" type="number" placeholder="Enter Your Number">
+                            <span class="error-message text-danger" id="phone-error"></span>
                         </div>
                         <div class="form-group">
                             <input class="form-control" name="password" type="password" placeholder="Enter Your Password">
@@ -50,8 +50,8 @@
                             <span class="error-message text-danger" id="name-error"></span>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" name="email" type="email" placeholder="Email">
-                            <span class="error-message text-danger" id="reg-email-error"></span>
+                            <input class="form-control" name="phone" type="number" placeholder="Number">
+                            <span class="error-message text-danger" id="reg-phone-error"></span>
                         </div>
                         <div class="form-group">
                             <input class="form-control" name="password" type="password" placeholder="Password">
@@ -100,8 +100,8 @@
                     
                     let errors = xhr.responseJSON.errors;
                     
-                    if (errors.email) {
-                        $('#email-error').text(errors.email[0]);
+                    if (errors.phone) {
+                        $('#phone-error').text(errors.phone[0]);
                     }
                     if (errors.password) {
                         $('#password-error').text(errors.password[0]);
@@ -133,8 +133,8 @@
                     if (errors.name) {
                         $('#name-error').text(errors.name[0]);
                     }
-                    if (errors.email) {
-                        $('#reg-email-error').text(errors.email[0]);
+                    if (errors.phone) {
+                        $('#reg-phone-error').text(errors.phone[0]);
                     }
                     if (errors.password) {
                         $('#reg-password-error').text(errors.password[0]);

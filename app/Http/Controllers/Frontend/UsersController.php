@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-use App\Models\User;
+use App\Models\User ;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,7 +32,7 @@ class UsersController extends Controller
   public function userlogin(Request $request)
   {
       $credentials = $request->validate([
-          'email' => 'required|email',
+          'phone' => 'required',
           'password' => 'required',
       ]);
   
@@ -79,16 +79,26 @@ public function update(Request $request)
     ]);
 
     // Handle the avatar upload
-    if ($request->hasFile('user_image')) {
-        // Delete the old avatar if it exists
-        if ($user->user_image) { // Change $user->avatar to $user->user_image
-            Storage::disk('public')->delete('user_image/' . $user->user_image); // Update path from user_image
+   if ($request->hasFile('user_image')) {
+    // Delete the old user image if it exists
+    if ($user->user_image) {
+        $oldImagePath = public_path('user_image/' . $user->user_image); // Path to the old image
+        if (file_exists($oldImagePath)) {
+            unlink($oldImagePath); // Delete the old image
         }
-
-        // Store the new avatar and save its path
-        $avatarName = $request->file('user_image')->store('user_image', 'public');
-        $user->user_image = basename($avatarName); // Save only the file name, not the full path
     }
+
+    // Store the new user image directly in public/user_image directory
+    $image = $request->file('user_image');
+    $imageName = time() . '.' . $image->getClientOriginalExtension();
+    
+    // Move the new image to the public/user_image directory
+    $image->move(public_path('storage/user_images'), $imageName);
+
+    // Save the image file name in the database
+    $user->user_image = $imageName;
+}
+
 
     // Update user profile data
     $user->update($request->only('name', 'address', 'city', 'phone', 'country'));

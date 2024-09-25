@@ -15,7 +15,7 @@ class PopupController extends Controller
         // Validate the request data
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'phone' => 'required|unique:users',
             'country' => 'required',
             'password' => 'required|confirmed',
         ]);
@@ -23,7 +23,7 @@ class PopupController extends Controller
         // Create new user
         $user = User::create([
             'name' => $request->name,
-            'email' => $request->email,
+            'phone' => $request->phone,
             'country' => $request->country,
             'password' => bcrypt($request->password), // Hash the password
         ]);
@@ -41,7 +41,7 @@ class PopupController extends Controller
     {
         // Validate login credentials
         $credentials = $request->validate([
-            'email' => 'required|email',
+            'phone' => 'required',
             'password' => 'required'
         ]);
 
@@ -51,7 +51,7 @@ class PopupController extends Controller
         } else {
             return response()->json([
                 'success' => false,
-                'errors' => ['password' => ['Invalid Username and password.']]
+                'errors' => ['password' => ['Invalid Number and password.']]
             ], 422);
         }
     }

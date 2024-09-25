@@ -42,7 +42,7 @@
                 <h1 class="title-page">My Account</h1>
 <div class="content" id="block-history">
 <img id="edit-avatar-preview" 
-     src="{{ Auth::user()->user_image && !is_null(Auth::user()->user_image) ? asset('storage/user_image/' . Auth::user()->user_image) : asset('frontend/img/home/avatar.jpg') }}" 
+     src="{{ Auth::user()->user_image && !is_null(Auth::user()->user_image) ? asset('storage/user_images/' . Auth::user()->user_image) : asset('frontend/img/home/avatar.jpg') }}" 
      alt="User Avatar" 
      style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); margin-bottom: 20px;">
 
