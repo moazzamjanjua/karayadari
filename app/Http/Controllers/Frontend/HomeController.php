@@ -5,6 +5,7 @@ use App\Models\CategoryList;
 use App\Models\cities;
 use App\Models\areas;
 use App\Http\Controllers\Controller;
+use App\Models\FeedBacks;
 use App\Models\Owner\Hostels;
 use Illuminate\Http\Request;
 use App\Models\Review;
@@ -32,9 +33,10 @@ class HomeController extends Controller
 
         $cities = cities::all();
         $areas  = areas::all();
+        $feedbacks = FeedBacks::all();
 
 
-        return view('frontend.index', compact('categories','cities', 'areas','verifiedHostels', 'featuredHostels', 'bestHostels'));
+        return view('frontend.index', compact('categories','cities', 'areas','verifiedHostels', 'featuredHostels', 'bestHostels','feedbacks'));
     }
 
 

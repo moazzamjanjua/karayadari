@@ -261,91 +261,33 @@
                     </div>
                     <!-- testimonial -->
                     <div class="section testimonial-block col-lg-12 col-xs-12">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 ">
-                                <div class="block">
-                                    <div class="owl-carousel owl-theme testimonial-type-one">
-                                        <div class="item type-one d-flex align-items-center flex-column">
-                                            <div class="textimonial-image">
-                                                <i class="icon-testimonial"></i>
-                                            </div>
-                                            <div class="desc-testimonial">
-                                                <div class="testimonial-content">
-                                                    <div class="text">
-                                                        <p>"Living in a hostel is about finding a community that
-                                                            becomes your family,
-                                                            growing through shared struggles and triumphs, and
-                                                            building lifelong memories
-                                                            of camaraderie and independence."</p>
-                                                    </div>
-                                                </div>
-                                                <div class="testimonial-info">
-                                                    <h5 class="mt-0 box-info">MOAZZAM HUSSAIN</h5>
-                                                    <p class="box-dress">FULL STACK DEVELOPER</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item type-one d-flex align-items-center flex-column">
-                                            <div class="textimonial-image">
-                                                <i class="icon-testimonial"></i>
-                                            </div>
-                                            <div class="desc-testimonial">
-                                                <div class="testimonial-content">
-                                                    <div class="text">
-                                                        <p>" Living in a hostel is about finding a community that
-                                                            becomes your family,
-                                                            growing through shared struggles and triumphs, and
-                                                            building lifelong memories
-                                                            of camaraderie and independence. "</p>
-                                                    </div>
-                                                </div>
-                                                <div class="testimonial-info">
-                                                    <h5 class="mt-0 box-info">JAWAD AHMAD</h5>
-                                                    <p class="box-dress">FRONT-DEVELOPER</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item type-one d-flex align-items-center flex-column">
-                                            <div class="textimonial-image">
-                                                <i class="icon-testimonial"></i>
-                                            </div>
-                                            <div class="desc-testimonial">
-                                                <div class="testimonial-content">
-                                                    <div class="text">
-                                                        <p>" Hostel life fosters independence and personal growth,
-                                                            teaching valuable life skills and resilience through
-                                                            shared experiences "</p>
-                                                    </div>
-                                                </div>
-                                                <div class="testimonial-info">
-                                                    <h5 class="mt-0 box-info">SHEHZAD ASLAM</h5>
-                                                    <p class="box-dress">MARKET MANAGER</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item type-one d-flex align-items-center flex-column">
-                                            <div class="textimonial-image">
-                                                <i class="icon-testimonial"></i>
-                                            </div>
-                                            <div class="desc-testimonial">
-                                                <div class="testimonial-content">
-                                                    <div class="text">
-                                                        <p>" Experience the vibrant community and dynamic
-                                                            environment of hostel living, where every day is a new
-                                                            adventure. "</p>
-                                                    </div>
-                                                </div>
-                                                <div class="testimonial-info">
-                                                    <h5 class="mt-0 box-info">MUZAMIL HUSSAIN</h5>
-                                                    <p class="box-dress">APP DEVELOPER</p>
-                                                </div>
-                                            </div>
-                                        </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="block">
+                <div class="owl-carousel owl-theme testimonial-type-one">
+                    @foreach ($feedbacks as $feedback)
+                        <div class="item type-one d-flex align-items-center flex-column">
+                            <div class="textimonial-image">
+                                <i class="icon-testimonial"></i>
+                            </div>
+                            <div class="desc-testimonial">
+                                <div class="testimonial-content">
+                                    <div class="text">
+                                        <p>"{{ $feedback->message }}"</p>
                                     </div>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h5 class="mt-0 box-info">{{ $feedback->name }}</h5>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
                 </div>
                 <!-- recent posts -->
                 <div class="container">

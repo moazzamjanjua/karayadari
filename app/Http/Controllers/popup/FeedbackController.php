@@ -12,7 +12,7 @@ class FeedbackController extends Controller
     {
         // Validate the request data
         $validatedData = $request->validate([
-            'number' => 'required|string|max:15',
+        
             'name' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'message' => 'required|string|max:1000',
@@ -24,4 +24,7 @@ class FeedbackController extends Controller
         // Return a JSON response with a success message
         return response()->json(['success' => true, 'message' => 'Thank you for your feedback!']);
     }
+
+
+
 }
