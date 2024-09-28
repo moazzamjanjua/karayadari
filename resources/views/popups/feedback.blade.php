@@ -12,10 +12,7 @@
                 <div class="feedback-form">
                     <form id="feedback-form" action="{{ route('feedback.store') }}" method="post">
                         @csrf
-                        <div class="form-group">
-                            <label>Phone Number</label>
-                            <input type="number" name="number" class="form-control" placeholder="Enter your number" required>
-                        </div>
+                       
 
                         <div class="form-group">
                             <label>Name</label>

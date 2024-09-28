@@ -4,7 +4,7 @@ namespace App\Http\Controllers\popup;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Feedbacks;
+use App\Models\FeedBacks;
 
 class FeedbackController extends Controller
 {
