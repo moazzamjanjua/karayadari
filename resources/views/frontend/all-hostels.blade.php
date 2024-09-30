@@ -168,8 +168,12 @@
                                         @if($hostel->is_verified)
                                             <img src="{{ asset('storage/verified_hostel/verified_tag.png') }}" class="verified_tag"
                                                 alt="Verified Hostel">
+                                                @elseif($hostel->is_booked)
+                                            <img src="{{ asset('storage/booked_hostel/booked.png') }}" class="booked_tag"
+                                                alt="Booked Hostel">
                                         @endif
                                     </div>
+
                                 </div>
                             </a>
                         @endforeach

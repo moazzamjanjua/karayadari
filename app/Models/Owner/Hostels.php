@@ -22,7 +22,7 @@ class Hostels extends Model
        
         'hostel_price',     // Adding the hostel price
         'hostel_video',     // Adding the video URL or path
-        'slug','area'
+        'slug','area','is_booked','required_capacity'
     ];
 
     public function rooms()

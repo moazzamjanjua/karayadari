@@ -20,6 +20,9 @@ class HomeController extends Controller
         // Fetch top-rated hostels
         $verifiedHostels = Hostels::where('is_verified', 1)->get()->unique('hostel_name');
 
+        $bookedHostels = Hostels::where('is_booked', 1)->get()->unique('hostel_name');
+
+
         // Fetch featured hostels 
         $featuredHostels = Hostels::where('featured_hostel', 1)->get()->unique('hostel_name');
 
@@ -36,7 +39,7 @@ class HomeController extends Controller
         $feedbacks = FeedBacks::all();
 
 
-        return view('frontend.index', compact('categories','cities', 'areas','verifiedHostels', 'featuredHostels', 'bestHostels','feedbacks'));
+        return view('frontend.index', compact('categories','cities', 'areas','verifiedHostels', 'featuredHostels','bookedHostels', 'bestHostels','feedbacks'));
     }
 
 
@@ -114,7 +117,12 @@ class HomeController extends Controller
         } elseif ($view === 'verified-hostels') {
             // Sort hostels by average rating
             $query->where('is_verified', 1);
-        } elseif ($view === 'best-hostels') {
+        } elseif ($view === 'bookeded-hostels') {
+            // Sort hostels by average rating
+            $query->where('is_booked', 1);
+        }
+        
+        elseif ($view === 'best-hostels') {
             $query->where('best_hostel', 1);
         }
     
