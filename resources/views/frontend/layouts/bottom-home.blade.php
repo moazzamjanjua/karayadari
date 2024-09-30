@@ -35,7 +35,7 @@
                                         @endforeach
 
                                     </div>
-                                    <div class="categoriestab-left product-tab col-md-9 flex-9">
+                                      <div class="categoriestab-left product-tab col-md-9 flex-9">
                                         <div class="title-tab-content d-flex justify-content-start">
                                             <ul class="nav nav-tabs">
                                                 <li>
@@ -61,7 +61,7 @@
                                                                     </div>
                                                                     <a
                                                                         href="{{ route('hostel-detail.show', $hostel->slug) }}">
-                                                                        <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
+                                                                        <img src="{{ $hostel->hostel_front_image }}"
                                                                             alt="Hostel Image">
                                                                     </a>
                                                                 </div>
@@ -114,7 +114,7 @@
                                                                     </div>
                                                                     <a
                                                                         href="{{ route('hostel-detail.show', $hostel->slug) }}">
-                                                                        <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
+                                                                        <img src="{{ $hostel->hostel_front_image }}"
                                                                             alt="Hostel Image">
                                                                     </a>
                                                                 </div>
@@ -232,7 +232,7 @@
 
                                                                                 <a
                                                                                     href="{{ route('hostel-detail.show', $hostel->slug) }}">
-                                                                                    <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
+                                                                                    <img src="{{ $hostel->hostel_front_image }}"
                                                                                         alt="img">
                                                                                 </a>
                                                                             </div>
@@ -259,8 +259,15 @@
 
 
                     </div>
-                    <!-- testimonial -->
-                    <div class="section testimonial-block col-lg-12 col-xs-12">
+
+
+
+
+
+
+
+                        <!-- testimonial -->
+<div class="section testimonial-block col-lg-12 col-xs-12">
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <div class="block">
@@ -288,7 +295,8 @@
     </div>
 </div>
 
-                </div>
+
+              </div>
                 <!-- recent posts -->
                 <div class="container">
                     <div class="section recent-post">
@@ -345,8 +353,7 @@
                                             <a href="../blog_detail">Royal Boys Hostel in Bahawalpur</a>
                                         </div>
                                         <div class="post-desc">
-                                            Best Boys Hostel in Bahawalpur ! Are you looking for a nice and safety
-                                            hostel in Bahwalpur.
+                                            Best Boys Hostel in Bahawalpur ! Are you looking for a nice and safety hostel in Bahwalpur.
                                         </div>
                                     </div>
                                 </div>
@@ -373,8 +380,7 @@
                                             <a href="../blog_detail">Manhas Hostel in Bahawalpur</a>
                                         </div>
                                         <div class="post-desc">
-                                            furnished Light Hostel in Bahwalpur are you looking for safe and affordable
-                                            price room..
+                                            furnished Light Hostel in Bahwalpur are you looking for safe and affordable price room..
                                         </div>
                                     </div>
                                 </div>

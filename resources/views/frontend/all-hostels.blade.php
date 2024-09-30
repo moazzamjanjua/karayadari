@@ -4,25 +4,17 @@
     @include('frontend.layouts.header')
 
     <style>
-        .hostel-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-        }
+    
 
-        .hostel-image-container {
-            width: 100%;
-            max-width: 300px;
-            height: 200px;
-            overflow: hidden;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
+       .hostel-image-container {
+        width: 100%;
+        max-width: 300px;
+        height: 200px;
+        overflow: hidden;
+        margin-right: 20px;
+        position: relative; /* Relative positioning for the ribbon */
+        flex-shrink: 0;
+    }
 
         .hostel-image-container img {
             width: 100%;
@@ -30,76 +22,84 @@
             object-fit: cover;
         }
 
+         .hostel-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+     .pagination .page-item.active .page-link {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+    }
+
+    .pagination .page-link {
+        color: #007bff;
+    }
+
+    .pagination .page-link:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+
+    .category_verified_container {
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .categoty_hostel {
+        display: block;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        padding: 8px 16px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    .verified_tag {
+        width: 140px;
+        height: 150px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .hostel-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hostel-card:hover .hostel-details h5 {
+        color: #007bff;
+    }
+
+    .hostel-card:hover .hostel-details p {
+        color: #333;
+    }
+
+    .hostel-card:hover .price-ribbon {
+        background-color: #0056b3;
+    }
+        
+     @media (max-width: 767px) {
+   
+
+    
         .hostel-details {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            flex: none;
+            width: 100%;
         }
+    }
 
-        .pagination .page-item.active .page-link {
-            background-color: #007bff;
-            border-color: #007bff;
-            color: white;
-        }
 
-        .pagination .page-link {
-            color: #007bff;
-        }
 
-        .pagination .page-link:hover {
-            background-color: #0056b3;
-            color: white;
-        }
-
-        .category_verified_container {
-            display: inline-block;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .categoty_hostel {
-            display: block;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #fff;
-            background-color: #007bff;
-            padding: 8px 16px;
-            border-radius: 5px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .verified_tag {
-            width: 140px;
-            height: 150px;
-            margin: 0 auto;
-            display: block;
-        }
-
-        .hostel-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            /* Add a deeper shadow on hover */
-            transform: translateY(-5px);
-            /* Slightly lift the card */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* Smooth transition for hover effect */
-        }
-
-        .hostel-card:hover .hostel-details h5 {
-            color: #007bff;
-            /* Change the title color on hover */
-        }
-
-        .hostel-card:hover .hostel-details p {
-            color: #333;
-            /* Darken the paragraph text on hover */
-        }
-
-        .hostel-card:hover .price-ribbon {
-            background-color: #0056b3;
-            /* Darken the price ribbon on hover */
-        }
+        
     </style>
 
 
@@ -146,7 +146,8 @@
                                     <!-- Hostel Image -->
                                     <div class="hostel-image-container">
                                         @if($hostel->hostel_front_image)
-                                            <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
+                                            <img src="{{ $hostel->hostel_front_image }}" alt="{{ $hostel->hostel_name }}"
+
                                                 alt="Hostel Image">
                                         @else
                                             <p>No image available</p>
@@ -156,10 +157,11 @@
                                     <!-- Hostel Details -->
                                     <div class="hostel-details">
                                         <h5>{{ $hostel->hostel_name }}</h5>
-                                        <p><strong>Detail:</strong> {{ $hostel->hostel_detail }}</p>
+                                       <p><strong>Detail:</strong> {{ explode('.', $hostel->hostel_detail)[0] }}....<strong style="color:red">See More</strong></p>
+
                                         <p>Average Rating: {{ round($hostel->reviews_avg_rating ?? 0, 1) ?: 'No ratings yet' }}
                                         </p>
-                                        <p><strong>Number:</strong> {{ $hostel->owner_number }}</p>
+                                       
                                         <p>{{ Str::limit($hostel->hostel_description, 150) }}</p>
                                     </div>
 

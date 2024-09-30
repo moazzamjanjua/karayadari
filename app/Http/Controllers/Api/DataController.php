@@ -17,12 +17,11 @@ class DataController extends Controller
         $cities = cities::all();
         $categories = CategoryList::all();
         $areas = areas::all();
-        
-        
+    
         $verifiedHostels = Hostels::where('is_verified', true)->get(); // Fetch verified hostels
         $featuredHostels = Hostels::where('featured_hostel', true)->get(); // Fetch featured hostels
         $bestHostels = Hostels::where('best_hostel', true)->get();
-
+    
         // Combine the data into one array and return as JSON
         return response()->json([
             'cities' => $cities,
@@ -31,7 +30,7 @@ class DataController extends Controller
             'verified_hostels' => $verifiedHostels,
             'featured_hostels' => $featuredHostels,
             'best_hostels' => $bestHostels,
-           
         ]);
     }
+    
 }
