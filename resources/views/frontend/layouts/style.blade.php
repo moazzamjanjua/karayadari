@@ -69,6 +69,15 @@
     transform: rotate(45deg);
     z-index: -1;
 }
+.booked_tag{
+    position: absolute;
+    
+    width: 80px; /* Adjusted width */
+    height:80px; /* Adjusted height */
+    ; /* Adjust to align with the ribbon */
+    right: -92%; /* Adjust to align with the ribbon */
+    z-index: -1;
+}
 .image-container, .best_image-container, .images-container, .product-tab {
     position: relative;
     overflow: hidden;

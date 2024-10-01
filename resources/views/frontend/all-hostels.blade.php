@@ -142,11 +142,16 @@
                                 <div class="row row-fixed hostel-card">
                                     <div class="price-ribbon">
                                         {{ $hostel->hostel_price }} Rs / month
+                                        @if($hostel->is_booked)
+                                            <img src="{{ asset('storage/booked_hostel/booked.png') }}" class="booked_tag"
+                                                alt="Booked Hostel">
+                                                @endif
                                     </div>
+                                   
                                     <!-- Hostel Image -->
                                     <div class="hostel-image-container">
                                         @if($hostel->hostel_front_image)
-                                            <img src="{{ $hostel->hostel_front_image }}" alt="{{ $hostel->hostel_name }}"
+                                            <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
 
                                                 alt="Hostel Image">
                                         @else
@@ -170,9 +175,7 @@
                                         @if($hostel->is_verified)
                                             <img src="{{ asset('storage/verified_hostel/verified_tag.png') }}" class="verified_tag"
                                                 alt="Verified Hostel">
-                                                @elseif($hostel->is_booked)
-                                            <img src="{{ asset('storage/booked_hostel/booked.png') }}" class="booked_tag"
-                                                alt="Booked Hostel">
+                                               
                                         @endif
                                     </div>
 

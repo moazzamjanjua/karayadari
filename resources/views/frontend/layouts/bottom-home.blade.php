@@ -61,7 +61,7 @@
                                                                     </div>
                                                                     <a
                                                                         href="{{ route('hostel-detail.show', $hostel->slug) }}">
-                                                                        <img src="{{ $hostel->hostel_front_image }}"
+                                                                        <img src="{{ asset('storage/hostel_images/' . $hostel->hostel_front_image) }}"
                                                                             alt="Hostel Image">
                                                                     </a>
                                                                 </div>
