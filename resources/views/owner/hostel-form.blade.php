@@ -22,228 +22,88 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .avatar-upload {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 20px;
-            position: relative;
+        .loader-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
         }
 
-        .avatar-upload img {
+        .loader {
             width: 100px;
             height: 100px;
+            border: 10px solid #f3f3f3;
+            border-top: 10px solid #007bff;
             border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ddd;
+            animation: spin 2s linear infinite;
         }
 
-        .avatar-upload .add-button {
-            position: absolute;
-            bottom: 5px;
-            left: 100px;
-            padding: 5px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .avatar-upload .edit-button:hover {
-            background-color: #0056b3;
-        }
-
-        .preview {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .progress-bar-container {
+            width: 300px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            overflow: hidden;
             margin-top: 10px;
         }
 
-        .preview .image-container {
-            position: relative;
-        }
-
-        .preview img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border: 1px solid #ddd;
+        .progress-bar {
+            width: 0;
+            height: 30px;
+            background-color: #007bff;
+            text-align: center;
+            line-height: 30px;
+            color: white;
             border-radius: 5px;
         }
 
-        .preview .remove-image {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: rgba(255, 0, 0, 0.7);
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
-        .location-options {
+        .success-message {
             display: none;
-            margin-top: 10px;
-        }
-
-        .video-container {
-            position: relative;
-        }
-
-        .video-container video {
-            width: 200px;
-            /* Make the video match the image size */
-            height: 200px;
-            /* Maintain the image size */
-            object-fit: cover;
-            /* Ensure the video covers the container without distortion */
-        }
-
-        .remove-video {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: rgba(255, 0, 0, 0.7);
-            border: none;
-            color: white;
-            border-radius: 50%;
-            width: 25px;
-            height: 25px;
-            font-size: 18px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            color: #28a745;
+            font-weight: bold;
         }
     </style>
-    <script>
-        function updateFrontImagePreview() {
-            const frontImageInput = document.getElementById('hostel_front_image');
-            const frontImagePreviewContainer = document.getElementById('front_image_preview');
-            frontImagePreviewContainer.innerHTML = '';
-
-            if (frontImageInput.files.length > 0) {
-                const file = frontImageInput.files[0];
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const imgContainer = document.createElement('div');
-                    imgContainer.classList.add('image-container');
-
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-
-                    const removeButton = document.createElement('button');
-                    removeButton.classList.add('remove-image');
-                    removeButton.innerHTML = '&times;';
-                    removeButton.onclick = () => removeFrontImage();
-
-                    imgContainer.appendChild(img);
-                    imgContainer.appendChild(removeButton);
-                    frontImagePreviewContainer.appendChild(imgContainer);
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function removeFrontImage() {
-            const frontImageInput = document.getElementById('hostel_front_image');
-            const frontImagePreviewContainer = document.getElementById('front_image_preview');
-            frontImageInput.value = '';
-            frontImagePreviewContainer.innerHTML = '';
-        }
-
-        function updateOwnerImagePreview() {
-            const ownerImageInput = document.getElementById('owner_image');
-            const ownerImagePreview = document.getElementById('owner_image_preview');
-            ownerImagePreview.src = '';
-
-            if (ownerImageInput.files.length > 0) {
-                const file = ownerImageInput.files[0];
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    ownerImagePreview.src = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function toggleLocationOptions() {
-            const bahawalpurOption = document.getElementById('bahawalpur_option');
-            const locationOptions = document.getElementById('location_options');
-            if (bahawalpurOption.checked) {
-                locationOptions.style.display = 'block';
-            } else {
-                locationOptions.style.display = 'none';
-            }
-        }
-
-        function updateVideoPreview() {
-            const videoInput = document.getElementById('hostel_video');
-            const videoPreviewContainer = document.getElementById('hostel_video_preview');
-            videoPreviewContainer.innerHTML = '';
-
-            if (videoInput.files.length > 0) {
-                const file = videoInput.files[0];
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const videoContainer = document.createElement('div');
-                    videoContainer.classList.add('video-container');
-
-                    const video = document.createElement('video');
-                    video.src = e.target.result;
-                    video.controls = true;
-
-                    const removeButton = document.createElement('button');
-                    removeButton.classList.add('remove-image');
-                    removeButton.innerHTML = '&times;';
-                    removeButton.onclick = () => removeVideo();
-
-                    videoContainer.appendChild(video);
-                    videoContainer.appendChild(removeButton);
-                    videoPreviewContainer.appendChild(videoContainer);
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function removeVideo() {
-            const videoInput = document.getElementById('hostel_video');
-            const videoPreviewContainer = document.getElementById('hostel_video_preview');
-            videoInput.value = '';
-            videoPreviewContainer.innerHTML = '';
-        }
-
-    </script>
-
-
 </head>
 
 <body>
 
     <div class="container mt-5">
+        <!-- Success Message -->
+        <div id="successMessage" class="alert alert-success success-message" role="alert">
+            Hostel uploaded successfully!
+        </div>
 
-        <form action="{{ route('owner.hostels.store') }}" method="post" enctype="multipart/form-data">
+        <form id="hostelForm" enctype="multipart/form-data">
             @csrf
             @method('POST')
-
-
-            <!-- Your form fields -->
 
             <!-- Hostel Name -->
             <div class="form-group">
                 <label for="hostel_name">Hostel Name:</label>
-                <input type="text" class="form-control" id="hostel_name" name="hostel_name" value="" required>
+                <input type="text" class="form-control" id="hostel_name" name="hostel_name" required>
             </div>
 
+            <!-- City -->
             <div class="form-group">
-                <label for="city">City:</label><br>
+                <label for="city">City:</label>
                 <select class="form-control" id="city" name="city" required>
                     <option value="" disabled selected>Select City</option>
                     @foreach($cities as $city)
@@ -252,8 +112,9 @@
                 </select>
             </div>
 
+            <!-- Area -->
             <div class="form-group">
-                <label for="area">Area:</label><br>
+                <label for="area">Area:</label>
                 <select class="form-control" id="area" name="area" required>
                     <option value="" disabled selected>Select Area</option>
                     @foreach($areas as $area)
@@ -262,8 +123,9 @@
                 </select>
             </div>
 
+            <!-- Categories -->
             <div class="form-group">
-                <label for="categories">Categories:</label><br>
+                <label for="categories">Categories:</label>
                 <select class="form-control" id="category_name" name="category_name" required>
                     <option value="" disabled selected>Select Categories</option>
                     @foreach($categories as $category)
@@ -275,46 +137,43 @@
             <!-- Hostel Front Image -->
             <div class="form-group">
                 <label for="hostel_front_image">Hostel Front Image:</label>
-                <input type="file" class="form-control-file" id="hostel_front_image" name="hostel_front_image"
-                    accept="image/*" required onchange="updateFrontImagePreview()">
-                <div id="front_image_preview" class="preview mt-2"></div>
+                <input type="file" class="form-control-file" id="hostel_front_image" name="hostel_front_image" required
+                    accept="image/*" onchange="previewImage(event, 'imagePreview')">
+                <img id="imagePreview" style="display:none; max-width: 100%; max-height: 200px; margin-top: 10px;" />
             </div>
 
+            <!-- Hostel Video -->
             <div class="form-group">
                 <label for="hostel_video">Hostel Video:</label>
-                <input type="file" class="form-control-file" id="hostel_video" name="hostel_video" accept="video/*"
-                    required onchange="updateVideoPreview()">
-                <div id="hostel_video_preview" class="preview mt-2"></div>
+                <input type="file" class="form-control-file" id="hostel_video" name="hostel_video" required
+                    accept="video/*" onchange="previewVideo(event, 'videoPreview')">
+                <video id="videoPreview" controls
+                    style="display:none; max-width: 100%; max-height: 200px; margin-top: 10px;"></video>
             </div>
 
+            <!-- Price -->
             <div class="form-group">
                 <label for="room_price">Hostel Price:</label>
-                <input type="number" class="form-control" id="hostel_price" name="hostel_price"
-                    placeholder="Enter Hostel Price" required>
+                <input type="number" class="form-control" id="hostel_price" name="hostel_price" required>
             </div>
 
             <!-- Capacity -->
             <div class="form-group">
                 <label for="capacity">Capacity:</label>
-                <input type="number" class="form-control" id="capacity" name="capacity" value=""
+                <input type="number" class="form-control" id="capacity" name="capacity"
                     placeholder="Enter capacity (optional)">
             </div>
-
 
             <!-- Number of Rooms -->
             <div class="form-group">
                 <label for="num_rooms">Number of Rooms:</label>
-                <input type="number" class="form-control" id="num_rooms" name="num_rooms" value=""
+                <input type="number" class="form-control" id="num_rooms" name="num_rooms"
                     placeholder="Enter number of rooms (optional)">
             </div>
 
-            <!-- Facilities (Wi-Fi, Security, Water Supply) -->
+            <!-- Facilities -->
             <div class="form-group">
-                <label for="facilities">Facilities:</label>
-
-            </div>
-            <div class="form-group">
-                <label>Wi-Fi:</label>
+                <label for="facilities">Wi-Fi:</label>
                 <div>
                     <input type="radio" id="wifi_yes" name="wifi" value="1">
                     <label for="wifi_yes">Yes</label>
@@ -326,7 +185,7 @@
             </div>
 
             <div class="form-group">
-                <label>Security:</label>
+                <label for="security">Security:</label>
                 <div>
                     <input type="radio" id="security_yes" name="security" value="1">
                     <label for="security_yes">Yes</label>
@@ -338,7 +197,7 @@
             </div>
 
             <div class="form-group">
-                <label>Water Supply:</label>
+                <label for="water_supply">Water Supply:</label>
                 <div>
                     <input type="radio" id="water_supply_yes" name="water_supply" value="1">
                     <label for="water_supply_yes">Yes</label>
@@ -349,25 +208,11 @@
                 </div>
             </div>
 
-            <!-- Hostel Address -->
+            <!-- Address -->
             <div class="form-group">
                 <label for="hostel_address">Hostel Address:</label>
                 <textarea class="form-control" id="hostel_address" name="hostel_address" rows="4" required></textarea>
             </div>
-
-
-
-
-
-
-
-            <!-- Hostel Location -->
-            <div class="form-group">
-                <label for="hostel_location">Hostel Location:</label>
-                <input type="text" class="form-control" id="hostel_location" name="hostel_location"
-                    placeholder="Enter hostel location (optional)">
-            </div>
-
 
             <!-- Hostel Details -->
             <div class="form-group">
@@ -375,15 +220,104 @@
                 <textarea class="form-control" id="hostel_detail" name="hostel_detail" rows="4" required></textarea>
             </div>
 
-
-
-
-
-            <!-- Update Button -->
+            <!-- Submit Button -->
             <button type="submit" class="btn btn-success btn-block">Add Hostel</button>
         </form>
     </div>
 
+    <!-- Loader Container -->
+    <div id="loaderContainer" class="loader-container">
+        <div>
+            <div class="loader"></div>
+            <div class="progress-bar-container">
+                <div id="progressBar" class="progress-bar">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function previewImage(event, previewId) {
+            const file = event.target.files[0];
+            const preview = document.getElementById(previewId);
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function previewVideo(event, previewId) {
+            const file = event.target.files[0];
+            const preview = document.getElementById(previewId);
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        document.getElementById('hostelForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Display the loader
+            const loaderContainer = document.getElementById('loaderContainer');
+            const progressBar = document.getElementById('progressBar');
+            loaderContainer.style.display = 'flex';
+
+            const formData = new FormData(this);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '{{ route("owner.hostels.store") }}', true);
+
+            // Track progress
+            xhr.upload.onprogress = function (e) {
+                if (e.lengthComputable) {
+                    const percentComplete = Math.round((e.loaded / e.total) * 100);
+                    progressBar.style.width = percentComplete + '%';
+                    progressBar.innerHTML = percentComplete + '%';
+                }
+            };
+
+            // On successful upload
+            xhr.onload = function () {
+                loaderContainer.style.display = 'none'; // Hide the loader
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block'; // Show success message
+                successMessage.classList.add('fade'); // Add fade animation class
+            };
+
+            // On failure
+            xhr.onerror = function () {
+                alert('Upload failed, please try again.');
+                loaderContainer.style.display = 'none';
+            };
+
+            // Send the form data
+            xhr.send(formData);
+        });
+    </script>
+
+    <style>
+        .fade {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 
 </body>
 
