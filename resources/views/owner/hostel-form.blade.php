@@ -236,88 +236,87 @@
     </div>
 
     <script>
-        function previewImage(event, previewId) {
-            const file = event.target.files[0];
-            const preview = document.getElementById(previewId);
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function previewVideo(event, previewId) {
-            const file = event.target.files[0];
-            const preview = document.getElementById(previewId);
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        document.getElementById('hostelForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Display the loader
-            const loaderContainer = document.getElementById('loaderContainer');
-            const progressBar = document.getElementById('progressBar');
-            loaderContainer.style.display = 'flex';
-
-            const formData = new FormData(this);
-
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', '{{ route("owner.hostels.store") }}', true);
-
-            // Track progress
-            xhr.upload.onprogress = function (e) {
-                if (e.lengthComputable) {
-                    const percentComplete = Math.round((e.loaded / e.total) * 100);
-                    progressBar.style.width = percentComplete + '%';
-                    progressBar.innerHTML = percentComplete + '%';
-                }
+    function previewImage(event, previewId) {
+        const file = event.target.files[0];
+        const preview = document.getElementById(previewId);
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
             };
-
-            // On successful upload
-            xhr.onload = function () {
-                loaderContainer.style.display = 'none'; // Hide the loader
-                const successMessage = document.getElementById('successMessage');
-                successMessage.style.display = 'block'; // Show success message
-                successMessage.classList.add('fade'); // Add fade animation class
-            };
-
-            // On failure
-            xhr.onerror = function () {
-                alert('Upload failed, please try again.');
-                loaderContainer.style.display = 'none';
-            };
-
-            // Send the form data
-            xhr.send(formData);
-        });
-    </script>
-
-    <style>
-        .fade {
-            animation: fadeIn 1s ease-in-out;
+            reader.readAsDataURL(file);
         }
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+    function previewVideo(event, previewId) {
+        const file = event.target.files[0];
+        const preview = document.getElementById(previewId);
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
         }
-    </style>
+    }
+
+    document.getElementById('hostelForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Display the loader
+        const loaderContainer = document.getElementById('loaderContainer');
+        const progressBar = document.getElementById('progressBar');
+        loaderContainer.style.display = 'flex';
+
+        const formData = new FormData(this);
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '{{ route("owner.hostels.store") }}', true);
+
+        // Track progress
+        xhr.upload.onprogress = function (e) {
+            if (e.lengthComputable) {
+                const percentComplete = Math.round((e.loaded / e.total) * 100);
+                progressBar.style.width = percentComplete + '%';
+                progressBar.innerHTML = percentComplete + '%';
+            }
+        };
+
+        // On successful upload
+        xhr.onload = function () {
+            loaderContainer.style.display = 'none'; // Hide the loader
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block'; // Show success message
+            successMessage.classList.add('fade'); // Add fade animation class
+        };
+
+        // On failure
+        xhr.onerror = function () {
+            alert('Upload failed, please try again.');
+            loaderContainer.style.display = 'none';
+        };
+
+        // Send the form data
+        xhr.send(formData);
+    });
+</script>
+
+<style>
+    .fade {
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
 
 </body>
 
