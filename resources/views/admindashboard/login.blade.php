@@ -1,120 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <!-- Basic Page Info -->
-    <meta charset="utf-8">
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
-
-    <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/admindashboard/vendors/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/admindashboard/vendors/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/admindashboard/vendors/images/favicon-16x16.png">
-
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/admindashboard/vendors/styles/core.css">
-    <link rel="stylesheet" type="text/css" href="/admindashboard/vendors/styles/icon-font.min.css">
-    <link rel="stylesheet" type="text/css" href="/admindashboard/vendors/styles/style.css">
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-119386393-1');
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Custom CSS for additional styling -->
 </head>
-<body class="login-page">
-<div class="login-header box-shadow">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
-        <div class="brand-logo">
-            <a href="login.html">
-                <img src="/admindashboard/vendors/images/deskapp-logo.svg" alt="">
-            </a>
-        </div>
-        <div class="login-menu">
-            <ul>
-                <li><a href="../admin/register">Register</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="login-wrap">
+
+<body class="bg-light">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-5">
-                <div class="login-box bg-white box-shadow border-radius-10">
-                    <div class="login-title">
-                        <h2 class="text-center text-primary">Login To DeskApp</h2>
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Admin Login</h3>
+                        <form action="{{ route('adminMatch') }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label for="emailOrPhone">Email</label>
+                                <input type="text" class="form-control" name="admin_email" id="admin_email"
+                                    placeholder="Enter email or phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" id="password"
+                                    placeholder="Enter password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </form>
+
+                        <div class="text-center mt-3">
+                            <p>Don't have an account? <a href="../admin/signup">Create one</a></p>
+                        </div>
                     </div>
-                    <form method="POST" action="{{route('adminMatch')}}">
-                        @csrf
-                        <div class="select-role">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn active">
-                                    <input type="radio" name="options" id="admin">
-                                    <div class="icon"><img src="/admindashboard/vendors/images/briefcase.svg" class="svg" alt=""></div>
-                                    <span>I'm</span>
-                                    Manager
-                                </label>
-                                <label class="btn">
-                                    <input type="radio" name="options" id="user">
-                                    <div class="icon"><img src="/admindashboard/vendors/images/person.svg" class="svg" alt=""></div>
-                                    <span>I'm</span>
-                                    Employee
-                                </label>
-                            </div>
-                        </div>
-                        <div class="input-group custom">
-                            <input type="text" name="email" class="form-control form-control-lg" placeholder="Email">
-                            <div class="input-group-append custom">
-                                <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
-                            </div>
-                        </div>
-                        <div class="input-group custom">
-                            <input type="password" name="password" class="form-control form-control-lg" placeholder="**********">
-                            <div class="input-group-append custom">
-                                <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
-                            </div>
-                        </div>
-                        <div class="row pb-30">
-                            <div class="col-6">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">Remember</label>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="forgot-password"><a href="forgot-password.html">Forgot Password</a></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="input-group mb-0">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Sign In</button>
-                                </div>
-                                <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
-                                <div class="input-group mb-0">
-                                    <a class="btn btn-outline-primary btn-lg btn-block" href="../admin/register">Register To Create Account</a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- js -->
-<script src="/admindashboard/vendors/scripts/core.js"></script>
-<script src="/admindashboard/vendors/scripts/script.min.js"></script>
-<script src="/admindashboard/vendors/scripts/process.js"></script>
-<script src="/admindashboard/vendors/scripts/layout-settings.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

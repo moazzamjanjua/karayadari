@@ -32,31 +32,19 @@ class adminController extends Controller
     return redirect()->back()->with('success', 'Status updated successfully!');
 }
 
+//admin login function
+public function adminlogin(Request $request)
+{
+    $credentials = $request->validate([
+        'admin_email' => 'required|email',
+        'password' => 'required',
+    ]);
 
-   
-    public function adminlogin(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-    
-        // Attempt to log in using the 'owner' guard
-        if (Auth::guard('admin')->attempt($credentials)) {
-            return redirect()->route('admindashboard.index')->with('success', 'Login successful');
-        } else {
-            // Check if the email exists in the database
-            $emailExists = Admin::where('email', $request->email)->exists();
-    
-            if (!$emailExists) {
-                // If the email does not exist
-                return back()->with('error', 'Your email is not correct');
-            } else {
-                // If the email exists but password is incorrect
-                return back()->with('error', 'Your email does not match');
-            }
-        }
+    if (Auth::guard('admin')->attempt(['admin_email' => $credentials['admin_email'], 'password' => $credentials['password']])) {
+        return redirect()->route('admindashboard.index');
     }
 
+    return back()->withErrors(['admin_email' => 'Invalid credentials']);
+}
 
 }
