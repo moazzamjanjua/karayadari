@@ -26,5 +26,9 @@ Route::get('/test', function(){
 });
 Route::post('user/register' , 'App\Http\Controllers\Api\UsersController@store');
 Route::post('user/login', [App\Http\Controllers\Api\UsersController::class, 'index']);
-
+//home page
 Route::get('/public/get-data', [DataController::class, 'getData']);
+
+//reviews store
+Route::post('user/reviews', [App\Http\Controllers\Api\ReviewController::class, 'store']);
+
