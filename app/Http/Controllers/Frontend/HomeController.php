@@ -16,31 +16,44 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-        // Fetch top-rated hostels
-        $verifiedHostels = Hostels::where('is_verified', 1)->get()->unique('hostel_name');
-
-        $bookedHostels = Hostels::where('is_booked', 1)->get()->unique('hostel_name');
-
-
-        // Fetch featured hostels 
-        $featuredHostels = Hostels::where('featured_hostel', 1)->get()->unique('hostel_name');
-
-        // Fetch best hostels
-        $bestHostels = Hostels::where('best_hostel', 1)->take(6)->get();
-        ;
-
-        
-        // IDs 1 aur 2 ko match karte hue categories fetch kar rahe hain
+        // Fetch top-rated verified hostels that are also approved
+        $verifiedHostels = Hostels::where('is_verified', 1)
+            ->where('is_approved', true)
+            ->get()
+            ->unique('hostel_name');
+    
+        // Fetch booked hostels that are also approved
+        $bookedHostels = Hostels::where('is_booked', 1)
+            ->where('is_approved', true)
+            ->get()
+            ->unique('hostel_name');
+    
+        // Fetch featured hostels that are also approved
+        $featuredHostels = Hostels::where('featured_hostel', 1)
+            ->where('is_approved', true)
+            ->get()
+            ->unique('hostel_name');
+    
+        // Fetch best hostels that are also approved (limited to 6)
+        $bestHostels = Hostels::where('best_hostel', 1)
+            ->where('is_approved', true)
+            ->take(6)
+            ->get();
+    
+        // Fetch categories, cities, areas, and feedbacks
         $categories = CategoryList::all();
-
         $cities = cities::all();
         $areas  = areas::all();
         $feedbacks = FeedBacks::all();
-
-
-        return view('frontend.index', compact('categories','cities', 'areas','verifiedHostels', 'featuredHostels','bookedHostels', 'bestHostels','feedbacks'));
+    
+        // Return the view with the filtered data
+        return view('frontend.index', compact(
+            'categories', 'cities', 'areas', 
+            'verifiedHostels', 'featuredHostels', 
+            'bookedHostels', 'bestHostels', 'feedbacks'
+        ));
     }
+    
 
 
     public function show($slug)

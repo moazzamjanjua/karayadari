@@ -22,8 +22,8 @@ class ResultController extends Controller
         $selectedCategory = $request->input('category');
         $selectedArea = $request->input('area');
     
-        // Create the base query
-        $query = Hostels::query();
+        // Initialize the query to fetch only approved hostels
+        $query = Hostels::where('is_approved', true);
     
         // Apply filters conditionally
         if ($selectedCity) {
@@ -38,26 +38,29 @@ class ResultController extends Controller
             $query->where('area', $selectedArea);
         }
     
-        $cities = cities::All();
+        // Fetch all cities, categories, and areas for filtering
+        $cities = cities::all();
         $categories = CategoryList::all();
         $areas = areas::all();
-        // Execute the query and paginate results
+    
+        // Execute the query and paginate results (10 per page)
         $hostels = $query->paginate(10);
     
         // Return the filtered results, for example, to a view
-        return view('frontend.result', compact('hostels','cities','categories','areas'));
+        return view('frontend.result', compact('hostels', 'cities', 'categories', 'areas'));
     }
+    
 
   // In your Controller (e.g., ResultController or HomeController)
   public function searchHostel(Request $request)
   {
+      // Initialize the query to fetch only approved hostels
+      $query = Hostels::where('is_approved', true);
+  
       // Get the filter inputs from the request
       $selectedCity = $request->input('city');
       $selectedCategory = $request->input('category');
       $selectedArea = $request->input('area');
-  
-      // Create the base query
-      $query = Hostels::query();
   
       // Apply filters conditionally
       if ($selectedCity) {
@@ -72,15 +75,18 @@ class ResultController extends Controller
           $query->where('area', $selectedArea);
       }
   
-      $cities = cities::All();
+      // Fetch all cities, categories, and areas for filtering
+      $cities = cities::all();
       $categories = CategoryList::all();
       $areas = areas::all();
-      // Execute the query and paginate results
+  
+      // Execute the query and paginate results (10 per page)
       $hostels = $query->paginate(10);
   
       // Return the filtered results, for example, to a view
-      return view('frontend.result', compact('hostels','cities','categories','areas'));
+      return view('frontend.result', compact('hostels', 'cities', 'categories', 'areas'));
   }
+  
   
   
 
