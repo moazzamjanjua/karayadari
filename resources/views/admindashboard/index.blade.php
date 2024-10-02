@@ -473,15 +473,15 @@
                     <div class="quick-stats">
                         <div class="row">
                             <div class="col-md-4 text-center">
-                                <h3 class="font-24">120</h3>
+                                <h3 class="font-24">{{$hostels->count()}}</h3>
                                 <p>Total Hostels</p>
                             </div>
                             <div class="col-md-4 text-center">
-                                <h3 class="font-24">85</h3>
+                                <h3 class="font-24">{{$approvedCount}}</h3>
                                 <p>Approved Hostels</p>
                             </div>
                             <div class="col-md-4 text-center">
-                                <h3 class="font-24">30</h3>
+                                <h3 class="font-24">{{$pendingapprovedCount}}</h3>
                                 <p>Pending Approvals</p>
                             </div>
                         </div>

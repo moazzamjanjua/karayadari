@@ -13,7 +13,9 @@ class adminController extends Controller
 
         $hostels = Hostels::all();
         $owners = Owner::all();
-        return view('admindashboard.index', compact('hostels','owners'));
+        $approvedCount = Hostels::where('is_approved', true)->count();
+        $pendingapprovedCount = Hostels::where('is_approved', false)->count();
+        return view('admindashboard.index', compact('hostels','owners' ,'approvedCount','pendingapprovedCount'));
     }
 
     public function updateStatus($id, $field)
