@@ -199,6 +199,20 @@ color: white;
         .edit-button:hover{
             background-color: black;
         }
+
+        .badge.approved {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.badge.pending {
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
     </style>
 </head>
 
@@ -209,35 +223,43 @@ color: white;
             @include('owner.owner-form')
         </div>
         <div class="main-content">
-            <a href="{{ route('addHostel') }}" class="add_hostel_button">Add Hostels</a>
-            <div class="hostel-grid">
-                @if($hostels->isEmpty())
-                    <div class="no-hostels">
-                        <p>No hostels available. Please add a new hostel.</p>
-
-                    </div>
-                @else
-                    @foreach ($hostels as $hostel)
-                        <div class="hostel-card" onclick="window.location.href='{{ route('owner.hostel.show', $hostel->id) }}'"
-                             style="background-image: url('{{ $hostel->hostel_front_image }}');">
-
-                            <div class="price-ribbon">
-                                {{$hostel->hostel_price}} Rs / month
-                            </div>
-                            <div class="hostel-overlay">
-                                <h2>{{ $hostel->hostel_name }}</h2>
-                             
-                                <p><strong>City:</strong> {{ $hostel->city }}</p>
-                              
-                                <!-- Edit Button -->
-                                <a href="{{ route('owner.hostel.edit', $hostel->id) }}" class="edit-button">Edit</a>
-                            </div>
-                        </div>
-                    @endforeach
-
-                @endif
+    <a href="{{ route('addHostel') }}" class="add_hostel_button">Add Hostels</a>
+    <div class="hostel-grid">
+        @if($hostels->isEmpty())
+            <div class="no-hostels">
+                <p>No hostels available. Please add a new hostel.</p>
             </div>
-        </div>
+        @else
+            @foreach ($hostels as $hostel)
+                <div class="hostel-card" 
+                     onclick="window.location.href='{{ route('owner.hostel.show', $hostel->id) }}'"
+                     style="background-image: url('{{ $hostel->hostel_front_image }}');">
+
+                    <div class="price-ribbon">
+                        {{$hostel->hostel_price}} Rs / month
+                    </div>
+                    <div class="hostel-overlay">
+                        <h2>{{ $hostel->hostel_name }}</h2>
+                        <p><strong>City:</strong> {{ $hostel->city }}</p>
+                        
+                        <!-- Displaying the approval status -->
+                        <p>
+                            <strong>Status:</strong>
+                            @if($hostel->is_approved)
+                                <span class="badge approved">Approved</span>
+                            @else
+                                <span class="badge pending">Pending Approval</span>
+                            @endif
+                        </p>
+                        
+                        <a href="{{ route('owner.hostel.edit', $hostel->id) }}" class="edit-button">Edit</a>
+                    </div>
+                </div>
+            @endforeach
+        @endif
+    </div>
+</div>
+
     </div>
 
     <script>
