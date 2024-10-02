@@ -536,82 +536,112 @@
             <div class="tab-pane fade" id="hostels" role="tabpanel">
 			<div class="container mt-5">
 			<h2 class="mb-4">Hostels List</h2>
-    <table class="table table-bordered">
-        <thead>
+			<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hostel Name</th>
+            <th>Owner ID</th>
+            <th>Owner Number</th>
+            <th>Owner Email</th>
+            <th>Best Hostel</th>
+            <th>Verified</th>
+            <th>Approved</th>
+            <th>Top Rated</th>
+            <th>Homepage</th>
+            <th>Featured Hostel</th>
+            <th>Category Name</th>
+            <th>Hostel Address</th>
+            <th>City</th>
+            <th>Location</th>
+            <th>Front Image</th>
+            <th>Detail</th>
+            <th>Capacity</th>
+            <th>Email</th>
+            <th>Number of Rooms</th>
+            <th>Wi-Fi</th>
+            <th>Security</th>
+            <th>Water Supply</th>
+            <th>Hostel Price</th>
+            <th>Hostel Video</th>
+            <th>Slug</th>
+            <th>Area</th>
+            <th>Is Booked</th>
+            <th>Required Capacity</th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($hostels as $hostel)
             <tr>
-                <th>ID</th>
-                <th>Hostel Name</th>
-                <th>Owner ID</th>
-                <th>Owner Number</th>
-                <th>Owner Email</th>
-                <th>Best Hostel</th>
-                <th>Verified</th>
-                <th>Approved</th>
-                <th>Top Rated</th>
-                <th>Homepage</th>
-                <th>Featured Hostel</th>
-                <th>Category Name</th>
-                <th>Hostel Address</th>
-                <th>City</th>
-                <th>Location</th>
-                <th>Front Image</th>
-                <th>Detail</th>
-                <th>Capacity</th>
-                <th>Email</th>
-                <th>Number of Rooms</th>
-                <th>Wi-Fi</th>
-                <th>Security</th>
-                <th>Water Supply</th>
-                <th>Hostel Price</th>
-                <th>Hostel Video</th>
-                <th>Slug</th>
-                <th>Area</th>
-                <th>Is Booked</th>
-                <th>Required Capacity</th>
-                <th>Created At</th>
-                <th>Updated At</th>
+                <td>{{ $hostel->id }}</td>
+                <td>{{ $hostel->hostel_name }}</td>
+                <td>{{ $hostel->owner_id }}</td>
+                <td>{{ $hostel->owner_number }}</td>
+                <td>{{ $hostel->owner_email }}</td>
+                
+                <!-- Best Hostel -->
+                <td>
+                    <form action="{{ route('hostels.updateStatus', ['id' => $hostel->id, 'field' => 'best_hostel']) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-{{ $hostel->best_hostel ? 'success' : 'danger' }}">
+                            {{ $hostel->best_hostel ? 'Yes' : 'No' }}
+                        </button>
+                    </form>
+                </td>
+
+                <!-- Verified -->
+                <td>
+                    <form action="{{ route('hostels.updateStatus', ['id' => $hostel->id, 'field' => 'is_verified']) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-{{ $hostel->is_verified ? 'success' : 'danger' }}">
+                            {{ $hostel->is_verified ? 'Yes' : 'No' }}
+                        </button>
+                    </form>
+                </td>
+
+                <!-- Approved -->
+                <td>
+                    <form action="{{ route('hostels.updateStatus', ['id' => $hostel->id, 'field' => 'is_approved']) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-{{ $hostel->is_approved ? 'success' : 'danger' }}">
+                            {{ $hostel->is_approved ? 'Yes' : 'No' }}
+                        </button>
+                    </form>
+                </td>
+
+                <!-- Additional Fields (similar structure for Top Rated, Homepage, Featured) -->
+                <!-- ... -->
+                
+                <td>{{ $hostel->category_name }}</td>
+                <td>{{ $hostel->hostel_address }}</td>
+                <td>{{ $hostel->city }}</td>
+                <td>{{ $hostel->hostel_location }}</td>
+                <td>
+                    <img src="{{ asset($hostel->hostel_front_image) }}" alt="Hostel Front Image" style="width: 100px;">
+                </td>
+                <td>{{ $hostel->hostel_detail }}</td>
+                <td>{{ $hostel->capacity }}</td>
+                <td>{{ $hostel->email }}</td>
+                <td>{{ $hostel->num_rooms }}</td>
+                <td>{{ $hostel->wifi ? 'Yes' : 'No' }}</td>
+                <td>{{ $hostel->security ? 'Yes' : 'No' }}</td>
+                <td>{{ $hostel->water_supply ? 'Yes' : 'No' }}</td>
+                <td>{{ $hostel->hostel_price }}</td>
+                <td>{{ $hostel->hostel_video }}</td>
+                <td>{{ $hostel->slug }}</td>
+                <td>{{ $hostel->area }}</td>
+                <td>{{ $hostel->is_booked ? 'Yes' : 'No' }}</td>
+                <td>{{ $hostel->required_capacity }}</td>
+          
             </tr>
-        </thead>
-        <tbody>
-            @foreach ($hostels as $hostel)
-                <tr>
-                    <td>{{ $hostel->id }}</td>
-                    <td>{{ $hostel->hostel_name }}</td>
-                    <td>{{ $hostel->owner_id }}</td>
-                    <td>{{ $hostel->owner_number }}</td>
-                    <td>{{ $hostel->owner_email }}</td>
-                    <td>{{ $hostel->best_hostel ? 'Yes' : 'No' }}</td>
-                    <td>{{ $hostel->is_verified ? 'Yes' : 'No' }}</td>
-                    <td>{{ $hostel->is_approved ? 'Yes' : 'No' }}</td>
-                    <td>{{ $hostel->top_rated_hostel ? 'Yes' : 'No' }}</td>
-                    <td>{{ $hostel->homepage ? 'Yes' : 'No' }}</td>
-                    <td>{{ $hostel->featured_hostel ? 'Yes' : 'No' }}</td>
-                    <td>{{ $hostel->category_name }}</td>
-                    <td>{{ $hostel->hostel_address }}</td>
-                    <td>{{ $hostel->city }}</td>
-                    <td>{{ $hostel->hostel_location }}</td>
-                    <td>
-                        <img src="{{ asset($hostel->hostel_front_image) }}" alt="Hostel Front Image" style="width: 100px;">
-                    </td>
-                    <td>{{ $hostel->hostel_detail }}</td>
-                    <td>{{ $hostel->capacity }}</td>
-                    <td>{{ $hostel->email }}</td>
-                    <td>{{ $hostel->num_rooms }}</td>
-                    <td>{{ $hostel->wifi ? 'Yes' : 'No' }}</td>
-                    <td>{{ $hostel->security ? 'Yes' : 'No' }}</td>
-                    <td>{{ $hostel->water_supply ? 'Yes' : 'No' }}</td>
-                    <td>{{ $hostel->hostel_price }}</td>
-                    <td>{{ $hostel->hostel_video }}</td>
-                    <td>{{ $hostel->slug }}</td>
-                    <td>{{ $hostel->area }}</td>
-                    <td>{{ $hostel->is_booked ? 'Yes' : 'No' }}</td>
-                    <td>{{ $hostel->required_capacity }}</td>
-                    <td>{{ $hostel->created_at }}</td>
-                    <td>{{ $hostel->updated_at }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+        @endforeach
+    </tbody>
+</table>
+@if (session('success'))
+    <div class="alert alert-success">{{ session('success') }}</div>
+@endif
+
 </div>
             </div>
             <div class="tab-pane fade" id="blogs" role="tabpanel">

@@ -16,6 +16,18 @@ class adminController extends Controller
         return view('admindashboard.index', compact('hostels','owners'));
     }
 
+    public function updateStatus($id, $field)
+{
+    $hostel = Hostels::find($id);
+    if ($hostel && in_array($field, ['best_hostel', 'is_verified', 'is_approved'])) {
+        $hostel->$field = !$hostel->$field; // Toggle the value
+        $hostel->save();
+    }
+
+    return redirect()->back()->with('success', 'Status updated successfully!');
+}
+
+
    
     public function login(){
         return view('admindashboard.login');
