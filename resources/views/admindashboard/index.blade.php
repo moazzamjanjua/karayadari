@@ -462,13 +462,13 @@
                 <div class="col-md-4">
                     <img src="/admindashboard/vendors/images/banner-img.png" alt="Banner Image" class="img-fluid">
                 </div>
-                
+
                 <!-- Welcome Message Section -->
                 <div class="col-md-8">
                     <h4 class="font-20 weight-500 mb-10 text-capitalize">Welcome back,</h4>
                     <h2 class="weight-600 font-30 text-blue">Karaydari!</h2>
                     <p class="font-16 max-width-600">Manage your platform efficiently with real-time approvals, insights, and more to ensure a smooth experience for all users.</p>
-                    
+
                     <!-- Quick Statistics Section -->
                     <div class="quick-stats">
                         <div class="row">
@@ -486,20 +486,209 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Action Buttons Section -->
-                    <div class="action-buttons mt-20">
-                        <a href="/admin/approve-hostels" class="btn btn-primary">Approve Hostels</a>
-                        <a href="/admin/approve-owners" class="btn btn-secondary">Approve Owners</a>
-                        <a href="/admin/add-blog" class="btn btn-success">Add Blogs</a>
-                    </div>
-
-                  
                 </div>
+            </div>
+        </div>
+
+        <!-- Tabs Section as Buttons -->
+        <div class="text-center mt-20" id="myTab" role="group">
+            <button type="button" class="btn btn-primary active" id="owners-tab" data-target="#owners" role="tab">Owners</button>
+            <button type="button" class="btn btn-primary" id="hostels-tab" data-target="#hostels" role="tab">Hostels</button>
+            <button type="button" class="btn btn-primary" id="blogs-tab" data-target="#blogs" role="tab">Add Blogs</button>
+        </div>
+
+        <!-- Tab Content Section -->
+        <div class="tab-content mt-3" id="myTabContent">
+            <div class="tab-pane fade show active" id="owners" role="tabpanel">
+			<h2 class="mb-4">Owners List</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Owner Name</th>
+                <th>Owner Email</th>
+                <th>Owner Address</th>
+                <th>Owner City</th>
+                <th>Owner Number</th>
+                <th>Owner Country</th>
+                <th>Owner Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($owners as $owner)
+                <tr>
+                    <td>{{ $owner->id }}</td>
+                    <td>{{ $owner->owner_name }}</td>
+                    <td>{{ $owner->owner_email }}</td>
+                    <td>{{ $owner->owner_address }}</td>
+                    <td>{{ $owner->owner_city }}</td>
+                    <td>{{ $owner->owner_number }}</td>
+                    <td>{{ $owner->owner_country }}</td>
+                    <td>
+                        <img src="{{ asset($owner->owner_image) }}" alt="Owner Image" style="width: 100px;">
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+                <!-- Add owner management content here -->
+            </div>
+            <div class="tab-pane fade" id="hostels" role="tabpanel">
+			<div class="container mt-5">
+			<h2 class="mb-4">Hostels List</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Hostel Name</th>
+                <th>Owner ID</th>
+                <th>Owner Number</th>
+                <th>Owner Email</th>
+                <th>Best Hostel</th>
+                <th>Verified</th>
+                <th>Approved</th>
+                <th>Top Rated</th>
+                <th>Homepage</th>
+                <th>Featured Hostel</th>
+                <th>Category Name</th>
+                <th>Hostel Address</th>
+                <th>City</th>
+                <th>Location</th>
+                <th>Front Image</th>
+                <th>Detail</th>
+                <th>Capacity</th>
+                <th>Email</th>
+                <th>Number of Rooms</th>
+                <th>Wi-Fi</th>
+                <th>Security</th>
+                <th>Water Supply</th>
+                <th>Hostel Price</th>
+                <th>Hostel Video</th>
+                <th>Slug</th>
+                <th>Area</th>
+                <th>Is Booked</th>
+                <th>Required Capacity</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($hostels as $hostel)
+                <tr>
+                    <td>{{ $hostel->id }}</td>
+                    <td>{{ $hostel->hostel_name }}</td>
+                    <td>{{ $hostel->owner_id }}</td>
+                    <td>{{ $hostel->owner_number }}</td>
+                    <td>{{ $hostel->owner_email }}</td>
+                    <td>{{ $hostel->best_hostel ? 'Yes' : 'No' }}</td>
+                    <td>{{ $hostel->is_verified ? 'Yes' : 'No' }}</td>
+                    <td>{{ $hostel->is_approved ? 'Yes' : 'No' }}</td>
+                    <td>{{ $hostel->top_rated_hostel ? 'Yes' : 'No' }}</td>
+                    <td>{{ $hostel->homepage ? 'Yes' : 'No' }}</td>
+                    <td>{{ $hostel->featured_hostel ? 'Yes' : 'No' }}</td>
+                    <td>{{ $hostel->category_name }}</td>
+                    <td>{{ $hostel->hostel_address }}</td>
+                    <td>{{ $hostel->city }}</td>
+                    <td>{{ $hostel->hostel_location }}</td>
+                    <td>
+                        <img src="{{ asset($hostel->hostel_front_image) }}" alt="Hostel Front Image" style="width: 100px;">
+                    </td>
+                    <td>{{ $hostel->hostel_detail }}</td>
+                    <td>{{ $hostel->capacity }}</td>
+                    <td>{{ $hostel->email }}</td>
+                    <td>{{ $hostel->num_rooms }}</td>
+                    <td>{{ $hostel->wifi ? 'Yes' : 'No' }}</td>
+                    <td>{{ $hostel->security ? 'Yes' : 'No' }}</td>
+                    <td>{{ $hostel->water_supply ? 'Yes' : 'No' }}</td>
+                    <td>{{ $hostel->hostel_price }}</td>
+                    <td>{{ $hostel->hostel_video }}</td>
+                    <td>{{ $hostel->slug }}</td>
+                    <td>{{ $hostel->area }}</td>
+                    <td>{{ $hostel->is_booked ? 'Yes' : 'No' }}</td>
+                    <td>{{ $hostel->required_capacity }}</td>
+                    <td>{{ $hostel->created_at }}</td>
+                    <td>{{ $hostel->updated_at }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+            </div>
+            <div class="tab-pane fade" id="blogs" role="tabpanel">
+			<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Add New Blog</h2>
+
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <form action="" method="POST" enctype="multipart/form-data"> <!-- Add enctype for file upload -->
+    @csrf
+    <div class="form-group">
+        <label for="title">Blog Title</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+	<div class="form-group">
+        <label for="image">Upload Image</label>
+        <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+    </div>
+    <div class="form-group">
+        <label for="content">Blog Content</label>
+        <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+</body>
+</html>
+
+                <!-- Add blog management content here -->
             </div>
         </div>
     </div>
 </div>
+
+<!-- Include Bootstrap JS and jQuery for tab functionality -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Handle tab clicks
+        $('[role="tab"]').on('click', function () {
+            // Remove 'active' class from all buttons and hide all tab panes
+            $('[role="tab"]').removeClass('active btn-primary').addClass('btn-secondary');
+            $('.tab-pane').removeClass('show active');
+
+            // Add 'active' class to the clicked button
+            $(this).addClass('active btn-primary').removeClass('btn-secondary');
+
+            // Get the target tab content ID from the button's data-target attribute
+            const target = $(this).data('target');
+            // Show the corresponding tab content
+            $(target).addClass('show active');
+        });
+    });
+</script>
+
+<style>
+    /* Additional styles if needed */
+</style>
+
 
 
 
