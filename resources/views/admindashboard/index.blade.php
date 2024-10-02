@@ -568,7 +568,6 @@
             <th>Area</th>
             <th>Is Booked</th>
             <th>Required Capacity</th>
-          
         </tr>
     </thead>
     <tbody>
@@ -579,7 +578,7 @@
                 <td>{{ $hostel->owner_id }}</td>
                 <td>{{ $hostel->owner_number }}</td>
                 <td>{{ $hostel->owner_email }}</td>
-                
+
                 <!-- Best Hostel -->
                 <td>
                     <form action="{{ route('hostels.updateStatus', ['id' => $hostel->id, 'field' => 'best_hostel']) }}" method="POST">
@@ -610,9 +609,37 @@
                     </form>
                 </td>
 
-                <!-- Additional Fields (similar structure for Top Rated, Homepage, Featured) -->
-                <!-- ... -->
-                
+                <!-- Top Rated -->
+                <td>
+                    <form action="{{ route('hostels.updateStatus', ['id' => $hostel->id, 'field' => 'top_rated']) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-{{ $hostel->top_rated ? 'success' : 'danger' }}">
+                            {{ $hostel->top_rated ? 'Yes' : 'No' }}
+                        </button>
+                    </form>
+                </td>
+
+                <!-- Homepage -->
+                <td>
+                    <form action="{{ route('hostels.updateStatus', ['id' => $hostel->id, 'field' => 'homepage']) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-{{ $hostel->homepage ? 'success' : 'danger' }}">
+                            {{ $hostel->homepage ? 'Yes' : 'No' }}
+                        </button>
+                    </form>
+                </td>
+
+                <!-- Featured Hostel -->
+                <td>
+                    <form action="{{ route('hostels.updateStatus', ['id' => $hostel->id, 'field' => 'featured_hostel']) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-{{ $hostel->featured_hostel ? 'success' : 'danger' }}">
+                            {{ $hostel->featured_hostel ? 'Yes' : 'No' }}
+                        </button>
+                    </form>
+                </td>
+
+                <!-- Other fields -->
                 <td>{{ $hostel->category_name }}</td>
                 <td>{{ $hostel->hostel_address }}</td>
                 <td>{{ $hostel->city }}</td>
@@ -633,11 +660,11 @@
                 <td>{{ $hostel->area }}</td>
                 <td>{{ $hostel->is_booked ? 'Yes' : 'No' }}</td>
                 <td>{{ $hostel->required_capacity }}</td>
-          
             </tr>
         @endforeach
     </tbody>
 </table>
+
 @if (session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
 @endif
