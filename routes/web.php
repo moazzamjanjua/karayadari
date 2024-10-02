@@ -108,7 +108,10 @@ Route::put('/owner/update', [OwnerController::class, 'update'])->name('owner.upd
 
 
 //admin 
-Route::get('/admin', [adminController::class, 'admin'])->name('admindashboard.index');
+Route::view('/admin', 'admindashboard.login')->name('login.');
+Route::get('/admin-dashboard', [adminController::class, 'admin'])->name('admindashboard.index');
+Route::post('adminMatch', [adminController::class, 'adminlogin'])->name('adminMatch');
+
 Route::post('/hostels/update-status/{id}/{field}', [adminController::class, 'updateStatus'])->name('hostels.updateStatus');
 
 

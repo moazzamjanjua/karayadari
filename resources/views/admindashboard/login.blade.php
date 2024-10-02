@@ -53,7 +53,7 @@
                     <div class="login-title">
                         <h2 class="text-center text-primary">Login To DeskApp</h2>
                     </div>
-                    <form method="POST" action="{{ route('admin.authenticate') }}">
+                    <form method="POST" action="{{route('adminMatch')}}">
                         @csrf
                         <div class="select-role">
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                         <div class="input-group custom">
-                            <input type="text" name="username" class="form-control form-control-lg" placeholder="Username">
+                            <input type="text" name="email" class="form-control form-control-lg" placeholder="Email">
                             <div class="input-group-append custom">
                                 <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
                             </div>
