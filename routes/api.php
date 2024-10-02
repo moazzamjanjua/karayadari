@@ -25,4 +25,6 @@ Route::get('/test', function(){
    p('Working');
 });
 Route::post('user/register' , 'App\Http\Controllers\Api\UsersController@store');
+Route::post('user/login', [App\Http\Controllers\Api\UsersController::class, 'index']);
+
 Route::get('/public/get-data', [DataController::class, 'getData']);

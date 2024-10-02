@@ -36,7 +36,7 @@
                      style="position: absolute; top: 40%; left: 31%; transform: translate(-50%, -50%) scale(1.5); color: white; font-size: 22px; z-index: 1000; opacity: 0; transition: transform 1s ease-in-out, opacity 1s ease-in-out;">
                     Search Hostels In A Certain Area.<br>
                     <h3>Find Hostels</h3>
-                    Search The Location And Select The Category To Find Hostels Accordingly.
+                    Search The Location And Select The Category To Find Hostels in Bahawalpur.
                 </div>
 
                 <!-- Animated Navbar -->

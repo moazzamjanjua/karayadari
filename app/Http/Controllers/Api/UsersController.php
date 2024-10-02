@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Hash;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\DB;
@@ -14,10 +15,32 @@ class UsersController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+    public function index(Request $request)
+{
+    $validatedData = $request->validate([
+        'phone' => 'required|string',
+        'password' => 'required|string',
+    ]);
+
+    // Find the user by phone number
+    $user = User::where('phone', $validatedData['phone'])->first();
+
+    // If user doesn't exist or the password doesn't match
+    if (!$user || !Hash::check($validatedData['password'], $user->password)) {
+        return response()->json(['error' => 'Invalid credentials'], 401);
     }
+  
+    // Fetch reviews of the user
+    $reviews = Review::where('user_id', $user->id)->with('hostel')->get();
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Login successful',
+        'user' => $user,
+        'reviews' => $reviews,
+    ]);
+}
+
 
     /**
      * Show the form for creating a new resource.
