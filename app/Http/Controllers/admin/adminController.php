@@ -12,15 +12,6 @@ use Illuminate\Support\Facades\Hash;
 
 class adminController extends Controller
 {
-    public function admin(){
-
-        $hostels = Hostels::all();
-        $owners = Owner::all();
-        $approvedCount = Hostels::where('is_approved', true)->count();
-        $pendingapprovedCount = Hostels::where('is_approved', false)->count();
-        return view('admindashboard.index', compact('hostels','owners' ,'approvedCount','pendingapprovedCount'));
-    }
-
     public function updateStatus($id, $field)
 {
     $hostel = Hostels::find($id);
@@ -41,10 +32,25 @@ public function adminlogin(Request $request)
     ]);
 
     if (Auth::guard('admin')->attempt(['admin_email' => $credentials['admin_email'], 'password' => $credentials['password']])) {
-        return redirect()->route('admindashboard.index');
+        return redirect()->route('admin.index');
     }
 
     return back()->withErrors(['admin_email' => 'Invalid credentials']);
+}
+public function admindashboard()
+{
+    if (Auth::guard('admin')->check()) {
+        $admin = Auth::guard('admin')->user();
+        
+
+        $hostels = Hostels::all();
+        $owners = Owner::all();
+        $approvedCount = Hostels::where('is_approved', true)->count();
+        $pendingapprovedCount = Hostels::where('is_approved', false)->count();
+        return view('admindashboard.index', compact('hostels','owners' ,'approvedCount','pendingapprovedCount'));
+    } else {
+        return redirect()->route('admin.login');
+    }
 }
 
 }

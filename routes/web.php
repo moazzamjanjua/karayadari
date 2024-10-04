@@ -7,8 +7,7 @@ use App\Http\Controllers\Owner\HostalFormController;
 use App\Http\Controllers\Owner\HostelsController;
 use App\Http\Controllers\Owner\OwnerController;
 use App\Http\Controllers\Owner\RoomController;
-use App\Http\Controllers\Owner\RoomFormController;
-use App\Http\Controllers\Owner\HostalDetailController;
+
 use App\Http\Controllers\popup\PopupController;
 use App\Http\Controllers\popup\FeedbackController;
 use App\Http\Controllers\ProductGridLeftController;
@@ -99,6 +98,15 @@ Route::post('rooms', [RoomController::class, 'store'])->name('rooms.store');
 Route::get('hostels/{id}/edit', [HostelsController::class, 'edit'])->name('owner.hostel.edit');
 Route::post('hostels/{id}', [HostelsController::class, 'update'])->name('owner.hostel.update');
 
+Route::get('hostel/{slug}', [HomeController::class, 'show'])->name('hostel-detail.show');
+
+Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->name('reviews.store');
+
+Route::get('/result', [ResultController::class, 'searchHostel'])->name('search.result');
+
+Route::get('/all-hostels', [HomeController::class, 'allHostels'])->name('all-hostels');
+
+
 
 
 
@@ -109,7 +117,9 @@ Route::put('/owner/update', [OwnerController::class, 'update'])->name('owner.upd
 
 //admin 
 Route::view('/admin', 'admindashboard.login')->name('login.');
-Route::get('/admin-dashboard', [adminController::class, 'admin'])->name('admindashboard.index');
+// Route::get('/admin-dashboard', [adminController::class, 'admin'])->name('admindashboard.index');
+
+Route::get('/admin-dashboard', [AdminController::class, 'admindashboard'])->name('admin.index');
 
 Route::view('/admin/login', 'admindashboard.login')->name('admin.login');
 Route::post('/admin/login', [AdminController::class, 'adminlogin'])->name('adminMatch');
@@ -134,19 +144,6 @@ Route::get('owner.logout', [OwnerController::class, 'logout'])->name('owner.logo
 
 
 
-Route::get('hostel/{slug}', [HomeController::class, 'show'])->name('hostel-detail.show');
-
-Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->name('reviews.store');
-
-
-// routes/web.php
-// Route for the general search page
-
-// Route for detailed hostel results based on search parameters
-
-
-Route::get('/result', [ResultController::class, 'searchHostel'])->name('search.result');
-
 
 
 
@@ -157,6 +154,4 @@ Route::get('/result', [ResultController::class, 'searchHostel'])->name('search.r
 Route::fallback(function () {
     return view('pagenotfound');
 });
-
-Route::get('/all-hostels', [HomeController::class, 'allHostels'])->name('all-hostels');
 
