@@ -679,24 +679,24 @@
         </div>
     @endif
 
-    <form action="" method="POST" enctype="multipart/form-data"> <!-- Add enctype for file upload -->
+	<form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data"> <!-- Add enctype for file upload -->
     @csrf
     <div class="form-group">
         <label for="title">Blog Title</label>
-        <input type="text" class="form-control" id="title" name="title" required>
+        <input type="text" class="form-control" id="blog_title" name="blog_title" required>
     </div>
-	<div class="form-group">
+    <div class="form-group">
         <label for="image">Upload Image</label>
-        <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+        <input type="file" class="form-control-file" id="blog_image" name="blog_image" accept="image/*">
     </div>
     <div class="form-group">
         <label for="content">Blog Content</label>
-        <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+        <textarea class="form-control" id="blog_content" name="blog_content" rows="5" required></textarea>
     </div>
-    
     
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
 
 </div>
 </body>

@@ -148,6 +148,12 @@ Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->na
 Route::get('/result', [ResultController::class, 'searchHostel'])->name('search.result');
 
 
+//blogs
+Route::get('/all-blogs', [BloggController::class, 'allBlogs'])->name('all-blogs'); // For listing blogs or showing blog details
+// Route to store new blog
+Route::post('/admin-dashboard', [adminController::class, 'store'])->name('blogs.store');
+
+
 
 
 

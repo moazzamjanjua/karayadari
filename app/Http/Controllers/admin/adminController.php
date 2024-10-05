@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Blogs;
 use Illuminate\Http\Request;
 use App\Models\Owner\Hostels;
 use App\Models\Owner;
@@ -46,5 +47,41 @@ public function adminlogin(Request $request)
 
     return back()->withErrors(['admin_email' => 'Invalid credentials']);
 }
+
+public function store(Request $request)
+{
+    // Validate input
+    $request->validate([
+        'blog_title' => 'required|string|max:255',
+        'blog_content' => 'required|string',
+        'blog_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10048'
+    ]);
+
+    // Capitalize the first letter of each word for the title
+    $blogTitle = ucwords(strtolower($request->input('blog_title')));
+
+    // Generate slug from the title
+    $blogSlug = strtolower(str_replace(' ', '-', $blogTitle));
+
+    // Handle the file upload
+    $imageName = null; // Initialize image name
+    if ($request->hasFile('blog_image')) {
+        $image = $request->file('blog_image');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $image->storeAs('public/blog_images', $imageName);
+    }
+
+    // Save blog
+    Blogs::create([
+        'blog_title' => $blogTitle,
+        'blog_slug' => $blogSlug,
+        'blog_content' => $request->input('blog_content'),
+        'blog_image' => $imageName, // This will be null if no image was uploaded
+    ]);
+
+    return redirect()->route('admindashboard.index')->with('success', 'Blog created successfully.');
+}
+
+
 
 }

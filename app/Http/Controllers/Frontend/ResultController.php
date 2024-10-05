@@ -23,7 +23,7 @@ class ResultController extends Controller
         $selectedArea = $request->input('area');
     
         // Initialize the query to fetch only approved hostels
-        $query = Hostels::where('is_approved', true);
+        $query = Hostels::where('is_approved', true); // Only fetch approved hostels
     
         // Apply filters conditionally
         if ($selectedCity) {
@@ -46,7 +46,7 @@ class ResultController extends Controller
         // Execute the query and paginate results (10 per page)
         $hostels = $query->paginate(10);
     
-        // Return the filtered results, for example, to a view
+        // Return the filtered results to a view
         return view('frontend.result', compact('hostels', 'cities', 'categories', 'areas'));
     }
     

@@ -25,7 +25,7 @@
                                         <a href="../owner/login">Add Rooms</a>
                                     </li>
                                     <li>
-                                        <a href="#">What our customers say</a>
+                                        <a href="{{route('all-blogs')}}">Blogs</a>
                                     </li>
                                     <li>
                                           <a href="javascript:void(0);" id="openFeedback">Feedback</a>
