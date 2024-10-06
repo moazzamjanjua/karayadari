@@ -265,72 +265,43 @@
 
 
                                     <div class="col-sm-8 col-lg-9 col-md-9 flex-xs-first main-blogs">
-    <h3>Usman Hostel University Chowk Bahawalpur</h3>
-    <div class="hover-after">
-        <img src="/frontend/img/blog/detail.jpg" alt="img" class="img-fluid">
-    </div>
-    <div class="late-item">
-        <p>
-            Discover comfort and convenience at Usman Hostel, located near University Chowk in Bahawalpur. Our hostel offers
-            fully furnished rooms with modern amenities to ensure a comfortable stay for students. The strategic location provides
-            easy access to campus facilities and local attractions, making it an ideal choice for students.
+                                    <h3>{{ $blog->blog_title }}</h3> <!-- Title dynamic -->
+
+<div class="hover-after">
+    @if($blog->blog_image)
+        <!-- Image dynamically display -->
+        <img src="{{ asset('storage/blog_images/' . $blog->blog_image) }}" alt="{{ $blog->blog_title }}" class="img-fluid" style="width: 100%; height: 400px;">
+    @else
+        <!-- Default image agar blog image na ho -->
+        <img src="/frontend/img/blog/default.jpg" alt="Default image" class="img-fluid">
+    @endif
+</div>
+
+<div class="late-item">
+    <p>{{ $blog->blog_content }}</p> <!-- Full content display -->
+
+    <div class="border-detail">
+        <p class="post-info float-left">
+            <span>{{ $blog->created_at->diffForHumans() }}</span> <!-- Created time -->
+            <span>{{ $blog->comments_count ?? 0 }} Comments</span> <!-- Comments count dynamic -->
+            <span>{{ $blog->author ?? 'Anonymous' }}</span> <!-- Author dynamic -->
         </p>
-        <p>
-            At Usman Hostel, we prioritize your safety and comfort. Our hostel features round-the-clock security, high-speed internet,
-            and housekeeping services to maintain a clean and secure environment. We strive to create a welcoming community where students
-            can focus on their studies and personal growth.
-        </p>
-        <p class="content-title">Here, we bring you a look-see:</p>
-        <p>
-            Explore the vibrant community at Usman Hostel. With various communal areas, students can socialize, study, and relax in a supportive
-            environment. Join us and experience the perfect blend of academic and personal life, tailored to meet the needs of every student.
-        </p>
-        <div class="spacing-10 group-image-special">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 p-left">
-                        <div class="effect">
-                            <img class="img-fluid" src="/frontend/img/blog/3.jpg" alt="banner-1" title="banner-1">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 p-right">
-                        <div class="effect">
-                            <img class="img-fluid" src="/frontend/img/blog/2.jpg" alt="banner-2" title="banner-2">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <p>
-            Usman Hostel is more than just a place to stay; it's a place to thrive. Our dedicated staff is always available to assist
-            you with any needs, ensuring your time here is as smooth and enjoyable as possible. Come and be part of our vibrant community.
-        </p>
-        <p>
-            For more information, feel free to contact us or visit our website. We look forward to welcoming you to Usman Hostel, your home
-            away from home.
-        </p>
-        <div class="border-detail">
-            <p class="post-info float-left">
-                <span>3 minutes ago</span>
-                <span>113 Comments</span>
-                <span>TIVATHEME</span>
-            </p>
-            <div class="btn-group">
-                <a href="#">
-                    <i class="zmdi zmdi-share"></i>
-                    <span>Share</span>
-                </a>
-                <a href="#" class="email">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                    <span>SEND TO A FRIEND</span>
-                </a>
-                <a href="#" class="print">
-                    <i class="zmdi zmdi-print"></i>
-                    <span>Print</span>
-                </a>
-            </div>
+        <div class="btn-group">
+            <a href="#">
+                <i class="zmdi zmdi-share"></i>
+                <span>Share</span>
+            </a>
+            <a href="#" class="email">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>SEND TO A FRIEND</span>
+            </a>
+            <a href="#" class="print">
+                <i class="zmdi zmdi-print"></i>
+                <span>Print</span>
+            </a>
         </div>
     </div>
+</div>
 
     <div class="admin">
         <img src="/frontend/img/blog/user.jpg" alt="img" class="float-left right">

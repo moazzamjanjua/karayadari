@@ -12,10 +12,19 @@ use Illuminate\Support\Str;
 
 class BloggController extends Controller
 {
-    public function index()
-    {
-        return view('frontend.blog-detail');
-    }
+ public function index($slug)
+{
+    // Fetch the blog using slug
+    $blog = Blogs::where('blog_slug', $slug)->first();
+
+  
+
+    
+
+    // Pass $blog, $comments, $relatedBlogs, and $bestBlogs to the view
+    return view('frontend.blog-detail', compact('blog'));
+}
+
 public function allBlogs(){
     $blogs = Blogs::all();
    

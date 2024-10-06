@@ -112,8 +112,8 @@
 
                     @if($blogs->isNotEmpty())
                         @foreach($blogs as $blog)
-                            <a href="" class="blog-link">
-                                <div class="row blog-card">
+                        <a href="{{ route('blog-detail.show', $blog->blog_slug) }}" class="blog-link">
+                        <div class="row blog-card">
                                     <!-- Blog Image -->
                                     <div class="blog-image-container">
                                         @if($blog->blog_image)

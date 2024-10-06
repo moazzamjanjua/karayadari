@@ -35,7 +35,6 @@ use App\Http\Controllers\ReviewController;
 //user
 
 Route::get('/', [HomeController::class, 'index'])->name('frontend.index');
-Route::get('/blog', [BloggController::class, 'index']);
 Route::get('/blog_detail', [BloggController::class, 'index']);
 Route::get('/contact', [ContactusController::class, 'index']);
 
@@ -91,6 +90,7 @@ Route::post('hostels', [HostelsController::class, 'store'])->name('owner.hostels
 
 Route::get('hostels/{id}', [HostelsController::class, 'show'])->name('owner.hostel.show');
 
+
 Route::get('hostel/{id}/add-room', [RoomController::class, 'showroom'])->name('addRoom');
 Route::post('rooms', [RoomController::class, 'store'])->name('rooms.store');
 
@@ -99,6 +99,8 @@ Route::get('hostels/{id}/edit', [HostelsController::class, 'edit'])->name('owner
 Route::post('hostels/{id}', [HostelsController::class, 'update'])->name('owner.hostel.update');
 
 Route::get('hostel/{slug}', [HomeController::class, 'show'])->name('hostel-detail.show');
+Route::get('/blog/{slug}', [BloggController::class, 'index'])->name('blog-detail.show');
+
 
 Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->name('reviews.store');
 
