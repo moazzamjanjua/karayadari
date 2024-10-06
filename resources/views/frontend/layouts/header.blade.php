@@ -18,10 +18,10 @@
                 <a href="/" class="parent">Home</a>
             </li>
             <li class="{{ request()->is('all-hostels*') ? 'active' : '' }}">
-                <a href="../all-hostels" class="parent">All Hostel</a>
+                <a href="../all-hostels" class="parent">All Hostels</a>
             </li>
             <li class="{{ request()->is('blog*') ? 'active' : '' }}">
-                <a href="../blog" class="parent">Blog</a>
+                <a href="{{route('all-blogs')}}" class="parent"> All Blogs</a>
             </li>
             <!-- Add Hostel button -->
             @if(auth()->guard('owner')->check())
@@ -174,10 +174,10 @@
         <a href="/" class="parent">Home</a>
        </li>
       <li class="{{ request()->is('all-hostels*') ? 'active' : '' }}">
-     <a href="../all-hostels" class="parent">All Hostel</a>
+     <a href="../all-hostels" class="parent">All Hostels</a>
      </li>
     <li class="{{ request()->is('blog*') ? 'active' : '' }}">
-     <a href="../blog" class="parent">Blog</a>
+     <a href="{{route('all-blogs')}}" class="parent"> All Blogs</a>
      </li>
                                
                                
