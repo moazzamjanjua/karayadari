@@ -18,8 +18,8 @@
         }
 
         .dashboard {
-            width: 97%;
-            height: 97%;
+            width: 95%; /* Reduced width */
+            height: 95%;
             display: flex;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
@@ -35,6 +35,7 @@
             align-items: center;
             padding: 20px;
             overflow-y: auto;
+            transition: transform 0.3s ease;
         }
 
         .sidebar h2 {
@@ -68,7 +69,7 @@
             right: 20px;
         }
 
-        .add_hosten_button:hover {
+        .add_hostel_button:hover {
             background-color: #0056b3;
         }
 
@@ -91,19 +92,17 @@
 
         .hostel-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* Default for larger screens */
             gap: 20px;
             width: 100%;
             overflow-y: auto;
             margin-top: 60px;
-            /* Added margin to make space for the button */
         }
 
         .hostel-card {
             position: relative;
-            width: 100%;
+            width: 80%;
             height: 200px;
-            /* Reduced height */
             background-size: cover;
             background-position: center;
             border-radius: 10px;
@@ -119,19 +118,16 @@
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
             padding: 10px;
-            /* Reduced padding */
         }
 
         .hostel-overlay h2 {
             margin: 0;
             font-size: 18px;
-            /* Reduced font size */
         }
 
         .hostel-overlay p {
             margin: 5px 0;
             font-size: 14px;
-            /* Reduced font size */
         }
 
         .no-hostels {
@@ -166,53 +162,114 @@
         }
 
         .price-ribbon {
-    background: linear-gradient(45deg, #ff6b6b, #f06595);
-    color: #fff;
-    padding: 5px 25px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    
-    border-bottom-right-radius: 5px;
-    font-weight: bold;
-}
-
-.price-ribbon:before {
-    position: absolute;
-    content: '';
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(45deg, #ff6b6b, #f06595);
-    top: 0;
-    left: 0;
-    transform: rotate(45deg);
-    z-index: -1;
-}
-
-        .edit-button{
             background: linear-gradient(45deg, #ff6b6b, #f06595);
-border-radius: 5px;
-
-color: white;
+            color: #fff;
+            padding: 5px 25px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            border-bottom-right-radius: 5px;
+            font-weight: bold;
         }
-        .edit-button:hover{
+
+        .price-ribbon:before {
+            position: absolute;
+            content: '';
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #f06595);
+            top: 0;
+            left: 0;
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+
+        .edit-button {
+            background: linear-gradient(45deg, #ff6b6b, #f06595);
+            border-radius: 5px;
+            color: white;
+        }
+
+        .edit-button:hover {
             background-color: black;
         }
 
         .badge.approved {
-    background-color: green;
-    color: white;
-    padding: 5px;
-    border-radius: 3px;
-}
+            background-color: green;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }
 
-.badge.pending {
-    background-color: orange;
-    color: white;
-    padding: 5px;
-    border-radius: 3px;
-}
+        .badge.pending {
+            background-color: orange;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        /* Media Queries for responsive design */
+        @media (max-width: 768px) {
+            .dashboard {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                transform: translateX(-100%);
+                position: absolute;
+                left: 0;
+                z-index: 1000;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                width: 100%;
+            }
+
+            .hostel-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two items per row on mobile */
+            }
+
+            .toggle-sidebar {
+                display: block;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                z-index: 1100;
+                background-color: #007BFF;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 18px;
+            }
+
+            .toggle-sidebar:hover {
+                background-color: #0056b3;
+            }
+        }
+
+        /* Hide the menu button in desktop view */
+        @media (min-width: 769px) {
+            .toggle-sidebar {
+                display: none; /* Hide on desktop */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hostel-grid {
+                grid-template-columns: 1fr; /* One item per row on smaller screens */
+            }
+            .hostel-card{
+                w
+            }
+        }
     </style>
 </head>
 
@@ -222,15 +279,17 @@ color: white;
             <h2>Owner Information</h2>
             @include('owner.owner-form')
         </div>
+
         <div class="main-content">
-    <a href="{{ route('addHostel') }}" class="add_hostel_button">Add Hostels</a>
-    <div class="hostel-grid">
-        @if($hostels->isEmpty())
-            <div class="no-hostels">
-                <p>No hostels available. Please add a new hostel.</p>
-            </div>
-        @else
-            @foreach ($hostels as $hostel)
+            <span class="toggle-sidebar" onclick="toggleSidebar()">☰ Menu</span>
+            <a href="{{ route('addHostel') }}" class="add_hostel_button">Add Hostels</a>
+            <div class="hostel-grid">
+                @if($hostels->isEmpty())
+                <div class="no-hostels">
+                    <p>No hostels available. Please add a new hostel.</p>
+                </div>
+                @else
+                @foreach ($hostels as $hostel)
                 <div class="hostel-card" 
                      onclick="window.location.href='{{ route('owner.hostel.show', $hostel->id) }}'"
                      style="background-image: url('{{ $hostel->hostel_front_image }}');">
@@ -241,37 +300,29 @@ color: white;
                     <div class="hostel-overlay">
                         <h2>{{ $hostel->hostel_name }}</h2>
                         <p><strong>City:</strong> {{ $hostel->city }}</p>
-                        
-                        <!-- Displaying the approval status -->
+
                         <p>
                             <strong>Status:</strong>
                             @if($hostel->is_approved)
-                                <span class="badge approved">Approved</span>
+                            <span class="badge approved">Approved</span>
                             @else
-                                <span class="badge pending">Pending Approval</span>
+                            <span class="badge pending">Pending Approval</span>
                             @endif
                         </p>
-                        
+
                         <a href="{{ route('owner.hostel.edit', $hostel->id) }}" class="edit-button">Edit</a>
                     </div>
                 </div>
-            @endforeach
-        @endif
-    </div>
-</div>
-
+                @endforeach
+                @endif
+            </div>
+        </div>
     </div>
 
     <script>
-        function updateAvatar(event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-                document.getElementById('owner_image').src = e.target.result;
-            };
-
-            reader.readAsDataURL(file);
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open');
         }
     </script>
 </body>
