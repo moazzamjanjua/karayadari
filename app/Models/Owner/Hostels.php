@@ -5,6 +5,7 @@ namespace App\Models\Owner;
 use App\Models\CategoryList;
 use App\Models\cities;
 use App\Models\areas;
+use App\Models\Review;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -44,6 +45,9 @@ class Hostels extends Model
     {
         return $this->belongsTo(areas::class, 'area', 'id'); // 'area' is the foreign key in the hostels table, referencing 'id' in the areas table
     }
-    
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'hostel_id');
+    }
     
 }
