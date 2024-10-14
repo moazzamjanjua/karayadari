@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 class Hostels extends Model
 {
     use HasFactory;
-
+    protected $table = 'hostels';
     protected $fillable = [
         'owner_id','owner_number', 'owner_email', 'hostel_name', 'best_hostel', 'is_verified', 'is_approved',
     'top_rated_hostel', 'homepage', 'featured_hostel', 'category_name',

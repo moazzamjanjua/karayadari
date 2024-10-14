@@ -32,4 +32,8 @@ Route::get('/public/all-hostels', [DataController::class, 'allHostel']);
 
 //reviews store
 Route::post('user/reviews', [App\Http\Controllers\Api\ReviewController::class, 'store']);
+Route::get('/public/hostels/{id}/reviews', [App\Http\Controllers\Api\ReviewController::class, 'getHostelReviews']);
+
+//find-hostel
+Route::get('/public/find-hostels', [DataController::class, 'findHostels']);
 

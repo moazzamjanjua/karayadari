@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Review;
+use App\Models\Owner\Hostels;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,6 +46,39 @@ class ReviewController extends Controller
             'review' => $review,
         ], 201);
     }
-    
+    public function getHostelReviews($id)
+    {
+        // Check if the hostel exists
+        $hostel = Hostels::find($id);
+
+        if (!$hostel) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Hostel not found',
+            ], 404);
+        }
+
+        // Fetch reviews with user name for the given hostel
+        $reviews = Review::where('hostel_id', $id)
+            ->with('user:id,name') // Eager load user name
+            ->select('id', 'user_id', 'rating', 'review', 'created_at')
+            ->get();
+
+        // If no reviews are found, send a message
+        if ($reviews->isEmpty()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'No reviews found for this hostel',
+                'reviews' => [],
+            ], 200);
+        }
+
+        // Return the reviews in JSON format
+        return response()->json([
+            'success' => true,
+            'message' => 'Reviews fetched successfully',
+            'reviews' => $reviews,
+        ], 200);
+    }
 }
 
