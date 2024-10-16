@@ -36,7 +36,9 @@ use App\Http\Controllers\ReviewController;
 
 Route::get('/', [HomeController::class, 'index'])->name('frontend.index');
 Route::get('/blog_detail', [BloggController::class, 'index']);
-Route::get('/contact', [ContactusController::class, 'index']);
+Route::get('/contact', [ContactusController::class, 'index'])->name('contact');
+Route::view('privacy-policy','frontend.privacy-policy' )->name('privacy');
+
 
 //Authenticate
 

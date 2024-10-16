@@ -23,7 +23,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            
         }
 
         .pagination .page-item.active .page-link {
@@ -126,7 +126,7 @@
                                     <!-- Blog Details -->
                                     <div class="blog-details">
                                         <h5>{{ $blog->blog_title }}</h5>
-                                        <p>{{ $blog->blog_content }}</p>
+                                        <p><strong>Detail:</strong> {{ explode('.', $blog->blog_content)[0] }}....<strong style="color:red">See More</strong></p>
                                     </div>
                                 </div>
                             </a>

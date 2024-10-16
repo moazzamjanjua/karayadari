@@ -179,6 +179,12 @@
     <li class="{{ request()->is('blog*') ? 'active' : '' }}">
      <a href="{{route('all-blogs')}}" class="parent"> All Blogs</a>
      </li>
+
+     <li class="{{ request()->is('blog*') ? 'active' : '' }}">
+     <a href="{{route('contact')}}" class="parent"> Contact Us</a>
+     </li>
+
+     
                                
                                
 

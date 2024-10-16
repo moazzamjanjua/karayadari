@@ -19,7 +19,7 @@
                             <div class="block-content">
                                 <ul>
                                     <li>
-                                        <a href="#">About Us</a>
+                                        <a href="{{route('privacy')}}">Privacy-Policy</a>
                                     </li>
                                     <li>
                                         <a href="../owner/login">Add Rooms</a>
