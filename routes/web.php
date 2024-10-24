@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\ApplicationController;
 use App\Http\Controllers\Frontend\ResultController;
 use App\Http\Controllers\Frontend\RoomDetailController;
 use App\Http\Controllers\frontend\UsersController;
@@ -155,6 +156,13 @@ Route::get('/all-blogs', [BloggController::class, 'allBlogs'])->name('all-blogs'
 Route::post('/admin-dashboard', [adminController::class, 'store'])->name('blogs.store');
 
 
+
+
+//job hiring
+Route::get('/job/apply', function () {
+    return view('frontend.application_form');  // Make sure you have this view file
+});
+Route::post('/applications/store', [ApplicationController::class, 'store'])->name('applications.store');
 
 
 
