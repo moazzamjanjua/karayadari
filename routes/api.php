@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\DataController;
+use App\Http\Controllers\Api\OwnerController;
 use App\Http\Controllers\Api\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -37,3 +38,8 @@ Route::get('/public/hostels/{id}/reviews', [App\Http\Controllers\Api\ReviewContr
 //find-hostel
 Route::get('/public/find-hostels', [DataController::class, 'findHostels']);
 
+
+
+//owner
+Route::post('owner/register' ,[OwnerController::class,'store']);
+Route::post('owner/login', [OwnerController::class, 'ownerlogin']);
