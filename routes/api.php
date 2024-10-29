@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\DataController;
+use App\Http\Controllers\Api\FeedBackController;
 use App\Http\Controllers\Api\OwnerController;
 use App\Http\Controllers\Api\UsersController;
 use Illuminate\Http\Request;
@@ -43,3 +44,7 @@ Route::get('/public/find-hostels', [DataController::class, 'findHostels']);
 //owner
 Route::post('owner/register' ,[OwnerController::class,'store']);
 Route::post('owner/login', [OwnerController::class, 'ownerlogin']);
+
+//add-hostel
+Route::post('hostels/store', [App\Http\Controllers\Api\HostelController::class, 'store']);
+Route::post('feedback/store', [FeedBackController::class, 'store']);
