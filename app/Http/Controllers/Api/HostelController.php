@@ -10,9 +10,11 @@ use Illuminate\Support\Facades\Auth;
 class HostelController extends Controller
 {
     public function store(Request $request)
-    {
+{
+    try {
         // Validate the request data
         $validatedData = $request->validate([
+            'owner_id' => 'required|exists:owners,id', // Ensure owner exists
             'hostel_name' => 'required|string|max:255',
             'best_hostel' => 'boolean',
             'is_verified' => 'boolean',
@@ -26,9 +28,10 @@ class HostelController extends Controller
             'hostel_location' => 'nullable|string|max:255',
             'hostel_front_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10048',
             'hostel_detail' => 'required|string|max:10000',
+            'hostel_address' => 'required|string|max:1000',
             'capacity' => 'nullable|integer',
             'required_capacity' => 'nullable|integer',
-            'owner_number' => 'nullable|integer',
+            'owner_number' => 'nullable|string|max:11',
             'owner_email' => 'nullable|email|max:255',
             'num_rooms' => 'nullable|integer',
             'wifi' => 'required|boolean',
@@ -59,20 +62,29 @@ class HostelController extends Controller
         $validatedData['hostel_name'] = strtoupper($validatedData['hostel_name']);
         $validatedData['slug'] = strtolower(str_replace(' ', '-', $validatedData['hostel_name']));
 
-        // Add the logged-in owner's ID and contact details
-        $validatedData['owner_id'] = Auth::guard('owner')->id();
-        $validatedData['owner_number'] = Auth::guard('owner')->user()->owner_number;
-        $validatedData['owner_email'] = Auth::guard('owner')->user()->owner_email;
-
         // Create the hostel record
         $hostel = Hostels::create($validatedData);
 
-        // Return a JSON response
+        // Return success JSON response
         return response()->json([
             'success' => true,
             'message' => 'Hostel created successfully.',
             'hostel' => $hostel,
             'redirect_url' => route('owner.home'),
         ], 201);
+
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        // Return validation errors as JSON
+        return response()->json(['errors' => $e->errors()], 422);
+
+    } catch (\Exception $e) {
+        // Catch any other errors and return them
+        return response()->json([
+            'success' => false,
+            'message' => 'An error occurred during the request.',
+            'error' => $e->getMessage(),
+        ], 500);
     }
+}
+
 }
