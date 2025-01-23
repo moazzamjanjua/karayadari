@@ -36,7 +36,7 @@ class UsersController extends Controller
           'password' => 'required',
       ]);
   
-      if (Auth::attempt($credentials)) {
+      if (Auth::attempt($credentials)) { 
           return redirect()->route('frontend.index')->with('success', 'Login successful');
       } else {
           // Check if the email exists in the database

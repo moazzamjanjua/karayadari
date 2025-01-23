@@ -35,7 +35,7 @@
                                         @endforeach
 
                                     </div>
-                                      <div class="categoriestab-left product-tab col-md-9 flex-9">
+                                    <div class="categoriestab-left product-tab col-md-9 flex-9">
                                         <div class="title-tab-content d-flex justify-content-start">
                                             <ul class="nav nav-tabs">
                                                 <li>
@@ -266,107 +266,109 @@
 
 
 
-                        <!-- testimonial -->
-<div class="section testimonial-block col-lg-12 col-xs-12" style="background-image: url('/frontend/img/home/free.jpg'); background-size: cover; background-position: center;">
-    <div class="row">
-        <div class="col-lg-12 col-md-12">
-            <div class="block">
-                <div class="owl-carousel owl-theme testimonial-type-one">
-                    @foreach ($feedbacks as $feedback)
-                        <div class="item type-one d-flex align-items-center flex-column">
-                            <div class="testimonial-image">
-                                <i class="icon-testimonial"></i>
-                            </div>
-                            <div class="desc-testimonial">
-                                <div class="testimonial-content">
-                                    <div class="text">
-                                        <p style="color:white;">"{{ $feedback->message }}"</p>
+                    <!-- testimonial -->
+                    <div class="section testimonial-block col-lg-12 col-xs-12"
+                        style="background-image: url('/frontend/img/home/free.jpg'); background-size: cover; background-position: center;">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="block">
+                                    <div class="owl-carousel owl-theme testimonial-type-one">
+                                        @foreach ($feedbacks as $feedback)
+                                            <div class="item type-one d-flex align-items-center flex-column">
+                                                <div class="testimonial-image">
+                                                    <i class="icon-testimonial"></i>
+                                                </div>
+                                                <div class="desc-testimonial">
+                                                    <div class="testimonial-content">
+                                                        <div class="text">
+                                                            <p style="color:white;">"{{ $feedback->message }}"</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="testimonial-info">
+                                                        <h5 class="mt-0 box-info user-name"
+                                                            style="color: yellow; font-weight: bold;">
+                                                            {{ $feedback->name }}
+                                                        </h5>
+                                                        <span class="user-city"
+                                                            style="font-size: 1.1rem; color: white; display: block;">
+                                                            From {{ $feedback->city }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                </div>
-                                <div class="testimonial-info">
-                                    <h5 class="mt-0 box-info user-name" style="color: yellow; font-weight: bold;">
-                                        {{ $feedback->name }}
-                                    </h5>
-                                    <span class="user-city" style="font-size: 1.1rem; color: white; display: block;">
-                                        From {{ $feedback->city }}
-                                    </span>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    </div>
 
 
-<script>
-    <script>
-    $(document).ready(function(){
-        $(".owl-carousel").owlCarousel({
-            items: 1,
-            loop: true,
-            autoplay: true,
-            autoplayTimeout: 2000, // Slider time set to 2 seconds
-            autoplayHoverPause: true
-        });
+                    <script>
+                        
+                            $(document).ready(function(){
+                                $(".owl-carousel").owlCarousel({
+                                    items: 1,
+                                    loop: true,
+                                    autoplay: true,
+                                    autoplayTimeout: 2000, // Slider time set to 2 seconds
+                                    autoplayHoverPause: true
+                                });
     });
-</script>
+                    </script>
 
-</script>
-              </div>
+                    
+                </div>
                 <!-- recent posts -->
                 <div class="container">
                     <div class="section recent-post">
                         <div class="title-block">RECENT Blogs</div>
                         <style>
-                            .recent-blog{
-                                
-                                    border: 2px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 20px 0;
-    background-color: #f9f9f9;
-    position: relative;
+                            .recent-blog {
+
+                                border: 2px solid #ddd;
+                                border-radius: 8px;
+                                padding: 16px;
+                                margin: 20px 0;
+                                background-color: #f9f9f9;
+                                position: relative;
                             }
-                            
-                            
                         </style>
                         <div class="recent-blog">
-                       <div class="row">
-    <div class="category-product-index owl-carousel owl-theme">
-        @foreach($relatedBlogs as $blog)
-            <div class="item text-center">
-                <div class="product-miniature first-item js-product-miniature item-one">
-                    <div class="image-container">
-                        <a href="{{ route('blog-detail.show', $blog->blog_slug) }}">
-                            <img src="{{ $blog->blog_image }}" alt="img">
-                        </a>
-                    </div>
-                    <div class="product-description">
-                        <div class="product-groups">
-                            <div class="product-title">
-                                <a href="{{ route('blog-detail.show', $blog->blog_slug) }}">{{ $blog->blog_title }}</a>
-                            </div>
-                            <div class="post-info">
-                                
-                                <span class="datetime">
-                                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                                    <span>{{ \Carbon\Carbon::parse($blog->created_at)->format('F j, Y') }}</span>
-                                </span>
-                            </div>
-                            <div class="post-desc">
-                                {{ $blog->excerpt }}
+                            <div class="row">
+                                <div class="category-product-index owl-carousel owl-theme">
+                                    @foreach($relatedBlogs as $blog)
+                                        <div class="item text-center">
+                                            <div class="product-miniature first-item js-product-miniature item-one">
+                                                <div class="image-container">
+                                                    <a href="{{ route('blog-detail.show', $blog->blog_slug) }}">
+                                                        <img src="{{ $blog->blog_image }}" alt="img">
+                                                    </a>
+                                                </div>
+                                                <div class="product-description">
+                                                    <div class="product-groups">
+                                                        <div class="product-title">
+                                                            <a
+                                                                href="{{ route('blog-detail.show', $blog->blog_slug) }}">{{ $blog->blog_title }}</a>
+                                                        </div>
+                                                        <div class="post-info">
+
+                                                            <span class="datetime">
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                <span>{{ \Carbon\Carbon::parse($blog->created_at)->format('F j, Y') }}</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="post-desc">
+                                                            {{ $blog->excerpt }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-    </div>
-</div>
-</div>
 
                     </div>
                 </div>
