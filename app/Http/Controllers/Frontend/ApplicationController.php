@@ -8,7 +8,7 @@ use App\Models\Application;
 use Illuminate\Support\Facades\Storage;
 class ApplicationController extends Controller
 {
-    public function store(Request $request)
+   public function store(Request $request)
     {
         // Validate input
         $request->validate([
@@ -17,12 +17,15 @@ class ApplicationController extends Controller
             'phone' => 'required|string|max:15',
             'position' => 'required|string',
             'resume' => 'required|mimes:pdf|max:2048',
-            'cover_letter' => 'required|string',
+           
         ]);
 
-        // Handle resume upload and generate the full URL
-        $resumePath = $request->file('resume')->store('resumes', 'public');
-        $resumeUrl = url(Storage::url($resumePath));  // Generate full URL
+          // Store the resume in the 'public/resumes' directory
+        $resumePath = $request->file('resume')->store('public/resumes');
+
+        // Generate the full public URL using the base URL
+        $baseUrl = config('app.url'); // Retrieves base URL from .env
+        $resumeUrl = $baseUrl . Storage::url($resumePath);
 
         // Save application data in the database
         Application::create([
@@ -30,11 +33,11 @@ class ApplicationController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'position' => $request->position,
-            'resume_path' => $resumeUrl,  // Store the full URL
-            'cover_letter' => $request->cover_letter,
+            'resume_path' => $resumeUrl,
+           
         ]);
 
-        // Redirect back with success message
+        // Redirect back with a success message
         return redirect()->back()->with('success', 'Your application has been submitted. Our team will contact you shortly.');
     }
 }

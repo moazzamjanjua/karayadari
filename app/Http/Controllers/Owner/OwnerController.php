@@ -13,12 +13,12 @@ class OwnerController extends Controller
 {
     public function ownerregister(Request $request)
     {
-        $data = $request->validate([
-            'owner_name' => 'required',
-            'owner_email' => 'required|email|unique:owners', // Use the column name 'email'
-            'owner_number' => 'required',
-            'password' => 'required|confirmed',
-        ]);
+       $data = $request->validate([
+    'owner_name' => 'required',
+    'owner_email' => 'required|email|unique:owners,owner_email', // Ensure email is unique
+    'owner_number' => 'required|unique:owners,owner_number', // Ensure number is unique
+    'password' => 'required|confirmed',
+]);
 
         $data['password'] = Hash::make($data['password']); // Hash the password
 
@@ -90,12 +90,17 @@ class OwnerController extends Controller
     
 
     // Check if a new image is uploaded
-    if ($request->hasFile('owner_image')) {
-        $image = $request->file('owner_image');
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $image->storeAs('public/owner_image', $imageName);
-        $owner->owner_image = $imageName; // Save new image name in the database
-    }
+  if ($request->hasFile('owner_image')) {
+    $image = $request->file('owner_image');
+    $imageName = time() . '.' . $image->getClientOriginalExtension();
+    
+    // Move image to public/owner_image directory directly
+    $image->move(public_path('storage/owner_images'), $imageName);
+    
+    // Save the image name to the database
+    $owner->owner_image = $imageName;
+}
+
 
     // Update other owner details
     $owner->owner_name = $validatedData['owner_name'];

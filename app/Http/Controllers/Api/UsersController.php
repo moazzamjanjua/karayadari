@@ -15,7 +15,7 @@ class UsersController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+     public function index(Request $request)
 {
     $validatedData = $request->validate([
         'phone' => 'required|string',
@@ -40,7 +40,6 @@ class UsersController extends Controller
         'reviews' => $reviews,
     ]);
 }
-
 
     /**
      * Show the form for creating a new resource.

@@ -72,6 +72,17 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-container input {
+            width: auto; /* Adjust width for the checkbox */
+            margin-right: 5px; /* Space between checkbox and label */
+        }
     </style>
 </head>
 <body>
@@ -99,16 +110,22 @@
             @enderror
 
             <!-- Password Field -->
-            <input class="form-control" name="password" type="password" placeholder="Password">
+            <input id="password-field" class="form-control" name="password" type="password" placeholder="Password">
             @error('password')
                 <div class="alert">{{ $message }}</div>
             @enderror
 
             <!-- Confirm Password Field -->
-            <input class="form-control" name="password_confirmation" type="password" placeholder="Confirm Password">
+            <input id="confirm-password-field" class="form-control" name="password_confirmation" type="password" placeholder="Confirm Password">
             @error('password_confirmation')
                 <div class="alert">{{ $message }}</div>
             @enderror
+
+            <!-- Show Password Checkbox -->
+            <div class="checkbox-container">
+                <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
+                <label for="show-password">Show Password</label>
+            </div>
 
             <!-- Submit Button -->
             <button type="submit">Signup</button>
@@ -116,5 +133,21 @@
 
         <p>Already have an account? <a href="{{ route('owner-login') }}">Login</a></p>
     </div>
+
+    <!-- JavaScript for Password Toggle -->
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password-field");
+            var confirmPasswordField = document.getElementById("confirm-password-field");
+            var showPasswordCheckbox = document.getElementById("show-password");
+            if (showPasswordCheckbox.checked) {
+                passwordField.type = "text";
+                confirmPasswordField.type = "text";
+            } else {
+                passwordField.type = "password";
+                confirmPasswordField.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>

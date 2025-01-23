@@ -95,6 +95,17 @@
             @csrf
             @method('POST')
 
+
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <!-- Hostel Name -->
             <div class="form-group">
                 <label for="hostel_name">Hostel Name:</label>
@@ -102,26 +113,116 @@
             </div>
 
             <!-- City -->
-            <div class="form-group">
-                <label for="city">City:</label>
-                <select class="form-control" id="city" name="city" required>
-                    <option value="" disabled selected>Select City</option>
-                    @foreach($cities as $city)
-                        <option value="{{ $city->city_name }}">{{ $city->city_name }}</option>
-                    @endforeach
-                </select>
-            </div>
+        <!-- City Dropdown -->
+<div class="form-group">
+    <label for="city">City:</label>
+    <select id="city" name="city" class="form-control">
+        <option value="" disabled selected>Select City</option>
+        @foreach($cities as $city)
+            <option value="{{ $city->city_name }}">{{ $city->city_name }}</option>
+        @endforeach
+        <option value="other">Other</option>
+    </select>
+</div>
 
-            <!-- Area -->
-            <div class="form-group">
-                <label for="area">Area:</label>
-                <select class="form-control" id="area" name="area" required>
-                    <option value="" disabled selected>Select Area</option>
-                    @foreach($areas as $area)
-                        <option value="{{ $area->area_name }}">{{ $area->area_name }}</option>
-                    @endforeach
-                </select>
-            </div>
+<!-- Add New City Field (Initially Hidden) -->
+<div class="form-group" id="newCityField" style="display: none;">
+    <label for="new_city">Add New City:</label>
+    <input type="text" id="new_city" class="form-control" placeholder="Enter new city name">
+    <button type="button" id="addCityBtn" class="btn btn-primary mt-2">Add City</button>
+</div>
+
+<!-- Area Dropdown -->
+<div class="form-group">
+    <label for="area">Area:</label>
+    <select id="area" name="area" class="form-control">
+        <option value="" disabled selected>Select Area</option>
+        <option value="other">Other</option>
+    </select>
+</div>
+
+<!-- Add New Area Field (Initially Hidden) -->
+<div class="form-group" id="newAreaField" style="display: none;">
+    <label for="new_area">Add New Area:</label>
+    <input type="text" id="new_area" class="form-control" placeholder="Enter new area name">
+    <button type="button" id="addAreaBtn" class="btn btn-primary mt-2">Add Area</button>
+</div>
+
+
+
+
+            <!-- jQuery for AJAX -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>$(document).ready(function () {
+    // Show input field for new city
+    $('#city').change(function () {
+        if ($(this).val() === 'other') {
+            $('#newCityField').show();
+        } else {
+            $('#newCityField').hide();
+            $('#new_city').val('');
+        }
+    });
+
+    // Add new city to dropdown
+    $('#addCityBtn').click(function () {
+        const newCity = $('#new_city').val().trim();
+        if (newCity) {
+            $('#city').append(`<option value="${newCity}" selected>${newCity}</option>`);
+            $('#newCityField').hide();
+            $('#new_city').val('');
+        }
+    });
+
+    // Show input field for new area
+    $('#area').change(function () {
+        if ($(this).val() === 'other') {
+            $('#newAreaField').show();
+        } else {
+            $('#newAreaField').hide();
+            $('#new_area').val('');
+        }
+    });
+
+    // Add new area to dropdown
+    $('#addAreaBtn').click(function () {
+        const newArea = $('#new_area').val().trim();
+        if (newArea) {
+            $('#area').append(`<option value="${newArea}" selected>${newArea}</option>`);
+            $('#newAreaField').hide();
+            $('#new_area').val('');
+        }
+    });
+
+    // Load areas dynamically based on selected city
+    $('#city').change(function () {
+        const selectedCity = $(this).val();
+
+        // If the user selects an existing city
+        if (selectedCity && selectedCity !== 'other') {
+            $.ajax({
+                url: `/get-areas/${selectedCity}`,
+                type: 'GET',
+                success: function (response) {
+                    // Clear the dropdown
+                    $('#area').empty().append('<option value="" disabled selected>Select Area</option>');
+
+                    // Populate the dropdown with areas
+                    response.forEach(area => {
+                        $('#area').append(`<option value="${area.area_name}">${area.area_name}</option>`);
+                    });
+
+                    // Add the "Other" option
+                    $('#area').append('<option value="other">Other</option>');
+                },
+                error: function () {
+                    alert('Error loading areas. Please try again.');
+                }
+            });
+        }
+    });
+});
+</script>
 
             <!-- Categories -->
             <div class="form-group">
@@ -161,6 +262,14 @@
             <div class="form-group">
                 <label for="capacity">Capacity:</label>
                 <input type="number" class="form-control" id="capacity" name="capacity"
+                    placeholder="Enter capacity (optional)">
+            </div>
+
+            
+            <!-- Capacity -->
+            <div class="form-group">
+                <label for="required_capacity">Required Capacity:</label>
+                <input type="number" class="form-control" id="required_capacity" name="required_capacity"
                     placeholder="Enter capacity (optional)">
             </div>
 
@@ -210,8 +319,8 @@
 
             <!-- Address -->
             <div class="form-group">
-                <label for="hostel_address">Hostel Address:</label>
-                <textarea class="form-control" id="hostel_address" name="hostel_address" rows="4" required></textarea>
+                <label for="hostel_location">Hostel Location:</label>
+                <textarea class="form-control" id="hostel_location" name="hostel_location" rows="4" required></textarea>
             </div>
 
             <!-- Hostel Details -->
@@ -219,6 +328,8 @@
                 <label for="hostel_detail">Hostel Detail:</label>
                 <textarea class="form-control" id="hostel_detail" name="hostel_detail" rows="4" required></textarea>
             </div>
+
+
 
             <!-- Submit Button -->
             <button type="submit" class="btn btn-success btn-block">Add Hostel</button>
@@ -236,88 +347,112 @@
     </div>
 
     <script>
-    function previewImage(event, previewId) {
-        const file = event.target.files[0];
-        const preview = document.getElementById(previewId);
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        }
-    }
-
-    function previewVideo(event, previewId) {
-        const file = event.target.files[0];
-        const preview = document.getElementById(previewId);
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        }
-    }
-
-    document.getElementById('hostelForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        // Display the loader
-        const loaderContainer = document.getElementById('loaderContainer');
-        const progressBar = document.getElementById('progressBar');
-        loaderContainer.style.display = 'flex';
-
-        const formData = new FormData(this);
-
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '{{ route("owner.hostels.store") }}', true);
-
-        // Track progress
-        xhr.upload.onprogress = function (e) {
-            if (e.lengthComputable) {
-                const percentComplete = Math.round((e.loaded / e.total) * 100);
-                progressBar.style.width = percentComplete + '%';
-                progressBar.innerHTML = percentComplete + '%';
+        function previewImage(event, previewId) {
+            const file = event.target.files[0];
+            const preview = document.getElementById(previewId);
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
             }
-        };
-
-        // On successful upload
-        xhr.onload = function () {
-            loaderContainer.style.display = 'none'; // Hide the loader
-            const successMessage = document.getElementById('successMessage');
-            successMessage.style.display = 'block'; // Show success message
-            successMessage.classList.add('fade'); // Add fade animation class
-        };
-
-        // On failure
-        xhr.onerror = function () {
-            alert('Upload failed, please try again.');
-            loaderContainer.style.display = 'none';
-        };
-
-        // Send the form data
-        xhr.send(formData);
-    });
-</script>
-
-<style>
-    .fade {
-        animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
         }
-        to {
-            opacity: 1;
+
+        function previewVideo(event, previewId) {
+            const file = event.target.files[0];
+            const preview = document.getElementById(previewId);
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
         }
-    }
-</style>
+
+        document.getElementById('hostelForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Display the loader
+            const loaderContainer = document.getElementById('loaderContainer');
+            const progressBar = document.getElementById('progressBar');
+            loaderContainer.style.display = 'flex';
+
+            const formData = new FormData(this);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '{{ route("owner.hostels.store") }}', true);
+
+            // Track progress
+            xhr.upload.onprogress = function (e) {
+                if (e.lengthComputable) {
+                    const percentComplete = Math.round((e.loaded / e.total) * 100);
+                    progressBar.style.width = percentComplete + '%';
+                    progressBar.innerHTML = percentComplete + '%';
+                }
+            };
+
+            // On successful upload
+            xhr.onload = function () {
+                loaderContainer.style.display = 'none'; // Hide the loader
+
+                // Parse the JSON response
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    // Check if the response was successful
+                    if (response.success) {
+                        const successMessage = document.getElementById('successMessage');
+                        successMessage.style.display = 'block'; // Show success message
+                        successMessage.classList.add('fade'); // Add fade animation class
+                        // Redirect to the provided URL from the response
+                        window.location.href = response.redirect_url;
+                    } else {
+                        alert('Something went wrong: ' + response.message);
+                    }
+                } catch (error) {
+                    alert('Error parsing response: ' + error.message);
+                }
+            };
+
+            // On failure
+            xhr.onerror = function () {
+                alert('Upload failed, please try again.');
+                loaderContainer.style.display = 'none';
+            };
+
+            // Send the form data
+            xhr.send(formData);
+        });
+
+    </script>
+
+    <style>
+        .fade {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 
 </body>
+
+
+
+
+
+
+
+
 
 </html>

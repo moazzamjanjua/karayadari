@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 class Hostels extends Model
 {
     use HasFactory;
-    protected $table = 'hostels';
+
     protected $fillable = [
         'owner_id','owner_number', 'owner_email', 'hostel_name', 'best_hostel', 'is_verified', 'is_approved',
     'top_rated_hostel', 'homepage', 'featured_hostel', 'category_name',
@@ -45,7 +45,8 @@ class Hostels extends Model
     {
         return $this->belongsTo(areas::class, 'area', 'id'); // 'area' is the foreign key in the hostels table, referencing 'id' in the areas table
     }
-    public function reviews()
+    
+     public function reviews()
     {
         return $this->hasMany(Review::class, 'hostel_id');
     }

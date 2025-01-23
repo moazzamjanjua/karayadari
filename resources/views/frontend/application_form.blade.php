@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="phone" class="font-weight-bold">Phone Number</label>
+                            <label for="phone" class="font-weight-bold">Active Whatsapp Number</label>
                             <input type="text" class="form-control rounded-pill shadow-sm" 
                                    id="phone" name="phone" placeholder="Enter your phone number" required>
                         </div>
@@ -44,9 +44,9 @@
                             <label for="position" class="font-weight-bold">Position Applying For</label>
                             <select class="form-control rounded-pill shadow-sm" id="position" name="position" required>
                                 <option value="">Select Position</option>
-                                <option value="Communication Manager">Communication Manager</option>
-                                <option value="Social Media Manager">Social Media Manager</option>
-                                <option value="Marketing Specialist">Marketing Specialist</option>
+                                <option value="Communication Manager">Graphic Designer</option>
+                                <option value="Social Media Manager">Communication Manager</option>
+                                <option value="Marketing Specialist">Social Media Manager </option>
                             </select>
                         </div>
 
@@ -55,13 +55,6 @@
                             <input type="file" class="form-control-file shadow-sm" 
                                    id="resume" name="resume" accept=".pdf" required>
                         </div>
-
-                        <div class="form-group">
-                            <label for="cover_letter" class="font-weight-bold">Cover Letter</label>
-                            <textarea class="form-control shadow-sm" id="cover_letter" name="cover_letter" 
-                                      rows="4" placeholder="Write a brief cover letter" required></textarea>
-                        </div>
-
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm mt-3">
                                 Submit Application

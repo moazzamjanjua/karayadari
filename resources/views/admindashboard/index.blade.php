@@ -144,7 +144,7 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="/admindashboard/vendors/images/photo1.jpg" alt="">
+							<img src="/admindashboard/vendors/images/jawad_coder.jpg" alt="">
 						</span>
 						<span class="user-name">Jawad Ahmad</span>
 					</a>
@@ -455,7 +455,7 @@
                 <!-- Welcome Message Section -->
                 <div class="col-md-8">
                     <h4 class="font-20 weight-500 mb-10 text-capitalize">Welcome back,</h4>
-                    <h2 class="weight-600 font-30 text-blue">Karaydari!</h2>
+                    <h2 class="weight-600 font-30 text-blue">Jawad!</h2>
                     <p class="font-16 max-width-600">Manage your platform efficiently with real-time approvals, insights, and more to ensure a smooth experience for all users.</p>
 
                     <!-- Quick Statistics Section -->
@@ -484,6 +484,10 @@
             <button type="button" class="btn btn-primary active" id="owners-tab" data-target="#owners" role="tab">Owners</button>
             <button type="button" class="btn btn-primary" id="hostels-tab" data-target="#hostels" role="tab">Hostels</button>
             <button type="button" class="btn btn-primary" id="blogs-tab" data-target="#blogs" role="tab">Add Blogs</button>
+			<button type="button" class="btn btn-primary" id="blogs-tab" data-target="#city" role="tab">City</button>
+			<button type="button" class="btn btn-primary" id="blogs-tab" data-target="#area" role="tab">Area</button>
+
+
         </div>
 
         <!-- Tab Content Section -->
@@ -544,7 +548,7 @@
             <th>City</th>
             <th>Location</th>
             <th>Front Image</th>
-            <th>Detail</th>
+           
             <th>Capacity</th>
             <th>Email</th>
             <th>Number of Rooms</th>
@@ -636,7 +640,7 @@
                 <td>
                     <img src="{{ asset($hostel->hostel_front_image) }}" alt="Hostel Front Image" style="width: 100px;">
                 </td>
-                <td>{{ $hostel->hostel_detail }}</td>
+              
                 <td>{{ $hostel->capacity }}</td>
                 <td>{{ $hostel->email }}</td>
                 <td>{{ $hostel->num_rooms }}</td>
@@ -661,44 +665,30 @@
 </div>
             </div>
             <div class="tab-pane fade" id="blogs" role="tabpanel">
-			<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Blog</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container mt-5">
-    <h2>Add New Blog</h2>
+			
+	@include('admindashboard.blog-form')
 
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-
-	<form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data"> <!-- Add enctype for file upload -->
-    @csrf
-    <div class="form-group">
-        <label for="title">Blog Title</label>
-        <input type="text" class="form-control" id="blog_title" name="blog_title" required>
-    </div>
-    <div class="form-group">
-        <label for="image">Upload Image</label>
-        <input type="file" class="form-control-file" id="blog_image" name="blog_image" accept="image/*">
-    </div>
-    <div class="form-group">
-        <label for="content">Blog Content</label>
-        <textarea class="form-control" id="blog_content" name="blog_content" rows="5" required></textarea>
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
 
 
 </div>
+
+
+<div class="tab-pane fade" id="city" role="tabpanel">
+			
+			@include('admindashboard.city')
+		
+		
+		
+		</div>
+
+		<div class="tab-pane fade" id="area" role="tabpanel">
+			
+		@include('admindashboard.area')	
+			
+		
+		
+		
+		</div>
 </body>
 </html>
 
@@ -731,9 +721,7 @@
     });
 </script>
 
-<style>
-    /* Additional styles if needed */
-</style>
+
 
 
 

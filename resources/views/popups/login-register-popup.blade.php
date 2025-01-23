@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content modal-transition">
             <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -17,7 +17,8 @@
                             <span class="error-message text-danger" id="phone-error"></span>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" name="password" type="password" placeholder="Enter Your Password">
+                            <input id="login-password-field" class="form-control" name="password" type="password" placeholder="Enter Your Password">
+                            <span toggle="#login-password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             <span class="error-message text-danger" id="password-error"></span>
                         </div>
                         <div class="form-group">
@@ -36,7 +37,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content modal-transition">
             <div class="modal-header">
-                <h5 class="modal-title" id="registerModalLabel">Create Account</h5>
+                <h5 class="modal-title" id="registerModalLabel">Register</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -54,11 +55,13 @@
                             <span class="error-message text-danger" id="reg-phone-error"></span>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" name="password" type="password" placeholder="Password">
+                            <input id="register-password-field" class="form-control" name="password" type="password" placeholder="Password">
+                            <span toggle="#register-password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             <span class="error-message text-danger" id="reg-password-error"></span>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" name="password_confirmation" type="password" placeholder="Confirm Password">
+                            <input id="register-password-confirmation-field" class="form-control" name="password_confirmation" type="password" placeholder="Confirm Password">
+                            <span toggle="#register-password-confirmation-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             <span class="error-message text-danger" id="password-confirmation-error"></span>
                         </div>
                         <div class="form-group">
@@ -148,6 +151,17 @@
                 }
             });
         });
+
+        // Toggle password visibility
+        $(".toggle-password").click(function() {
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
     });
 </script>
 
@@ -156,5 +170,14 @@
         font-size: 0.875rem;
         color: red;
         margin-top: 5px;
+    }
+    
+    .field-icon {
+        float: right;
+        margin-left: -25px;
+        margin-top: -25px;
+        position: relative;
+        z-index: 2;
+        cursor: pointer; /* Change cursor to pointer for better UX */
     }
 </style>

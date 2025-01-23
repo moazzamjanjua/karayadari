@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blogs extends Model
 {
-    protected $fillable = [ 'blog_title',
-    'blog_slug',
-    'blog_content',
-    'blog_image',];
     use HasFactory;
+
+    protected $table = 'blogs'; // Optional, in case Laravel is not detecting it correctly
+    protected $fillable = ['blog_title', 'blog_slug', 'blog_content', 'blog_image','blog_tags'];
+    
+    protected $casts = [
+        'blog_tags' => 'array',
+    ];
+    
 }
+

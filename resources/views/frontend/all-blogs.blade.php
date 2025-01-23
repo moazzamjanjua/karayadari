@@ -6,7 +6,7 @@
         .blog-image-container {
             width: 100%;
             max-width: 300px;
-            height: 200px;
+            height: 300px;
             overflow: hidden;
             margin-right: 20px;
             position: relative;
@@ -23,7 +23,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            
+
         }
 
         .pagination .page-item.active .page-link {
@@ -78,9 +78,19 @@
             color: #333;
         }
 
+
         @media (max-width: 767px) {
             .blog-details {
                 width: 100%;
+            }
+
+            .hostel-details {
+                flex: none;
+                width: 100%;
+            }
+
+            #wrapper-site {
+                padding: 30px;
             }
         }
     </style>
@@ -97,40 +107,100 @@
                     @endphp
 
                     <h1 class="text-center mb-4">
-                        @if($view === 'featured-blogs')
-                            All Featured Blogs ({{ $blogs->total() }})
-                        @elseif($view === 'verified-blogs')
-                            Verified Blogs ({{ $blogs->total() }})
-                        @elseif($view === 'best-blogs')
-                            Best Blogs ({{ $blogs->total() }})
-                        @elseif($selectedCategory)
-                            All {{ $selectedCategory }} Blogs ({{ $blogs->total() }})
-                        @else
-                            All Blogs
-                        @endif
+
+                        Blogs
+
                     </h1>
 
                     @if($blogs->isNotEmpty())
-                        @foreach($blogs as $blog)
-                        <a href="{{ route('blog-detail.show', $blog->blog_slug) }}" class="blog-link">
-                        <div class="row blog-card">
-                                    <!-- Blog Image -->
-                                    <div class="blog-image-container">
-                                        @if($blog->blog_image)
-                                            <img src="{{ asset('storage/blog_images/' . $blog->blog_image) }}" alt="Blog Image">
-                                        @else
-                                            <p>No image available</p>
-                                        @endif
-                                    </div>
+                                            @foreach($blogs as $blog)
 
-                                    <!-- Blog Details -->
-                                    <div class="blog-details">
-                                        <h5>{{ $blog->blog_title }}</h5>
-                                        <p><strong>Detail:</strong> {{ explode('.', $blog->blog_content)[0] }}....<strong style="color:red">See More</strong></p>
-                                    </div>
-                                </div>
-                            </a>
-                        @endforeach
+                                                                    <a href="{{ route('blog-detail.show', $blog->blog_slug) }}" class="blog-link">
+                                                                        <div class="row blog-card">
+                                                                            <!-- Blog Image -->
+                                                                            <div class="blog-image-container">
+                                                                                @if($blog->blog_image)
+                                                                                    <img src="{{$blog->blog_image}}" alt="Blog Image">
+                                                                                @else
+                                                                                    <p>No image available</p>
+                                                                                @endif
+                                                                            </div>
+
+                                                                            <!-- Blog Details -->
+                                                                            <div class="blog-details">
+                                                                                <h5>{{ $blog->blog_title }}</h5>
+
+                                                                                <p>
+                                                                                    <strong>Detail:</strong> {!! explode('.', $blog->blog_content)[0] !!}....
+                                                                                    <strong style="color:red">See More</strong>
+
+
+                                                                                    @php
+                                                                                        $relatedTags = $blog->blog_tags; // Assign blog tags to the variable
+                                                                                    @endphp
+
+                                                                                <div class="related-tags">
+                                                                                    <h3>Related Tags</h3>
+                                                                                    <div class="block-content">
+                                                                                        <ul class="listSidebarBlog list-unstyled">
+                                                                                            @if(!empty($relatedTags))
+                                                                                                @foreach($relatedTags as $tag)
+                                                                                                    <li>
+                                                                                                        <a href="{{ route('all-blog', ['tag' => $tag]) }}"
+                                                                                                            title="Show posts matching tag {{ $tag }}">{{ ucfirst($tag) }}</a>
+                                                                                                    </li>
+                                                                                                @endforeach
+                                                                                            @else
+                                                                                                <li>No tags available.</li>
+                                                                                            @endif
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <style>
+                                                                                    .related-tags {
+                                                                                        margin-top: 20px;
+                                                                                    }
+
+                                                                                    .listSidebarBlog {
+                                                                                        display: flex;
+                                                                                        flex-wrap: wrap;
+                                                                                        gap: 8px;
+                                                                                        /* Space between items */
+                                                                                        padding: 0;
+                                                                                        margin: 0;
+                                                                                    }
+
+                                                                                    .listSidebarBlog li {
+                                                                                        display: flex;
+                                                                                        align-items: center;
+                                                                                        justify-content: center;
+                                                                                        padding: 8px 12px;
+                                                                                        border: 1px solid #ddd;
+                                                                                        width: auto;
+                                                                                        /* Adjust width based on content */
+                                                                                        transition: background-color 0.3s ease, color 0.3s ease;
+                                                                                    }
+
+                                                                                    .listSidebarBlog li:hover {
+                                                                                        background-color: #000;
+                                                                                        color: #fff;
+                                                                                    }
+
+                                                                                    .listSidebarBlog li a {
+                                                                                        color: inherit;
+                                                                                        text-decoration: none;
+                                                                                        text-align: center;
+                                                                                    }
+
+                                                                                    .listSidebarBlog li a:hover {
+                                                                                        color: #fff;
+                                                                                    }
+                                                                                </style>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                            @endforeach
                     @else
                         <p class="text-center">No blogs found.</p>
                     @endif

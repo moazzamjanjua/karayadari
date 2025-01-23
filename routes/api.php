@@ -1,14 +1,12 @@
 <?php
 
-use App\Http\Controllers\Api\DataController;
-use App\Http\Controllers\Api\FeedBackController;
-use App\Http\Controllers\Api\HostelController;
-use App\Http\Controllers\Api\OwnerController;
-use App\Http\Controllers\Api\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Symfony\Component\HttpKernel\DataCollector\DataCollector;
-
+use App\Http\Controllers\Api\DataController;
+use App\Http\Controllers\Api\FeedBackController;
+use App\Http\Controllers\Api\OwnerDashboardController;
+use App\Http\Controllers\Api\HostelController;
+use App\Http\Controllers\Api\OwnerController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,29 +21,31 @@ use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/test', function(){
-   p('Working');
+Route::get('/login', function(){
+    return "Hellow this is get";
 });
+
+//user authentication
+
 Route::post('user/register' , 'App\Http\Controllers\Api\UsersController@store');
 Route::post('user/login', [App\Http\Controllers\Api\UsersController::class, 'index']);
-//home page
-Route::get('/public/get-data', [DataController::class, 'getData']);
+//home data
+Route::get('/public/get-data', 'App\Http\Controllers\Api\DataController@getData');
 Route::get('/public/all-hostels', [DataController::class, 'allHostel']);
-
-//reviews store
+//review store 
 Route::post('user/reviews', [App\Http\Controllers\Api\ReviewController::class, 'store']);
 Route::get('/public/hostels/{id}/reviews', [App\Http\Controllers\Api\ReviewController::class, 'getHostelReviews']);
-
-//find-hostel
+//find hostel
 Route::get('/public/find-hostels', [DataController::class, 'findHostels']);
-
-
 
 //owner
 Route::post('owner/register' ,[OwnerController::class,'store']);
 Route::post('owner/login', [OwnerController::class, 'ownerlogin']);
 
-//add-hostel
+Route::get('/owner-dashboard/{id}', [OwnerDashboardController::class, 'getOwnerDashboard']);
+
+//hostel form
 Route::post('hostels/store', [HostelController::class, 'store']);
-Route::post('public/feedback/store', [FeedBackController::class, 'store']);
+//feedback
+Route::post('public/feedback/store', [FeedbackController::class, 'store']);
+

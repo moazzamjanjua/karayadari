@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Owner;
-use Illuminate\Http\Request;
 use App\Models\Owner\Hostels;
+use Illuminate\Http\Request;
 use Validator;
 use Hash;
 use Illuminate\Support\Facades\DB;
@@ -48,8 +48,9 @@ class OwnerController extends Controller
             }
         }
     }
-
-    public function ownerlogin(Request $request)
+    
+    
+     public function ownerlogin(Request $request)
     {
         $validatedData = $request->validate([
             'owner_number' => 'required|string',

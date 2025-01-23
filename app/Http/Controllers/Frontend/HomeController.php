@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\CategoryList;
 use App\Models\cities;
 use App\Models\areas;
+use App\Models\Blogs;
 use App\Http\Controllers\Controller;
 use App\Models\FeedBacks;
 use App\Models\Owner\Hostels;
@@ -12,48 +13,42 @@ use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 
 
+
 class HomeController extends Controller
 {
     public function index()
     {
-        // Fetch top-rated verified hostels that are also approved
+
+        // Fetch top-rated hostels
         $verifiedHostels = Hostels::where('is_verified', 1)
-            ->where('is_approved', true)
-            ->get()
-            ->unique('hostel_name');
-    
-        // Fetch booked hostels that are also approved
-        $bookedHostels = Hostels::where('is_booked', 1)
-            ->where('is_approved', true)
-            ->get()
-            ->unique('hostel_name');
-    
-        // Fetch featured hostels that are also approved
-        $featuredHostels = Hostels::where('featured_hostel', 1)
-            ->where('is_approved', true)
-            ->get()
-            ->unique('hostel_name');
-    
-        // Fetch best hostels that are also approved (limited to 6)
+        ->where('is_approved', true)
+                          ->where('homepage', 1) // Add this condition
+                          ->get()
+                          ->unique('hostel_name');
+        $bookedHostels = Hostels::where('is_booked', 1)->get()->unique('hostel_name');
+
+
+        // Fetch featured hostels 
+        $featuredHostels = Hostels::where('featured_hostel', 1)->get()
+        ->where('is_approved', true)->unique('hostel_name');
+
+        // Fetch best hostels
         $bestHostels = Hostels::where('best_hostel', 1)
-            ->where('is_approved', true)
-            ->take(6)
-            ->get();
-    
-        // Fetch categories, cities, areas, and feedbacks
+        ->where('is_approved', true)->take(6)->get();
+        ;
+
+        
+        // IDs 1 aur 2 ko match karte hue categories fetch kar rahe hain
         $categories = CategoryList::all();
+
         $cities = cities::all();
         $areas  = areas::all();
         $feedbacks = FeedBacks::all();
-    
-        // Return the view with the filtered data
-        return view('frontend.index', compact(
-            'categories', 'cities', 'areas', 
-            'verifiedHostels', 'featuredHostels', 
-            'bookedHostels', 'bestHostels', 'feedbacks'
-        ));
+        $relatedBlogs = Blogs::all();
+
+
+        return view('frontend.index', compact('categories','cities', 'areas','verifiedHostels','bookedHostels', 'featuredHostels', 'bestHostels','feedbacks','relatedBlogs'));
     }
-    
 
 
     public function show($slug)
@@ -108,14 +103,17 @@ class HomeController extends Controller
         return response()->json(['success' => true]);
     }
     
-    public function allHostels(Request $request)
+  public function allHostels(Request $request)
 {
-    // Initialize the query to fetch only approved hostels
-    $query = Hostels::where('is_approved', true);
-
+    
     $selectedCategory = $request->query('category');
     $view = $request->query('view', 'all'); // Default view is 'all'
     $sort = $request->query('sort', 'date'); // Default sort by date
+    
+       // Initialize the query to fetch only approved hostels
+    $query = Hostels::where('is_approved', true);
+
+
 
     // Filter by category if selected
     if ($selectedCategory) {
@@ -124,23 +122,17 @@ class HomeController extends Controller
         });
     }
 
-    // Filter by view type
+    // Filter by view type and sort by date
     if ($view === 'featured-hostel') {
         $query->where('featured_hostel', 1);
     } elseif ($view === 'verified-hostels') {
-        // Sort hostels by average rating
         $query->where('is_verified', 1);
-    } elseif ($view === 'bookeded-hostels') {
-        // Sort hostels by average rating
-        $query->where('is_booked', 1);
-    } elseif ($view === 'best-hostels') {
+    }  elseif ($view === 'best-hostels') {
         $query->where('best_hostel', 1);
     }
 
-    // Sort hostels
-    if ($sort == 'date') {
-        $query->orderBy('created_at', 'desc');
-    }
+    // Sort hostels by date for all view types
+    $query->orderBy('created_at', 'desc');
 
     // Paginate results (10 per page)
     $hostels = $query->paginate(10);

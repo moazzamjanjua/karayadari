@@ -31,9 +31,7 @@
                             <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </form>
 
-                        <div class="text-center mt-3">
-                            <p>Don't have an account? <a href="../admin/signup">Create one</a></p>
-                        </div>
+                       
                     </div>
                 </div>
             </div>

@@ -239,7 +239,7 @@
             .toggle-sidebar {
                 display: block;
                 position: absolute;
-                top: 10px;
+                top: 25px;
                 left: 10px;
                 z-index: 1100;
                 background-color: #007BFF;
@@ -248,6 +248,7 @@
                 border-radius: 5px;
                 cursor: pointer;
                 font-size: 18px;
+                 
             }
 
             .toggle-sidebar:hover {
@@ -299,8 +300,8 @@
                     </div>
                     <div class="hostel-overlay">
                         <h2>{{ $hostel->hostel_name }}</h2>
-                        <p><strong>City:</strong> {{ $hostel->city }}</p>
-
+                        <p><strong>Area:</strong> {{ $hostel->area }}</p>
+                         <p><strong>City:</strong> {{ $hostel->city }}</p>
                         <p>
                             <strong>Status:</strong>
                             @if($hostel->is_approved)

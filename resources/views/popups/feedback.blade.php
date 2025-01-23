@@ -3,16 +3,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content modal-transition">
             <div class="modal-header">
-                <h5 class="modal-title" id="feedbackModalLabel">Feedback</h5>
+                <h5 class="modal-title" id="feedbackModalLabel">We Value Your Feedback!</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="feedback-form">
+                    <p style="text-align: center; font-style: italic; color: #555;">
+                        "We are eagerly waiting for your feedback. Your thoughts help us improve!"
+                    </p>
                     <form id="feedback-form" action="{{ route('feedback.store') }}" method="post">
                         @csrf
-                       
 
                         <div class="form-group">
                             <label>Name</label>
@@ -23,16 +25,17 @@
                             <label>City</label>
                             <input type="text" name="city" class="form-control" placeholder="Enter your city" required>
                         </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="number" name="number" class="form-control" placeholder="Enter your Number" required>
+                        </div>
 
                         <div class="form-group">
                             <label>Message</label>
                             <textarea name="message" class="form-control" rows="3" placeholder="Enter your message" required></textarea>
                         </div>
-
-                        <span class="mandatory">* All fields are mandatory.</span>
-
                         <div class="form-group">
-                            <input type="submit" value="Submit" class="btn btn-primary submit-btn">
+                            <input type="submit" value="Submit Feedback" class="btn btn-primary submit-btn" style="width: 100%; background-color: #007bff; border: none; padding: 10px;">
                         </div>
                     </form>
                 </div>
@@ -40,7 +43,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>

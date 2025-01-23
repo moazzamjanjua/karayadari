@@ -21,9 +21,9 @@
 	}
 </style>
 
-<body id="contact" class="privacy">
+<body id="contact" class="all-hostels">
 	@include('frontend.layouts.header')
-
+<div class="privacy">
 	<h2>Your Privacy is Important to Us</h2>
 	<p>You can feel free to share your information because it will remain secured.</p>
 
@@ -96,6 +96,6 @@
 
 	<h3>Contact Us</h3>
 	<p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.</p>
-
+</div>
 	@include('frontend.layouts.footer')
 </body>

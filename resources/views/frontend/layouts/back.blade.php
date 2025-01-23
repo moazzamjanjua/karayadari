@@ -11,7 +11,7 @@
 .back-button {
             position: absolute;
             top: 20px;
-            left: 20px;
+            left: 5px;
             padding: 10px 40px;
             background: linear-gradient(45deg, #ff6b6b, #f06595);
             border: none;
@@ -34,6 +34,6 @@ window.history.back();
 }
 </script>
         <body>
-        <a onclick="goBack()" class="back-button">Back</a>  
+        <a onclick="goBack()" class="back-button">DashBoard</a>  
         </body>
         </html>

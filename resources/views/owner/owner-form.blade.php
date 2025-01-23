@@ -6,8 +6,9 @@
     $ownerImage = Auth::guard('owner')->user()->owner_image;
 @endphp
 
-<img src="{{ $ownerImage ? asset('storage/owner_image/' . $ownerImage) : asset('frontend/img/home/avatar.jpg') }}" 
+<img src="{{ $ownerImage ? asset('storage/owner_images/' . $ownerImage) : asset('frontend/img/home/avatar.jpg') }}" 
      alt="Avatar" class="avatar" id="owner_image">
+
 
         <button type="button" class="edit-icon" onclick="document.getElementById('avatar-input').click();">✎</button>
         <input type="file" name="owner_image" id="avatar-input" class="file-input" accept="image/*" onchange="updateAvatar(event)">

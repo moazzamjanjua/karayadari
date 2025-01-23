@@ -12,8 +12,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Karayadari</title>
-    <meta name="keywords" content="Furniture, Decor, Interior">
-    <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
+    <link rel="icon" type="image/png" href="{{ asset('frontend/img/home/favicon.png') }}">
+    <meta name="keywords" content="Hostel in Bahawalpur">
+    <meta name="description" content="Best Online Searching Platform - Discover comfort and convenience at Usman Hostel, located near University Chowk...">
     <meta name="author" content="tivatheme">
 
     <!-- Mobile Meta -->
@@ -71,8 +72,8 @@
 .booked_tag{
     position: absolute;
     
-    width: 80px; /* Adjusted width */
-    height:80px; /* Adjusted height */
+    width: 85px; /* Adjusted width */
+    height:85px; /* Adjusted height */
     ; /* Adjust to align with the ribbon */
     right: -92%; /* Adjust to align with the ribbon */
     z-index: -1;
@@ -195,13 +196,23 @@ $(document).ready(function(){
   var owl = $(".category-product-index");
 
   owl.owlCarousel({
-    items: 3,
     loop: false, // Disable looping
     margin: 10,
     nav: false,
     autoplay: true, // Enable auto start
     autoplayTimeout: 3000, // Set the autoplay delay (3 seconds)
     autoplayHoverPause: true, // Pause on hover
+    responsive: {
+      0: {
+        items: 1 // Show 1 item on mobile devices
+      },
+      600: {
+        items: 2 // Show 2 items on tablets
+      },
+      1000: {
+        items: 3 // Show 3 items on larger screens
+      }
+    },
     onTranslated: function(event) {
       // Check if the last item is reached
       if (event.item.index + event.page.size >= event.item.count) {
@@ -222,6 +233,7 @@ $(document).ready(function(){
   });
 });
 </script>
+
 
 <style>
         .hostel-card {
@@ -315,6 +327,14 @@ $(document).ready(function(){
             background-color: #0056b3; /* Darken the price ribbon on hover */
         }
     </style>
+
+
+
+
+
+
+
+
 
 
 <style>

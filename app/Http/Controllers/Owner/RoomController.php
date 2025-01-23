@@ -9,12 +9,24 @@ use App\Models\Owner\Hostels;
 use Illuminate\Support\Facades\Auth;
 class RoomController extends Controller
 {
-    public function showroom($id)
-    {
+  public function showroom($id)
+{
+    // Check if the owner is logged in
+    if (Auth::guard('owner')->check()) {
+        // Get the logged-in owner
+        $owner = Auth::guard('owner')->user();
+        
         // Fetch the hostel with its associated rooms
         $hostel = Hostels::with('rooms')->findOrFail($id);
+
+        // Return the view with the fetched hostel and rooms data
         return view('owner.room-form', compact('hostel'));
+    } else {
+        // Redirect to the owner login page if not authenticated
+        return redirect()->route('owner-login');
     }
+}
+
 
 
     public function store(Request $request)
@@ -46,17 +58,27 @@ class RoomController extends Controller
         $validatedData['owner_id'] = Auth::guard('owner')->id();
 
         // Handle file uploads
-        if ($request->hasFile('room_images')) {
-            $images = [];
-            foreach ($request->file('room_images') as $image) {
-                $imageName = time() . '_' . $image->getClientOriginalName();
-                $image->storeAs('public/room_images', $imageName);
-                $images[] = $imageName;
-            }
-            $validatedData['room_images'] = json_encode($images);
-        } else {
-            $validatedData['room_images'] = json_encode([]);
-        }
+      if ($request->hasFile('room_images')) {
+    $images = [];
+    
+    foreach ($request->file('room_images') as $image) {
+        // Create a unique name for each image
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        
+        // Move the image to the public/room_images directory
+        $image->move(public_path('storage/room_images'), $imageName);
+        
+        // Store the image name in the images array
+        $images[] = $imageName;
+    }
+    
+    // Save the room images as a JSON array in the database
+    $validatedData['room_images'] = json_encode($images);
+} else {
+    // If no images were uploaded, store an empty array in the database
+    $validatedData['room_images'] = json_encode([]);
+}
+
 
         // Create the room with validated data
         $room = HostelRoom::create($validatedData);

@@ -21,9 +21,6 @@
                                     <li>
                                         <a href="{{route('privacy')}}">Privacy-Policy</a>
                                     </li>
-                                    <li>
-                                        <a href="../owner/login">Add Rooms</a>
-                                    </li>
                                    
                                     <li>
                                           <a href="javascript:void(0);" id="openFeedback">Feedback</a>
@@ -48,7 +45,8 @@
                                         <span>Address :</span>
                                     </div>
                                     <div class="content-contact address-contact">
-                                        <p>Islamia University Of Bahawalpur Bagdad Campus Main Library Basement Regional Plan9 Center</p>
+                                        <p>Syed Tabish Alwari Building Islamia University of Bahawalpur Baghdad-ul-Jadeed Campus Bahawalpur, Punjab Pakistan
+                                                        </p>
                                     </div>
                                 </div>
                                 <div class="contact-us">
@@ -66,8 +64,8 @@
                                         <span>Phone Number :</span>
                                     </div>
                                     <div class="content-contact phone-contact">
-                                        <p>+92 346-8763576</p>
-                                         <p>+92 308-6315926</p>
+                                        <p>+92 308-6315926</p>
+                                         <p>+92 307-8379364</p>
                                     </div>
                                 </div>
                                 <div class="contact-us">
@@ -850,6 +848,7 @@
         <div class="dot"></div>
     </div>
 </div> -->
+
 
 @include('popups.feedback')
 <!-- Vendor JS -->

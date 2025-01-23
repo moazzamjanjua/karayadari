@@ -9,7 +9,7 @@ use App\Models\Owner\Hostels;
 class areas extends Model
 {
     use HasFactory;
-    protected $fillable = ['area_name', 'city_id'];
+    protected $fillable = ['area_name','city_id', 'city_name'];
 
     public function city()
     {

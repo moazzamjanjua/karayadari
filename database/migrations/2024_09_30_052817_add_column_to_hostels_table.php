@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('hostels', function (Blueprint $table) {
-            $table->boolean('is_booked')->default(false)->after('is_approved');;
-            $table->integer('required_capacity')->nullable()->after('capacity');;
+            $table->boolean('is_booked')->default(false)->after('is_approved');
+            $table->integer('required_capacity')->nullable()->after('capacity');
         });
     }
 

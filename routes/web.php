@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\Frontend\ApplicationController;
 use App\Http\Controllers\Frontend\ResultController;
 use App\Http\Controllers\Frontend\RoomDetailController;
-use App\Http\Controllers\frontend\UsersController;
+use App\Http\Controllers\Frontend\UsersController;
 use App\Http\Controllers\Owner\HostalFormController;
+use App\Http\Controllers\Frontend\ApplicationController;
 use App\Http\Controllers\Owner\HostelsController;
 use App\Http\Controllers\Owner\OwnerController;
 use App\Http\Controllers\Owner\RoomController;
@@ -36,10 +36,8 @@ use App\Http\Controllers\ReviewController;
 //user
 
 Route::get('/', [HomeController::class, 'index'])->name('frontend.index');
-Route::get('/blog_detail', [BloggController::class, 'index']);
 Route::get('/contact', [ContactusController::class, 'index'])->name('contact');
 Route::view('privacy-policy','frontend.privacy-policy' )->name('privacy');
-
 
 //Authenticate
 
@@ -56,6 +54,11 @@ Route::post('loginMatch', [UsersController::class, 'userlogin'])->name('loginMat
 Route::post('popupregisterSave', [PopupController::class, 'userregister'])->name('popregisterSave');
 Route::post('popuploginMatch', [PopupController::class, 'userlogin'])->name('poploginMatch');
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+
+
+//contact form
+Route::post('/contact', [ContactusController::class, 'store'])->name('contact.store');
+
 
 
 
@@ -93,7 +96,6 @@ Route::post('hostels', [HostelsController::class, 'store'])->name('owner.hostels
 
 Route::get('hostels/{id}', [HostelsController::class, 'show'])->name('owner.hostel.show');
 
-
 Route::get('hostel/{id}/add-room', [RoomController::class, 'showroom'])->name('addRoom');
 Route::post('rooms', [RoomController::class, 'store'])->name('rooms.store');
 
@@ -102,8 +104,6 @@ Route::get('hostels/{id}/edit', [HostelsController::class, 'edit'])->name('owner
 Route::post('hostels/{id}', [HostelsController::class, 'update'])->name('owner.hostel.update');
 
 Route::get('hostel/{slug}', [HomeController::class, 'show'])->name('hostel-detail.show');
-Route::get('/blog/{slug}', [BloggController::class, 'index'])->name('blog-detail.show');
-
 
 Route::post('/hostels/{id}/reviews', [HomeController::class, 'storeReview'])->name('reviews.store');
 
@@ -147,22 +147,36 @@ Route::get('owner.logout', [OwnerController::class, 'logout'])->name('owner.logo
 
 
 
-
-
-
 //blogs
-Route::get('/all-blogs', [BloggController::class, 'allBlogs'])->name('all-blogs'); // For listing blogs or showing blog details
+Route::get('/blogs', [BloggController::class, 'allBlogs'])->name('all-blogs'); // For listing blogs or showing blog details
+Route::get('/blogs/{tag}', [BloggController::class, 'showBlogsByTag'])->name('all-blog');
+
+
 // Route to store new blog
 Route::post('/admin-dashboard', [adminController::class, 'store'])->name('blogs.store');
 
+Route::get('/blog/edit/{id}', [adminController::class, 'editBlog'])->name('admin.edit-blog');
 
+
+
+Route::post('blog/{id}', [adminController::class, 'updateBlog'])->name('admin.update-blog');
+
+
+
+Route::get('/blog/{slug}', [BloggController::class, 'index'])->name('blog-detail.show');
 
 
 //job hiring
-Route::get('/job/apply', function () {
+Route::get('/job-intership/apply', function () {
     return view('frontend.application_form');  // Make sure you have this view file
 });
 Route::post('/applications/store', [ApplicationController::class, 'store'])->name('applications.store');
+
+
+Route::get('/get-areas/{cityId}', [HostelsController::class, 'getAreas']);
+
+Route::post('/cities', [adminController::class, 'storecity'])->name('cities.store');
+Route::post('/areas', [adminController::class, 'storeArea'])->name('areas.store');
 
 
 

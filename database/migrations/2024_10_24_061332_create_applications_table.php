@@ -10,6 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
+        if (!Schema::hasTable('applications')) { // Check if the table exists
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -20,6 +21,7 @@ return new class extends Migration {
             $table->text('cover_letter');
             $table->timestamps();
         });
+    }
     }
 
     /**
